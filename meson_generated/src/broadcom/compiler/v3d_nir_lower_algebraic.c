@@ -15,9 +15,9 @@
  *    ('i2f32', 'a@16') => ('i2f32', ('i2i32', 'a'))
  *    ('u2f32', 'a@8') => ('u2f32', ('u2u32', 'a'))
  *    ('u2f32', 'a@16') => ('u2f32', ('u2u32', 'a'))
- *    ('fmin', ('fmax', 'a', -1.0), 1.0) => ('fsat_signed', 'a')
- *    ('fmax', ('fmin', 'a', 1.0), -1.0) => ('fsat_signed', 'a')
- *    ('fmax', 'a', 0.0) => ('fclamp_pos', 'a')
+ *    ('fmin', ('fmax', 'a@32', -1.0), 1.0) => ('fsat_signed', 'a')
+ *    ('fmax', ('fmin', 'a@32', 1.0), -1.0) => ('fsat_signed', 'a')
+ *    ('fmax', 'a@32', 0.0) => ('fclamp_pos', 'a')
  */
 
 
@@ -324,110 +324,116 @@ static const nir_search_value_union v3d_nir_lower_algebraic_values[] = {
       -1,
    } },
 
-   /* ('fmin', ('fmax', 'a', -1.0), 1.0) => ('fsat_signed', 'a') */
-   /* search8_0_0 -> 0 in the cache */
+   /* ('fmin', ('fmax', 'a@32', -1.0), 1.0) => ('fsat_signed', 'a') */
+   { .variable = {
+      { nir_search_value_variable, 32 },
+      0, /* a */
+      false,
+      -1,
+      {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
+   } },
    { .constant = {
-      { nir_search_value_constant, -1 },
+      { nir_search_value_constant, 32 },
       nir_type_float, { 0xbff0000000000000ull /* -1.0 */ },
    } },
    { .expression = {
-      { nir_search_value_expression, -1 },
+      { nir_search_value_expression, 32 },
       nir_fp_fast_math,
       nir_fp_fast_math,
       true,
       -1,
       nir_op_fmax,
       1, 1,
-      { 0, 25 },
+      { 25, 26 },
       -1,
    } },
    { .constant = {
-      { nir_search_value_constant, -1 },
+      { nir_search_value_constant, 32 },
       nir_type_float, { 0x3ff0000000000000ull /* 1.0 */ },
    } },
    { .expression = {
-      { nir_search_value_expression, -1 },
+      { nir_search_value_expression, 32 },
       nir_fp_fast_math,
       nir_fp_fast_math,
       true,
       -1,
       nir_op_fmin,
       0, 2,
-      { 26, 27 },
+      { 27, 28 },
       -1,
    } },
 
-   /* replace8_0 -> 0 in the cache */
+   /* replace8_0 -> 25 in the cache */
    { .expression = {
-      { nir_search_value_expression, -1 },
+      { nir_search_value_expression, 32 },
       nir_fp_fast_math,
       nir_fp_fast_math,
       false,
       -1,
       nir_op_fsat_signed,
       -1, 0,
-      { 0 },
+      { 25 },
       -1,
    } },
 
-   /* ('fmax', ('fmin', 'a', 1.0), -1.0) => ('fsat_signed', 'a') */
-   /* search9_0_0 -> 0 in the cache */
-   /* search9_0_1 -> 27 in the cache */
+   /* ('fmax', ('fmin', 'a@32', 1.0), -1.0) => ('fsat_signed', 'a') */
+   /* search9_0_0 -> 25 in the cache */
+   /* search9_0_1 -> 28 in the cache */
    { .expression = {
-      { nir_search_value_expression, -1 },
+      { nir_search_value_expression, 32 },
       nir_fp_fast_math,
       nir_fp_fast_math,
       true,
       -1,
       nir_op_fmin,
       1, 1,
-      { 0, 27 },
+      { 25, 28 },
       -1,
    } },
-   /* search9_1 -> 25 in the cache */
+   /* search9_1 -> 26 in the cache */
    { .expression = {
-      { nir_search_value_expression, -1 },
+      { nir_search_value_expression, 32 },
       nir_fp_fast_math,
       nir_fp_fast_math,
       true,
       -1,
       nir_op_fmax,
       0, 2,
-      { 30, 25 },
+      { 31, 26 },
       -1,
    } },
 
-   /* replace9_0 -> 0 in the cache */
-   /* replace9 -> 29 in the cache */
+   /* replace9_0 -> 25 in the cache */
+   /* replace9 -> 30 in the cache */
 
-   /* ('fmax', 'a', 0.0) => ('fclamp_pos', 'a') */
-   /* search10_0 -> 0 in the cache */
+   /* ('fmax', 'a@32', 0.0) => ('fclamp_pos', 'a') */
+   /* search10_0 -> 25 in the cache */
    { .constant = {
-      { nir_search_value_constant, -1 },
+      { nir_search_value_constant, 32 },
       nir_type_float, { 0x0ull /* 0.0 */ },
    } },
    { .expression = {
-      { nir_search_value_expression, -1 },
+      { nir_search_value_expression, 32 },
       nir_fp_fast_math,
       nir_fp_fast_math,
       true,
       -1,
       nir_op_fmax,
       0, 1,
-      { 0, 32 },
+      { 25, 33 },
       -1,
    } },
 
-   /* replace10_0 -> 0 in the cache */
+   /* replace10_0 -> 25 in the cache */
    { .expression = {
-      { nir_search_value_expression, -1 },
+      { nir_search_value_expression, 32 },
       nir_fp_fast_math,
       nir_fp_fast_math,
       false,
       -1,
       nir_op_fclamp_pos,
       -1, 0,
-      { 0 },
+      { 25 },
       -1,
    } },
 
@@ -454,14 +460,14 @@ static const struct transform v3d_nir_lower_algebraic_transforms[] = {
    { 22, 24, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 33, 34, 2 },
+   { 34, 35, 2 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 31, 29, 1 },
-   { 33, 34, 2 },
+   { 32, 30, 1 },
+   { 34, 35, 2 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 28, 29, 1 },
+   { 29, 30, 1 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
 };
@@ -596,7 +602,7 @@ v3d_nir_lower_algebraic(
    (void) options;
    (void) info;
 
-   STATIC_ASSERT(35 == ARRAY_SIZE(v3d_nir_lower_algebraic_values));
+   STATIC_ASSERT(36 == ARRAY_SIZE(v3d_nir_lower_algebraic_values));
    condition_flags[0] = true;
    condition_flags[1] = c && v3d_device_has_unpack_sat(c->devinfo);
    condition_flags[2] = c && v3d_device_has_unpack_max0(c->devinfo);
