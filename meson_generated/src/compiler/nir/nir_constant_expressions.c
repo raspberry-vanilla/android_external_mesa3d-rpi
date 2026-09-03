@@ -37859,13 +37859,77 @@ evaluate_insert_u8(nir_const_value *_dst_val,
 static nir_component_mask_t
 evaluate_interleave(nir_const_value *_dst_val,
                  UNUSED unsigned num_components,
-                 UNUSED unsigned bit_size,
+                  unsigned bit_size,
                  UNUSED nir_const_value **_src,
                  UNUSED unsigned execution_mode)
 {
    nir_component_mask_t poison_mask = 0;
 
-      
+      switch (bit_size) {
+      case 1: {
+         
+   
+
+                  
+      for (unsigned _i = 0; _i < num_components; _i++) {
+         bool poison = false;
+               const uint1_t src0 =
+                  _src[0][_i].b;
+               const uint1_t src1 =
+                  _src[1][_i].b;
+
+         
+            uint32_t dst;
+
+            
+      dst = 0;
+      for (unsigned bit = 0; bit < 16; bit++) {
+          dst |= ((uint32_t)src0 & (1 << bit)) << bit;
+          dst |= ((uint32_t)src1 & (1 << bit)) << (bit + 1);
+      }
+
+            _dst_val[_i].u32 = dst;
+
+
+         if (poison)
+            poison_mask |= (1 << _i);
+      }
+
+         break;
+      }
+      case 8: {
+         
+   
+
+                  
+      for (unsigned _i = 0; _i < num_components; _i++) {
+         bool poison = false;
+               const uint8_t src0 =
+                  _src[0][_i].u8;
+               const uint8_t src1 =
+                  _src[1][_i].u8;
+
+         
+            uint32_t dst;
+
+            
+      dst = 0;
+      for (unsigned bit = 0; bit < 16; bit++) {
+          dst |= ((uint32_t)src0 & (1 << bit)) << bit;
+          dst |= ((uint32_t)src1 & (1 << bit)) << (bit + 1);
+      }
+
+            _dst_val[_i].u32 = dst;
+
+
+         if (poison)
+            poison_mask |= (1 << _i);
+      }
+
+         break;
+      }
+      case 16: {
+         
    
 
                   
@@ -37882,8 +37946,8 @@ evaluate_interleave(nir_const_value *_dst_val,
             
       dst = 0;
       for (unsigned bit = 0; bit < 16; bit++) {
-          dst |= (src0 & (1 << bit)) << bit;
-          dst |= (src1 & (1 << bit)) << (bit + 1);
+          dst |= ((uint32_t)src0 & (1 << bit)) << bit;
+          dst |= ((uint32_t)src1 & (1 << bit)) << (bit + 1);
       }
 
             _dst_val[_i].u32 = dst;
@@ -37893,6 +37957,74 @@ evaluate_interleave(nir_const_value *_dst_val,
             poison_mask |= (1 << _i);
       }
 
+         break;
+      }
+      case 32: {
+         
+   
+
+                  
+      for (unsigned _i = 0; _i < num_components; _i++) {
+         bool poison = false;
+               const uint32_t src0 =
+                  _src[0][_i].u32;
+               const uint32_t src1 =
+                  _src[1][_i].u32;
+
+         
+            uint32_t dst;
+
+            
+      dst = 0;
+      for (unsigned bit = 0; bit < 16; bit++) {
+          dst |= ((uint32_t)src0 & (1 << bit)) << bit;
+          dst |= ((uint32_t)src1 & (1 << bit)) << (bit + 1);
+      }
+
+            _dst_val[_i].u32 = dst;
+
+
+         if (poison)
+            poison_mask |= (1 << _i);
+      }
+
+         break;
+      }
+      case 64: {
+         
+   
+
+                  
+      for (unsigned _i = 0; _i < num_components; _i++) {
+         bool poison = false;
+               const uint64_t src0 =
+                  _src[0][_i].u64;
+               const uint64_t src1 =
+                  _src[1][_i].u64;
+
+         
+            uint32_t dst;
+
+            
+      dst = 0;
+      for (unsigned bit = 0; bit < 16; bit++) {
+          dst |= ((uint32_t)src0 & (1 << bit)) << bit;
+          dst |= ((uint32_t)src1 & (1 << bit)) << (bit + 1);
+      }
+
+            _dst_val[_i].u32 = dst;
+
+
+         if (poison)
+            poison_mask |= (1 << _i);
+      }
+
+         break;
+      }
+
+      default:
+         UNREACHABLE("unknown bit width");
+      }
 
    return poison_mask;
 }

@@ -5279,7 +5279,7 @@ const nir_op_info nir_op_infos[nir_num_opcodes] = {
       0, 0
    },
    .input_types = {
-      nir_type_uint16, nir_type_uint16
+      nir_type_uint, nir_type_uint
    },
    .is_conversion = false,
    .algebraic_properties =

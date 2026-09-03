@@ -2663,6 +2663,10 @@ struct _nir_deref_atomic_swap_indices {
    enum gl_access_qualifier access;
    nir_atomic_op atomic_op;
 };
+struct _nir_deref_buffer_address_indices {
+   int _; /* exists to avoid empty initializers */
+   enum gl_access_qualifier access;
+};
 struct _nir_deref_buffer_array_length_indices {
    int _; /* exists to avoid empty initializers */
    enum gl_access_qualifier access;
@@ -3930,6 +3934,10 @@ struct _nir_load_ssbo_indices {
    unsigned align_mul;
    unsigned align_offset;
    unsigned offset_shift;
+};
+struct _nir_load_ssbo_address_indices {
+   int _; /* exists to avoid empty initializers */
+   enum gl_access_qualifier access;
 };
 struct _nir_load_ssbo_block_intel_indices {
    int _; /* exists to avoid empty initializers */
@@ -6589,6 +6597,20 @@ _nir_build_deref_atomic_swap(nir_builder *build, unsigned bit_size, nir_def *src
    return &intrin->def;
 }
 static inline nir_def *
+_nir_build_deref_buffer_address(nir_builder *build, unsigned num_components, unsigned bit_size, nir_def *src0, struct _nir_deref_buffer_address_indices indices)
+{
+   nir_intrinsic_instr *intrin = nir_intrinsic_instr_create(
+      build->shader, nir_intrinsic_deref_buffer_address);
+
+   intrin->num_components = (uint8_t)num_components;
+      nir_def_init(&intrin->instr, &intrin->def, intrin->num_components, bit_size);
+   intrin->src[0] = nir_src_for_ssa(src0);
+   nir_intrinsic_set_access(intrin, indices.access);
+
+   nir_builder_instr_insert(build, &intrin->instr);
+   return &intrin->def;
+}
+static inline nir_def *
 _nir_build_deref_buffer_array_length(nir_builder *build, unsigned bit_size, nir_def *src0, struct _nir_deref_buffer_array_length_indices indices)
 {
    nir_intrinsic_instr *intrin = nir_intrinsic_instr_create(
@@ -6633,6 +6655,18 @@ _nir_build_deref_texture_src(nir_builder *build, unsigned bit_size, nir_def *src
       build->shader, nir_intrinsic_deref_texture_src);
 
       nir_def_init(&intrin->instr, &intrin->def, 1, bit_size);
+   intrin->src[0] = nir_src_for_ssa(src0);
+
+   nir_builder_instr_insert(build, &intrin->instr);
+   return &intrin->def;
+}
+static inline nir_def *
+_nir_build_dma_flush_pco(nir_builder *build, nir_def *src0)
+{
+   nir_intrinsic_instr *intrin = nir_intrinsic_instr_create(
+      build->shader, nir_intrinsic_dma_flush_pco);
+
+      nir_def_init(&intrin->instr, &intrin->def, 1, 32);
    intrin->src[0] = nir_src_for_ssa(src0);
 
    nir_builder_instr_insert(build, &intrin->instr);
@@ -13313,7 +13347,7 @@ _nir_build_load_ssbo(nir_builder *build, unsigned num_components, unsigned bit_s
    return &intrin->def;
 }
 static inline nir_def *
-_nir_build_load_ssbo_address(nir_builder *build, unsigned num_components, unsigned bit_size, nir_def *src0, nir_def *src1)
+_nir_build_load_ssbo_address(nir_builder *build, unsigned num_components, unsigned bit_size, nir_def *src0, nir_def *src1, struct _nir_load_ssbo_address_indices indices)
 {
    nir_intrinsic_instr *intrin = nir_intrinsic_instr_create(
       build->shader, nir_intrinsic_load_ssbo_address);
@@ -13322,6 +13356,7 @@ _nir_build_load_ssbo_address(nir_builder *build, unsigned num_components, unsign
       nir_def_init(&intrin->instr, &intrin->def, intrin->num_components, bit_size);
    intrin->src[0] = nir_src_for_ssa(src0);
    intrin->src[1] = nir_src_for_ssa(src1);
+   nir_intrinsic_set_access(intrin, indices.access);
 
    nir_builder_instr_insert(build, &intrin->instr);
    return &intrin->def;
@@ -18291,6 +18326,13 @@ _nir_build_deref_atomic_swap(build, bit_size, src0, src1, src2, _nir_deref_atomi
 _nir_build_deref_atomic_swap(build, bit_size, src0, src1, src2, (struct _nir_deref_atomic_swap_indices){0, __VA_ARGS__})
 #endif
 #ifdef __cplusplus
+#define nir_deref_buffer_address(build, num_components, bit_size, src0, ...) \
+_nir_build_deref_buffer_address(build, num_components, bit_size, src0, _nir_deref_buffer_address_indices{0, __VA_ARGS__})
+#else
+#define nir_deref_buffer_address(build, num_components, bit_size, src0, ...) \
+_nir_build_deref_buffer_address(build, num_components, bit_size, src0, (struct _nir_deref_buffer_address_indices){0, __VA_ARGS__})
+#endif
+#ifdef __cplusplus
 #define nir_deref_buffer_array_length(build, bit_size, src0, ...) \
 _nir_build_deref_buffer_array_length(build, bit_size, src0, _nir_deref_buffer_array_length_indices{0, __VA_ARGS__})
 #else
@@ -18307,6 +18349,7 @@ _nir_build_deref_mode_is(build, bit_size, src0, (struct _nir_deref_mode_is_indic
 #endif
 #define nir_deref_mode_is nir_build_deref_mode_is
 #define nir_deref_texture_src _nir_build_deref_texture_src
+#define nir_dma_flush_pco _nir_build_dma_flush_pco
 #define nir_dma_ld_pco _nir_build_dma_ld_pco
 #define nir_dma_ld_shregs_pco _nir_build_dma_ld_shregs_pco
 #ifdef __cplusplus
@@ -20103,7 +20146,13 @@ _nir_build_load_ssbo(build, num_components, bit_size, src0, src1, _nir_load_ssbo
 #define nir_load_ssbo(build, num_components, bit_size, src0, src1, ...) \
 _nir_build_load_ssbo(build, num_components, bit_size, src0, src1, (struct _nir_load_ssbo_indices){0, __VA_ARGS__})
 #endif
-#define nir_load_ssbo_address _nir_build_load_ssbo_address
+#ifdef __cplusplus
+#define nir_load_ssbo_address(build, num_components, bit_size, src0, src1, ...) \
+_nir_build_load_ssbo_address(build, num_components, bit_size, src0, src1, _nir_load_ssbo_address_indices{0, __VA_ARGS__})
+#else
+#define nir_load_ssbo_address(build, num_components, bit_size, src0, src1, ...) \
+_nir_build_load_ssbo_address(build, num_components, bit_size, src0, src1, (struct _nir_load_ssbo_address_indices){0, __VA_ARGS__})
+#endif
 #ifdef __cplusplus
 #define nir_load_ssbo_block_intel(build, num_components, bit_size, src0, src1, ...) \
 _nir_build_load_ssbo_block_intel(build, num_components, bit_size, src0, src1, _nir_load_ssbo_block_intel_indices{0, __VA_ARGS__})
