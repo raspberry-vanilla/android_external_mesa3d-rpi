@@ -3629044,29 +3629044,29 @@ nir_opt_algebraic(
    condition_flags[179] = options->has_ford_funord;
    condition_flags[180] = options->has_imad32;
    condition_flags[181] = options->has_iadd3;
-   condition_flags[182] = options->has_f2i_sat;
-   condition_flags[183] = options->has_f2u_sat;
-   condition_flags[184] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma);
-   condition_flags[185] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
-   condition_flags[186] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad);
-   condition_flags[187] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
-   condition_flags[188] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma);
-   condition_flags[189] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
-   condition_flags[190] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad);
-   condition_flags[191] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
-   condition_flags[192] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32));
-   condition_flags[193] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32)) && !options->avoid_ternary_with_fabs;
-   condition_flags[194] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma);
-   condition_flags[195] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
-   condition_flags[196] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad);
-   condition_flags[197] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
-   condition_flags[198] = options->has_fsub;
-   condition_flags[199] = options->has_fsub && !(options->lower_doubles_options & nir_lower_dsub);
-   condition_flags[200] = options->lower_fneg;
-   condition_flags[201] = options->has_isub || options->lower_ineg;
-   condition_flags[202] = options->lower_ineg;
-   condition_flags[203] = options->lower_iabs;
-   condition_flags[204] = options->has_iadd3 && !(options->lower_int64_options & nir_lower_iadd3_64);
+   condition_flags[182] = options->has_iadd3 && !(options->lower_int64_options & nir_lower_iadd3_64);
+   condition_flags[183] = options->has_f2i_sat;
+   condition_flags[184] = options->has_f2u_sat;
+   condition_flags[185] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma);
+   condition_flags[186] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
+   condition_flags[187] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad);
+   condition_flags[188] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
+   condition_flags[189] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma);
+   condition_flags[190] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
+   condition_flags[191] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad);
+   condition_flags[192] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
+   condition_flags[193] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32));
+   condition_flags[194] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32)) && !options->avoid_ternary_with_fabs;
+   condition_flags[195] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma);
+   condition_flags[196] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
+   condition_flags[197] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad);
+   condition_flags[198] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
+   condition_flags[199] = options->has_fsub;
+   condition_flags[200] = options->has_fsub && !(options->lower_doubles_options & nir_lower_dsub);
+   condition_flags[201] = options->lower_fneg;
+   condition_flags[202] = options->has_isub || options->lower_ineg;
+   condition_flags[203] = options->lower_ineg;
+   condition_flags[204] = options->lower_iabs;
    condition_flags[205] = options->fdot_replicates;
    condition_flags[206] = options->lower_fround_even;
    condition_flags[207] = (info->stage != MESA_SHADER_VERTEX && info->stage != MESA_SHADER_GEOMETRY) && !options->intel_vec4;
@@ -3630825,29 +3630825,29 @@ nir_opt_algebraic_before_ffma(
    condition_flags[179] = options->has_ford_funord;
    condition_flags[180] = options->has_imad32;
    condition_flags[181] = options->has_iadd3;
-   condition_flags[182] = options->has_f2i_sat;
-   condition_flags[183] = options->has_f2u_sat;
-   condition_flags[184] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma);
-   condition_flags[185] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
-   condition_flags[186] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad);
-   condition_flags[187] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
-   condition_flags[188] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma);
-   condition_flags[189] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
-   condition_flags[190] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad);
-   condition_flags[191] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
-   condition_flags[192] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32));
-   condition_flags[193] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32)) && !options->avoid_ternary_with_fabs;
-   condition_flags[194] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma);
-   condition_flags[195] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
-   condition_flags[196] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad);
-   condition_flags[197] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
-   condition_flags[198] = options->has_fsub;
-   condition_flags[199] = options->has_fsub && !(options->lower_doubles_options & nir_lower_dsub);
-   condition_flags[200] = options->lower_fneg;
-   condition_flags[201] = options->has_isub || options->lower_ineg;
-   condition_flags[202] = options->lower_ineg;
-   condition_flags[203] = options->lower_iabs;
-   condition_flags[204] = options->has_iadd3 && !(options->lower_int64_options & nir_lower_iadd3_64);
+   condition_flags[182] = options->has_iadd3 && !(options->lower_int64_options & nir_lower_iadd3_64);
+   condition_flags[183] = options->has_f2i_sat;
+   condition_flags[184] = options->has_f2u_sat;
+   condition_flags[185] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma);
+   condition_flags[186] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
+   condition_flags[187] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad);
+   condition_flags[188] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
+   condition_flags[189] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma);
+   condition_flags[190] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
+   condition_flags[191] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad);
+   condition_flags[192] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
+   condition_flags[193] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32));
+   condition_flags[194] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32)) && !options->avoid_ternary_with_fabs;
+   condition_flags[195] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma);
+   condition_flags[196] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
+   condition_flags[197] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad);
+   condition_flags[198] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
+   condition_flags[199] = options->has_fsub;
+   condition_flags[200] = options->has_fsub && !(options->lower_doubles_options & nir_lower_dsub);
+   condition_flags[201] = options->lower_fneg;
+   condition_flags[202] = options->has_isub || options->lower_ineg;
+   condition_flags[203] = options->lower_ineg;
+   condition_flags[204] = options->lower_iabs;
    condition_flags[205] = options->fdot_replicates;
    condition_flags[206] = options->lower_fround_even;
    condition_flags[207] = (info->stage != MESA_SHADER_VERTEX && info->stage != MESA_SHADER_GEOMETRY) && !options->intel_vec4;
@@ -3632027,29 +3632027,29 @@ nir_opt_algebraic_before_lower_int64(
    condition_flags[179] = options->has_ford_funord;
    condition_flags[180] = options->has_imad32;
    condition_flags[181] = options->has_iadd3;
-   condition_flags[182] = options->has_f2i_sat;
-   condition_flags[183] = options->has_f2u_sat;
-   condition_flags[184] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma);
-   condition_flags[185] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
-   condition_flags[186] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad);
-   condition_flags[187] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
-   condition_flags[188] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma);
-   condition_flags[189] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
-   condition_flags[190] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad);
-   condition_flags[191] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
-   condition_flags[192] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32));
-   condition_flags[193] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32)) && !options->avoid_ternary_with_fabs;
-   condition_flags[194] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma);
-   condition_flags[195] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
-   condition_flags[196] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad);
-   condition_flags[197] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
-   condition_flags[198] = options->has_fsub;
-   condition_flags[199] = options->has_fsub && !(options->lower_doubles_options & nir_lower_dsub);
-   condition_flags[200] = options->lower_fneg;
-   condition_flags[201] = options->has_isub || options->lower_ineg;
-   condition_flags[202] = options->lower_ineg;
-   condition_flags[203] = options->lower_iabs;
-   condition_flags[204] = options->has_iadd3 && !(options->lower_int64_options & nir_lower_iadd3_64);
+   condition_flags[182] = options->has_iadd3 && !(options->lower_int64_options & nir_lower_iadd3_64);
+   condition_flags[183] = options->has_f2i_sat;
+   condition_flags[184] = options->has_f2u_sat;
+   condition_flags[185] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma);
+   condition_flags[186] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
+   condition_flags[187] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad);
+   condition_flags[188] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
+   condition_flags[189] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma);
+   condition_flags[190] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
+   condition_flags[191] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad);
+   condition_flags[192] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
+   condition_flags[193] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32));
+   condition_flags[194] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32)) && !options->avoid_ternary_with_fabs;
+   condition_flags[195] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma);
+   condition_flags[196] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
+   condition_flags[197] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad);
+   condition_flags[198] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
+   condition_flags[199] = options->has_fsub;
+   condition_flags[200] = options->has_fsub && !(options->lower_doubles_options & nir_lower_dsub);
+   condition_flags[201] = options->lower_fneg;
+   condition_flags[202] = options->has_isub || options->lower_ineg;
+   condition_flags[203] = options->lower_ineg;
+   condition_flags[204] = options->lower_iabs;
    condition_flags[205] = options->fdot_replicates;
    condition_flags[206] = options->lower_fround_even;
    condition_flags[207] = (info->stage != MESA_SHADER_VERTEX && info->stage != MESA_SHADER_GEOMETRY) && !options->intel_vec4;
@@ -3632079,7 +3632079,7 @@ nir_opt_algebraic_before_lower_int64(
 #include "nir_search.h"
 #include "nir_search_helpers.h"
 
-/* What follows is NIR algebraic transform code for the following 487
+/* What follows is NIR algebraic transform code for the following 491
  * transforms:
  *    ('flt', ('fadd(is_used_once)', 'a', 'b'), 0.0) => ('flt', 'a', ('fneg', 'b'))
  *    ('flt', 0.0, ('fadd(is_used_once)', 'a', 'b')) => ('flt', ('fneg', 'a'), 'b')
@@ -3632200,8 +3632200,12 @@ nir_opt_algebraic_before_lower_int64(
  *    ('udiv_aligned_4', 'a') => ('ushr', 'a', 2)
  *    ('iadd3', 'a', ('b2i', ('inot', 'b')), -1) => ('iadd', 'a', ('ineg', ('b2i', 'b')))
  *    ('iadd3', 'a', ('ineg', ('b2i', ('inot', 'b'))), 1) => ('iadd', 'a', ('b2i', 'b'))
- *    ('iadd', 'a', ('ineg', ('b2i', ('inot', 'b')))) => ('iadd3', 'a', ('b2i', 'b'), -1)
- *    ('iadd', 'a', ('b2i', ('inot', 'b'))) => ('iadd3', 'a', ('ineg', ('b2i', 'b')), 1)
+ *    ('iadd@16', 'a', ('ineg', ('b2i', ('inot', 'b')))) => ('iadd3', 'a', ('b2i', 'b'), -1)
+ *    ('iadd@16', 'a', ('b2i', ('inot', 'b'))) => ('iadd3', 'a', ('ineg', ('b2i', 'b')), 1)
+ *    ('iadd@32', 'a', ('ineg', ('b2i', ('inot', 'b')))) => ('iadd3', 'a', ('b2i', 'b'), -1)
+ *    ('iadd@32', 'a', ('b2i', ('inot', 'b'))) => ('iadd3', 'a', ('ineg', ('b2i', 'b')), 1)
+ *    ('iadd@64', 'a', ('ineg', ('b2i', ('inot', 'b')))) => ('iadd3', 'a', ('b2i', 'b'), -1)
+ *    ('iadd@64', 'a', ('b2i', ('inot', 'b'))) => ('iadd3', 'a', ('ineg', ('b2i', 'b')), 1)
  *    ('f2i8', ('fmax', 'a@16(is_a_number)', 128.0)) => ('f2i8_sat', 'a')
  *    ('f2i8', ('fmin', 'a@16(is_a_number)', 127.0)) => ('f2i8_sat', 'a')
  *    ('f2u8', ('fmin', 'a@16(is_a_number)', 255.0)) => ('f2u8_sat', 'a')
@@ -3638236,71 +3638240,345 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
    } },
 
-   /* ('iadd', 'a', ('ineg', ('b2i', ('inot', 'b')))) => ('iadd3', 'a', ('b2i', 'b'), -1) */
-   /* search3079_0 -> 98 in the cache */
+   /* ('iadd@16', 'a', ('ineg', ('b2i', ('inot', 'b')))) => ('iadd3', 'a', ('b2i', 'b'), -1) */
+   /* search3079_0 -> 286 in the cache */
    /* search3079_1_0_0_0 -> 1 in the cache */
    /* search3079_1_0_0 -> 351 in the cache */
-   /* search3079_1_0 -> 352 in the cache */
-   /* search3079_1 -> 358 in the cache */
    { .expression = {
-      { nir_search_value_expression, -1 },
+      { nir_search_value_expression, 16 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_search_op_b2i,
+      -1, 0,
+      { 351 },
+      -1,
+   } },
+   { .expression = {
+      { nir_search_value_expression, 16 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_ineg,
+      -1, 0,
+      { 362 },
+      -1,
+   } },
+   { .expression = {
+      { nir_search_value_expression, 16 },
       nir_fp_fast_math,
       nir_fp_fast_math,
       false,
       -1,
       nir_op_iadd,
       0, 1,
-      { 98, 358 },
+      { 286, 363 },
       -1,
    } },
 
-   /* replace3079_0 -> 98 in the cache */
+   /* replace3079_0 -> 286 in the cache */
    /* replace3079_1_0 -> 1 in the cache */
-   /* replace3079_1 -> 355 in the cache */
-   /* replace3079_2 -> 353 in the cache */
    { .expression = {
-      { nir_search_value_expression, -1 },
+      { nir_search_value_expression, 16 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_search_op_b2i,
+      -1, 0,
+      { 1 },
+      -1,
+   } },
+   { .constant = {
+      { nir_search_value_constant, 16 },
+      nir_type_int, { 0xffffffffffffffffull /* -1 */ },
+   } },
+   { .expression = {
+      { nir_search_value_expression, 16 },
       nir_fp_fast_math,
       nir_fp_fast_math,
       false,
       -1,
       nir_op_iadd3,
       0, 1,
-      { 98, 355, 353 },
+      { 286, 365, 366 },
       -1,
    } },
 
-   /* ('iadd', 'a', ('b2i', ('inot', 'b'))) => ('iadd3', 'a', ('ineg', ('b2i', 'b')), 1) */
-   /* search3080_0 -> 98 in the cache */
+   /* ('iadd@16', 'a', ('b2i', ('inot', 'b'))) => ('iadd3', 'a', ('ineg', ('b2i', 'b')), 1) */
+   /* search3080_0 -> 286 in the cache */
    /* search3080_1_0_0 -> 1 in the cache */
    /* search3080_1_0 -> 351 in the cache */
-   /* search3080_1 -> 352 in the cache */
+   /* search3080_1 -> 362 in the cache */
    { .expression = {
-      { nir_search_value_expression, -1 },
+      { nir_search_value_expression, 16 },
       nir_fp_fast_math,
       nir_fp_fast_math,
       false,
       -1,
       nir_op_iadd,
       0, 1,
-      { 98, 352 },
+      { 286, 362 },
       -1,
    } },
 
-   /* replace3080_0 -> 98 in the cache */
+   /* replace3080_0 -> 286 in the cache */
    /* replace3080_1_0_0 -> 1 in the cache */
-   /* replace3080_1_0 -> 355 in the cache */
-   /* replace3080_1 -> 356 in the cache */
-   /* replace3080_2 -> 359 in the cache */
+   /* replace3080_1_0 -> 365 in the cache */
    { .expression = {
-      { nir_search_value_expression, -1 },
+      { nir_search_value_expression, 16 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_ineg,
+      -1, 0,
+      { 365 },
+      -1,
+   } },
+   { .constant = {
+      { nir_search_value_constant, 16 },
+      nir_type_int, { 0x1ull /* 1 */ },
+   } },
+   { .expression = {
+      { nir_search_value_expression, 16 },
       nir_fp_fast_math,
       nir_fp_fast_math,
       false,
       -1,
       nir_op_iadd3,
       0, 1,
-      { 98, 356, 359 },
+      { 286, 369, 370 },
+      -1,
+   } },
+
+   /* ('iadd@32', 'a', ('ineg', ('b2i', ('inot', 'b')))) => ('iadd3', 'a', ('b2i', 'b'), -1) */
+   /* search3081_0 -> 296 in the cache */
+   /* search3081_1_0_0_0 -> 1 in the cache */
+   /* search3081_1_0_0 -> 351 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_search_op_b2i,
+      -1, 0,
+      { 351 },
+      -1,
+   } },
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_ineg,
+      -1, 0,
+      { 372 },
+      -1,
+   } },
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_iadd,
+      0, 1,
+      { 296, 373 },
+      -1,
+   } },
+
+   /* replace3081_0 -> 296 in the cache */
+   /* replace3081_1_0 -> 1 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_search_op_b2i,
+      -1, 0,
+      { 1 },
+      -1,
+   } },
+   { .constant = {
+      { nir_search_value_constant, 32 },
+      nir_type_int, { 0xffffffffffffffffull /* -1 */ },
+   } },
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_iadd3,
+      0, 1,
+      { 296, 375, 376 },
+      -1,
+   } },
+
+   /* ('iadd@32', 'a', ('b2i', ('inot', 'b'))) => ('iadd3', 'a', ('ineg', ('b2i', 'b')), 1) */
+   /* search3082_0 -> 296 in the cache */
+   /* search3082_1_0_0 -> 1 in the cache */
+   /* search3082_1_0 -> 351 in the cache */
+   /* search3082_1 -> 372 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_iadd,
+      0, 1,
+      { 296, 372 },
+      -1,
+   } },
+
+   /* replace3082_0 -> 296 in the cache */
+   /* replace3082_1_0_0 -> 1 in the cache */
+   /* replace3082_1_0 -> 375 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_ineg,
+      -1, 0,
+      { 375 },
+      -1,
+   } },
+   { .constant = {
+      { nir_search_value_constant, 32 },
+      nir_type_int, { 0x1ull /* 1 */ },
+   } },
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_iadd3,
+      0, 1,
+      { 296, 379, 380 },
+      -1,
+   } },
+
+   /* ('iadd@64', 'a', ('ineg', ('b2i', ('inot', 'b')))) => ('iadd3', 'a', ('b2i', 'b'), -1) */
+   /* search3083_0 -> 306 in the cache */
+   /* search3083_1_0_0_0 -> 1 in the cache */
+   /* search3083_1_0_0 -> 351 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 64 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_search_op_b2i,
+      -1, 0,
+      { 351 },
+      -1,
+   } },
+   { .expression = {
+      { nir_search_value_expression, 64 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_ineg,
+      -1, 0,
+      { 382 },
+      -1,
+   } },
+   { .expression = {
+      { nir_search_value_expression, 64 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_iadd,
+      0, 1,
+      { 306, 383 },
+      -1,
+   } },
+
+   /* replace3083_0 -> 306 in the cache */
+   /* replace3083_1_0 -> 1 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 64 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_search_op_b2i,
+      -1, 0,
+      { 1 },
+      -1,
+   } },
+   { .constant = {
+      { nir_search_value_constant, 64 },
+      nir_type_int, { 0xffffffffffffffffull /* -1 */ },
+   } },
+   { .expression = {
+      { nir_search_value_expression, 64 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_iadd3,
+      0, 1,
+      { 306, 385, 386 },
+      -1,
+   } },
+
+   /* ('iadd@64', 'a', ('b2i', ('inot', 'b'))) => ('iadd3', 'a', ('ineg', ('b2i', 'b')), 1) */
+   /* search3084_0 -> 306 in the cache */
+   /* search3084_1_0_0 -> 1 in the cache */
+   /* search3084_1_0 -> 351 in the cache */
+   /* search3084_1 -> 382 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 64 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_iadd,
+      0, 1,
+      { 306, 382 },
+      -1,
+   } },
+
+   /* replace3084_0 -> 306 in the cache */
+   /* replace3084_1_0_0 -> 1 in the cache */
+   /* replace3084_1_0 -> 385 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 64 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_ineg,
+      -1, 0,
+      { 385 },
+      -1,
+   } },
+   { .constant = {
+      { nir_search_value_constant, 64 },
+      nir_type_int, { 0x1ull /* 1 */ },
+   } },
+   { .expression = {
+      { nir_search_value_expression, 64 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_iadd3,
+      0, 1,
+      { 306, 389, 390 },
       -1,
    } },
 
@@ -3638324,7 +3638602,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmax,
       0, 1,
-      { 366, 367 },
+      { 392, 393 },
       -1,
    } },
    { .expression = {
@@ -3638335,11 +3638613,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2i8,
       -1, 1,
-      { 368 },
+      { 394 },
       -1,
    } },
 
-   /* replace3081_0 -> 286 in the cache */
+   /* replace3085_0 -> 286 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3638353,7 +3638631,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('f2i8', ('fmin', 'a@16(is_a_number)', 127.0)) => ('f2i8_sat', 'a') */
-   /* search3082_0_0 -> 366 in the cache */
+   /* search3086_0_0 -> 392 in the cache */
    { .constant = {
       { nir_search_value_constant, 16 },
       nir_type_float, { 0x405fc00000000000ull /* 127.0 */ },
@@ -3638366,7 +3638644,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmin,
       0, 1,
-      { 366, 371 },
+      { 392, 397 },
       -1,
    } },
    { .expression = {
@@ -3638377,15 +3638655,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2i8,
       -1, 1,
-      { 372 },
+      { 398 },
       -1,
    } },
 
-   /* replace3082_0 -> 286 in the cache */
-   /* replace3082 -> 370 in the cache */
+   /* replace3086_0 -> 286 in the cache */
+   /* replace3086 -> 396 in the cache */
 
    /* ('f2u8', ('fmin', 'a@16(is_a_number)', 255.0)) => ('f2u8_sat', 'a') */
-   /* search3083_0_0 -> 366 in the cache */
+   /* search3087_0_0 -> 392 in the cache */
    { .constant = {
       { nir_search_value_constant, 16 },
       nir_type_float, { 0x406fe00000000000ull /* 255.0 */ },
@@ -3638398,7 +3638676,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmin,
       0, 1,
-      { 366, 374 },
+      { 392, 400 },
       -1,
    } },
    { .expression = {
@@ -3638409,11 +3638687,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u8,
       -1, 1,
-      { 375 },
+      { 401 },
       -1,
    } },
 
-   /* replace3083_0 -> 286 in the cache */
+   /* replace3087_0 -> 286 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3638427,7 +3638705,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('f2u8', ('fmax', 'a@16', 0.0)) => ('f2u8_sat', 'a') */
-   /* search3084_0_0 -> 286 in the cache */
+   /* search3088_0_0 -> 286 in the cache */
    { .constant = {
       { nir_search_value_constant, 16 },
       nir_type_float, { 0x0ull /* 0.0 */ },
@@ -3638440,7 +3638718,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmax,
       0, 1,
-      { 286, 378 },
+      { 286, 404 },
       -1,
    } },
    { .expression = {
@@ -3638451,15 +3638729,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u8,
       -1, 1,
-      { 379 },
+      { 405 },
       -1,
    } },
 
-   /* replace3084_0 -> 286 in the cache */
-   /* replace3084 -> 377 in the cache */
+   /* replace3088_0 -> 286 in the cache */
+   /* replace3088 -> 403 in the cache */
 
    /* ('f2u8', ('ftrunc', 'a@16')) => ('f2u8_sat', 'a') */
-   /* search3085_0_0 -> 286 in the cache */
+   /* search3089_0_0 -> 286 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3638479,19 +3638757,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u8,
       -1, 0,
-      { 381 },
+      { 407 },
       -1,
    } },
 
-   /* replace3085_0 -> 286 in the cache */
-   /* replace3085 -> 377 in the cache */
+   /* replace3089_0 -> 286 in the cache */
+   /* replace3089 -> 403 in the cache */
 
    /* ('f2i8', ('bcsel', ('feq', 'a@16', 'a'), 'a', 0.0)) => ('f2i8_sat', 'a') */
-   /* search3086_0_0_0 -> 286 in the cache */
-   /* search3086_0_0_1 -> 286 in the cache */
-   /* search3086_0_0 -> 292 in the cache */
-   /* search3086_0_1 -> 286 in the cache */
-   /* search3086_0_2 -> 378 in the cache */
+   /* search3090_0_0_0 -> 286 in the cache */
+   /* search3090_0_0_1 -> 286 in the cache */
+   /* search3090_0_0 -> 292 in the cache */
+   /* search3090_0_1 -> 286 in the cache */
+   /* search3090_0_2 -> 404 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3638500,7 +3638778,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 0,
-      { 292, 286, 378 },
+      { 292, 286, 404 },
       -1,
    } },
    { .expression = {
@@ -3638511,20 +3638789,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2i8,
       -1, 0,
-      { 383 },
+      { 409 },
       -1,
    } },
 
-   /* replace3086_0 -> 286 in the cache */
-   /* replace3086 -> 370 in the cache */
+   /* replace3090_0 -> 286 in the cache */
+   /* replace3090 -> 396 in the cache */
 
    /* ('f2u8', ('bcsel', ('feq', 'a@16', 'a'), 'a', 0.0)) => ('f2u8_sat', 'a') */
-   /* search3087_0_0_0 -> 286 in the cache */
-   /* search3087_0_0_1 -> 286 in the cache */
-   /* search3087_0_0 -> 292 in the cache */
-   /* search3087_0_1 -> 286 in the cache */
-   /* search3087_0_2 -> 378 in the cache */
-   /* search3087_0 -> 383 in the cache */
+   /* search3091_0_0_0 -> 286 in the cache */
+   /* search3091_0_0_1 -> 286 in the cache */
+   /* search3091_0_0 -> 292 in the cache */
+   /* search3091_0_1 -> 286 in the cache */
+   /* search3091_0_2 -> 404 in the cache */
+   /* search3091_0 -> 409 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3638533,19 +3638811,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u8,
       -1, 0,
-      { 383 },
+      { 409 },
       -1,
    } },
 
-   /* replace3087_0 -> 286 in the cache */
-   /* replace3087 -> 377 in the cache */
+   /* replace3091_0 -> 286 in the cache */
+   /* replace3091 -> 403 in the cache */
 
    /* ('f2i8', ('bcsel', ('fneu', 'a@16', 'a'), 0.0, 'a')) => ('f2i8_sat', 'a') */
-   /* search3088_0_0_0 -> 286 in the cache */
-   /* search3088_0_0_1 -> 286 in the cache */
-   /* search3088_0_0 -> 287 in the cache */
-   /* search3088_0_1 -> 378 in the cache */
-   /* search3088_0_2 -> 286 in the cache */
+   /* search3092_0_0_0 -> 286 in the cache */
+   /* search3092_0_0_1 -> 286 in the cache */
+   /* search3092_0_0 -> 287 in the cache */
+   /* search3092_0_1 -> 404 in the cache */
+   /* search3092_0_2 -> 286 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3638554,7 +3638832,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 0,
-      { 287, 378, 286 },
+      { 287, 404, 286 },
       -1,
    } },
    { .expression = {
@@ -3638565,20 +3638843,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2i8,
       -1, 0,
-      { 386 },
+      { 412 },
       -1,
    } },
 
-   /* replace3088_0 -> 286 in the cache */
-   /* replace3088 -> 370 in the cache */
+   /* replace3092_0 -> 286 in the cache */
+   /* replace3092 -> 396 in the cache */
 
    /* ('f2u8', ('bcsel', ('fneu', 'a@16', 'a'), 0.0, 'a')) => ('f2u8_sat', 'a') */
-   /* search3089_0_0_0 -> 286 in the cache */
-   /* search3089_0_0_1 -> 286 in the cache */
-   /* search3089_0_0 -> 287 in the cache */
-   /* search3089_0_1 -> 378 in the cache */
-   /* search3089_0_2 -> 286 in the cache */
-   /* search3089_0 -> 386 in the cache */
+   /* search3093_0_0_0 -> 286 in the cache */
+   /* search3093_0_0_1 -> 286 in the cache */
+   /* search3093_0_0 -> 287 in the cache */
+   /* search3093_0_1 -> 404 in the cache */
+   /* search3093_0_2 -> 286 in the cache */
+   /* search3093_0 -> 412 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3638587,12 +3638865,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u8,
       -1, 0,
-      { 386 },
+      { 412 },
       -1,
    } },
 
-   /* replace3089_0 -> 286 in the cache */
-   /* replace3089 -> 377 in the cache */
+   /* replace3093_0 -> 286 in the cache */
+   /* replace3093 -> 403 in the cache */
 
    /* ('f2i8', ('fmax', 'a@32(is_a_number)', 128.0)) => ('f2i8_sat', 'a') */
    { .variable = {
@@ -3638614,7 +3638892,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmax,
       0, 1,
-      { 389, 390 },
+      { 415, 416 },
       -1,
    } },
    { .expression = {
@@ -3638625,11 +3638903,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2i8,
       -1, 1,
-      { 391 },
+      { 417 },
       -1,
    } },
 
-   /* replace3090_0 -> 296 in the cache */
+   /* replace3094_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3638643,7 +3638921,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('f2i8', ('fmin', 'a@32(is_a_number)', 127.0)) => ('f2i8_sat', 'a') */
-   /* search3091_0_0 -> 389 in the cache */
+   /* search3095_0_0 -> 415 in the cache */
    { .constant = {
       { nir_search_value_constant, 32 },
       nir_type_float, { 0x405fc00000000000ull /* 127.0 */ },
@@ -3638656,7 +3638934,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmin,
       0, 1,
-      { 389, 394 },
+      { 415, 420 },
       -1,
    } },
    { .expression = {
@@ -3638667,15 +3638945,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2i8,
       -1, 1,
-      { 395 },
+      { 421 },
       -1,
    } },
 
-   /* replace3091_0 -> 296 in the cache */
-   /* replace3091 -> 393 in the cache */
+   /* replace3095_0 -> 296 in the cache */
+   /* replace3095 -> 419 in the cache */
 
    /* ('f2u8', ('fmin', 'a@32(is_a_number)', 255.0)) => ('f2u8_sat', 'a') */
-   /* search3092_0_0 -> 389 in the cache */
+   /* search3096_0_0 -> 415 in the cache */
    { .constant = {
       { nir_search_value_constant, 32 },
       nir_type_float, { 0x406fe00000000000ull /* 255.0 */ },
@@ -3638688,7 +3638966,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmin,
       0, 1,
-      { 389, 397 },
+      { 415, 423 },
       -1,
    } },
    { .expression = {
@@ -3638699,11 +3638977,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u8,
       -1, 1,
-      { 398 },
+      { 424 },
       -1,
    } },
 
-   /* replace3092_0 -> 296 in the cache */
+   /* replace3096_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3638717,7 +3638995,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('f2u8', ('fmax', 'a@32', 0.0)) => ('f2u8_sat', 'a') */
-   /* search3093_0_0 -> 296 in the cache */
+   /* search3097_0_0 -> 296 in the cache */
    { .constant = {
       { nir_search_value_constant, 32 },
       nir_type_float, { 0x0ull /* 0.0 */ },
@@ -3638730,7 +3639008,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmax,
       0, 1,
-      { 296, 401 },
+      { 296, 427 },
       -1,
    } },
    { .expression = {
@@ -3638741,15 +3639019,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u8,
       -1, 1,
-      { 402 },
+      { 428 },
       -1,
    } },
 
-   /* replace3093_0 -> 296 in the cache */
-   /* replace3093 -> 400 in the cache */
+   /* replace3097_0 -> 296 in the cache */
+   /* replace3097 -> 426 in the cache */
 
    /* ('f2u8', ('ftrunc', 'a@32')) => ('f2u8_sat', 'a') */
-   /* search3094_0_0 -> 296 in the cache */
+   /* search3098_0_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3638769,19 +3639047,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u8,
       -1, 0,
-      { 404 },
+      { 430 },
       -1,
    } },
 
-   /* replace3094_0 -> 296 in the cache */
-   /* replace3094 -> 400 in the cache */
+   /* replace3098_0 -> 296 in the cache */
+   /* replace3098 -> 426 in the cache */
 
    /* ('f2i8', ('bcsel', ('feq', 'a@32', 'a'), 'a', 0.0)) => ('f2i8_sat', 'a') */
-   /* search3095_0_0_0 -> 296 in the cache */
-   /* search3095_0_0_1 -> 296 in the cache */
-   /* search3095_0_0 -> 302 in the cache */
-   /* search3095_0_1 -> 296 in the cache */
-   /* search3095_0_2 -> 401 in the cache */
+   /* search3099_0_0_0 -> 296 in the cache */
+   /* search3099_0_0_1 -> 296 in the cache */
+   /* search3099_0_0 -> 302 in the cache */
+   /* search3099_0_1 -> 296 in the cache */
+   /* search3099_0_2 -> 427 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3638790,7 +3639068,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 0,
-      { 302, 296, 401 },
+      { 302, 296, 427 },
       -1,
    } },
    { .expression = {
@@ -3638801,20 +3639079,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2i8,
       -1, 0,
-      { 406 },
+      { 432 },
       -1,
    } },
 
-   /* replace3095_0 -> 296 in the cache */
-   /* replace3095 -> 393 in the cache */
+   /* replace3099_0 -> 296 in the cache */
+   /* replace3099 -> 419 in the cache */
 
    /* ('f2u8', ('bcsel', ('feq', 'a@32', 'a'), 'a', 0.0)) => ('f2u8_sat', 'a') */
-   /* search3096_0_0_0 -> 296 in the cache */
-   /* search3096_0_0_1 -> 296 in the cache */
-   /* search3096_0_0 -> 302 in the cache */
-   /* search3096_0_1 -> 296 in the cache */
-   /* search3096_0_2 -> 401 in the cache */
-   /* search3096_0 -> 406 in the cache */
+   /* search3100_0_0_0 -> 296 in the cache */
+   /* search3100_0_0_1 -> 296 in the cache */
+   /* search3100_0_0 -> 302 in the cache */
+   /* search3100_0_1 -> 296 in the cache */
+   /* search3100_0_2 -> 427 in the cache */
+   /* search3100_0 -> 432 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3638823,19 +3639101,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u8,
       -1, 0,
-      { 406 },
+      { 432 },
       -1,
    } },
 
-   /* replace3096_0 -> 296 in the cache */
-   /* replace3096 -> 400 in the cache */
+   /* replace3100_0 -> 296 in the cache */
+   /* replace3100 -> 426 in the cache */
 
    /* ('f2i8', ('bcsel', ('fneu', 'a@32', 'a'), 0.0, 'a')) => ('f2i8_sat', 'a') */
-   /* search3097_0_0_0 -> 296 in the cache */
-   /* search3097_0_0_1 -> 296 in the cache */
-   /* search3097_0_0 -> 297 in the cache */
-   /* search3097_0_1 -> 401 in the cache */
-   /* search3097_0_2 -> 296 in the cache */
+   /* search3101_0_0_0 -> 296 in the cache */
+   /* search3101_0_0_1 -> 296 in the cache */
+   /* search3101_0_0 -> 297 in the cache */
+   /* search3101_0_1 -> 427 in the cache */
+   /* search3101_0_2 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3638844,7 +3639122,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 0,
-      { 297, 401, 296 },
+      { 297, 427, 296 },
       -1,
    } },
    { .expression = {
@@ -3638855,20 +3639133,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2i8,
       -1, 0,
-      { 409 },
+      { 435 },
       -1,
    } },
 
-   /* replace3097_0 -> 296 in the cache */
-   /* replace3097 -> 393 in the cache */
+   /* replace3101_0 -> 296 in the cache */
+   /* replace3101 -> 419 in the cache */
 
    /* ('f2u8', ('bcsel', ('fneu', 'a@32', 'a'), 0.0, 'a')) => ('f2u8_sat', 'a') */
-   /* search3098_0_0_0 -> 296 in the cache */
-   /* search3098_0_0_1 -> 296 in the cache */
-   /* search3098_0_0 -> 297 in the cache */
-   /* search3098_0_1 -> 401 in the cache */
-   /* search3098_0_2 -> 296 in the cache */
-   /* search3098_0 -> 409 in the cache */
+   /* search3102_0_0_0 -> 296 in the cache */
+   /* search3102_0_0_1 -> 296 in the cache */
+   /* search3102_0_0 -> 297 in the cache */
+   /* search3102_0_1 -> 427 in the cache */
+   /* search3102_0_2 -> 296 in the cache */
+   /* search3102_0 -> 435 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3638877,17 +3639155,17 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u8,
       -1, 0,
-      { 409 },
+      { 435 },
       -1,
    } },
 
-   /* replace3098_0 -> 296 in the cache */
-   /* replace3098 -> 400 in the cache */
+   /* replace3102_0 -> 296 in the cache */
+   /* replace3102 -> 426 in the cache */
 
    /* ('f2u16', ('fmax', 'a@16', 0.0)) => ('f2u16_sat', 'a') */
-   /* search3099_0_0 -> 286 in the cache */
-   /* search3099_0_1 -> 378 in the cache */
-   /* search3099_0 -> 379 in the cache */
+   /* search3103_0_0 -> 286 in the cache */
+   /* search3103_0_1 -> 404 in the cache */
+   /* search3103_0 -> 405 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3638896,11 +3639174,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u16,
       -1, 1,
-      { 379 },
+      { 405 },
       -1,
    } },
 
-   /* replace3099_0 -> 286 in the cache */
+   /* replace3103_0 -> 286 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3638914,8 +3639192,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('f2u16', ('ftrunc', 'a@16')) => ('f2u16_sat', 'a') */
-   /* search3100_0_0 -> 286 in the cache */
-   /* search3100_0 -> 381 in the cache */
+   /* search3104_0_0 -> 286 in the cache */
+   /* search3104_0 -> 407 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3638924,20 +3639202,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u16,
       -1, 0,
-      { 381 },
+      { 407 },
       -1,
    } },
 
-   /* replace3100_0 -> 286 in the cache */
-   /* replace3100 -> 413 in the cache */
+   /* replace3104_0 -> 286 in the cache */
+   /* replace3104 -> 439 in the cache */
 
    /* ('f2i16', ('bcsel', ('feq', 'a@16', 'a'), 'a', 0.0)) => ('f2i16_sat', 'a') */
-   /* search3101_0_0_0 -> 286 in the cache */
-   /* search3101_0_0_1 -> 286 in the cache */
-   /* search3101_0_0 -> 292 in the cache */
-   /* search3101_0_1 -> 286 in the cache */
-   /* search3101_0_2 -> 378 in the cache */
-   /* search3101_0 -> 383 in the cache */
+   /* search3105_0_0_0 -> 286 in the cache */
+   /* search3105_0_0_1 -> 286 in the cache */
+   /* search3105_0_0 -> 292 in the cache */
+   /* search3105_0_1 -> 286 in the cache */
+   /* search3105_0_2 -> 404 in the cache */
+   /* search3105_0 -> 409 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3638946,11 +3639224,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2i16,
       -1, 0,
-      { 383 },
+      { 409 },
       -1,
    } },
 
-   /* replace3101_0 -> 286 in the cache */
+   /* replace3105_0 -> 286 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3638964,12 +3639242,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('f2u16', ('bcsel', ('feq', 'a@16', 'a'), 'a', 0.0)) => ('f2u16_sat', 'a') */
-   /* search3102_0_0_0 -> 286 in the cache */
-   /* search3102_0_0_1 -> 286 in the cache */
-   /* search3102_0_0 -> 292 in the cache */
-   /* search3102_0_1 -> 286 in the cache */
-   /* search3102_0_2 -> 378 in the cache */
-   /* search3102_0 -> 383 in the cache */
+   /* search3106_0_0_0 -> 286 in the cache */
+   /* search3106_0_0_1 -> 286 in the cache */
+   /* search3106_0_0 -> 292 in the cache */
+   /* search3106_0_1 -> 286 in the cache */
+   /* search3106_0_2 -> 404 in the cache */
+   /* search3106_0 -> 409 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3638978,20 +3639256,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u16,
       -1, 0,
-      { 383 },
+      { 409 },
       -1,
    } },
 
-   /* replace3102_0 -> 286 in the cache */
-   /* replace3102 -> 413 in the cache */
+   /* replace3106_0 -> 286 in the cache */
+   /* replace3106 -> 439 in the cache */
 
    /* ('f2i16', ('bcsel', ('fneu', 'a@16', 'a'), 0.0, 'a')) => ('f2i16_sat', 'a') */
-   /* search3103_0_0_0 -> 286 in the cache */
-   /* search3103_0_0_1 -> 286 in the cache */
-   /* search3103_0_0 -> 287 in the cache */
-   /* search3103_0_1 -> 378 in the cache */
-   /* search3103_0_2 -> 286 in the cache */
-   /* search3103_0 -> 386 in the cache */
+   /* search3107_0_0_0 -> 286 in the cache */
+   /* search3107_0_0_1 -> 286 in the cache */
+   /* search3107_0_0 -> 287 in the cache */
+   /* search3107_0_1 -> 404 in the cache */
+   /* search3107_0_2 -> 286 in the cache */
+   /* search3107_0 -> 412 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3639000,20 +3639278,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2i16,
       -1, 0,
-      { 386 },
+      { 412 },
       -1,
    } },
 
-   /* replace3103_0 -> 286 in the cache */
-   /* replace3103 -> 416 in the cache */
+   /* replace3107_0 -> 286 in the cache */
+   /* replace3107 -> 442 in the cache */
 
    /* ('f2u16', ('bcsel', ('fneu', 'a@16', 'a'), 0.0, 'a')) => ('f2u16_sat', 'a') */
-   /* search3104_0_0_0 -> 286 in the cache */
-   /* search3104_0_0_1 -> 286 in the cache */
-   /* search3104_0_0 -> 287 in the cache */
-   /* search3104_0_1 -> 378 in the cache */
-   /* search3104_0_2 -> 286 in the cache */
-   /* search3104_0 -> 386 in the cache */
+   /* search3108_0_0_0 -> 286 in the cache */
+   /* search3108_0_0_1 -> 286 in the cache */
+   /* search3108_0_0 -> 287 in the cache */
+   /* search3108_0_1 -> 404 in the cache */
+   /* search3108_0_2 -> 286 in the cache */
+   /* search3108_0 -> 412 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3639022,15 +3639300,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u16,
       -1, 0,
-      { 386 },
+      { 412 },
       -1,
    } },
 
-   /* replace3104_0 -> 286 in the cache */
-   /* replace3104 -> 413 in the cache */
+   /* replace3108_0 -> 286 in the cache */
+   /* replace3108 -> 439 in the cache */
 
    /* ('f2i16', ('fmax', 'a@32(is_a_number)', 32768.0)) => ('f2i16_sat', 'a') */
-   /* search3105_0_0 -> 389 in the cache */
+   /* search3109_0_0 -> 415 in the cache */
    { .constant = {
       { nir_search_value_constant, 32 },
       nir_type_float, { 0x40e0000000000000ull /* 32768.0 */ },
@@ -3639043,7 +3639321,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmax,
       0, 1,
-      { 389, 420 },
+      { 415, 446 },
       -1,
    } },
    { .expression = {
@@ -3639054,11 +3639332,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2i16,
       -1, 1,
-      { 421 },
+      { 447 },
       -1,
    } },
 
-   /* replace3105_0 -> 296 in the cache */
+   /* replace3109_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3639072,7 +3639350,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('f2i16', ('fmin', 'a@32(is_a_number)', 32767.0)) => ('f2i16_sat', 'a') */
-   /* search3106_0_0 -> 389 in the cache */
+   /* search3110_0_0 -> 415 in the cache */
    { .constant = {
       { nir_search_value_constant, 32 },
       nir_type_float, { 0x40dfffc000000000ull /* 32767.0 */ },
@@ -3639085,7 +3639363,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmin,
       0, 1,
-      { 389, 424 },
+      { 415, 450 },
       -1,
    } },
    { .expression = {
@@ -3639096,15 +3639374,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2i16,
       -1, 1,
-      { 425 },
+      { 451 },
       -1,
    } },
 
-   /* replace3106_0 -> 296 in the cache */
-   /* replace3106 -> 423 in the cache */
+   /* replace3110_0 -> 296 in the cache */
+   /* replace3110 -> 449 in the cache */
 
    /* ('f2u16', ('fmin', 'a@32(is_a_number)', 65535.0)) => ('f2u16_sat', 'a') */
-   /* search3107_0_0 -> 389 in the cache */
+   /* search3111_0_0 -> 415 in the cache */
    { .constant = {
       { nir_search_value_constant, 32 },
       nir_type_float, { 0x40efffe000000000ull /* 65535.0 */ },
@@ -3639117,7 +3639395,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmin,
       0, 1,
-      { 389, 427 },
+      { 415, 453 },
       -1,
    } },
    { .expression = {
@@ -3639128,11 +3639406,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u16,
       -1, 1,
-      { 428 },
+      { 454 },
       -1,
    } },
 
-   /* replace3107_0 -> 296 in the cache */
+   /* replace3111_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3639146,9 +3639424,9 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('f2u16', ('fmax', 'a@32', 0.0)) => ('f2u16_sat', 'a') */
-   /* search3108_0_0 -> 296 in the cache */
-   /* search3108_0_1 -> 401 in the cache */
-   /* search3108_0 -> 402 in the cache */
+   /* search3112_0_0 -> 296 in the cache */
+   /* search3112_0_1 -> 427 in the cache */
+   /* search3112_0 -> 428 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3639157,104 +3639435,16 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u16,
       -1, 1,
-      { 402 },
-      -1,
-   } },
-
-   /* replace3108_0 -> 296 in the cache */
-   /* replace3108 -> 430 in the cache */
-
-   /* ('f2u16', ('ftrunc', 'a@32')) => ('f2u16_sat', 'a') */
-   /* search3109_0_0 -> 296 in the cache */
-   /* search3109_0 -> 404 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 16 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_f2u16,
-      -1, 0,
-      { 404 },
-      -1,
-   } },
-
-   /* replace3109_0 -> 296 in the cache */
-   /* replace3109 -> 430 in the cache */
-
-   /* ('f2i16', ('bcsel', ('feq', 'a@32', 'a'), 'a', 0.0)) => ('f2i16_sat', 'a') */
-   /* search3110_0_0_0 -> 296 in the cache */
-   /* search3110_0_0_1 -> 296 in the cache */
-   /* search3110_0_0 -> 302 in the cache */
-   /* search3110_0_1 -> 296 in the cache */
-   /* search3110_0_2 -> 401 in the cache */
-   /* search3110_0 -> 406 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 16 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_f2i16,
-      -1, 0,
-      { 406 },
-      -1,
-   } },
-
-   /* replace3110_0 -> 296 in the cache */
-   /* replace3110 -> 423 in the cache */
-
-   /* ('f2u16', ('bcsel', ('feq', 'a@32', 'a'), 'a', 0.0)) => ('f2u16_sat', 'a') */
-   /* search3111_0_0_0 -> 296 in the cache */
-   /* search3111_0_0_1 -> 296 in the cache */
-   /* search3111_0_0 -> 302 in the cache */
-   /* search3111_0_1 -> 296 in the cache */
-   /* search3111_0_2 -> 401 in the cache */
-   /* search3111_0 -> 406 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 16 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_f2u16,
-      -1, 0,
-      { 406 },
-      -1,
-   } },
-
-   /* replace3111_0 -> 296 in the cache */
-   /* replace3111 -> 430 in the cache */
-
-   /* ('f2i16', ('bcsel', ('fneu', 'a@32', 'a'), 0.0, 'a')) => ('f2i16_sat', 'a') */
-   /* search3112_0_0_0 -> 296 in the cache */
-   /* search3112_0_0_1 -> 296 in the cache */
-   /* search3112_0_0 -> 297 in the cache */
-   /* search3112_0_1 -> 401 in the cache */
-   /* search3112_0_2 -> 296 in the cache */
-   /* search3112_0 -> 409 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 16 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_f2i16,
-      -1, 0,
-      { 409 },
+      { 428 },
       -1,
    } },
 
    /* replace3112_0 -> 296 in the cache */
-   /* replace3112 -> 423 in the cache */
+   /* replace3112 -> 456 in the cache */
 
-   /* ('f2u16', ('bcsel', ('fneu', 'a@32', 'a'), 0.0, 'a')) => ('f2u16_sat', 'a') */
-   /* search3113_0_0_0 -> 296 in the cache */
-   /* search3113_0_0_1 -> 296 in the cache */
-   /* search3113_0_0 -> 297 in the cache */
-   /* search3113_0_1 -> 401 in the cache */
-   /* search3113_0_2 -> 296 in the cache */
-   /* search3113_0 -> 409 in the cache */
+   /* ('f2u16', ('ftrunc', 'a@32')) => ('f2u16_sat', 'a') */
+   /* search3113_0_0 -> 296 in the cache */
+   /* search3113_0 -> 430 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3639263,12 +3639453,100 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u16,
       -1, 0,
-      { 409 },
+      { 430 },
       -1,
    } },
 
    /* replace3113_0 -> 296 in the cache */
-   /* replace3113 -> 430 in the cache */
+   /* replace3113 -> 456 in the cache */
+
+   /* ('f2i16', ('bcsel', ('feq', 'a@32', 'a'), 'a', 0.0)) => ('f2i16_sat', 'a') */
+   /* search3114_0_0_0 -> 296 in the cache */
+   /* search3114_0_0_1 -> 296 in the cache */
+   /* search3114_0_0 -> 302 in the cache */
+   /* search3114_0_1 -> 296 in the cache */
+   /* search3114_0_2 -> 427 in the cache */
+   /* search3114_0 -> 432 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 16 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_f2i16,
+      -1, 0,
+      { 432 },
+      -1,
+   } },
+
+   /* replace3114_0 -> 296 in the cache */
+   /* replace3114 -> 449 in the cache */
+
+   /* ('f2u16', ('bcsel', ('feq', 'a@32', 'a'), 'a', 0.0)) => ('f2u16_sat', 'a') */
+   /* search3115_0_0_0 -> 296 in the cache */
+   /* search3115_0_0_1 -> 296 in the cache */
+   /* search3115_0_0 -> 302 in the cache */
+   /* search3115_0_1 -> 296 in the cache */
+   /* search3115_0_2 -> 427 in the cache */
+   /* search3115_0 -> 432 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 16 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_f2u16,
+      -1, 0,
+      { 432 },
+      -1,
+   } },
+
+   /* replace3115_0 -> 296 in the cache */
+   /* replace3115 -> 456 in the cache */
+
+   /* ('f2i16', ('bcsel', ('fneu', 'a@32', 'a'), 0.0, 'a')) => ('f2i16_sat', 'a') */
+   /* search3116_0_0_0 -> 296 in the cache */
+   /* search3116_0_0_1 -> 296 in the cache */
+   /* search3116_0_0 -> 297 in the cache */
+   /* search3116_0_1 -> 427 in the cache */
+   /* search3116_0_2 -> 296 in the cache */
+   /* search3116_0 -> 435 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 16 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_f2i16,
+      -1, 0,
+      { 435 },
+      -1,
+   } },
+
+   /* replace3116_0 -> 296 in the cache */
+   /* replace3116 -> 449 in the cache */
+
+   /* ('f2u16', ('bcsel', ('fneu', 'a@32', 'a'), 0.0, 'a')) => ('f2u16_sat', 'a') */
+   /* search3117_0_0_0 -> 296 in the cache */
+   /* search3117_0_0_1 -> 296 in the cache */
+   /* search3117_0_0 -> 297 in the cache */
+   /* search3117_0_1 -> 427 in the cache */
+   /* search3117_0_2 -> 296 in the cache */
+   /* search3117_0 -> 435 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 16 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_f2u16,
+      -1, 0,
+      { 435 },
+      -1,
+   } },
+
+   /* replace3117_0 -> 296 in the cache */
+   /* replace3117 -> 456 in the cache */
 
    /* ('f2i16', ('fmax', 'a@64(is_a_number)', 32768.0)) => ('f2i16_sat', 'a') */
    { .variable = {
@@ -3639290,7 +3639568,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmax,
       0, 1,
-      { 437, 438 },
+      { 463, 464 },
       -1,
    } },
    { .expression = {
@@ -3639301,11 +3639579,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2i16,
       -1, 1,
-      { 439 },
+      { 465 },
       -1,
    } },
 
-   /* replace3114_0 -> 306 in the cache */
+   /* replace3118_0 -> 306 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3639319,7 +3639597,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('f2i16', ('fmin', 'a@64(is_a_number)', 32767.0)) => ('f2i16_sat', 'a') */
-   /* search3115_0_0 -> 437 in the cache */
+   /* search3119_0_0 -> 463 in the cache */
    { .constant = {
       { nir_search_value_constant, 64 },
       nir_type_float, { 0x40dfffc000000000ull /* 32767.0 */ },
@@ -3639332,7 +3639610,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmin,
       0, 1,
-      { 437, 442 },
+      { 463, 468 },
       -1,
    } },
    { .expression = {
@@ -3639343,15 +3639621,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2i16,
       -1, 1,
-      { 443 },
+      { 469 },
       -1,
    } },
 
-   /* replace3115_0 -> 306 in the cache */
-   /* replace3115 -> 441 in the cache */
+   /* replace3119_0 -> 306 in the cache */
+   /* replace3119 -> 467 in the cache */
 
    /* ('f2u16', ('fmin', 'a@64(is_a_number)', 65535.0)) => ('f2u16_sat', 'a') */
-   /* search3116_0_0 -> 437 in the cache */
+   /* search3120_0_0 -> 463 in the cache */
    { .constant = {
       { nir_search_value_constant, 64 },
       nir_type_float, { 0x40efffe000000000ull /* 65535.0 */ },
@@ -3639364,7 +3639642,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmin,
       0, 1,
-      { 437, 445 },
+      { 463, 471 },
       -1,
    } },
    { .expression = {
@@ -3639375,11 +3639653,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u16,
       -1, 1,
-      { 446 },
+      { 472 },
       -1,
    } },
 
-   /* replace3116_0 -> 306 in the cache */
+   /* replace3120_0 -> 306 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3639393,7 +3639671,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('f2u16', ('fmax', 'a@64', 0.0)) => ('f2u16_sat', 'a') */
-   /* search3117_0_0 -> 306 in the cache */
+   /* search3121_0_0 -> 306 in the cache */
    { .constant = {
       { nir_search_value_constant, 64 },
       nir_type_float, { 0x0ull /* 0.0 */ },
@@ -3639406,7 +3639684,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmax,
       0, 1,
-      { 306, 449 },
+      { 306, 475 },
       -1,
    } },
    { .expression = {
@@ -3639417,15 +3639695,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u16,
       -1, 1,
-      { 450 },
+      { 476 },
       -1,
    } },
 
-   /* replace3117_0 -> 306 in the cache */
-   /* replace3117 -> 448 in the cache */
+   /* replace3121_0 -> 306 in the cache */
+   /* replace3121 -> 474 in the cache */
 
    /* ('f2u16', ('ftrunc', 'a@64')) => ('f2u16_sat', 'a') */
-   /* search3118_0_0 -> 306 in the cache */
+   /* search3122_0_0 -> 306 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3639445,19 +3639723,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u16,
       -1, 0,
-      { 452 },
+      { 478 },
       -1,
    } },
 
-   /* replace3118_0 -> 306 in the cache */
-   /* replace3118 -> 448 in the cache */
+   /* replace3122_0 -> 306 in the cache */
+   /* replace3122 -> 474 in the cache */
 
    /* ('f2i16', ('bcsel', ('feq', 'a@64', 'a'), 'a', 0.0)) => ('f2i16_sat', 'a') */
-   /* search3119_0_0_0 -> 306 in the cache */
-   /* search3119_0_0_1 -> 306 in the cache */
-   /* search3119_0_0 -> 312 in the cache */
-   /* search3119_0_1 -> 306 in the cache */
-   /* search3119_0_2 -> 449 in the cache */
+   /* search3123_0_0_0 -> 306 in the cache */
+   /* search3123_0_0_1 -> 306 in the cache */
+   /* search3123_0_0 -> 312 in the cache */
+   /* search3123_0_1 -> 306 in the cache */
+   /* search3123_0_2 -> 475 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3639466,7 +3639744,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 0,
-      { 312, 306, 449 },
+      { 312, 306, 475 },
       -1,
    } },
    { .expression = {
@@ -3639477,20 +3639755,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2i16,
       -1, 0,
-      { 454 },
+      { 480 },
       -1,
    } },
 
-   /* replace3119_0 -> 306 in the cache */
-   /* replace3119 -> 441 in the cache */
+   /* replace3123_0 -> 306 in the cache */
+   /* replace3123 -> 467 in the cache */
 
    /* ('f2u16', ('bcsel', ('feq', 'a@64', 'a'), 'a', 0.0)) => ('f2u16_sat', 'a') */
-   /* search3120_0_0_0 -> 306 in the cache */
-   /* search3120_0_0_1 -> 306 in the cache */
-   /* search3120_0_0 -> 312 in the cache */
-   /* search3120_0_1 -> 306 in the cache */
-   /* search3120_0_2 -> 449 in the cache */
-   /* search3120_0 -> 454 in the cache */
+   /* search3124_0_0_0 -> 306 in the cache */
+   /* search3124_0_0_1 -> 306 in the cache */
+   /* search3124_0_0 -> 312 in the cache */
+   /* search3124_0_1 -> 306 in the cache */
+   /* search3124_0_2 -> 475 in the cache */
+   /* search3124_0 -> 480 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3639499,19 +3639777,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u16,
       -1, 0,
-      { 454 },
+      { 480 },
       -1,
    } },
 
-   /* replace3120_0 -> 306 in the cache */
-   /* replace3120 -> 448 in the cache */
+   /* replace3124_0 -> 306 in the cache */
+   /* replace3124 -> 474 in the cache */
 
    /* ('f2i16', ('bcsel', ('fneu', 'a@64', 'a'), 0.0, 'a')) => ('f2i16_sat', 'a') */
-   /* search3121_0_0_0 -> 306 in the cache */
-   /* search3121_0_0_1 -> 306 in the cache */
-   /* search3121_0_0 -> 307 in the cache */
-   /* search3121_0_1 -> 449 in the cache */
-   /* search3121_0_2 -> 306 in the cache */
+   /* search3125_0_0_0 -> 306 in the cache */
+   /* search3125_0_0_1 -> 306 in the cache */
+   /* search3125_0_0 -> 307 in the cache */
+   /* search3125_0_1 -> 475 in the cache */
+   /* search3125_0_2 -> 306 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3639520,7 +3639798,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 0,
-      { 307, 449, 306 },
+      { 307, 475, 306 },
       -1,
    } },
    { .expression = {
@@ -3639531,20 +3639809,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2i16,
       -1, 0,
-      { 457 },
+      { 483 },
       -1,
    } },
 
-   /* replace3121_0 -> 306 in the cache */
-   /* replace3121 -> 441 in the cache */
+   /* replace3125_0 -> 306 in the cache */
+   /* replace3125 -> 467 in the cache */
 
    /* ('f2u16', ('bcsel', ('fneu', 'a@64', 'a'), 0.0, 'a')) => ('f2u16_sat', 'a') */
-   /* search3122_0_0_0 -> 306 in the cache */
-   /* search3122_0_0_1 -> 306 in the cache */
-   /* search3122_0_0 -> 307 in the cache */
-   /* search3122_0_1 -> 449 in the cache */
-   /* search3122_0_2 -> 306 in the cache */
-   /* search3122_0 -> 457 in the cache */
+   /* search3126_0_0_0 -> 306 in the cache */
+   /* search3126_0_0_1 -> 306 in the cache */
+   /* search3126_0_0 -> 307 in the cache */
+   /* search3126_0_1 -> 475 in the cache */
+   /* search3126_0_2 -> 306 in the cache */
+   /* search3126_0 -> 483 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3639553,17 +3639831,17 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u16,
       -1, 0,
-      { 457 },
+      { 483 },
       -1,
    } },
 
-   /* replace3122_0 -> 306 in the cache */
-   /* replace3122 -> 448 in the cache */
+   /* replace3126_0 -> 306 in the cache */
+   /* replace3126 -> 474 in the cache */
 
    /* ('f2u32', ('fmax', 'a@16', 0.0)) => ('f2u32_sat', 'a') */
-   /* search3123_0_0 -> 286 in the cache */
-   /* search3123_0_1 -> 378 in the cache */
-   /* search3123_0 -> 379 in the cache */
+   /* search3127_0_0 -> 286 in the cache */
+   /* search3127_0_1 -> 404 in the cache */
+   /* search3127_0 -> 405 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3639572,11 +3639850,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u32,
       -1, 1,
-      { 379 },
+      { 405 },
       -1,
    } },
 
-   /* replace3123_0 -> 286 in the cache */
+   /* replace3127_0 -> 286 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3639590,8 +3639868,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('f2u32', ('ftrunc', 'a@16')) => ('f2u32_sat', 'a') */
-   /* search3124_0_0 -> 286 in the cache */
-   /* search3124_0 -> 381 in the cache */
+   /* search3128_0_0 -> 286 in the cache */
+   /* search3128_0 -> 407 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3639600,20 +3639878,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u32,
       -1, 0,
-      { 381 },
+      { 407 },
       -1,
    } },
 
-   /* replace3124_0 -> 286 in the cache */
-   /* replace3124 -> 461 in the cache */
+   /* replace3128_0 -> 286 in the cache */
+   /* replace3128 -> 487 in the cache */
 
    /* ('f2i32', ('bcsel', ('feq', 'a@16', 'a'), 'a', 0.0)) => ('f2i32_sat', 'a') */
-   /* search3125_0_0_0 -> 286 in the cache */
-   /* search3125_0_0_1 -> 286 in the cache */
-   /* search3125_0_0 -> 292 in the cache */
-   /* search3125_0_1 -> 286 in the cache */
-   /* search3125_0_2 -> 378 in the cache */
-   /* search3125_0 -> 383 in the cache */
+   /* search3129_0_0_0 -> 286 in the cache */
+   /* search3129_0_0_1 -> 286 in the cache */
+   /* search3129_0_0 -> 292 in the cache */
+   /* search3129_0_1 -> 286 in the cache */
+   /* search3129_0_2 -> 404 in the cache */
+   /* search3129_0 -> 409 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3639622,11 +3639900,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2i32,
       -1, 0,
-      { 383 },
+      { 409 },
       -1,
    } },
 
-   /* replace3125_0 -> 286 in the cache */
+   /* replace3129_0 -> 286 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3639640,12 +3639918,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('f2u32', ('bcsel', ('feq', 'a@16', 'a'), 'a', 0.0)) => ('f2u32_sat', 'a') */
-   /* search3126_0_0_0 -> 286 in the cache */
-   /* search3126_0_0_1 -> 286 in the cache */
-   /* search3126_0_0 -> 292 in the cache */
-   /* search3126_0_1 -> 286 in the cache */
-   /* search3126_0_2 -> 378 in the cache */
-   /* search3126_0 -> 383 in the cache */
+   /* search3130_0_0_0 -> 286 in the cache */
+   /* search3130_0_0_1 -> 286 in the cache */
+   /* search3130_0_0 -> 292 in the cache */
+   /* search3130_0_1 -> 286 in the cache */
+   /* search3130_0_2 -> 404 in the cache */
+   /* search3130_0 -> 409 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3639654,20 +3639932,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u32,
       -1, 0,
-      { 383 },
+      { 409 },
       -1,
    } },
 
-   /* replace3126_0 -> 286 in the cache */
-   /* replace3126 -> 461 in the cache */
+   /* replace3130_0 -> 286 in the cache */
+   /* replace3130 -> 487 in the cache */
 
    /* ('f2i32', ('bcsel', ('fneu', 'a@16', 'a'), 0.0, 'a')) => ('f2i32_sat', 'a') */
-   /* search3127_0_0_0 -> 286 in the cache */
-   /* search3127_0_0_1 -> 286 in the cache */
-   /* search3127_0_0 -> 287 in the cache */
-   /* search3127_0_1 -> 378 in the cache */
-   /* search3127_0_2 -> 286 in the cache */
-   /* search3127_0 -> 386 in the cache */
+   /* search3131_0_0_0 -> 286 in the cache */
+   /* search3131_0_0_1 -> 286 in the cache */
+   /* search3131_0_0 -> 287 in the cache */
+   /* search3131_0_1 -> 404 in the cache */
+   /* search3131_0_2 -> 286 in the cache */
+   /* search3131_0 -> 412 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3639676,20 +3639954,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2i32,
       -1, 0,
-      { 386 },
+      { 412 },
       -1,
    } },
 
-   /* replace3127_0 -> 286 in the cache */
-   /* replace3127 -> 464 in the cache */
+   /* replace3131_0 -> 286 in the cache */
+   /* replace3131 -> 490 in the cache */
 
    /* ('f2u32', ('bcsel', ('fneu', 'a@16', 'a'), 0.0, 'a')) => ('f2u32_sat', 'a') */
-   /* search3128_0_0_0 -> 286 in the cache */
-   /* search3128_0_0_1 -> 286 in the cache */
-   /* search3128_0_0 -> 287 in the cache */
-   /* search3128_0_1 -> 378 in the cache */
-   /* search3128_0_2 -> 286 in the cache */
-   /* search3128_0 -> 386 in the cache */
+   /* search3132_0_0_0 -> 286 in the cache */
+   /* search3132_0_0_1 -> 286 in the cache */
+   /* search3132_0_0 -> 287 in the cache */
+   /* search3132_0_1 -> 404 in the cache */
+   /* search3132_0_2 -> 286 in the cache */
+   /* search3132_0 -> 412 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3639698,17 +3639976,17 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u32,
       -1, 0,
-      { 386 },
+      { 412 },
       -1,
    } },
 
-   /* replace3128_0 -> 286 in the cache */
-   /* replace3128 -> 461 in the cache */
+   /* replace3132_0 -> 286 in the cache */
+   /* replace3132 -> 487 in the cache */
 
    /* ('f2u32', ('fmax', 'a@32', 0.0)) => ('f2u32_sat', 'a') */
-   /* search3129_0_0 -> 296 in the cache */
-   /* search3129_0_1 -> 401 in the cache */
-   /* search3129_0 -> 402 in the cache */
+   /* search3133_0_0 -> 296 in the cache */
+   /* search3133_0_1 -> 427 in the cache */
+   /* search3133_0 -> 428 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3639717,11 +3639995,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u32,
       -1, 1,
-      { 402 },
+      { 428 },
       -1,
    } },
 
-   /* replace3129_0 -> 296 in the cache */
+   /* replace3133_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3639735,8 +3640013,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('f2u32', ('ftrunc', 'a@32')) => ('f2u32_sat', 'a') */
-   /* search3130_0_0 -> 296 in the cache */
-   /* search3130_0 -> 404 in the cache */
+   /* search3134_0_0 -> 296 in the cache */
+   /* search3134_0 -> 430 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3639745,20 +3640023,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u32,
       -1, 0,
-      { 404 },
+      { 430 },
       -1,
    } },
 
-   /* replace3130_0 -> 296 in the cache */
-   /* replace3130 -> 469 in the cache */
+   /* replace3134_0 -> 296 in the cache */
+   /* replace3134 -> 495 in the cache */
 
    /* ('f2i32', ('bcsel', ('feq', 'a@32', 'a'), 'a', 0.0)) => ('f2i32_sat', 'a') */
-   /* search3131_0_0_0 -> 296 in the cache */
-   /* search3131_0_0_1 -> 296 in the cache */
-   /* search3131_0_0 -> 302 in the cache */
-   /* search3131_0_1 -> 296 in the cache */
-   /* search3131_0_2 -> 401 in the cache */
-   /* search3131_0 -> 406 in the cache */
+   /* search3135_0_0_0 -> 296 in the cache */
+   /* search3135_0_0_1 -> 296 in the cache */
+   /* search3135_0_0 -> 302 in the cache */
+   /* search3135_0_1 -> 296 in the cache */
+   /* search3135_0_2 -> 427 in the cache */
+   /* search3135_0 -> 432 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3639767,11 +3640045,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2i32,
       -1, 0,
-      { 406 },
+      { 432 },
       -1,
    } },
 
-   /* replace3131_0 -> 296 in the cache */
+   /* replace3135_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3639785,12 +3640063,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('f2u32', ('bcsel', ('feq', 'a@32', 'a'), 'a', 0.0)) => ('f2u32_sat', 'a') */
-   /* search3132_0_0_0 -> 296 in the cache */
-   /* search3132_0_0_1 -> 296 in the cache */
-   /* search3132_0_0 -> 302 in the cache */
-   /* search3132_0_1 -> 296 in the cache */
-   /* search3132_0_2 -> 401 in the cache */
-   /* search3132_0 -> 406 in the cache */
+   /* search3136_0_0_0 -> 296 in the cache */
+   /* search3136_0_0_1 -> 296 in the cache */
+   /* search3136_0_0 -> 302 in the cache */
+   /* search3136_0_1 -> 296 in the cache */
+   /* search3136_0_2 -> 427 in the cache */
+   /* search3136_0 -> 432 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3639799,20 +3640077,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u32,
       -1, 0,
-      { 406 },
+      { 432 },
       -1,
    } },
 
-   /* replace3132_0 -> 296 in the cache */
-   /* replace3132 -> 469 in the cache */
+   /* replace3136_0 -> 296 in the cache */
+   /* replace3136 -> 495 in the cache */
 
    /* ('f2i32', ('bcsel', ('fneu', 'a@32', 'a'), 0.0, 'a')) => ('f2i32_sat', 'a') */
-   /* search3133_0_0_0 -> 296 in the cache */
-   /* search3133_0_0_1 -> 296 in the cache */
-   /* search3133_0_0 -> 297 in the cache */
-   /* search3133_0_1 -> 401 in the cache */
-   /* search3133_0_2 -> 296 in the cache */
-   /* search3133_0 -> 409 in the cache */
+   /* search3137_0_0_0 -> 296 in the cache */
+   /* search3137_0_0_1 -> 296 in the cache */
+   /* search3137_0_0 -> 297 in the cache */
+   /* search3137_0_1 -> 427 in the cache */
+   /* search3137_0_2 -> 296 in the cache */
+   /* search3137_0 -> 435 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3639821,20 +3640099,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2i32,
       -1, 0,
-      { 409 },
+      { 435 },
       -1,
    } },
 
-   /* replace3133_0 -> 296 in the cache */
-   /* replace3133 -> 472 in the cache */
+   /* replace3137_0 -> 296 in the cache */
+   /* replace3137 -> 498 in the cache */
 
    /* ('f2u32', ('bcsel', ('fneu', 'a@32', 'a'), 0.0, 'a')) => ('f2u32_sat', 'a') */
-   /* search3134_0_0_0 -> 296 in the cache */
-   /* search3134_0_0_1 -> 296 in the cache */
-   /* search3134_0_0 -> 297 in the cache */
-   /* search3134_0_1 -> 401 in the cache */
-   /* search3134_0_2 -> 296 in the cache */
-   /* search3134_0 -> 409 in the cache */
+   /* search3138_0_0_0 -> 296 in the cache */
+   /* search3138_0_0_1 -> 296 in the cache */
+   /* search3138_0_0 -> 297 in the cache */
+   /* search3138_0_1 -> 427 in the cache */
+   /* search3138_0_2 -> 296 in the cache */
+   /* search3138_0 -> 435 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3639843,15 +3640121,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u32,
       -1, 0,
-      { 409 },
+      { 435 },
       -1,
    } },
 
-   /* replace3134_0 -> 296 in the cache */
-   /* replace3134 -> 469 in the cache */
+   /* replace3138_0 -> 296 in the cache */
+   /* replace3138 -> 495 in the cache */
 
    /* ('f2i32', ('fmax', 'a@64(is_a_number)', 2147483648.0)) => ('f2i32_sat', 'a') */
-   /* search3135_0_0 -> 437 in the cache */
+   /* search3139_0_0 -> 463 in the cache */
    { .constant = {
       { nir_search_value_constant, 64 },
       nir_type_float, { 0x41e0000000000000ull /* 2147483648.0 */ },
@@ -3639864,7 +3640142,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmax,
       0, 1,
-      { 437, 476 },
+      { 463, 502 },
       -1,
    } },
    { .expression = {
@@ -3639875,11 +3640153,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2i32,
       -1, 1,
-      { 477 },
+      { 503 },
       -1,
    } },
 
-   /* replace3135_0 -> 306 in the cache */
+   /* replace3139_0 -> 306 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3639893,7 +3640171,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('f2i32', ('fmin', 'a@64(is_a_number)', 2147483647.0)) => ('f2i32_sat', 'a') */
-   /* search3136_0_0 -> 437 in the cache */
+   /* search3140_0_0 -> 463 in the cache */
    { .constant = {
       { nir_search_value_constant, 64 },
       nir_type_float, { 0x41dfffffffc00000ull /* 2147483647.0 */ },
@@ -3639906,7 +3640184,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmin,
       0, 1,
-      { 437, 480 },
+      { 463, 506 },
       -1,
    } },
    { .expression = {
@@ -3639917,15 +3640195,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2i32,
       -1, 1,
-      { 481 },
+      { 507 },
       -1,
    } },
 
-   /* replace3136_0 -> 306 in the cache */
-   /* replace3136 -> 479 in the cache */
+   /* replace3140_0 -> 306 in the cache */
+   /* replace3140 -> 505 in the cache */
 
    /* ('f2u32', ('fmin', 'a@64(is_a_number)', 4294967295.0)) => ('f2u32_sat', 'a') */
-   /* search3137_0_0 -> 437 in the cache */
+   /* search3141_0_0 -> 463 in the cache */
    { .constant = {
       { nir_search_value_constant, 64 },
       nir_type_float, { 0x41efffffffe00000ull /* 4294967295.0 */ },
@@ -3639938,7 +3640216,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmin,
       0, 1,
-      { 437, 483 },
+      { 463, 509 },
       -1,
    } },
    { .expression = {
@@ -3639949,11 +3640227,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u32,
       -1, 1,
-      { 484 },
+      { 510 },
       -1,
    } },
 
-   /* replace3137_0 -> 306 in the cache */
+   /* replace3141_0 -> 306 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3639967,9 +3640245,9 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('f2u32', ('fmax', 'a@64', 0.0)) => ('f2u32_sat', 'a') */
-   /* search3138_0_0 -> 306 in the cache */
-   /* search3138_0_1 -> 449 in the cache */
-   /* search3138_0 -> 450 in the cache */
+   /* search3142_0_0 -> 306 in the cache */
+   /* search3142_0_1 -> 475 in the cache */
+   /* search3142_0 -> 476 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3639978,104 +3640256,16 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u32,
       -1, 1,
-      { 450 },
-      -1,
-   } },
-
-   /* replace3138_0 -> 306 in the cache */
-   /* replace3138 -> 486 in the cache */
-
-   /* ('f2u32', ('ftrunc', 'a@64')) => ('f2u32_sat', 'a') */
-   /* search3139_0_0 -> 306 in the cache */
-   /* search3139_0 -> 452 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_f2u32,
-      -1, 0,
-      { 452 },
-      -1,
-   } },
-
-   /* replace3139_0 -> 306 in the cache */
-   /* replace3139 -> 486 in the cache */
-
-   /* ('f2i32', ('bcsel', ('feq', 'a@64', 'a'), 'a', 0.0)) => ('f2i32_sat', 'a') */
-   /* search3140_0_0_0 -> 306 in the cache */
-   /* search3140_0_0_1 -> 306 in the cache */
-   /* search3140_0_0 -> 312 in the cache */
-   /* search3140_0_1 -> 306 in the cache */
-   /* search3140_0_2 -> 449 in the cache */
-   /* search3140_0 -> 454 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_f2i32,
-      -1, 0,
-      { 454 },
-      -1,
-   } },
-
-   /* replace3140_0 -> 306 in the cache */
-   /* replace3140 -> 479 in the cache */
-
-   /* ('f2u32', ('bcsel', ('feq', 'a@64', 'a'), 'a', 0.0)) => ('f2u32_sat', 'a') */
-   /* search3141_0_0_0 -> 306 in the cache */
-   /* search3141_0_0_1 -> 306 in the cache */
-   /* search3141_0_0 -> 312 in the cache */
-   /* search3141_0_1 -> 306 in the cache */
-   /* search3141_0_2 -> 449 in the cache */
-   /* search3141_0 -> 454 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_f2u32,
-      -1, 0,
-      { 454 },
-      -1,
-   } },
-
-   /* replace3141_0 -> 306 in the cache */
-   /* replace3141 -> 486 in the cache */
-
-   /* ('f2i32', ('bcsel', ('fneu', 'a@64', 'a'), 0.0, 'a')) => ('f2i32_sat', 'a') */
-   /* search3142_0_0_0 -> 306 in the cache */
-   /* search3142_0_0_1 -> 306 in the cache */
-   /* search3142_0_0 -> 307 in the cache */
-   /* search3142_0_1 -> 449 in the cache */
-   /* search3142_0_2 -> 306 in the cache */
-   /* search3142_0 -> 457 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_f2i32,
-      -1, 0,
-      { 457 },
+      { 476 },
       -1,
    } },
 
    /* replace3142_0 -> 306 in the cache */
-   /* replace3142 -> 479 in the cache */
+   /* replace3142 -> 512 in the cache */
 
-   /* ('f2u32', ('bcsel', ('fneu', 'a@64', 'a'), 0.0, 'a')) => ('f2u32_sat', 'a') */
-   /* search3143_0_0_0 -> 306 in the cache */
-   /* search3143_0_0_1 -> 306 in the cache */
-   /* search3143_0_0 -> 307 in the cache */
-   /* search3143_0_1 -> 449 in the cache */
-   /* search3143_0_2 -> 306 in the cache */
-   /* search3143_0 -> 457 in the cache */
+   /* ('f2u32', ('ftrunc', 'a@64')) => ('f2u32_sat', 'a') */
+   /* search3143_0_0 -> 306 in the cache */
+   /* search3143_0 -> 478 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3640084,16 +3640274,104 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2u32,
       -1, 0,
-      { 457 },
+      { 478 },
       -1,
    } },
 
    /* replace3143_0 -> 306 in the cache */
-   /* replace3143 -> 486 in the cache */
+   /* replace3143 -> 512 in the cache */
+
+   /* ('f2i32', ('bcsel', ('feq', 'a@64', 'a'), 'a', 0.0)) => ('f2i32_sat', 'a') */
+   /* search3144_0_0_0 -> 306 in the cache */
+   /* search3144_0_0_1 -> 306 in the cache */
+   /* search3144_0_0 -> 312 in the cache */
+   /* search3144_0_1 -> 306 in the cache */
+   /* search3144_0_2 -> 475 in the cache */
+   /* search3144_0 -> 480 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_f2i32,
+      -1, 0,
+      { 480 },
+      -1,
+   } },
+
+   /* replace3144_0 -> 306 in the cache */
+   /* replace3144 -> 505 in the cache */
+
+   /* ('f2u32', ('bcsel', ('feq', 'a@64', 'a'), 'a', 0.0)) => ('f2u32_sat', 'a') */
+   /* search3145_0_0_0 -> 306 in the cache */
+   /* search3145_0_0_1 -> 306 in the cache */
+   /* search3145_0_0 -> 312 in the cache */
+   /* search3145_0_1 -> 306 in the cache */
+   /* search3145_0_2 -> 475 in the cache */
+   /* search3145_0 -> 480 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_f2u32,
+      -1, 0,
+      { 480 },
+      -1,
+   } },
+
+   /* replace3145_0 -> 306 in the cache */
+   /* replace3145 -> 512 in the cache */
+
+   /* ('f2i32', ('bcsel', ('fneu', 'a@64', 'a'), 0.0, 'a')) => ('f2i32_sat', 'a') */
+   /* search3146_0_0_0 -> 306 in the cache */
+   /* search3146_0_0_1 -> 306 in the cache */
+   /* search3146_0_0 -> 307 in the cache */
+   /* search3146_0_1 -> 475 in the cache */
+   /* search3146_0_2 -> 306 in the cache */
+   /* search3146_0 -> 483 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_f2i32,
+      -1, 0,
+      { 483 },
+      -1,
+   } },
+
+   /* replace3146_0 -> 306 in the cache */
+   /* replace3146 -> 505 in the cache */
+
+   /* ('f2u32', ('bcsel', ('fneu', 'a@64', 'a'), 0.0, 'a')) => ('f2u32_sat', 'a') */
+   /* search3147_0_0_0 -> 306 in the cache */
+   /* search3147_0_0_1 -> 306 in the cache */
+   /* search3147_0_0 -> 307 in the cache */
+   /* search3147_0_1 -> 475 in the cache */
+   /* search3147_0_2 -> 306 in the cache */
+   /* search3147_0 -> 483 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_f2u32,
+      -1, 0,
+      { 483 },
+      -1,
+   } },
+
+   /* replace3147_0 -> 306 in the cache */
+   /* replace3147 -> 512 in the cache */
 
    /* ('fadd@16(contract)', ('fmul(is_only_used_by_fadd)', 'a', 'b'), 'c') => ('ffma', 'a', 'b', 'c') */
-   /* search3144_0_0 -> 286 in the cache */
-   /* search3144_0_1 -> 288 in the cache */
+   /* search3148_0_0 -> 286 in the cache */
+   /* search3148_0_1 -> 288 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_no_contract,
@@ -3640120,13 +3640398,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 493, 494 },
+      { 519, 520 },
       -1,
    } },
 
-   /* replace3144_0 -> 286 in the cache */
-   /* replace3144_1 -> 288 in the cache */
-   /* replace3144_2 -> 494 in the cache */
+   /* replace3148_0 -> 286 in the cache */
+   /* replace3148_1 -> 288 in the cache */
+   /* replace3148_2 -> 520 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3640135,14 +3640413,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 1,
-      { 286, 288, 494 },
+      { 286, 288, 520 },
       -1,
    } },
 
    /* ('fadd@16(contract)', ('fneg(is_only_used_by_fadd)', ('fmul(is_only_used_by_fadd)', 'a', 'b')), 'c') => ('ffma', ('fneg', 'a'), 'b', 'c') */
-   /* search3145_0_0_0 -> 286 in the cache */
-   /* search3145_0_0_1 -> 288 in the cache */
-   /* search3145_0_0 -> 493 in the cache */
+   /* search3149_0_0_0 -> 286 in the cache */
+   /* search3149_0_0_1 -> 288 in the cache */
+   /* search3149_0_0 -> 519 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_no_contract,
@@ -3640151,10 +3640429,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 1,
-      { 493 },
+      { 519 },
       3,
    } },
-   /* search3145_1 -> 494 in the cache */
+   /* search3149_1 -> 520 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_no_contract,
@@ -3640163,11 +3640441,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 497, 494 },
+      { 523, 520 },
       -1,
    } },
 
-   /* replace3145_0_0 -> 286 in the cache */
+   /* replace3149_0_0 -> 286 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3640179,8 +3640457,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 286 },
       -1,
    } },
-   /* replace3145_1 -> 288 in the cache */
-   /* replace3145_2 -> 494 in the cache */
+   /* replace3149_1 -> 288 in the cache */
+   /* replace3149_2 -> 520 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3640189,14 +3640467,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 1,
-      { 499, 288, 494 },
+      { 525, 288, 520 },
       -1,
    } },
 
    /* ('fadd@16(contract)', ('fabs(is_only_used_by_fadd)', ('fmul(is_only_used_by_fadd)', 'a', 'b')), 'c') => ('ffma', ('fabs', 'a'), ('fabs', 'b'), 'c') */
-   /* search3146_0_0_0 -> 286 in the cache */
-   /* search3146_0_0_1 -> 288 in the cache */
-   /* search3146_0_0 -> 493 in the cache */
+   /* search3150_0_0_0 -> 286 in the cache */
+   /* search3150_0_0_1 -> 288 in the cache */
+   /* search3150_0_0 -> 519 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_no_contract,
@@ -3640205,10 +3640483,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fabs,
       -1, 1,
-      { 493 },
+      { 519 },
       3,
    } },
-   /* search3146_1 -> 494 in the cache */
+   /* search3150_1 -> 520 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_no_contract,
@@ -3640217,11 +3640495,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 501, 494 },
+      { 527, 520 },
       -1,
    } },
 
-   /* replace3146_0_0 -> 286 in the cache */
+   /* replace3150_0_0 -> 286 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3640233,7 +3640511,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 286 },
       -1,
    } },
-   /* replace3146_1_0 -> 288 in the cache */
+   /* replace3150_1_0 -> 288 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3640245,7 +3640523,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 288 },
       -1,
    } },
-   /* replace3146_2 -> 494 in the cache */
+   /* replace3150_2 -> 520 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3640254,14 +3640532,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 1,
-      { 503, 504, 494 },
+      { 529, 530, 520 },
       -1,
    } },
 
    /* ('fadd@16(contract)', ('fneg(is_only_used_by_fadd)', ('fabs', ('fmul(is_only_used_by_fadd)', 'a', 'b'))), 'c') => ('ffma', ('fneg', ('fabs', 'a')), ('fabs', 'b'), 'c') */
-   /* search3147_0_0_0_0 -> 286 in the cache */
-   /* search3147_0_0_0_1 -> 288 in the cache */
-   /* search3147_0_0_0 -> 493 in the cache */
+   /* search3151_0_0_0_0 -> 286 in the cache */
+   /* search3151_0_0_0_1 -> 288 in the cache */
+   /* search3151_0_0_0 -> 519 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_no_contract,
@@ -3640270,7 +3640548,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fabs,
       -1, 1,
-      { 493 },
+      { 519 },
       -1,
    } },
    { .expression = {
@@ -3640281,10 +3640559,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 1,
-      { 506 },
+      { 532 },
       3,
    } },
-   /* search3147_1 -> 494 in the cache */
+   /* search3151_1 -> 520 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_no_contract,
@@ -3640293,12 +3640571,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 507, 494 },
+      { 533, 520 },
       -1,
    } },
 
-   /* replace3147_0_0_0 -> 286 in the cache */
-   /* replace3147_0_0 -> 503 in the cache */
+   /* replace3151_0_0_0 -> 286 in the cache */
+   /* replace3151_0_0 -> 529 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3640307,12 +3640585,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 0,
-      { 503 },
+      { 529 },
       -1,
    } },
-   /* replace3147_1_0 -> 288 in the cache */
-   /* replace3147_1 -> 504 in the cache */
-   /* replace3147_2 -> 494 in the cache */
+   /* replace3151_1_0 -> 288 in the cache */
+   /* replace3151_1 -> 530 in the cache */
+   /* replace3151_2 -> 520 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3640321,13 +3640599,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 1,
-      { 509, 504, 494 },
+      { 535, 530, 520 },
       -1,
    } },
 
    /* ('fadd@16', ('fmul(is_only_used_by_fadd)', 'a', 'b'), 'c') => ('fmad', 'a', 'b', 'c') */
-   /* search3148_0_0 -> 286 in the cache */
-   /* search3148_0_1 -> 288 in the cache */
+   /* search3152_0_0 -> 286 in the cache */
+   /* search3152_0_1 -> 288 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3640339,7 +3640617,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 286, 288 },
       3,
    } },
-   /* search3148_1 -> 494 in the cache */
+   /* search3152_1 -> 520 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3640348,13 +3640626,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 511, 494 },
+      { 537, 520 },
       -1,
    } },
 
-   /* replace3148_0 -> 286 in the cache */
-   /* replace3148_1 -> 288 in the cache */
-   /* replace3148_2 -> 494 in the cache */
+   /* replace3152_0 -> 286 in the cache */
+   /* replace3152_1 -> 288 in the cache */
+   /* replace3152_2 -> 520 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3640363,14 +3640641,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       0, 1,
-      { 286, 288, 494 },
+      { 286, 288, 520 },
       -1,
    } },
 
    /* ('fadd@16', ('fneg(is_only_used_by_fadd)', ('fmul(is_only_used_by_fadd)', 'a', 'b')), 'c') => ('fmad', ('fneg', 'a'), 'b', 'c') */
-   /* search3149_0_0_0 -> 286 in the cache */
-   /* search3149_0_0_1 -> 288 in the cache */
-   /* search3149_0_0 -> 511 in the cache */
+   /* search3153_0_0_0 -> 286 in the cache */
+   /* search3153_0_0_1 -> 288 in the cache */
+   /* search3153_0_0 -> 537 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3640379,10 +3640657,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 1,
-      { 511 },
+      { 537 },
       3,
    } },
-   /* search3149_1 -> 494 in the cache */
+   /* search3153_1 -> 520 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3640391,14 +3640669,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 514, 494 },
+      { 540, 520 },
       -1,
    } },
 
-   /* replace3149_0_0 -> 286 in the cache */
-   /* replace3149_0 -> 499 in the cache */
-   /* replace3149_1 -> 288 in the cache */
-   /* replace3149_2 -> 494 in the cache */
+   /* replace3153_0_0 -> 286 in the cache */
+   /* replace3153_0 -> 525 in the cache */
+   /* replace3153_1 -> 288 in the cache */
+   /* replace3153_2 -> 520 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3640407,14 +3640685,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       0, 1,
-      { 499, 288, 494 },
+      { 525, 288, 520 },
       -1,
    } },
 
    /* ('fadd@16', ('fabs(is_only_used_by_fadd)', ('fmul(is_only_used_by_fadd)', 'a', 'b')), 'c') => ('fmad', ('fabs', 'a'), ('fabs', 'b'), 'c') */
-   /* search3150_0_0_0 -> 286 in the cache */
-   /* search3150_0_0_1 -> 288 in the cache */
-   /* search3150_0_0 -> 511 in the cache */
+   /* search3154_0_0_0 -> 286 in the cache */
+   /* search3154_0_0_1 -> 288 in the cache */
+   /* search3154_0_0 -> 537 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3640423,10 +3640701,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fabs,
       -1, 1,
-      { 511 },
+      { 537 },
       3,
    } },
-   /* search3150_1 -> 494 in the cache */
+   /* search3154_1 -> 520 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3640435,15 +3640713,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 517, 494 },
+      { 543, 520 },
       -1,
    } },
 
-   /* replace3150_0_0 -> 286 in the cache */
-   /* replace3150_0 -> 503 in the cache */
-   /* replace3150_1_0 -> 288 in the cache */
-   /* replace3150_1 -> 504 in the cache */
-   /* replace3150_2 -> 494 in the cache */
+   /* replace3154_0_0 -> 286 in the cache */
+   /* replace3154_0 -> 529 in the cache */
+   /* replace3154_1_0 -> 288 in the cache */
+   /* replace3154_1 -> 530 in the cache */
+   /* replace3154_2 -> 520 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3640452,14 +3640730,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       0, 1,
-      { 503, 504, 494 },
+      { 529, 530, 520 },
       -1,
    } },
 
    /* ('fadd@16', ('fneg(is_only_used_by_fadd)', ('fabs', ('fmul(is_only_used_by_fadd)', 'a', 'b'))), 'c') => ('fmad', ('fneg', ('fabs', 'a')), ('fabs', 'b'), 'c') */
-   /* search3151_0_0_0_0 -> 286 in the cache */
-   /* search3151_0_0_0_1 -> 288 in the cache */
-   /* search3151_0_0_0 -> 511 in the cache */
+   /* search3155_0_0_0_0 -> 286 in the cache */
+   /* search3155_0_0_0_1 -> 288 in the cache */
+   /* search3155_0_0_0 -> 537 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3640468,7 +3640746,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fabs,
       -1, 1,
-      { 511 },
+      { 537 },
       -1,
    } },
    { .expression = {
@@ -3640479,10 +3640757,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 1,
-      { 520 },
+      { 546 },
       3,
    } },
-   /* search3151_1 -> 494 in the cache */
+   /* search3155_1 -> 520 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3640491,16 +3640769,16 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 521, 494 },
+      { 547, 520 },
       -1,
    } },
 
-   /* replace3151_0_0_0 -> 286 in the cache */
-   /* replace3151_0_0 -> 503 in the cache */
-   /* replace3151_0 -> 509 in the cache */
-   /* replace3151_1_0 -> 288 in the cache */
-   /* replace3151_1 -> 504 in the cache */
-   /* replace3151_2 -> 494 in the cache */
+   /* replace3155_0_0_0 -> 286 in the cache */
+   /* replace3155_0_0 -> 529 in the cache */
+   /* replace3155_0 -> 535 in the cache */
+   /* replace3155_1_0 -> 288 in the cache */
+   /* replace3155_1 -> 530 in the cache */
+   /* replace3155_2 -> 520 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3640509,13 +3640787,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       0, 1,
-      { 509, 504, 494 },
+      { 535, 530, 520 },
       -1,
    } },
 
    /* ('fadd@32(contract)', ('fmul(is_only_used_by_fadd)', 'a', 'b'), 'c') => ('ffma', 'a', 'b', 'c') */
-   /* search3152_0_0 -> 296 in the cache */
-   /* search3152_0_1 -> 298 in the cache */
+   /* search3156_0_0 -> 296 in the cache */
+   /* search3156_0_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_no_contract,
@@ -3640527,7 +3640805,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 296, 298 },
       3,
    } },
-   /* search3152_1 -> 345 in the cache */
+   /* search3156_1 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_no_contract,
@@ -3640536,13 +3640814,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 524, 345 },
+      { 550, 345 },
       -1,
    } },
 
-   /* replace3152_0 -> 296 in the cache */
-   /* replace3152_1 -> 298 in the cache */
-   /* replace3152_2 -> 345 in the cache */
+   /* replace3156_0 -> 296 in the cache */
+   /* replace3156_1 -> 298 in the cache */
+   /* replace3156_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3640556,9 +3640834,9 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('fadd@32(contract)', ('fneg(is_only_used_by_fadd)', ('fmul(is_only_used_by_fadd)', 'a', 'b')), 'c') => ('ffma', ('fneg', 'a'), 'b', 'c') */
-   /* search3153_0_0_0 -> 296 in the cache */
-   /* search3153_0_0_1 -> 298 in the cache */
-   /* search3153_0_0 -> 524 in the cache */
+   /* search3157_0_0_0 -> 296 in the cache */
+   /* search3157_0_0_1 -> 298 in the cache */
+   /* search3157_0_0 -> 550 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_no_contract,
@@ -3640567,10 +3640845,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 1,
-      { 524 },
+      { 550 },
       3,
    } },
-   /* search3153_1 -> 345 in the cache */
+   /* search3157_1 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_no_contract,
@@ -3640579,11 +3640857,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 527, 345 },
+      { 553, 345 },
       -1,
    } },
 
-   /* replace3153_0_0 -> 296 in the cache */
+   /* replace3157_0_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3640595,8 +3640873,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 296 },
       -1,
    } },
-   /* replace3153_1 -> 298 in the cache */
-   /* replace3153_2 -> 345 in the cache */
+   /* replace3157_1 -> 298 in the cache */
+   /* replace3157_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3640605,14 +3640883,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 1,
-      { 529, 298, 345 },
+      { 555, 298, 345 },
       -1,
    } },
 
    /* ('fadd@32(contract)', ('fabs(is_only_used_by_fadd)', ('fmul(is_only_used_by_fadd)', 'a', 'b')), 'c') => ('ffma', ('fabs', 'a'), ('fabs', 'b'), 'c') */
-   /* search3154_0_0_0 -> 296 in the cache */
-   /* search3154_0_0_1 -> 298 in the cache */
-   /* search3154_0_0 -> 524 in the cache */
+   /* search3158_0_0_0 -> 296 in the cache */
+   /* search3158_0_0_1 -> 298 in the cache */
+   /* search3158_0_0 -> 550 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_no_contract,
@@ -3640621,10 +3640899,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fabs,
       -1, 1,
-      { 524 },
+      { 550 },
       3,
    } },
-   /* search3154_1 -> 345 in the cache */
+   /* search3158_1 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_no_contract,
@@ -3640633,11 +3640911,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 531, 345 },
+      { 557, 345 },
       -1,
    } },
 
-   /* replace3154_0_0 -> 296 in the cache */
+   /* replace3158_0_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3640649,7 +3640927,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 296 },
       -1,
    } },
-   /* replace3154_1_0 -> 298 in the cache */
+   /* replace3158_1_0 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3640661,7 +3640939,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 298 },
       -1,
    } },
-   /* replace3154_2 -> 345 in the cache */
+   /* replace3158_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3640670,14 +3640948,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 1,
-      { 533, 534, 345 },
+      { 559, 560, 345 },
       -1,
    } },
 
    /* ('fadd@32(contract)', ('fneg(is_only_used_by_fadd)', ('fabs', ('fmul(is_only_used_by_fadd)', 'a', 'b'))), 'c') => ('ffma', ('fneg', ('fabs', 'a')), ('fabs', 'b'), 'c') */
-   /* search3155_0_0_0_0 -> 296 in the cache */
-   /* search3155_0_0_0_1 -> 298 in the cache */
-   /* search3155_0_0_0 -> 524 in the cache */
+   /* search3159_0_0_0_0 -> 296 in the cache */
+   /* search3159_0_0_0_1 -> 298 in the cache */
+   /* search3159_0_0_0 -> 550 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_no_contract,
@@ -3640686,7 +3640964,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fabs,
       -1, 1,
-      { 524 },
+      { 550 },
       -1,
    } },
    { .expression = {
@@ -3640697,10 +3640975,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 1,
-      { 536 },
+      { 562 },
       3,
    } },
-   /* search3155_1 -> 345 in the cache */
+   /* search3159_1 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_no_contract,
@@ -3640709,12 +3640987,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 537, 345 },
+      { 563, 345 },
       -1,
    } },
 
-   /* replace3155_0_0_0 -> 296 in the cache */
-   /* replace3155_0_0 -> 533 in the cache */
+   /* replace3159_0_0_0 -> 296 in the cache */
+   /* replace3159_0_0 -> 559 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3640723,12 +3641001,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 0,
-      { 533 },
+      { 559 },
       -1,
    } },
-   /* replace3155_1_0 -> 298 in the cache */
-   /* replace3155_1 -> 534 in the cache */
-   /* replace3155_2 -> 345 in the cache */
+   /* replace3159_1_0 -> 298 in the cache */
+   /* replace3159_1 -> 560 in the cache */
+   /* replace3159_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3640737,13 +3641015,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 1,
-      { 539, 534, 345 },
+      { 565, 560, 345 },
       -1,
    } },
 
    /* ('fadd@32', ('fmul(is_only_used_by_fadd)', 'a', 'b'), 'c') => ('fmad', 'a', 'b', 'c') */
-   /* search3156_0_0 -> 296 in the cache */
-   /* search3156_0_1 -> 298 in the cache */
+   /* search3160_0_0 -> 296 in the cache */
+   /* search3160_0_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3640755,7 +3641033,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 296, 298 },
       3,
    } },
-   /* search3156_1 -> 345 in the cache */
+   /* search3160_1 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3640764,13 +3641042,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 541, 345 },
+      { 567, 345 },
       -1,
    } },
 
-   /* replace3156_0 -> 296 in the cache */
-   /* replace3156_1 -> 298 in the cache */
-   /* replace3156_2 -> 345 in the cache */
+   /* replace3160_0 -> 296 in the cache */
+   /* replace3160_1 -> 298 in the cache */
+   /* replace3160_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3640784,385 +3641062,9 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('fadd@32', ('fneg(is_only_used_by_fadd)', ('fmul(is_only_used_by_fadd)', 'a', 'b')), 'c') => ('fmad', ('fneg', 'a'), 'b', 'c') */
-   /* search3157_0_0_0 -> 296 in the cache */
-   /* search3157_0_0_1 -> 298 in the cache */
-   /* search3157_0_0 -> 541 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fneg,
-      -1, 1,
-      { 541 },
-      3,
-   } },
-   /* search3157_1 -> 345 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fadd,
-      0, 2,
-      { 544, 345 },
-      -1,
-   } },
-
-   /* replace3157_0_0 -> 296 in the cache */
-   /* replace3157_0 -> 529 in the cache */
-   /* replace3157_1 -> 298 in the cache */
-   /* replace3157_2 -> 345 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fmad,
-      0, 1,
-      { 529, 298, 345 },
-      -1,
-   } },
-
-   /* ('fadd@32', ('fabs(is_only_used_by_fadd)', ('fmul(is_only_used_by_fadd)', 'a', 'b')), 'c') => ('fmad', ('fabs', 'a'), ('fabs', 'b'), 'c') */
-   /* search3158_0_0_0 -> 296 in the cache */
-   /* search3158_0_0_1 -> 298 in the cache */
-   /* search3158_0_0 -> 541 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fabs,
-      -1, 1,
-      { 541 },
-      3,
-   } },
-   /* search3158_1 -> 345 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fadd,
-      0, 2,
-      { 547, 345 },
-      -1,
-   } },
-
-   /* replace3158_0_0 -> 296 in the cache */
-   /* replace3158_0 -> 533 in the cache */
-   /* replace3158_1_0 -> 298 in the cache */
-   /* replace3158_1 -> 534 in the cache */
-   /* replace3158_2 -> 345 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fmad,
-      0, 1,
-      { 533, 534, 345 },
-      -1,
-   } },
-
-   /* ('fadd@32', ('fneg(is_only_used_by_fadd)', ('fabs', ('fmul(is_only_used_by_fadd)', 'a', 'b'))), 'c') => ('fmad', ('fneg', ('fabs', 'a')), ('fabs', 'b'), 'c') */
-   /* search3159_0_0_0_0 -> 296 in the cache */
-   /* search3159_0_0_0_1 -> 298 in the cache */
-   /* search3159_0_0_0 -> 541 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fabs,
-      -1, 1,
-      { 541 },
-      -1,
-   } },
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fneg,
-      -1, 1,
-      { 550 },
-      3,
-   } },
-   /* search3159_1 -> 345 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fadd,
-      0, 2,
-      { 551, 345 },
-      -1,
-   } },
-
-   /* replace3159_0_0_0 -> 296 in the cache */
-   /* replace3159_0_0 -> 533 in the cache */
-   /* replace3159_0 -> 539 in the cache */
-   /* replace3159_1_0 -> 298 in the cache */
-   /* replace3159_1 -> 534 in the cache */
-   /* replace3159_2 -> 345 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fmad,
-      0, 1,
-      { 539, 534, 345 },
-      -1,
-   } },
-
-   /* ('fadd@32(contract)', ('fmulz(is_only_used_by_fadd)', 'a', 'b'), 'c') => ('ffmaz', 'a', 'b', 'c') */
-   /* search3160_0_0 -> 296 in the cache */
-   /* search3160_0_1 -> 298 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_no_contract,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fmulz,
-      1, 1,
-      { 296, 298 },
-      3,
-   } },
-   /* search3160_1 -> 345 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_no_contract,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fadd,
-      0, 2,
-      { 554, 345 },
-      -1,
-   } },
-
-   /* replace3160_0 -> 296 in the cache */
-   /* replace3160_1 -> 298 in the cache */
-   /* replace3160_2 -> 345 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_ffmaz,
-      0, 1,
-      { 296, 298, 345 },
-      -1,
-   } },
-
-   /* ('fadd@32(contract)', ('fneg(is_only_used_by_fadd)', ('fmulz(is_only_used_by_fadd)', 'a', 'b')), 'c') => ('ffmaz', ('fneg', 'a'), 'b', 'c') */
    /* search3161_0_0_0 -> 296 in the cache */
    /* search3161_0_0_1 -> 298 in the cache */
-   /* search3161_0_0 -> 554 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_no_contract,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fneg,
-      -1, 1,
-      { 554 },
-      3,
-   } },
-   /* search3161_1 -> 345 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_no_contract,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fadd,
-      0, 2,
-      { 557, 345 },
-      -1,
-   } },
-
-   /* replace3161_0_0 -> 296 in the cache */
-   /* replace3161_0 -> 529 in the cache */
-   /* replace3161_1 -> 298 in the cache */
-   /* replace3161_2 -> 345 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_ffmaz,
-      0, 1,
-      { 529, 298, 345 },
-      -1,
-   } },
-
-   /* ('fadd@32(contract)', ('fabs(is_only_used_by_fadd)', ('fmulz(is_only_used_by_fadd)', 'a', 'b')), 'c') => ('ffmaz', ('fabs', 'a'), ('fabs', 'b'), 'c') */
-   /* search3162_0_0_0 -> 296 in the cache */
-   /* search3162_0_0_1 -> 298 in the cache */
-   /* search3162_0_0 -> 554 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_no_contract,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fabs,
-      -1, 1,
-      { 554 },
-      3,
-   } },
-   /* search3162_1 -> 345 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_no_contract,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fadd,
-      0, 2,
-      { 560, 345 },
-      -1,
-   } },
-
-   /* replace3162_0_0 -> 296 in the cache */
-   /* replace3162_0 -> 533 in the cache */
-   /* replace3162_1_0 -> 298 in the cache */
-   /* replace3162_1 -> 534 in the cache */
-   /* replace3162_2 -> 345 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_ffmaz,
-      0, 1,
-      { 533, 534, 345 },
-      -1,
-   } },
-
-   /* ('fadd@32(contract)', ('fneg(is_only_used_by_fadd)', ('fabs', ('fmulz(is_only_used_by_fadd)', 'a', 'b'))), 'c') => ('ffmaz', ('fneg', ('fabs', 'a')), ('fabs', 'b'), 'c') */
-   /* search3163_0_0_0_0 -> 296 in the cache */
-   /* search3163_0_0_0_1 -> 298 in the cache */
-   /* search3163_0_0_0 -> 554 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_no_contract,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fabs,
-      -1, 1,
-      { 554 },
-      -1,
-   } },
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_no_contract,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fneg,
-      -1, 1,
-      { 563 },
-      3,
-   } },
-   /* search3163_1 -> 345 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_no_contract,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fadd,
-      0, 2,
-      { 564, 345 },
-      -1,
-   } },
-
-   /* replace3163_0_0_0 -> 296 in the cache */
-   /* replace3163_0_0 -> 533 in the cache */
-   /* replace3163_0 -> 539 in the cache */
-   /* replace3163_1_0 -> 298 in the cache */
-   /* replace3163_1 -> 534 in the cache */
-   /* replace3163_2 -> 345 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_ffmaz,
-      0, 1,
-      { 539, 534, 345 },
-      -1,
-   } },
-
-   /* ('fadd@32', ('fmulz(is_only_used_by_fadd)', 'a', 'b'), 'c') => ('fmadz', 'a', 'b', 'c') */
-   /* search3164_0_0 -> 296 in the cache */
-   /* search3164_0_1 -> 298 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fmulz,
-      1, 1,
-      { 296, 298 },
-      3,
-   } },
-   /* search3164_1 -> 345 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fadd,
-      0, 2,
-      { 567, 345 },
-      -1,
-   } },
-
-   /* replace3164_0 -> 296 in the cache */
-   /* replace3164_1 -> 298 in the cache */
-   /* replace3164_2 -> 345 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fmadz,
-      0, 1,
-      { 296, 298, 345 },
-      -1,
-   } },
-
-   /* ('fadd@32', ('fneg(is_only_used_by_fadd)', ('fmulz(is_only_used_by_fadd)', 'a', 'b')), 'c') => ('fmadz', ('fneg', 'a'), 'b', 'c') */
-   /* search3165_0_0_0 -> 296 in the cache */
-   /* search3165_0_0_1 -> 298 in the cache */
-   /* search3165_0_0 -> 567 in the cache */
+   /* search3161_0_0 -> 567 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3641174,7 +3641076,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 567 },
       3,
    } },
-   /* search3165_1 -> 345 in the cache */
+   /* search3161_1 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3641187,26 +3641089,26 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
    } },
 
-   /* replace3165_0_0 -> 296 in the cache */
-   /* replace3165_0 -> 529 in the cache */
-   /* replace3165_1 -> 298 in the cache */
-   /* replace3165_2 -> 345 in the cache */
+   /* replace3161_0_0 -> 296 in the cache */
+   /* replace3161_0 -> 555 in the cache */
+   /* replace3161_1 -> 298 in the cache */
+   /* replace3161_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
       nir_fp_fast_math,
       false,
       -1,
-      nir_op_fmadz,
+      nir_op_fmad,
       0, 1,
-      { 529, 298, 345 },
+      { 555, 298, 345 },
       -1,
    } },
 
-   /* ('fadd@32', ('fabs(is_only_used_by_fadd)', ('fmulz(is_only_used_by_fadd)', 'a', 'b')), 'c') => ('fmadz', ('fabs', 'a'), ('fabs', 'b'), 'c') */
-   /* search3166_0_0_0 -> 296 in the cache */
-   /* search3166_0_0_1 -> 298 in the cache */
-   /* search3166_0_0 -> 567 in the cache */
+   /* ('fadd@32', ('fabs(is_only_used_by_fadd)', ('fmul(is_only_used_by_fadd)', 'a', 'b')), 'c') => ('fmad', ('fabs', 'a'), ('fabs', 'b'), 'c') */
+   /* search3162_0_0_0 -> 296 in the cache */
+   /* search3162_0_0_1 -> 298 in the cache */
+   /* search3162_0_0 -> 567 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3641218,7 +3641120,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 567 },
       3,
    } },
-   /* search3166_1 -> 345 in the cache */
+   /* search3162_1 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3641231,27 +3641133,27 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
    } },
 
-   /* replace3166_0_0 -> 296 in the cache */
-   /* replace3166_0 -> 533 in the cache */
-   /* replace3166_1_0 -> 298 in the cache */
-   /* replace3166_1 -> 534 in the cache */
-   /* replace3166_2 -> 345 in the cache */
+   /* replace3162_0_0 -> 296 in the cache */
+   /* replace3162_0 -> 559 in the cache */
+   /* replace3162_1_0 -> 298 in the cache */
+   /* replace3162_1 -> 560 in the cache */
+   /* replace3162_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
       nir_fp_fast_math,
       false,
       -1,
-      nir_op_fmadz,
+      nir_op_fmad,
       0, 1,
-      { 533, 534, 345 },
+      { 559, 560, 345 },
       -1,
    } },
 
-   /* ('fadd@32', ('fneg(is_only_used_by_fadd)', ('fabs', ('fmulz(is_only_used_by_fadd)', 'a', 'b'))), 'c') => ('fmadz', ('fneg', ('fabs', 'a')), ('fabs', 'b'), 'c') */
-   /* search3167_0_0_0_0 -> 296 in the cache */
-   /* search3167_0_0_0_1 -> 298 in the cache */
-   /* search3167_0_0_0 -> 567 in the cache */
+   /* ('fadd@32', ('fneg(is_only_used_by_fadd)', ('fabs', ('fmul(is_only_used_by_fadd)', 'a', 'b'))), 'c') => ('fmad', ('fneg', ('fabs', 'a')), ('fabs', 'b'), 'c') */
+   /* search3163_0_0_0_0 -> 296 in the cache */
+   /* search3163_0_0_0_1 -> 298 in the cache */
+   /* search3163_0_0_0 -> 567 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3641274,7 +3641176,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 576 },
       3,
    } },
-   /* search3167_1 -> 345 in the cache */
+   /* search3163_1 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3641287,12 +3641189,242 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
    } },
 
+   /* replace3163_0_0_0 -> 296 in the cache */
+   /* replace3163_0_0 -> 559 in the cache */
+   /* replace3163_0 -> 565 in the cache */
+   /* replace3163_1_0 -> 298 in the cache */
+   /* replace3163_1 -> 560 in the cache */
+   /* replace3163_2 -> 345 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fmad,
+      0, 1,
+      { 565, 560, 345 },
+      -1,
+   } },
+
+   /* ('fadd@32(contract)', ('fmulz(is_only_used_by_fadd)', 'a', 'b'), 'c') => ('ffmaz', 'a', 'b', 'c') */
+   /* search3164_0_0 -> 296 in the cache */
+   /* search3164_0_1 -> 298 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_no_contract,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fmulz,
+      1, 1,
+      { 296, 298 },
+      3,
+   } },
+   /* search3164_1 -> 345 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_no_contract,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fadd,
+      0, 2,
+      { 580, 345 },
+      -1,
+   } },
+
+   /* replace3164_0 -> 296 in the cache */
+   /* replace3164_1 -> 298 in the cache */
+   /* replace3164_2 -> 345 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_ffmaz,
+      0, 1,
+      { 296, 298, 345 },
+      -1,
+   } },
+
+   /* ('fadd@32(contract)', ('fneg(is_only_used_by_fadd)', ('fmulz(is_only_used_by_fadd)', 'a', 'b')), 'c') => ('ffmaz', ('fneg', 'a'), 'b', 'c') */
+   /* search3165_0_0_0 -> 296 in the cache */
+   /* search3165_0_0_1 -> 298 in the cache */
+   /* search3165_0_0 -> 580 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_no_contract,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fneg,
+      -1, 1,
+      { 580 },
+      3,
+   } },
+   /* search3165_1 -> 345 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_no_contract,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fadd,
+      0, 2,
+      { 583, 345 },
+      -1,
+   } },
+
+   /* replace3165_0_0 -> 296 in the cache */
+   /* replace3165_0 -> 555 in the cache */
+   /* replace3165_1 -> 298 in the cache */
+   /* replace3165_2 -> 345 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_ffmaz,
+      0, 1,
+      { 555, 298, 345 },
+      -1,
+   } },
+
+   /* ('fadd@32(contract)', ('fabs(is_only_used_by_fadd)', ('fmulz(is_only_used_by_fadd)', 'a', 'b')), 'c') => ('ffmaz', ('fabs', 'a'), ('fabs', 'b'), 'c') */
+   /* search3166_0_0_0 -> 296 in the cache */
+   /* search3166_0_0_1 -> 298 in the cache */
+   /* search3166_0_0 -> 580 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_no_contract,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fabs,
+      -1, 1,
+      { 580 },
+      3,
+   } },
+   /* search3166_1 -> 345 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_no_contract,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fadd,
+      0, 2,
+      { 586, 345 },
+      -1,
+   } },
+
+   /* replace3166_0_0 -> 296 in the cache */
+   /* replace3166_0 -> 559 in the cache */
+   /* replace3166_1_0 -> 298 in the cache */
+   /* replace3166_1 -> 560 in the cache */
+   /* replace3166_2 -> 345 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_ffmaz,
+      0, 1,
+      { 559, 560, 345 },
+      -1,
+   } },
+
+   /* ('fadd@32(contract)', ('fneg(is_only_used_by_fadd)', ('fabs', ('fmulz(is_only_used_by_fadd)', 'a', 'b'))), 'c') => ('ffmaz', ('fneg', ('fabs', 'a')), ('fabs', 'b'), 'c') */
+   /* search3167_0_0_0_0 -> 296 in the cache */
+   /* search3167_0_0_0_1 -> 298 in the cache */
+   /* search3167_0_0_0 -> 580 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_no_contract,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fabs,
+      -1, 1,
+      { 580 },
+      -1,
+   } },
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_no_contract,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fneg,
+      -1, 1,
+      { 589 },
+      3,
+   } },
+   /* search3167_1 -> 345 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_no_contract,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fadd,
+      0, 2,
+      { 590, 345 },
+      -1,
+   } },
+
    /* replace3167_0_0_0 -> 296 in the cache */
-   /* replace3167_0_0 -> 533 in the cache */
-   /* replace3167_0 -> 539 in the cache */
+   /* replace3167_0_0 -> 559 in the cache */
+   /* replace3167_0 -> 565 in the cache */
    /* replace3167_1_0 -> 298 in the cache */
-   /* replace3167_1 -> 534 in the cache */
+   /* replace3167_1 -> 560 in the cache */
    /* replace3167_2 -> 345 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_ffmaz,
+      0, 1,
+      { 565, 560, 345 },
+      -1,
+   } },
+
+   /* ('fadd@32', ('fmulz(is_only_used_by_fadd)', 'a', 'b'), 'c') => ('fmadz', 'a', 'b', 'c') */
+   /* search3168_0_0 -> 296 in the cache */
+   /* search3168_0_1 -> 298 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fmulz,
+      1, 1,
+      { 296, 298 },
+      3,
+   } },
+   /* search3168_1 -> 345 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fadd,
+      0, 2,
+      { 593, 345 },
+      -1,
+   } },
+
+   /* replace3168_0 -> 296 in the cache */
+   /* replace3168_1 -> 298 in the cache */
+   /* replace3168_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3641301,13 +3641433,159 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmadz,
       0, 1,
-      { 539, 534, 345 },
+      { 296, 298, 345 },
+      -1,
+   } },
+
+   /* ('fadd@32', ('fneg(is_only_used_by_fadd)', ('fmulz(is_only_used_by_fadd)', 'a', 'b')), 'c') => ('fmadz', ('fneg', 'a'), 'b', 'c') */
+   /* search3169_0_0_0 -> 296 in the cache */
+   /* search3169_0_0_1 -> 298 in the cache */
+   /* search3169_0_0 -> 593 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fneg,
+      -1, 1,
+      { 593 },
+      3,
+   } },
+   /* search3169_1 -> 345 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fadd,
+      0, 2,
+      { 596, 345 },
+      -1,
+   } },
+
+   /* replace3169_0_0 -> 296 in the cache */
+   /* replace3169_0 -> 555 in the cache */
+   /* replace3169_1 -> 298 in the cache */
+   /* replace3169_2 -> 345 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fmadz,
+      0, 1,
+      { 555, 298, 345 },
+      -1,
+   } },
+
+   /* ('fadd@32', ('fabs(is_only_used_by_fadd)', ('fmulz(is_only_used_by_fadd)', 'a', 'b')), 'c') => ('fmadz', ('fabs', 'a'), ('fabs', 'b'), 'c') */
+   /* search3170_0_0_0 -> 296 in the cache */
+   /* search3170_0_0_1 -> 298 in the cache */
+   /* search3170_0_0 -> 593 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fabs,
+      -1, 1,
+      { 593 },
+      3,
+   } },
+   /* search3170_1 -> 345 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fadd,
+      0, 2,
+      { 599, 345 },
+      -1,
+   } },
+
+   /* replace3170_0_0 -> 296 in the cache */
+   /* replace3170_0 -> 559 in the cache */
+   /* replace3170_1_0 -> 298 in the cache */
+   /* replace3170_1 -> 560 in the cache */
+   /* replace3170_2 -> 345 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fmadz,
+      0, 1,
+      { 559, 560, 345 },
+      -1,
+   } },
+
+   /* ('fadd@32', ('fneg(is_only_used_by_fadd)', ('fabs', ('fmulz(is_only_used_by_fadd)', 'a', 'b'))), 'c') => ('fmadz', ('fneg', ('fabs', 'a')), ('fabs', 'b'), 'c') */
+   /* search3171_0_0_0_0 -> 296 in the cache */
+   /* search3171_0_0_0_1 -> 298 in the cache */
+   /* search3171_0_0_0 -> 593 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fabs,
+      -1, 1,
+      { 593 },
+      -1,
+   } },
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fneg,
+      -1, 1,
+      { 602 },
+      3,
+   } },
+   /* search3171_1 -> 345 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fadd,
+      0, 2,
+      { 603, 345 },
+      -1,
+   } },
+
+   /* replace3171_0_0_0 -> 296 in the cache */
+   /* replace3171_0_0 -> 559 in the cache */
+   /* replace3171_0 -> 565 in the cache */
+   /* replace3171_1_0 -> 298 in the cache */
+   /* replace3171_1 -> 560 in the cache */
+   /* replace3171_2 -> 345 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fmadz,
+      0, 1,
+      { 565, 560, 345 },
       -1,
    } },
 
    /* ('fadd@64(contract)', ('fmul(is_only_used_by_fadd)', 'a', 'b'), 'c') => ('ffma', 'a', 'b', 'c') */
-   /* search3168_0_0 -> 306 in the cache */
-   /* search3168_0_1 -> 308 in the cache */
+   /* search3172_0_0 -> 306 in the cache */
+   /* search3172_0_1 -> 308 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_no_contract,
@@ -3641334,13 +3641612,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 580, 581 },
+      { 606, 607 },
       -1,
    } },
 
-   /* replace3168_0 -> 306 in the cache */
-   /* replace3168_1 -> 308 in the cache */
-   /* replace3168_2 -> 581 in the cache */
+   /* replace3172_0 -> 306 in the cache */
+   /* replace3172_1 -> 308 in the cache */
+   /* replace3172_2 -> 607 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3641349,14 +3641627,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 1,
-      { 306, 308, 581 },
+      { 306, 308, 607 },
       -1,
    } },
 
    /* ('fadd@64(contract)', ('fneg(is_only_used_by_fadd)', ('fmul(is_only_used_by_fadd)', 'a', 'b')), 'c') => ('ffma', ('fneg', 'a'), 'b', 'c') */
-   /* search3169_0_0_0 -> 306 in the cache */
-   /* search3169_0_0_1 -> 308 in the cache */
-   /* search3169_0_0 -> 580 in the cache */
+   /* search3173_0_0_0 -> 306 in the cache */
+   /* search3173_0_0_1 -> 308 in the cache */
+   /* search3173_0_0 -> 606 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_no_contract,
@@ -3641365,10 +3641643,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 1,
-      { 580 },
+      { 606 },
       3,
    } },
-   /* search3169_1 -> 581 in the cache */
+   /* search3173_1 -> 607 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_no_contract,
@@ -3641377,11 +3641655,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 584, 581 },
+      { 610, 607 },
       -1,
    } },
 
-   /* replace3169_0_0 -> 306 in the cache */
+   /* replace3173_0_0 -> 306 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3641393,8 +3641671,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 306 },
       -1,
    } },
-   /* replace3169_1 -> 308 in the cache */
-   /* replace3169_2 -> 581 in the cache */
+   /* replace3173_1 -> 308 in the cache */
+   /* replace3173_2 -> 607 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3641403,14 +3641681,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 1,
-      { 586, 308, 581 },
+      { 612, 308, 607 },
       -1,
    } },
 
    /* ('fadd@64(contract)', ('fabs(is_only_used_by_fadd)', ('fmul(is_only_used_by_fadd)', 'a', 'b')), 'c') => ('ffma', ('fabs', 'a'), ('fabs', 'b'), 'c') */
-   /* search3170_0_0_0 -> 306 in the cache */
-   /* search3170_0_0_1 -> 308 in the cache */
-   /* search3170_0_0 -> 580 in the cache */
+   /* search3174_0_0_0 -> 306 in the cache */
+   /* search3174_0_0_1 -> 308 in the cache */
+   /* search3174_0_0 -> 606 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_no_contract,
@@ -3641419,10 +3641697,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fabs,
       -1, 1,
-      { 580 },
+      { 606 },
       3,
    } },
-   /* search3170_1 -> 581 in the cache */
+   /* search3174_1 -> 607 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_no_contract,
@@ -3641431,11 +3641709,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 588, 581 },
+      { 614, 607 },
       -1,
    } },
 
-   /* replace3170_0_0 -> 306 in the cache */
+   /* replace3174_0_0 -> 306 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3641447,7 +3641725,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 306 },
       -1,
    } },
-   /* replace3170_1_0 -> 308 in the cache */
+   /* replace3174_1_0 -> 308 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3641459,7 +3641737,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 308 },
       -1,
    } },
-   /* replace3170_2 -> 581 in the cache */
+   /* replace3174_2 -> 607 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3641468,14 +3641746,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 1,
-      { 590, 591, 581 },
+      { 616, 617, 607 },
       -1,
    } },
 
    /* ('fadd@64(contract)', ('fneg(is_only_used_by_fadd)', ('fabs', ('fmul(is_only_used_by_fadd)', 'a', 'b'))), 'c') => ('ffma', ('fneg', ('fabs', 'a')), ('fabs', 'b'), 'c') */
-   /* search3171_0_0_0_0 -> 306 in the cache */
-   /* search3171_0_0_0_1 -> 308 in the cache */
-   /* search3171_0_0_0 -> 580 in the cache */
+   /* search3175_0_0_0_0 -> 306 in the cache */
+   /* search3175_0_0_0_1 -> 308 in the cache */
+   /* search3175_0_0_0 -> 606 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_no_contract,
@@ -3641484,7 +3641762,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fabs,
       -1, 1,
-      { 580 },
+      { 606 },
       -1,
    } },
    { .expression = {
@@ -3641495,10 +3641773,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 1,
-      { 593 },
+      { 619 },
       3,
    } },
-   /* search3171_1 -> 581 in the cache */
+   /* search3175_1 -> 607 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_no_contract,
@@ -3641507,12 +3641785,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 594, 581 },
+      { 620, 607 },
       -1,
    } },
 
-   /* replace3171_0_0_0 -> 306 in the cache */
-   /* replace3171_0_0 -> 590 in the cache */
+   /* replace3175_0_0_0 -> 306 in the cache */
+   /* replace3175_0_0 -> 616 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3641521,12 +3641799,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 0,
-      { 590 },
+      { 616 },
       -1,
    } },
-   /* replace3171_1_0 -> 308 in the cache */
-   /* replace3171_1 -> 591 in the cache */
-   /* replace3171_2 -> 581 in the cache */
+   /* replace3175_1_0 -> 308 in the cache */
+   /* replace3175_1 -> 617 in the cache */
+   /* replace3175_2 -> 607 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3641535,13 +3641813,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 1,
-      { 596, 591, 581 },
+      { 622, 617, 607 },
       -1,
    } },
 
    /* ('fadd@64', ('fmul(is_only_used_by_fadd)', 'a', 'b'), 'c') => ('fmad', 'a', 'b', 'c') */
-   /* search3172_0_0 -> 306 in the cache */
-   /* search3172_0_1 -> 308 in the cache */
+   /* search3176_0_0 -> 306 in the cache */
+   /* search3176_0_1 -> 308 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3641553,7 +3641831,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 306, 308 },
       3,
    } },
-   /* search3172_1 -> 581 in the cache */
+   /* search3176_1 -> 607 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3641562,13 +3641840,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 598, 581 },
+      { 624, 607 },
       -1,
    } },
 
-   /* replace3172_0 -> 306 in the cache */
-   /* replace3172_1 -> 308 in the cache */
-   /* replace3172_2 -> 581 in the cache */
+   /* replace3176_0 -> 306 in the cache */
+   /* replace3176_1 -> 308 in the cache */
+   /* replace3176_2 -> 607 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3641577,14 +3641855,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       0, 1,
-      { 306, 308, 581 },
+      { 306, 308, 607 },
       -1,
    } },
 
    /* ('fadd@64', ('fneg(is_only_used_by_fadd)', ('fmul(is_only_used_by_fadd)', 'a', 'b')), 'c') => ('fmad', ('fneg', 'a'), 'b', 'c') */
-   /* search3173_0_0_0 -> 306 in the cache */
-   /* search3173_0_0_1 -> 308 in the cache */
-   /* search3173_0_0 -> 598 in the cache */
+   /* search3177_0_0_0 -> 306 in the cache */
+   /* search3177_0_0_1 -> 308 in the cache */
+   /* search3177_0_0 -> 624 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3641593,10 +3641871,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 1,
-      { 598 },
+      { 624 },
       3,
    } },
-   /* search3173_1 -> 581 in the cache */
+   /* search3177_1 -> 607 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3641605,14 +3641883,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 601, 581 },
+      { 627, 607 },
       -1,
    } },
 
-   /* replace3173_0_0 -> 306 in the cache */
-   /* replace3173_0 -> 586 in the cache */
-   /* replace3173_1 -> 308 in the cache */
-   /* replace3173_2 -> 581 in the cache */
+   /* replace3177_0_0 -> 306 in the cache */
+   /* replace3177_0 -> 612 in the cache */
+   /* replace3177_1 -> 308 in the cache */
+   /* replace3177_2 -> 607 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3641621,14 +3641899,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       0, 1,
-      { 586, 308, 581 },
+      { 612, 308, 607 },
       -1,
    } },
 
    /* ('fadd@64', ('fabs(is_only_used_by_fadd)', ('fmul(is_only_used_by_fadd)', 'a', 'b')), 'c') => ('fmad', ('fabs', 'a'), ('fabs', 'b'), 'c') */
-   /* search3174_0_0_0 -> 306 in the cache */
-   /* search3174_0_0_1 -> 308 in the cache */
-   /* search3174_0_0 -> 598 in the cache */
+   /* search3178_0_0_0 -> 306 in the cache */
+   /* search3178_0_0_1 -> 308 in the cache */
+   /* search3178_0_0 -> 624 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3641637,10 +3641915,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fabs,
       -1, 1,
-      { 598 },
+      { 624 },
       3,
    } },
-   /* search3174_1 -> 581 in the cache */
+   /* search3178_1 -> 607 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3641649,15 +3641927,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 604, 581 },
+      { 630, 607 },
       -1,
    } },
 
-   /* replace3174_0_0 -> 306 in the cache */
-   /* replace3174_0 -> 590 in the cache */
-   /* replace3174_1_0 -> 308 in the cache */
-   /* replace3174_1 -> 591 in the cache */
-   /* replace3174_2 -> 581 in the cache */
+   /* replace3178_0_0 -> 306 in the cache */
+   /* replace3178_0 -> 616 in the cache */
+   /* replace3178_1_0 -> 308 in the cache */
+   /* replace3178_1 -> 617 in the cache */
+   /* replace3178_2 -> 607 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3641666,14 +3641944,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       0, 1,
-      { 590, 591, 581 },
+      { 616, 617, 607 },
       -1,
    } },
 
    /* ('fadd@64', ('fneg(is_only_used_by_fadd)', ('fabs', ('fmul(is_only_used_by_fadd)', 'a', 'b'))), 'c') => ('fmad', ('fneg', ('fabs', 'a')), ('fabs', 'b'), 'c') */
-   /* search3175_0_0_0_0 -> 306 in the cache */
-   /* search3175_0_0_0_1 -> 308 in the cache */
-   /* search3175_0_0_0 -> 598 in the cache */
+   /* search3179_0_0_0_0 -> 306 in the cache */
+   /* search3179_0_0_0_1 -> 308 in the cache */
+   /* search3179_0_0_0 -> 624 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3641682,7 +3641960,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fabs,
       -1, 1,
-      { 598 },
+      { 624 },
       -1,
    } },
    { .expression = {
@@ -3641693,10 +3641971,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 1,
-      { 607 },
+      { 633 },
       3,
    } },
-   /* search3175_1 -> 581 in the cache */
+   /* search3179_1 -> 607 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3641705,16 +3641983,16 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 608, 581 },
+      { 634, 607 },
       -1,
    } },
 
-   /* replace3175_0_0_0 -> 306 in the cache */
-   /* replace3175_0_0 -> 590 in the cache */
-   /* replace3175_0 -> 596 in the cache */
-   /* replace3175_1_0 -> 308 in the cache */
-   /* replace3175_1 -> 591 in the cache */
-   /* replace3175_2 -> 581 in the cache */
+   /* replace3179_0_0_0 -> 306 in the cache */
+   /* replace3179_0_0 -> 616 in the cache */
+   /* replace3179_0 -> 622 in the cache */
+   /* replace3179_1_0 -> 308 in the cache */
+   /* replace3179_1 -> 617 in the cache */
+   /* replace3179_2 -> 607 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3641723,13 +3642001,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       0, 1,
-      { 596, 591, 581 },
+      { 622, 617, 607 },
       -1,
    } },
 
    /* ('fadd@16', 'a', ('fneg', 'b')) => ('fsub', 'a', 'b') */
-   /* search3176_0 -> 286 in the cache */
-   /* search3176_1_0 -> 288 in the cache */
+   /* search3180_0 -> 286 in the cache */
+   /* search3180_1_0 -> 288 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3641749,12 +3642027,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 1,
-      { 286, 611 },
+      { 286, 637 },
       -1,
    } },
 
-   /* replace3176_0 -> 286 in the cache */
-   /* replace3176_1 -> 288 in the cache */
+   /* replace3180_0 -> 286 in the cache */
+   /* replace3180_1 -> 288 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3641768,8 +3642046,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('fadd@32', 'a', ('fneg', 'b')) => ('fsub', 'a', 'b') */
-   /* search3177_0 -> 296 in the cache */
-   /* search3177_1_0 -> 298 in the cache */
+   /* search3181_0 -> 296 in the cache */
+   /* search3181_1_0 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3641789,12 +3642067,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 1,
-      { 296, 614 },
+      { 296, 640 },
       -1,
    } },
 
-   /* replace3177_0 -> 296 in the cache */
-   /* replace3177_1 -> 298 in the cache */
+   /* replace3181_0 -> 296 in the cache */
+   /* replace3181_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3641808,8 +3642086,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('fadd@64', 'a', ('fneg', 'b')) => ('fsub', 'a', 'b') */
-   /* search3178_0 -> 306 in the cache */
-   /* search3178_1_0 -> 308 in the cache */
+   /* search3182_0 -> 306 in the cache */
+   /* search3182_1_0 -> 308 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3641829,12 +3642107,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 1,
-      { 306, 617 },
+      { 306, 643 },
       -1,
    } },
 
-   /* replace3178_0 -> 306 in the cache */
-   /* replace3178_1 -> 308 in the cache */
+   /* replace3182_0 -> 306 in the cache */
+   /* replace3182_1 -> 308 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3641848,10 +3642126,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('fneg', 'a') => ('fmul', 'a', -1.0) */
-   /* search3179_0 -> 98 in the cache */
-   /* search3179 -> 342 in the cache */
+   /* search3183_0 -> 98 in the cache */
+   /* search3183 -> 342 in the cache */
 
-   /* replace3179_0 -> 98 in the cache */
+   /* replace3183_0 -> 98 in the cache */
    { .constant = {
       { nir_search_value_constant, -1 },
       nir_type_float, { 0xbff0000000000000ull /* -1.0 */ },
@@ -3641864,13 +3642142,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmul,
       0, 1,
-      { 98, 620 },
+      { 98, 646 },
       -1,
    } },
 
    /* ('iadd', 'a', ('ineg', 'b')) => ('isub', 'a', 'b') */
-   /* search3180_0 -> 0 in the cache */
-   /* search3180_1_0 -> 1 in the cache */
+   /* search3184_0 -> 0 in the cache */
+   /* search3184_1_0 -> 1 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3641890,12 +3642168,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 1,
-      { 0, 622 },
+      { 0, 648 },
       -1,
    } },
 
-   /* replace3180_0 -> 0 in the cache */
-   /* replace3180_1 -> 1 in the cache */
+   /* replace3184_0 -> 0 in the cache */
+   /* replace3184_1 -> 1 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3641909,7 +3642187,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('ineg', 'a') => ('isub', 0, 'a') */
-   /* search3181_0 -> 98 in the cache */
+   /* search3185_0 -> 98 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3641926,7 +3642204,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { nir_search_value_constant, -1 },
       nir_type_int, { 0x0ull /* 0 */ },
    } },
-   /* replace3181_1 -> 98 in the cache */
+   /* replace3185_1 -> 98 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3641935,12 +3642213,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_isub,
       -1, 0,
-      { 626, 98 },
+      { 652, 98 },
       -1,
    } },
 
    /* ('iabs', 'a') => ('imax', 'a', ('ineg', 'a')) */
-   /* search3182_0 -> 98 in the cache */
+   /* search3186_0 -> 98 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3641953,9 +3642231,9 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
    } },
 
-   /* replace3182_0 -> 98 in the cache */
-   /* replace3182_1_0 -> 98 in the cache */
-   /* replace3182_1 -> 625 in the cache */
+   /* replace3186_0 -> 98 in the cache */
+   /* replace3186_1_0 -> 98 in the cache */
+   /* replace3186_1 -> 651 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3641964,7 +3642242,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_imax,
       0, 1,
-      { 98, 625 },
+      { 98, 651 },
       -1,
    } },
 
@@ -3641991,7 +3642269,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       1, 1,
-      { 630, 631 },
+      { 656, 657 },
       0,
    } },
    { .variable = {
@@ -3642009,7 +3642287,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 2,
-      { 632, 633 },
+      { 658, 659 },
       -1,
    } },
 
@@ -3642042,7 +3642320,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd3,
       0, 1,
-      { 635, 636, 637 },
+      { 661, 662, 663 },
       -1,
    } },
 
@@ -3642054,7 +3642332,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       3,
       {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
    } },
-   /* search3184_0_1 -> 631 in the cache */
+   /* search3188_0_1 -> 657 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3642063,10 +3642341,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       1, 1,
-      { 639, 631 },
+      { 665, 657 },
       0,
    } },
-   /* search3184_1 -> 633 in the cache */
+   /* search3188_1 -> 659 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3642075,19 +3642353,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 2,
-      { 640, 633 },
+      { 666, 659 },
       -1,
    } },
 
-   /* replace3184_0 -> 635 in the cache */
-   /* replace3184_1 -> 636 in the cache */
-   /* replace3184_2 -> 637 in the cache */
-   /* replace3184 -> 638 in the cache */
+   /* replace3188_0 -> 661 in the cache */
+   /* replace3188_1 -> 662 in the cache */
+   /* replace3188_2 -> 663 in the cache */
+   /* replace3188 -> 664 in the cache */
 
    /* ('iadd@8', ('iadd(is_used_once)', 'a(is_not_const)', 'b(is_not_const)'), '#c(is_16_bits)') => ('iadd3', 'a', 'b', 'c') */
-   /* search3185_0_0 -> 630 in the cache */
-   /* search3185_0_1 -> 631 in the cache */
-   /* search3185_0 -> 632 in the cache */
+   /* search3189_0_0 -> 656 in the cache */
+   /* search3189_0_1 -> 657 in the cache */
+   /* search3189_0 -> 658 in the cache */
    { .variable = {
       { nir_search_value_variable, 8 },
       2, /* c */
@@ -3642103,19 +3642381,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 2,
-      { 632, 642 },
+      { 658, 668 },
       -1,
    } },
 
-   /* replace3185_0 -> 635 in the cache */
-   /* replace3185_1 -> 636 in the cache */
-   /* replace3185_2 -> 637 in the cache */
-   /* replace3185 -> 638 in the cache */
+   /* replace3189_0 -> 661 in the cache */
+   /* replace3189_1 -> 662 in the cache */
+   /* replace3189_2 -> 663 in the cache */
+   /* replace3189 -> 664 in the cache */
 
    /* ('iadd@8', ('ineg', ('iadd(is_used_once)', 'a(is_not_const)', 'b(is_not_const)')), 'c(is_not_const)') => ('iadd3', ('ineg', 'a'), ('ineg', 'b'), 'c') */
-   /* search3186_0_0_0 -> 630 in the cache */
-   /* search3186_0_0_1 -> 631 in the cache */
-   /* search3186_0_0 -> 632 in the cache */
+   /* search3190_0_0_0 -> 656 in the cache */
+   /* search3190_0_0_1 -> 657 in the cache */
+   /* search3190_0_0 -> 658 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3642124,10 +3642402,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ineg,
       -1, 1,
-      { 632 },
+      { 658 },
       -1,
    } },
-   /* search3186_1 -> 633 in the cache */
+   /* search3190_1 -> 659 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3642136,11 +3642414,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 2,
-      { 644, 633 },
+      { 670, 659 },
       -1,
    } },
 
-   /* replace3186_0_0 -> 635 in the cache */
+   /* replace3190_0_0 -> 661 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3642149,10 +3642427,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ineg,
       -1, 0,
-      { 635 },
+      { 661 },
       -1,
    } },
-   /* replace3186_1_0 -> 636 in the cache */
+   /* replace3190_1_0 -> 662 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3642161,10 +3642439,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ineg,
       -1, 0,
-      { 636 },
+      { 662 },
       -1,
    } },
-   /* replace3186_2 -> 637 in the cache */
+   /* replace3190_2 -> 663 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3642173,14 +3642451,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd3,
       0, 1,
-      { 646, 647, 637 },
+      { 672, 673, 663 },
       -1,
    } },
 
    /* ('iadd@8', ('ineg', ('iadd(is_used_once)', '#a(is_16_bits)', 'b(is_not_const)')), 'c(is_not_const)') => ('iadd3', ('ineg', 'a'), ('ineg', 'b'), 'c') */
-   /* search3187_0_0_0 -> 639 in the cache */
-   /* search3187_0_0_1 -> 631 in the cache */
-   /* search3187_0_0 -> 640 in the cache */
+   /* search3191_0_0_0 -> 665 in the cache */
+   /* search3191_0_0_1 -> 657 in the cache */
+   /* search3191_0_0 -> 666 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3642189,10 +3642467,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ineg,
       -1, 1,
-      { 640 },
+      { 666 },
       -1,
    } },
-   /* search3187_1 -> 633 in the cache */
+   /* search3191_1 -> 659 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3642201,23 +3642479,23 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 2,
-      { 649, 633 },
+      { 675, 659 },
       -1,
    } },
 
-   /* replace3187_0_0 -> 635 in the cache */
-   /* replace3187_0 -> 646 in the cache */
-   /* replace3187_1_0 -> 636 in the cache */
-   /* replace3187_1 -> 647 in the cache */
-   /* replace3187_2 -> 637 in the cache */
-   /* replace3187 -> 648 in the cache */
+   /* replace3191_0_0 -> 661 in the cache */
+   /* replace3191_0 -> 672 in the cache */
+   /* replace3191_1_0 -> 662 in the cache */
+   /* replace3191_1 -> 673 in the cache */
+   /* replace3191_2 -> 663 in the cache */
+   /* replace3191 -> 674 in the cache */
 
    /* ('iadd@8', ('ineg', ('iadd(is_used_once)', 'a(is_not_const)', 'b(is_not_const)')), '#c(is_16_bits)') => ('iadd3', ('ineg', 'a'), ('ineg', 'b'), 'c') */
-   /* search3188_0_0_0 -> 630 in the cache */
-   /* search3188_0_0_1 -> 631 in the cache */
-   /* search3188_0_0 -> 632 in the cache */
-   /* search3188_0 -> 644 in the cache */
-   /* search3188_1 -> 642 in the cache */
+   /* search3192_0_0_0 -> 656 in the cache */
+   /* search3192_0_0_1 -> 657 in the cache */
+   /* search3192_0_0 -> 658 in the cache */
+   /* search3192_0 -> 670 in the cache */
+   /* search3192_1 -> 668 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3642226,23 +3642504,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 2,
-      { 644, 642 },
+      { 670, 668 },
       -1,
    } },
 
-   /* replace3188_0_0 -> 635 in the cache */
-   /* replace3188_0 -> 646 in the cache */
-   /* replace3188_1_0 -> 636 in the cache */
-   /* replace3188_1 -> 647 in the cache */
-   /* replace3188_2 -> 637 in the cache */
-   /* replace3188 -> 648 in the cache */
+   /* replace3192_0_0 -> 661 in the cache */
+   /* replace3192_0 -> 672 in the cache */
+   /* replace3192_1_0 -> 662 in the cache */
+   /* replace3192_1 -> 673 in the cache */
+   /* replace3192_2 -> 663 in the cache */
+   /* replace3192 -> 674 in the cache */
 
    /* ('iadd@8', ('ishl', 'a', 1), 'b(is_not_const)') => ('iadd3', 'a', 'a', 'b') */
-   /* search3189_0_0 -> 635 in the cache */
-   { .constant = {
-      { nir_search_value_constant, 32 },
-      nir_type_int, { 0x1ull /* 1 */ },
-   } },
+   /* search3193_0_0 -> 661 in the cache */
+   /* search3193_0_1 -> 380 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3642251,10 +3642526,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ishl,
       -1, 0,
-      { 635, 652 },
+      { 661, 380 },
       -1,
    } },
-   /* search3189_1 -> 631 in the cache */
+   /* search3193_1 -> 657 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3642263,13 +3642538,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 1,
-      { 653, 631 },
+      { 678, 657 },
       -1,
    } },
 
-   /* replace3189_0 -> 635 in the cache */
-   /* replace3189_1 -> 635 in the cache */
-   /* replace3189_2 -> 636 in the cache */
+   /* replace3193_0 -> 661 in the cache */
+   /* replace3193_1 -> 661 in the cache */
+   /* replace3193_2 -> 662 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3642278,14 +3642553,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd3,
       -1, 0,
-      { 635, 635, 636 },
+      { 661, 661, 662 },
       -1,
    } },
 
    /* ('iadd@8', ('ishl', 'a', 1), '#b(is_16_bits)') => ('iadd3', 'a', 'a', 'b') */
-   /* search3190_0_0 -> 635 in the cache */
-   /* search3190_0_1 -> 652 in the cache */
-   /* search3190_0 -> 653 in the cache */
+   /* search3194_0_0 -> 661 in the cache */
+   /* search3194_0_1 -> 380 in the cache */
+   /* search3194_0 -> 678 in the cache */
    { .variable = {
       { nir_search_value_variable, 8 },
       1, /* b */
@@ -3642301,19 +3642576,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 1,
-      { 653, 656 },
+      { 678, 681 },
       -1,
    } },
 
-   /* replace3190_0 -> 635 in the cache */
-   /* replace3190_1 -> 635 in the cache */
-   /* replace3190_2 -> 636 in the cache */
-   /* replace3190 -> 655 in the cache */
+   /* replace3194_0 -> 661 in the cache */
+   /* replace3194_1 -> 661 in the cache */
+   /* replace3194_2 -> 662 in the cache */
+   /* replace3194 -> 680 in the cache */
 
    /* ('iadd@8', ('ineg', ('ishl', 'a', 1)), 'b(is_not_const)') => ('iadd3', ('ineg', 'a'), ('ineg', 'a'), 'b') */
-   /* search3191_0_0_0 -> 635 in the cache */
-   /* search3191_0_0_1 -> 652 in the cache */
-   /* search3191_0_0 -> 653 in the cache */
+   /* search3195_0_0_0 -> 661 in the cache */
+   /* search3195_0_0_1 -> 380 in the cache */
+   /* search3195_0_0 -> 678 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3642322,10 +3642597,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ineg,
       -1, 0,
-      { 653 },
+      { 678 },
       -1,
    } },
-   /* search3191_1 -> 631 in the cache */
+   /* search3195_1 -> 657 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3642334,15 +3642609,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 1,
-      { 658, 631 },
+      { 683, 657 },
       -1,
    } },
 
-   /* replace3191_0_0 -> 635 in the cache */
-   /* replace3191_0 -> 646 in the cache */
-   /* replace3191_1_0 -> 635 in the cache */
-   /* replace3191_1 -> 646 in the cache */
-   /* replace3191_2 -> 636 in the cache */
+   /* replace3195_0_0 -> 661 in the cache */
+   /* replace3195_0 -> 672 in the cache */
+   /* replace3195_1_0 -> 661 in the cache */
+   /* replace3195_1 -> 672 in the cache */
+   /* replace3195_2 -> 662 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3642351,16 +3642626,16 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd3,
       -1, 0,
-      { 646, 646, 636 },
+      { 672, 672, 662 },
       -1,
    } },
 
    /* ('iadd@8', ('ineg', ('ishl', 'a', 1)), '#b(is_16_bits)') => ('iadd3', ('ineg', 'a'), ('ineg', 'a'), 'b') */
-   /* search3192_0_0_0 -> 635 in the cache */
-   /* search3192_0_0_1 -> 652 in the cache */
-   /* search3192_0_0 -> 653 in the cache */
-   /* search3192_0 -> 658 in the cache */
-   /* search3192_1 -> 656 in the cache */
+   /* search3196_0_0_0 -> 661 in the cache */
+   /* search3196_0_0_1 -> 380 in the cache */
+   /* search3196_0_0 -> 678 in the cache */
+   /* search3196_0 -> 683 in the cache */
+   /* search3196_1 -> 681 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3642369,19 +3642644,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 1,
-      { 658, 656 },
+      { 683, 681 },
       -1,
    } },
 
-   /* replace3192_0_0 -> 635 in the cache */
-   /* replace3192_0 -> 646 in the cache */
-   /* replace3192_1_0 -> 635 in the cache */
-   /* replace3192_1 -> 646 in the cache */
-   /* replace3192_2 -> 636 in the cache */
-   /* replace3192 -> 660 in the cache */
+   /* replace3196_0_0 -> 661 in the cache */
+   /* replace3196_0 -> 672 in the cache */
+   /* replace3196_1_0 -> 661 in the cache */
+   /* replace3196_1 -> 672 in the cache */
+   /* replace3196_2 -> 662 in the cache */
+   /* replace3196 -> 685 in the cache */
 
    /* ('ishl@8', ('iadd', 'a', '#b(is_2x_16_bits)'), 1) => ('iadd3', 'a', 'a', ('iadd', 'b', 'b')) */
-   /* search3193_0_0 -> 635 in the cache */
+   /* search3197_0_0 -> 661 in the cache */
    { .variable = {
       { nir_search_value_variable, 8 },
       1, /* b */
@@ -3642397,10 +3642672,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 1,
-      { 635, 662 },
+      { 661, 687 },
       -1,
    } },
-   /* search3193_1 -> 652 in the cache */
+   /* search3197_1 -> 380 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3642409,14 +3642684,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ishl,
       -1, 1,
-      { 663, 652 },
+      { 688, 380 },
       -1,
    } },
 
-   /* replace3193_0 -> 635 in the cache */
-   /* replace3193_1 -> 635 in the cache */
-   /* replace3193_2_0 -> 636 in the cache */
-   /* replace3193_2_1 -> 636 in the cache */
+   /* replace3197_0 -> 661 in the cache */
+   /* replace3197_1 -> 661 in the cache */
+   /* replace3197_2_0 -> 662 in the cache */
+   /* replace3197_2_1 -> 662 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3642425,7 +3642700,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       -1, 0,
-      { 636, 636 },
+      { 662, 662 },
       -1,
    } },
    { .expression = {
@@ -3642436,12 +3642711,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd3,
       -1, 0,
-      { 635, 635, 665 },
+      { 661, 661, 690 },
       -1,
    } },
 
    /* ('ishl@8', ('ineg', ('iadd', 'a', '#b(is_neg2x_16_bits)')), 1) => ('iadd3', ('ineg', 'a'), ('ineg', 'a'), ('ineg', ('iadd', 'b', 'b'))) */
-   /* search3194_0_0_0 -> 635 in the cache */
+   /* search3198_0_0_0 -> 661 in the cache */
    { .variable = {
       { nir_search_value_variable, 8 },
       1, /* b */
@@ -3642457,7 +3642732,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 1,
-      { 635, 667 },
+      { 661, 692 },
       -1,
    } },
    { .expression = {
@@ -3642468,10 +3642743,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ineg,
       -1, 1,
-      { 668 },
+      { 693 },
       -1,
    } },
-   /* search3194_1 -> 652 in the cache */
+   /* search3198_1 -> 380 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3642480,17 +3642755,17 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ishl,
       -1, 1,
-      { 669, 652 },
+      { 694, 380 },
       -1,
    } },
 
-   /* replace3194_0_0 -> 635 in the cache */
-   /* replace3194_0 -> 646 in the cache */
-   /* replace3194_1_0 -> 635 in the cache */
-   /* replace3194_1 -> 646 in the cache */
-   /* replace3194_2_0_0 -> 636 in the cache */
-   /* replace3194_2_0_1 -> 636 in the cache */
-   /* replace3194_2_0 -> 665 in the cache */
+   /* replace3198_0_0 -> 661 in the cache */
+   /* replace3198_0 -> 672 in the cache */
+   /* replace3198_1_0 -> 661 in the cache */
+   /* replace3198_1 -> 672 in the cache */
+   /* replace3198_2_0_0 -> 662 in the cache */
+   /* replace3198_2_0_1 -> 662 in the cache */
+   /* replace3198_2_0 -> 690 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3642499,7 +3642774,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ineg,
       -1, 0,
-      { 665 },
+      { 690 },
       -1,
    } },
    { .expression = {
@@ -3642510,7 +3642785,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd3,
       -1, 0,
-      { 646, 646, 671 },
+      { 672, 672, 696 },
       -1,
    } },
 
@@ -3642537,7 +3642812,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       1, 1,
-      { 673, 674 },
+      { 698, 699 },
       0,
    } },
    { .variable = {
@@ -3642555,13 +3642830,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 2,
-      { 675, 676 },
+      { 700, 701 },
       -1,
    } },
 
-   /* replace3195_0 -> 286 in the cache */
-   /* replace3195_1 -> 288 in the cache */
-   /* replace3195_2 -> 494 in the cache */
+   /* replace3199_0 -> 286 in the cache */
+   /* replace3199_1 -> 288 in the cache */
+   /* replace3199_2 -> 520 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3642570,7 +3642845,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd3,
       0, 1,
-      { 286, 288, 494 },
+      { 286, 288, 520 },
       -1,
    } },
 
@@ -3642582,7 +3642857,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       3,
       {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
    } },
-   /* search3196_0_1 -> 674 in the cache */
+   /* search3200_0_1 -> 699 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3642591,10 +3642866,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       1, 1,
-      { 679, 674 },
+      { 704, 699 },
       0,
    } },
-   /* search3196_1 -> 676 in the cache */
+   /* search3200_1 -> 701 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3642603,19 +3642878,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 2,
-      { 680, 676 },
+      { 705, 701 },
       -1,
    } },
 
-   /* replace3196_0 -> 286 in the cache */
-   /* replace3196_1 -> 288 in the cache */
-   /* replace3196_2 -> 494 in the cache */
-   /* replace3196 -> 678 in the cache */
+   /* replace3200_0 -> 286 in the cache */
+   /* replace3200_1 -> 288 in the cache */
+   /* replace3200_2 -> 520 in the cache */
+   /* replace3200 -> 703 in the cache */
 
    /* ('iadd@16', ('iadd(is_used_once)', 'a(is_not_const)', 'b(is_not_const)'), '#c(is_16_bits)') => ('iadd3', 'a', 'b', 'c') */
-   /* search3197_0_0 -> 673 in the cache */
-   /* search3197_0_1 -> 674 in the cache */
-   /* search3197_0 -> 675 in the cache */
+   /* search3201_0_0 -> 698 in the cache */
+   /* search3201_0_1 -> 699 in the cache */
+   /* search3201_0 -> 700 in the cache */
    { .variable = {
       { nir_search_value_variable, 16 },
       2, /* c */
@@ -3642631,19 +3642906,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 2,
-      { 675, 682 },
+      { 700, 707 },
       -1,
    } },
 
-   /* replace3197_0 -> 286 in the cache */
-   /* replace3197_1 -> 288 in the cache */
-   /* replace3197_2 -> 494 in the cache */
-   /* replace3197 -> 678 in the cache */
+   /* replace3201_0 -> 286 in the cache */
+   /* replace3201_1 -> 288 in the cache */
+   /* replace3201_2 -> 520 in the cache */
+   /* replace3201 -> 703 in the cache */
 
    /* ('iadd@16', ('ineg', ('iadd(is_used_once)', 'a(is_not_const)', 'b(is_not_const)')), 'c(is_not_const)') => ('iadd3', ('ineg', 'a'), ('ineg', 'b'), 'c') */
-   /* search3198_0_0_0 -> 673 in the cache */
-   /* search3198_0_0_1 -> 674 in the cache */
-   /* search3198_0_0 -> 675 in the cache */
+   /* search3202_0_0_0 -> 698 in the cache */
+   /* search3202_0_0_1 -> 699 in the cache */
+   /* search3202_0_0 -> 700 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3642652,10 +3642927,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ineg,
       -1, 1,
-      { 675 },
+      { 700 },
       -1,
    } },
-   /* search3198_1 -> 676 in the cache */
+   /* search3202_1 -> 701 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3642664,11 +3642939,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 2,
-      { 684, 676 },
+      { 709, 701 },
       -1,
    } },
 
-   /* replace3198_0_0 -> 286 in the cache */
+   /* replace3202_0_0 -> 286 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3642680,7 +3642955,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 286 },
       -1,
    } },
-   /* replace3198_1_0 -> 288 in the cache */
+   /* replace3202_1_0 -> 288 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3642692,7 +3642967,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 288 },
       -1,
    } },
-   /* replace3198_2 -> 494 in the cache */
+   /* replace3202_2 -> 520 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3642701,14 +3642976,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd3,
       0, 1,
-      { 686, 687, 494 },
+      { 711, 712, 520 },
       -1,
    } },
 
    /* ('iadd@16', ('ineg', ('iadd(is_used_once)', '#a(is_16_bits)', 'b(is_not_const)')), 'c(is_not_const)') => ('iadd3', ('ineg', 'a'), ('ineg', 'b'), 'c') */
-   /* search3199_0_0_0 -> 679 in the cache */
-   /* search3199_0_0_1 -> 674 in the cache */
-   /* search3199_0_0 -> 680 in the cache */
+   /* search3203_0_0_0 -> 704 in the cache */
+   /* search3203_0_0_1 -> 699 in the cache */
+   /* search3203_0_0 -> 705 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3642717,10 +3642992,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ineg,
       -1, 1,
-      { 680 },
+      { 705 },
       -1,
    } },
-   /* search3199_1 -> 676 in the cache */
+   /* search3203_1 -> 701 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3642729,23 +3643004,23 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 2,
-      { 689, 676 },
+      { 714, 701 },
       -1,
    } },
 
-   /* replace3199_0_0 -> 286 in the cache */
-   /* replace3199_0 -> 686 in the cache */
-   /* replace3199_1_0 -> 288 in the cache */
-   /* replace3199_1 -> 687 in the cache */
-   /* replace3199_2 -> 494 in the cache */
-   /* replace3199 -> 688 in the cache */
+   /* replace3203_0_0 -> 286 in the cache */
+   /* replace3203_0 -> 711 in the cache */
+   /* replace3203_1_0 -> 288 in the cache */
+   /* replace3203_1 -> 712 in the cache */
+   /* replace3203_2 -> 520 in the cache */
+   /* replace3203 -> 713 in the cache */
 
    /* ('iadd@16', ('ineg', ('iadd(is_used_once)', 'a(is_not_const)', 'b(is_not_const)')), '#c(is_16_bits)') => ('iadd3', ('ineg', 'a'), ('ineg', 'b'), 'c') */
-   /* search3200_0_0_0 -> 673 in the cache */
-   /* search3200_0_0_1 -> 674 in the cache */
-   /* search3200_0_0 -> 675 in the cache */
-   /* search3200_0 -> 684 in the cache */
-   /* search3200_1 -> 682 in the cache */
+   /* search3204_0_0_0 -> 698 in the cache */
+   /* search3204_0_0_1 -> 699 in the cache */
+   /* search3204_0_0 -> 700 in the cache */
+   /* search3204_0 -> 709 in the cache */
+   /* search3204_1 -> 707 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3642754,20 +3643029,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 2,
-      { 684, 682 },
+      { 709, 707 },
       -1,
    } },
 
-   /* replace3200_0_0 -> 286 in the cache */
-   /* replace3200_0 -> 686 in the cache */
-   /* replace3200_1_0 -> 288 in the cache */
-   /* replace3200_1 -> 687 in the cache */
-   /* replace3200_2 -> 494 in the cache */
-   /* replace3200 -> 688 in the cache */
+   /* replace3204_0_0 -> 286 in the cache */
+   /* replace3204_0 -> 711 in the cache */
+   /* replace3204_1_0 -> 288 in the cache */
+   /* replace3204_1 -> 712 in the cache */
+   /* replace3204_2 -> 520 in the cache */
+   /* replace3204 -> 713 in the cache */
 
    /* ('iadd@16', ('ishl', 'a', 1), 'b(is_not_const)') => ('iadd3', 'a', 'a', 'b') */
-   /* search3201_0_0 -> 286 in the cache */
-   /* search3201_0_1 -> 652 in the cache */
+   /* search3205_0_0 -> 286 in the cache */
+   /* search3205_0_1 -> 380 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3642776,10 +3643051,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ishl,
       -1, 0,
-      { 286, 652 },
+      { 286, 380 },
       -1,
    } },
-   /* search3201_1 -> 674 in the cache */
+   /* search3205_1 -> 699 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3642788,13 +3643063,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 1,
-      { 692, 674 },
+      { 717, 699 },
       -1,
    } },
 
-   /* replace3201_0 -> 286 in the cache */
-   /* replace3201_1 -> 286 in the cache */
-   /* replace3201_2 -> 288 in the cache */
+   /* replace3205_0 -> 286 in the cache */
+   /* replace3205_1 -> 286 in the cache */
+   /* replace3205_2 -> 288 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3642808,9 +3643083,9 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('iadd@16', ('ishl', 'a', 1), '#b(is_16_bits)') => ('iadd3', 'a', 'a', 'b') */
-   /* search3202_0_0 -> 286 in the cache */
-   /* search3202_0_1 -> 652 in the cache */
-   /* search3202_0 -> 692 in the cache */
+   /* search3206_0_0 -> 286 in the cache */
+   /* search3206_0_1 -> 380 in the cache */
+   /* search3206_0 -> 717 in the cache */
    { .variable = {
       { nir_search_value_variable, 16 },
       1, /* b */
@@ -3642826,19 +3643101,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 1,
-      { 692, 695 },
+      { 717, 720 },
       -1,
    } },
 
-   /* replace3202_0 -> 286 in the cache */
-   /* replace3202_1 -> 286 in the cache */
-   /* replace3202_2 -> 288 in the cache */
-   /* replace3202 -> 694 in the cache */
+   /* replace3206_0 -> 286 in the cache */
+   /* replace3206_1 -> 286 in the cache */
+   /* replace3206_2 -> 288 in the cache */
+   /* replace3206 -> 719 in the cache */
 
    /* ('iadd@16', ('ineg', ('ishl', 'a', 1)), 'b(is_not_const)') => ('iadd3', ('ineg', 'a'), ('ineg', 'a'), 'b') */
-   /* search3203_0_0_0 -> 286 in the cache */
-   /* search3203_0_0_1 -> 652 in the cache */
-   /* search3203_0_0 -> 692 in the cache */
+   /* search3207_0_0_0 -> 286 in the cache */
+   /* search3207_0_0_1 -> 380 in the cache */
+   /* search3207_0_0 -> 717 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3642847,10 +3643122,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ineg,
       -1, 0,
-      { 692 },
+      { 717 },
       -1,
    } },
-   /* search3203_1 -> 674 in the cache */
+   /* search3207_1 -> 699 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3642859,15 +3643134,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 1,
-      { 697, 674 },
+      { 722, 699 },
       -1,
    } },
 
-   /* replace3203_0_0 -> 286 in the cache */
-   /* replace3203_0 -> 686 in the cache */
-   /* replace3203_1_0 -> 286 in the cache */
-   /* replace3203_1 -> 686 in the cache */
-   /* replace3203_2 -> 288 in the cache */
+   /* replace3207_0_0 -> 286 in the cache */
+   /* replace3207_0 -> 711 in the cache */
+   /* replace3207_1_0 -> 286 in the cache */
+   /* replace3207_1 -> 711 in the cache */
+   /* replace3207_2 -> 288 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3642876,16 +3643151,16 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd3,
       -1, 0,
-      { 686, 686, 288 },
+      { 711, 711, 288 },
       -1,
    } },
 
    /* ('iadd@16', ('ineg', ('ishl', 'a', 1)), '#b(is_16_bits)') => ('iadd3', ('ineg', 'a'), ('ineg', 'a'), 'b') */
-   /* search3204_0_0_0 -> 286 in the cache */
-   /* search3204_0_0_1 -> 652 in the cache */
-   /* search3204_0_0 -> 692 in the cache */
-   /* search3204_0 -> 697 in the cache */
-   /* search3204_1 -> 695 in the cache */
+   /* search3208_0_0_0 -> 286 in the cache */
+   /* search3208_0_0_1 -> 380 in the cache */
+   /* search3208_0_0 -> 717 in the cache */
+   /* search3208_0 -> 722 in the cache */
+   /* search3208_1 -> 720 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3642894,19 +3643169,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 1,
-      { 697, 695 },
+      { 722, 720 },
       -1,
    } },
 
-   /* replace3204_0_0 -> 286 in the cache */
-   /* replace3204_0 -> 686 in the cache */
-   /* replace3204_1_0 -> 286 in the cache */
-   /* replace3204_1 -> 686 in the cache */
-   /* replace3204_2 -> 288 in the cache */
-   /* replace3204 -> 699 in the cache */
+   /* replace3208_0_0 -> 286 in the cache */
+   /* replace3208_0 -> 711 in the cache */
+   /* replace3208_1_0 -> 286 in the cache */
+   /* replace3208_1 -> 711 in the cache */
+   /* replace3208_2 -> 288 in the cache */
+   /* replace3208 -> 724 in the cache */
 
    /* ('ishl@16', ('iadd', 'a', '#b(is_2x_16_bits)'), 1) => ('iadd3', 'a', 'a', ('iadd', 'b', 'b')) */
-   /* search3205_0_0 -> 286 in the cache */
+   /* search3209_0_0 -> 286 in the cache */
    { .variable = {
       { nir_search_value_variable, 16 },
       1, /* b */
@@ -3642922,10 +3643197,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 1,
-      { 286, 701 },
+      { 286, 726 },
       -1,
    } },
-   /* search3205_1 -> 652 in the cache */
+   /* search3209_1 -> 380 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3642934,14 +3643209,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ishl,
       -1, 1,
-      { 702, 652 },
+      { 727, 380 },
       -1,
    } },
 
-   /* replace3205_0 -> 286 in the cache */
-   /* replace3205_1 -> 286 in the cache */
-   /* replace3205_2_0 -> 288 in the cache */
-   /* replace3205_2_1 -> 288 in the cache */
+   /* replace3209_0 -> 286 in the cache */
+   /* replace3209_1 -> 286 in the cache */
+   /* replace3209_2_0 -> 288 in the cache */
+   /* replace3209_2_1 -> 288 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3642961,12 +3643236,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd3,
       -1, 0,
-      { 286, 286, 704 },
+      { 286, 286, 729 },
       -1,
    } },
 
    /* ('ishl@16', ('ineg', ('iadd', 'a', '#b(is_neg2x_16_bits)')), 1) => ('iadd3', ('ineg', 'a'), ('ineg', 'a'), ('ineg', ('iadd', 'b', 'b'))) */
-   /* search3206_0_0_0 -> 286 in the cache */
+   /* search3210_0_0_0 -> 286 in the cache */
    { .variable = {
       { nir_search_value_variable, 16 },
       1, /* b */
@@ -3642982,7 +3643257,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 1,
-      { 286, 706 },
+      { 286, 731 },
       -1,
    } },
    { .expression = {
@@ -3642993,10 +3643268,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ineg,
       -1, 1,
-      { 707 },
+      { 732 },
       -1,
    } },
-   /* search3206_1 -> 652 in the cache */
+   /* search3210_1 -> 380 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3643005,17 +3643280,17 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ishl,
       -1, 1,
-      { 708, 652 },
+      { 733, 380 },
       -1,
    } },
 
-   /* replace3206_0_0 -> 286 in the cache */
-   /* replace3206_0 -> 686 in the cache */
-   /* replace3206_1_0 -> 286 in the cache */
-   /* replace3206_1 -> 686 in the cache */
-   /* replace3206_2_0_0 -> 288 in the cache */
-   /* replace3206_2_0_1 -> 288 in the cache */
-   /* replace3206_2_0 -> 704 in the cache */
+   /* replace3210_0_0 -> 286 in the cache */
+   /* replace3210_0 -> 711 in the cache */
+   /* replace3210_1_0 -> 286 in the cache */
+   /* replace3210_1 -> 711 in the cache */
+   /* replace3210_2_0_0 -> 288 in the cache */
+   /* replace3210_2_0_1 -> 288 in the cache */
+   /* replace3210_2_0 -> 729 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3643024,7 +3643299,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ineg,
       -1, 0,
-      { 704 },
+      { 729 },
       -1,
    } },
    { .expression = {
@@ -3643035,7 +3643310,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd3,
       -1, 0,
-      { 686, 686, 710 },
+      { 711, 711, 735 },
       -1,
    } },
 
@@ -3643062,7 +3643337,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       1, 1,
-      { 712, 713 },
+      { 737, 738 },
       0,
    } },
    { .variable = {
@@ -3643080,13 +3643355,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 2,
-      { 714, 715 },
+      { 739, 740 },
       -1,
    } },
 
-   /* replace3207_0 -> 296 in the cache */
-   /* replace3207_1 -> 298 in the cache */
-   /* replace3207_2 -> 345 in the cache */
+   /* replace3211_0 -> 296 in the cache */
+   /* replace3211_1 -> 298 in the cache */
+   /* replace3211_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3643107,7 +3643382,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       3,
       {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
    } },
-   /* search3208_0_1 -> 713 in the cache */
+   /* search3212_0_1 -> 738 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3643116,10 +3643391,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       1, 1,
-      { 718, 713 },
+      { 743, 738 },
       0,
    } },
-   /* search3208_1 -> 715 in the cache */
+   /* search3212_1 -> 740 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3643128,19 +3643403,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 2,
-      { 719, 715 },
+      { 744, 740 },
       -1,
    } },
 
-   /* replace3208_0 -> 296 in the cache */
-   /* replace3208_1 -> 298 in the cache */
-   /* replace3208_2 -> 345 in the cache */
-   /* replace3208 -> 717 in the cache */
+   /* replace3212_0 -> 296 in the cache */
+   /* replace3212_1 -> 298 in the cache */
+   /* replace3212_2 -> 345 in the cache */
+   /* replace3212 -> 742 in the cache */
 
    /* ('iadd@32', ('iadd(is_used_once)', 'a(is_not_const)', 'b(is_not_const)'), '#c(is_16_bits)') => ('iadd3', 'a', 'b', 'c') */
-   /* search3209_0_0 -> 712 in the cache */
-   /* search3209_0_1 -> 713 in the cache */
-   /* search3209_0 -> 714 in the cache */
+   /* search3213_0_0 -> 737 in the cache */
+   /* search3213_0_1 -> 738 in the cache */
+   /* search3213_0 -> 739 in the cache */
    { .variable = {
       { nir_search_value_variable, 32 },
       2, /* c */
@@ -3643156,19 +3643431,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 2,
-      { 714, 721 },
+      { 739, 746 },
       -1,
    } },
 
-   /* replace3209_0 -> 296 in the cache */
-   /* replace3209_1 -> 298 in the cache */
-   /* replace3209_2 -> 345 in the cache */
-   /* replace3209 -> 717 in the cache */
+   /* replace3213_0 -> 296 in the cache */
+   /* replace3213_1 -> 298 in the cache */
+   /* replace3213_2 -> 345 in the cache */
+   /* replace3213 -> 742 in the cache */
 
    /* ('iadd@32', ('ineg', ('iadd(is_used_once)', 'a(is_not_const)', 'b(is_not_const)')), 'c(is_not_const)') => ('iadd3', ('ineg', 'a'), ('ineg', 'b'), 'c') */
-   /* search3210_0_0_0 -> 712 in the cache */
-   /* search3210_0_0_1 -> 713 in the cache */
-   /* search3210_0_0 -> 714 in the cache */
+   /* search3214_0_0_0 -> 737 in the cache */
+   /* search3214_0_0_1 -> 738 in the cache */
+   /* search3214_0_0 -> 739 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3643177,10 +3643452,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ineg,
       -1, 1,
-      { 714 },
+      { 739 },
       -1,
    } },
-   /* search3210_1 -> 715 in the cache */
+   /* search3214_1 -> 740 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3643189,11 +3643464,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 2,
-      { 723, 715 },
+      { 748, 740 },
       -1,
    } },
 
-   /* replace3210_0_0 -> 296 in the cache */
+   /* replace3214_0_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3643205,7 +3643480,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 296 },
       -1,
    } },
-   /* replace3210_1_0 -> 298 in the cache */
+   /* replace3214_1_0 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3643217,7 +3643492,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 298 },
       -1,
    } },
-   /* replace3210_2 -> 345 in the cache */
+   /* replace3214_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3643226,14 +3643501,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd3,
       0, 1,
-      { 725, 726, 345 },
+      { 750, 751, 345 },
       -1,
    } },
 
    /* ('iadd@32', ('ineg', ('iadd(is_used_once)', '#a(is_16_bits)', 'b(is_not_const)')), 'c(is_not_const)') => ('iadd3', ('ineg', 'a'), ('ineg', 'b'), 'c') */
-   /* search3211_0_0_0 -> 718 in the cache */
-   /* search3211_0_0_1 -> 713 in the cache */
-   /* search3211_0_0 -> 719 in the cache */
+   /* search3215_0_0_0 -> 743 in the cache */
+   /* search3215_0_0_1 -> 738 in the cache */
+   /* search3215_0_0 -> 744 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3643242,10 +3643517,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ineg,
       -1, 1,
-      { 719 },
+      { 744 },
       -1,
    } },
-   /* search3211_1 -> 715 in the cache */
+   /* search3215_1 -> 740 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3643254,23 +3643529,23 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 2,
-      { 728, 715 },
+      { 753, 740 },
       -1,
    } },
 
-   /* replace3211_0_0 -> 296 in the cache */
-   /* replace3211_0 -> 725 in the cache */
-   /* replace3211_1_0 -> 298 in the cache */
-   /* replace3211_1 -> 726 in the cache */
-   /* replace3211_2 -> 345 in the cache */
-   /* replace3211 -> 727 in the cache */
+   /* replace3215_0_0 -> 296 in the cache */
+   /* replace3215_0 -> 750 in the cache */
+   /* replace3215_1_0 -> 298 in the cache */
+   /* replace3215_1 -> 751 in the cache */
+   /* replace3215_2 -> 345 in the cache */
+   /* replace3215 -> 752 in the cache */
 
    /* ('iadd@32', ('ineg', ('iadd(is_used_once)', 'a(is_not_const)', 'b(is_not_const)')), '#c(is_16_bits)') => ('iadd3', ('ineg', 'a'), ('ineg', 'b'), 'c') */
-   /* search3212_0_0_0 -> 712 in the cache */
-   /* search3212_0_0_1 -> 713 in the cache */
-   /* search3212_0_0 -> 714 in the cache */
-   /* search3212_0 -> 723 in the cache */
-   /* search3212_1 -> 721 in the cache */
+   /* search3216_0_0_0 -> 737 in the cache */
+   /* search3216_0_0_1 -> 738 in the cache */
+   /* search3216_0_0 -> 739 in the cache */
+   /* search3216_0 -> 748 in the cache */
+   /* search3216_1 -> 746 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3643279,20 +3643554,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 2,
-      { 723, 721 },
+      { 748, 746 },
       -1,
    } },
 
-   /* replace3212_0_0 -> 296 in the cache */
-   /* replace3212_0 -> 725 in the cache */
-   /* replace3212_1_0 -> 298 in the cache */
-   /* replace3212_1 -> 726 in the cache */
-   /* replace3212_2 -> 345 in the cache */
-   /* replace3212 -> 727 in the cache */
+   /* replace3216_0_0 -> 296 in the cache */
+   /* replace3216_0 -> 750 in the cache */
+   /* replace3216_1_0 -> 298 in the cache */
+   /* replace3216_1 -> 751 in the cache */
+   /* replace3216_2 -> 345 in the cache */
+   /* replace3216 -> 752 in the cache */
 
    /* ('iadd@32', ('ishl', 'a', 1), 'b(is_not_const)') => ('iadd3', 'a', 'a', 'b') */
-   /* search3213_0_0 -> 296 in the cache */
-   /* search3213_0_1 -> 652 in the cache */
+   /* search3217_0_0 -> 296 in the cache */
+   /* search3217_0_1 -> 380 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3643301,10 +3643576,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ishl,
       -1, 0,
-      { 296, 652 },
+      { 296, 380 },
       -1,
    } },
-   /* search3213_1 -> 713 in the cache */
+   /* search3217_1 -> 738 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3643313,13 +3643588,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 1,
-      { 731, 713 },
+      { 756, 738 },
       -1,
    } },
 
-   /* replace3213_0 -> 296 in the cache */
-   /* replace3213_1 -> 296 in the cache */
-   /* replace3213_2 -> 298 in the cache */
+   /* replace3217_0 -> 296 in the cache */
+   /* replace3217_1 -> 296 in the cache */
+   /* replace3217_2 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3643333,9 +3643608,9 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('iadd@32', ('ishl', 'a', 1), '#b(is_16_bits)') => ('iadd3', 'a', 'a', 'b') */
-   /* search3214_0_0 -> 296 in the cache */
-   /* search3214_0_1 -> 652 in the cache */
-   /* search3214_0 -> 731 in the cache */
+   /* search3218_0_0 -> 296 in the cache */
+   /* search3218_0_1 -> 380 in the cache */
+   /* search3218_0 -> 756 in the cache */
    { .variable = {
       { nir_search_value_variable, 32 },
       1, /* b */
@@ -3643351,19 +3643626,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 1,
-      { 731, 734 },
+      { 756, 759 },
       -1,
    } },
 
-   /* replace3214_0 -> 296 in the cache */
-   /* replace3214_1 -> 296 in the cache */
-   /* replace3214_2 -> 298 in the cache */
-   /* replace3214 -> 733 in the cache */
+   /* replace3218_0 -> 296 in the cache */
+   /* replace3218_1 -> 296 in the cache */
+   /* replace3218_2 -> 298 in the cache */
+   /* replace3218 -> 758 in the cache */
 
    /* ('iadd@32', ('ineg', ('ishl', 'a', 1)), 'b(is_not_const)') => ('iadd3', ('ineg', 'a'), ('ineg', 'a'), 'b') */
-   /* search3215_0_0_0 -> 296 in the cache */
-   /* search3215_0_0_1 -> 652 in the cache */
-   /* search3215_0_0 -> 731 in the cache */
+   /* search3219_0_0_0 -> 296 in the cache */
+   /* search3219_0_0_1 -> 380 in the cache */
+   /* search3219_0_0 -> 756 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3643372,10 +3643647,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ineg,
       -1, 0,
-      { 731 },
+      { 756 },
       -1,
    } },
-   /* search3215_1 -> 713 in the cache */
+   /* search3219_1 -> 738 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3643384,15 +3643659,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 1,
-      { 736, 713 },
+      { 761, 738 },
       -1,
    } },
 
-   /* replace3215_0_0 -> 296 in the cache */
-   /* replace3215_0 -> 725 in the cache */
-   /* replace3215_1_0 -> 296 in the cache */
-   /* replace3215_1 -> 725 in the cache */
-   /* replace3215_2 -> 298 in the cache */
+   /* replace3219_0_0 -> 296 in the cache */
+   /* replace3219_0 -> 750 in the cache */
+   /* replace3219_1_0 -> 296 in the cache */
+   /* replace3219_1 -> 750 in the cache */
+   /* replace3219_2 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3643401,16 +3643676,16 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd3,
       -1, 0,
-      { 725, 725, 298 },
+      { 750, 750, 298 },
       -1,
    } },
 
    /* ('iadd@32', ('ineg', ('ishl', 'a', 1)), '#b(is_16_bits)') => ('iadd3', ('ineg', 'a'), ('ineg', 'a'), 'b') */
-   /* search3216_0_0_0 -> 296 in the cache */
-   /* search3216_0_0_1 -> 652 in the cache */
-   /* search3216_0_0 -> 731 in the cache */
-   /* search3216_0 -> 736 in the cache */
-   /* search3216_1 -> 734 in the cache */
+   /* search3220_0_0_0 -> 296 in the cache */
+   /* search3220_0_0_1 -> 380 in the cache */
+   /* search3220_0_0 -> 756 in the cache */
+   /* search3220_0 -> 761 in the cache */
+   /* search3220_1 -> 759 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3643419,19 +3643694,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 1,
-      { 736, 734 },
+      { 761, 759 },
       -1,
    } },
 
-   /* replace3216_0_0 -> 296 in the cache */
-   /* replace3216_0 -> 725 in the cache */
-   /* replace3216_1_0 -> 296 in the cache */
-   /* replace3216_1 -> 725 in the cache */
-   /* replace3216_2 -> 298 in the cache */
-   /* replace3216 -> 738 in the cache */
+   /* replace3220_0_0 -> 296 in the cache */
+   /* replace3220_0 -> 750 in the cache */
+   /* replace3220_1_0 -> 296 in the cache */
+   /* replace3220_1 -> 750 in the cache */
+   /* replace3220_2 -> 298 in the cache */
+   /* replace3220 -> 763 in the cache */
 
    /* ('ishl@32', ('iadd', 'a', '#b(is_2x_16_bits)'), 1) => ('iadd3', 'a', 'a', ('iadd', 'b', 'b')) */
-   /* search3217_0_0 -> 296 in the cache */
+   /* search3221_0_0 -> 296 in the cache */
    { .variable = {
       { nir_search_value_variable, 32 },
       1, /* b */
@@ -3643447,10 +3643722,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 1,
-      { 296, 740 },
+      { 296, 765 },
       -1,
    } },
-   /* search3217_1 -> 652 in the cache */
+   /* search3221_1 -> 380 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3643459,14 +3643734,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ishl,
       -1, 1,
-      { 741, 652 },
+      { 766, 380 },
       -1,
    } },
 
-   /* replace3217_0 -> 296 in the cache */
-   /* replace3217_1 -> 296 in the cache */
-   /* replace3217_2_0 -> 298 in the cache */
-   /* replace3217_2_1 -> 298 in the cache */
+   /* replace3221_0 -> 296 in the cache */
+   /* replace3221_1 -> 296 in the cache */
+   /* replace3221_2_0 -> 298 in the cache */
+   /* replace3221_2_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3643486,12 +3643761,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd3,
       -1, 0,
-      { 296, 296, 743 },
+      { 296, 296, 768 },
       -1,
    } },
 
    /* ('ishl@32', ('ineg', ('iadd', 'a', '#b(is_neg2x_16_bits)')), 1) => ('iadd3', ('ineg', 'a'), ('ineg', 'a'), ('ineg', ('iadd', 'b', 'b'))) */
-   /* search3218_0_0_0 -> 296 in the cache */
+   /* search3222_0_0_0 -> 296 in the cache */
    { .variable = {
       { nir_search_value_variable, 32 },
       1, /* b */
@@ -3643507,7 +3643782,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 1,
-      { 296, 745 },
+      { 296, 770 },
       -1,
    } },
    { .expression = {
@@ -3643518,10 +3643793,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ineg,
       -1, 1,
-      { 746 },
+      { 771 },
       -1,
    } },
-   /* search3218_1 -> 652 in the cache */
+   /* search3222_1 -> 380 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3643530,17 +3643805,17 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ishl,
       -1, 1,
-      { 747, 652 },
+      { 772, 380 },
       -1,
    } },
 
-   /* replace3218_0_0 -> 296 in the cache */
-   /* replace3218_0 -> 725 in the cache */
-   /* replace3218_1_0 -> 296 in the cache */
-   /* replace3218_1 -> 725 in the cache */
-   /* replace3218_2_0_0 -> 298 in the cache */
-   /* replace3218_2_0_1 -> 298 in the cache */
-   /* replace3218_2_0 -> 743 in the cache */
+   /* replace3222_0_0 -> 296 in the cache */
+   /* replace3222_0 -> 750 in the cache */
+   /* replace3222_1_0 -> 296 in the cache */
+   /* replace3222_1 -> 750 in the cache */
+   /* replace3222_2_0_0 -> 298 in the cache */
+   /* replace3222_2_0_1 -> 298 in the cache */
+   /* replace3222_2_0 -> 768 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3643549,7 +3643824,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ineg,
       -1, 0,
-      { 743 },
+      { 768 },
       -1,
    } },
    { .expression = {
@@ -3643560,7 +3643835,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd3,
       -1, 0,
-      { 725, 725, 749 },
+      { 750, 750, 774 },
       -1,
    } },
 
@@ -3643587,7 +3643862,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       1, 1,
-      { 751, 752 },
+      { 776, 777 },
       0,
    } },
    { .variable = {
@@ -3643605,13 +3643880,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 2,
-      { 753, 754 },
+      { 778, 779 },
       -1,
    } },
 
-   /* replace3219_0 -> 306 in the cache */
-   /* replace3219_1 -> 308 in the cache */
-   /* replace3219_2 -> 581 in the cache */
+   /* replace3223_0 -> 306 in the cache */
+   /* replace3223_1 -> 308 in the cache */
+   /* replace3223_2 -> 607 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3643620,7 +3643895,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd3,
       0, 1,
-      { 306, 308, 581 },
+      { 306, 308, 607 },
       -1,
    } },
 
@@ -3643632,7 +3643907,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       3,
       {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
    } },
-   /* search3220_0_1 -> 752 in the cache */
+   /* search3224_0_1 -> 777 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3643641,10 +3643916,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       1, 1,
-      { 757, 752 },
+      { 782, 777 },
       0,
    } },
-   /* search3220_1 -> 754 in the cache */
+   /* search3224_1 -> 779 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3643653,19 +3643928,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 2,
-      { 758, 754 },
+      { 783, 779 },
       -1,
    } },
 
-   /* replace3220_0 -> 306 in the cache */
-   /* replace3220_1 -> 308 in the cache */
-   /* replace3220_2 -> 581 in the cache */
-   /* replace3220 -> 756 in the cache */
+   /* replace3224_0 -> 306 in the cache */
+   /* replace3224_1 -> 308 in the cache */
+   /* replace3224_2 -> 607 in the cache */
+   /* replace3224 -> 781 in the cache */
 
    /* ('iadd@64', ('iadd(is_used_once)', 'a(is_not_const)', 'b(is_not_const)'), '#c(is_16_bits)') => ('iadd3', 'a', 'b', 'c') */
-   /* search3221_0_0 -> 751 in the cache */
-   /* search3221_0_1 -> 752 in the cache */
-   /* search3221_0 -> 753 in the cache */
+   /* search3225_0_0 -> 776 in the cache */
+   /* search3225_0_1 -> 777 in the cache */
+   /* search3225_0 -> 778 in the cache */
    { .variable = {
       { nir_search_value_variable, 64 },
       2, /* c */
@@ -3643681,19 +3643956,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 2,
-      { 753, 760 },
+      { 778, 785 },
       -1,
    } },
 
-   /* replace3221_0 -> 306 in the cache */
-   /* replace3221_1 -> 308 in the cache */
-   /* replace3221_2 -> 581 in the cache */
-   /* replace3221 -> 756 in the cache */
+   /* replace3225_0 -> 306 in the cache */
+   /* replace3225_1 -> 308 in the cache */
+   /* replace3225_2 -> 607 in the cache */
+   /* replace3225 -> 781 in the cache */
 
    /* ('iadd@64', ('ineg', ('iadd(is_used_once)', 'a(is_not_const)', 'b(is_not_const)')), 'c(is_not_const)') => ('iadd3', ('ineg', 'a'), ('ineg', 'b'), 'c') */
-   /* search3222_0_0_0 -> 751 in the cache */
-   /* search3222_0_0_1 -> 752 in the cache */
-   /* search3222_0_0 -> 753 in the cache */
+   /* search3226_0_0_0 -> 776 in the cache */
+   /* search3226_0_0_1 -> 777 in the cache */
+   /* search3226_0_0 -> 778 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3643702,10 +3643977,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ineg,
       -1, 1,
-      { 753 },
+      { 778 },
       -1,
    } },
-   /* search3222_1 -> 754 in the cache */
+   /* search3226_1 -> 779 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3643714,11 +3643989,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 2,
-      { 762, 754 },
+      { 787, 779 },
       -1,
    } },
 
-   /* replace3222_0_0 -> 306 in the cache */
+   /* replace3226_0_0 -> 306 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3643730,7 +3644005,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 306 },
       -1,
    } },
-   /* replace3222_1_0 -> 308 in the cache */
+   /* replace3226_1_0 -> 308 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3643742,7 +3644017,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 308 },
       -1,
    } },
-   /* replace3222_2 -> 581 in the cache */
+   /* replace3226_2 -> 607 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3643751,14 +3644026,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd3,
       0, 1,
-      { 764, 765, 581 },
+      { 789, 790, 607 },
       -1,
    } },
 
    /* ('iadd@64', ('ineg', ('iadd(is_used_once)', '#a(is_16_bits)', 'b(is_not_const)')), 'c(is_not_const)') => ('iadd3', ('ineg', 'a'), ('ineg', 'b'), 'c') */
-   /* search3223_0_0_0 -> 757 in the cache */
-   /* search3223_0_0_1 -> 752 in the cache */
-   /* search3223_0_0 -> 758 in the cache */
+   /* search3227_0_0_0 -> 782 in the cache */
+   /* search3227_0_0_1 -> 777 in the cache */
+   /* search3227_0_0 -> 783 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3643767,10 +3644042,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ineg,
       -1, 1,
-      { 758 },
+      { 783 },
       -1,
    } },
-   /* search3223_1 -> 754 in the cache */
+   /* search3227_1 -> 779 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3643779,23 +3644054,23 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 2,
-      { 767, 754 },
+      { 792, 779 },
       -1,
    } },
 
-   /* replace3223_0_0 -> 306 in the cache */
-   /* replace3223_0 -> 764 in the cache */
-   /* replace3223_1_0 -> 308 in the cache */
-   /* replace3223_1 -> 765 in the cache */
-   /* replace3223_2 -> 581 in the cache */
-   /* replace3223 -> 766 in the cache */
+   /* replace3227_0_0 -> 306 in the cache */
+   /* replace3227_0 -> 789 in the cache */
+   /* replace3227_1_0 -> 308 in the cache */
+   /* replace3227_1 -> 790 in the cache */
+   /* replace3227_2 -> 607 in the cache */
+   /* replace3227 -> 791 in the cache */
 
    /* ('iadd@64', ('ineg', ('iadd(is_used_once)', 'a(is_not_const)', 'b(is_not_const)')), '#c(is_16_bits)') => ('iadd3', ('ineg', 'a'), ('ineg', 'b'), 'c') */
-   /* search3224_0_0_0 -> 751 in the cache */
-   /* search3224_0_0_1 -> 752 in the cache */
-   /* search3224_0_0 -> 753 in the cache */
-   /* search3224_0 -> 762 in the cache */
-   /* search3224_1 -> 760 in the cache */
+   /* search3228_0_0_0 -> 776 in the cache */
+   /* search3228_0_0_1 -> 777 in the cache */
+   /* search3228_0_0 -> 778 in the cache */
+   /* search3228_0 -> 787 in the cache */
+   /* search3228_1 -> 785 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3643804,20 +3644079,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 2,
-      { 762, 760 },
+      { 787, 785 },
       -1,
    } },
 
-   /* replace3224_0_0 -> 306 in the cache */
-   /* replace3224_0 -> 764 in the cache */
-   /* replace3224_1_0 -> 308 in the cache */
-   /* replace3224_1 -> 765 in the cache */
-   /* replace3224_2 -> 581 in the cache */
-   /* replace3224 -> 766 in the cache */
+   /* replace3228_0_0 -> 306 in the cache */
+   /* replace3228_0 -> 789 in the cache */
+   /* replace3228_1_0 -> 308 in the cache */
+   /* replace3228_1 -> 790 in the cache */
+   /* replace3228_2 -> 607 in the cache */
+   /* replace3228 -> 791 in the cache */
 
    /* ('iadd@64', ('ishl', 'a', 1), 'b(is_not_const)') => ('iadd3', 'a', 'a', 'b') */
-   /* search3225_0_0 -> 306 in the cache */
-   /* search3225_0_1 -> 652 in the cache */
+   /* search3229_0_0 -> 306 in the cache */
+   /* search3229_0_1 -> 380 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3643826,10 +3644101,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ishl,
       -1, 0,
-      { 306, 652 },
+      { 306, 380 },
       -1,
    } },
-   /* search3225_1 -> 752 in the cache */
+   /* search3229_1 -> 777 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3643838,13 +3644113,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 1,
-      { 770, 752 },
+      { 795, 777 },
       -1,
    } },
 
-   /* replace3225_0 -> 306 in the cache */
-   /* replace3225_1 -> 306 in the cache */
-   /* replace3225_2 -> 308 in the cache */
+   /* replace3229_0 -> 306 in the cache */
+   /* replace3229_1 -> 306 in the cache */
+   /* replace3229_2 -> 308 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3643858,9 +3644133,9 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('iadd@64', ('ishl', 'a', 1), '#b(is_16_bits)') => ('iadd3', 'a', 'a', 'b') */
-   /* search3226_0_0 -> 306 in the cache */
-   /* search3226_0_1 -> 652 in the cache */
-   /* search3226_0 -> 770 in the cache */
+   /* search3230_0_0 -> 306 in the cache */
+   /* search3230_0_1 -> 380 in the cache */
+   /* search3230_0 -> 795 in the cache */
    { .variable = {
       { nir_search_value_variable, 64 },
       1, /* b */
@@ -3643876,19 +3644151,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 1,
-      { 770, 773 },
+      { 795, 798 },
       -1,
    } },
 
-   /* replace3226_0 -> 306 in the cache */
-   /* replace3226_1 -> 306 in the cache */
-   /* replace3226_2 -> 308 in the cache */
-   /* replace3226 -> 772 in the cache */
+   /* replace3230_0 -> 306 in the cache */
+   /* replace3230_1 -> 306 in the cache */
+   /* replace3230_2 -> 308 in the cache */
+   /* replace3230 -> 797 in the cache */
 
    /* ('iadd@64', ('ineg', ('ishl', 'a', 1)), 'b(is_not_const)') => ('iadd3', ('ineg', 'a'), ('ineg', 'a'), 'b') */
-   /* search3227_0_0_0 -> 306 in the cache */
-   /* search3227_0_0_1 -> 652 in the cache */
-   /* search3227_0_0 -> 770 in the cache */
+   /* search3231_0_0_0 -> 306 in the cache */
+   /* search3231_0_0_1 -> 380 in the cache */
+   /* search3231_0_0 -> 795 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3643897,10 +3644172,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ineg,
       -1, 0,
-      { 770 },
+      { 795 },
       -1,
    } },
-   /* search3227_1 -> 752 in the cache */
+   /* search3231_1 -> 777 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3643909,15 +3644184,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 1,
-      { 775, 752 },
+      { 800, 777 },
       -1,
    } },
 
-   /* replace3227_0_0 -> 306 in the cache */
-   /* replace3227_0 -> 764 in the cache */
-   /* replace3227_1_0 -> 306 in the cache */
-   /* replace3227_1 -> 764 in the cache */
-   /* replace3227_2 -> 308 in the cache */
+   /* replace3231_0_0 -> 306 in the cache */
+   /* replace3231_0 -> 789 in the cache */
+   /* replace3231_1_0 -> 306 in the cache */
+   /* replace3231_1 -> 789 in the cache */
+   /* replace3231_2 -> 308 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3643926,16 +3644201,16 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd3,
       -1, 0,
-      { 764, 764, 308 },
+      { 789, 789, 308 },
       -1,
    } },
 
    /* ('iadd@64', ('ineg', ('ishl', 'a', 1)), '#b(is_16_bits)') => ('iadd3', ('ineg', 'a'), ('ineg', 'a'), 'b') */
-   /* search3228_0_0_0 -> 306 in the cache */
-   /* search3228_0_0_1 -> 652 in the cache */
-   /* search3228_0_0 -> 770 in the cache */
-   /* search3228_0 -> 775 in the cache */
-   /* search3228_1 -> 773 in the cache */
+   /* search3232_0_0_0 -> 306 in the cache */
+   /* search3232_0_0_1 -> 380 in the cache */
+   /* search3232_0_0 -> 795 in the cache */
+   /* search3232_0 -> 800 in the cache */
+   /* search3232_1 -> 798 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3643944,19 +3644219,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 1,
-      { 775, 773 },
+      { 800, 798 },
       -1,
    } },
 
-   /* replace3228_0_0 -> 306 in the cache */
-   /* replace3228_0 -> 764 in the cache */
-   /* replace3228_1_0 -> 306 in the cache */
-   /* replace3228_1 -> 764 in the cache */
-   /* replace3228_2 -> 308 in the cache */
-   /* replace3228 -> 777 in the cache */
+   /* replace3232_0_0 -> 306 in the cache */
+   /* replace3232_0 -> 789 in the cache */
+   /* replace3232_1_0 -> 306 in the cache */
+   /* replace3232_1 -> 789 in the cache */
+   /* replace3232_2 -> 308 in the cache */
+   /* replace3232 -> 802 in the cache */
 
    /* ('ishl@64', ('iadd', 'a', '#b(is_2x_16_bits)'), 1) => ('iadd3', 'a', 'a', ('iadd', 'b', 'b')) */
-   /* search3229_0_0 -> 306 in the cache */
+   /* search3233_0_0 -> 306 in the cache */
    { .variable = {
       { nir_search_value_variable, 64 },
       1, /* b */
@@ -3643972,10 +3644247,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 1,
-      { 306, 779 },
+      { 306, 804 },
       -1,
    } },
-   /* search3229_1 -> 652 in the cache */
+   /* search3233_1 -> 380 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3643984,14 +3644259,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ishl,
       -1, 1,
-      { 780, 652 },
+      { 805, 380 },
       -1,
    } },
 
-   /* replace3229_0 -> 306 in the cache */
-   /* replace3229_1 -> 306 in the cache */
-   /* replace3229_2_0 -> 308 in the cache */
-   /* replace3229_2_1 -> 308 in the cache */
+   /* replace3233_0 -> 306 in the cache */
+   /* replace3233_1 -> 306 in the cache */
+   /* replace3233_2_0 -> 308 in the cache */
+   /* replace3233_2_1 -> 308 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3644011,12 +3644286,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd3,
       -1, 0,
-      { 306, 306, 782 },
+      { 306, 306, 807 },
       -1,
    } },
 
    /* ('ishl@64', ('ineg', ('iadd', 'a', '#b(is_neg2x_16_bits)')), 1) => ('iadd3', ('ineg', 'a'), ('ineg', 'a'), ('ineg', ('iadd', 'b', 'b'))) */
-   /* search3230_0_0_0 -> 306 in the cache */
+   /* search3234_0_0_0 -> 306 in the cache */
    { .variable = {
       { nir_search_value_variable, 64 },
       1, /* b */
@@ -3644032,7 +3644307,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd,
       0, 1,
-      { 306, 784 },
+      { 306, 809 },
       -1,
    } },
    { .expression = {
@@ -3644043,10 +3644318,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ineg,
       -1, 1,
-      { 785 },
+      { 810 },
       -1,
    } },
-   /* search3230_1 -> 652 in the cache */
+   /* search3234_1 -> 380 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3644055,17 +3644330,17 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ishl,
       -1, 1,
-      { 786, 652 },
+      { 811, 380 },
       -1,
    } },
 
-   /* replace3230_0_0 -> 306 in the cache */
-   /* replace3230_0 -> 764 in the cache */
-   /* replace3230_1_0 -> 306 in the cache */
-   /* replace3230_1 -> 764 in the cache */
-   /* replace3230_2_0_0 -> 308 in the cache */
-   /* replace3230_2_0_1 -> 308 in the cache */
-   /* replace3230_2_0 -> 782 in the cache */
+   /* replace3234_0_0 -> 306 in the cache */
+   /* replace3234_0 -> 789 in the cache */
+   /* replace3234_1_0 -> 306 in the cache */
+   /* replace3234_1 -> 789 in the cache */
+   /* replace3234_2_0_0 -> 308 in the cache */
+   /* replace3234_2_0_1 -> 308 in the cache */
+   /* replace3234_2_0 -> 807 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3644074,7 +3644349,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ineg,
       -1, 0,
-      { 782 },
+      { 807 },
       -1,
    } },
    { .expression = {
@@ -3644085,14 +3644360,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iadd3,
       -1, 0,
-      { 764, 764, 788 },
+      { 789, 789, 813 },
       -1,
    } },
 
    /* ('vec2(is_only_used_as_float)', ('fneg@16', 'a'), 'b') => ('fmul', ('vec2', 'a', 'b'), ('vec2', -1.0, 1.0)) */
-   /* search3231_0_0 -> 286 in the cache */
-   /* search3231_0 -> 499 in the cache */
-   /* search3231_1 -> 288 in the cache */
+   /* search3235_0_0 -> 286 in the cache */
+   /* search3235_0 -> 525 in the cache */
+   /* search3235_1 -> 288 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3644101,12 +3644376,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_vec2,
       -1, 0,
-      { 499, 288 },
+      { 525, 288 },
       1,
    } },
 
-   /* replace3231_0_0 -> 286 in the cache */
-   /* replace3231_0_1 -> 288 in the cache */
+   /* replace3235_0_0 -> 286 in the cache */
+   /* replace3235_0_1 -> 288 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3644134,7 +3644409,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_vec2,
       -1, 0,
-      { 792, 793 },
+      { 817, 818 },
       -1,
    } },
    { .expression = {
@@ -3644145,14 +3644420,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmul,
       0, 1,
-      { 791, 794 },
+      { 816, 819 },
       -1,
    } },
 
    /* ('vec2(is_only_used_as_float)', 'a', ('fneg@16', 'b')) => ('fmul', ('vec2', 'a', 'b'), ('vec2', 1.0, -1.0)) */
-   /* search3232_0 -> 286 in the cache */
-   /* search3232_1_0 -> 288 in the cache */
-   /* search3232_1 -> 611 in the cache */
+   /* search3236_0 -> 286 in the cache */
+   /* search3236_1_0 -> 288 in the cache */
+   /* search3236_1 -> 637 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3644161,15 +3644436,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_vec2,
       -1, 0,
-      { 286, 611 },
+      { 286, 637 },
       1,
    } },
 
-   /* replace3232_0_0 -> 286 in the cache */
-   /* replace3232_0_1 -> 288 in the cache */
-   /* replace3232_0 -> 791 in the cache */
-   /* replace3232_1_0 -> 793 in the cache */
-   /* replace3232_1_1 -> 792 in the cache */
+   /* replace3236_0_0 -> 286 in the cache */
+   /* replace3236_0_1 -> 288 in the cache */
+   /* replace3236_0 -> 816 in the cache */
+   /* replace3236_1_0 -> 818 in the cache */
+   /* replace3236_1_1 -> 817 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3644178,7 +3644453,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_vec2,
       -1, 0,
-      { 793, 792 },
+      { 818, 817 },
       -1,
    } },
    { .expression = {
@@ -3644189,7 +3644464,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmul,
       0, 1,
-      { 791, 797 },
+      { 816, 822 },
       -1,
    } },
 
@@ -3644216,7 +3644491,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fsat,
       -1, 0,
-      { 800 },
+      { 825 },
       0,
    } },
    { .expression = {
@@ -3644227,7 +3644502,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_flt,
       -1, 0,
-      { 799, 801 },
+      { 824, 826 },
       -1,
    } },
 
@@ -3644238,7 +3644513,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
    } },
-   /* replace3233_1 -> 800 in the cache */
+   /* replace3237_1 -> 825 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3644247,12 +3644522,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_flt,
       -1, 0,
-      { 803, 800 },
+      { 828, 825 },
       -1,
    } },
 
    /* ('fge', ('fsat(is_used_once)', 'a'), '#b(is_a_number_gt_0_and_lt_1)') => ('fge', 'a', 'b') */
-   /* search3234_0_0 -> 0 in the cache */
+   /* search3238_0_0 -> 0 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3644279,18 +3644554,18 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fge,
       -1, 0,
-      { 805, 806 },
+      { 830, 831 },
       -1,
    } },
 
-   /* replace3234_0 -> 0 in the cache */
-   /* replace3234_1 -> 1 in the cache */
-   /* replace3234 -> 193 in the cache */
+   /* replace3238_0 -> 0 in the cache */
+   /* replace3238_1 -> 1 in the cache */
+   /* replace3238 -> 193 in the cache */
 
    /* ('feq', ('fsat(is_used_once)', 'a'), '#b(is_a_number_gt_0_and_lt_1)') => ('feq', 'a', 'b') */
-   /* search3235_0_0 -> 0 in the cache */
-   /* search3235_0 -> 805 in the cache */
-   /* search3235_1 -> 806 in the cache */
+   /* search3239_0_0 -> 0 in the cache */
+   /* search3239_0 -> 830 in the cache */
+   /* search3239_1 -> 831 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3644299,18 +3644574,18 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_feq,
       0, 1,
-      { 805, 806 },
+      { 830, 831 },
       -1,
    } },
 
-   /* replace3235_0 -> 0 in the cache */
-   /* replace3235_1 -> 1 in the cache */
-   /* replace3235 -> 327 in the cache */
+   /* replace3239_0 -> 0 in the cache */
+   /* replace3239_1 -> 1 in the cache */
+   /* replace3239 -> 327 in the cache */
 
    /* ('fneu', ('fsat(is_used_once)', 'a'), '#b(is_a_number_gt_0_and_lt_1)') => ('fneu', 'a', 'b') */
-   /* search3236_0_0 -> 0 in the cache */
-   /* search3236_0 -> 805 in the cache */
-   /* search3236_1 -> 806 in the cache */
+   /* search3240_0_0 -> 0 in the cache */
+   /* search3240_0 -> 830 in the cache */
+   /* search3240_1 -> 831 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3644319,16 +3644594,16 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneu,
       0, 1,
-      { 805, 806 },
+      { 830, 831 },
       -1,
    } },
 
-   /* replace3236_0 -> 0 in the cache */
-   /* replace3236_1 -> 1 in the cache */
-   /* replace3236 -> 324 in the cache */
+   /* replace3240_0 -> 0 in the cache */
+   /* replace3240_1 -> 1 in the cache */
+   /* replace3240 -> 324 in the cache */
 
    /* ('fge', ('fsat(is_used_once)', 'a'), 1.0) => ('fge', 'a', 1.0) */
-   /* search3237_0_0 -> 98 in the cache */
+   /* search3241_0_0 -> 98 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3644352,12 +3644627,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fge,
       -1, 0,
-      { 810, 811 },
+      { 835, 836 },
       -1,
    } },
 
-   /* replace3237_0 -> 98 in the cache */
-   /* replace3237_1 -> 811 in the cache */
+   /* replace3241_0 -> 98 in the cache */
+   /* replace3241_1 -> 836 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3644366,7 +3644641,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fge,
       -1, 0,
-      { 98, 811 },
+      { 98, 836 },
       -1,
    } },
 
@@ -3644393,7 +3644668,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       1, 1,
-      { 814, 815 },
+      { 839, 840 },
       0,
    } },
    { .variable = {
@@ -3644418,7 +3644693,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       2, 1,
-      { 817, 818 },
+      { 842, 843 },
       -1,
    } },
    { .expression = {
@@ -3644429,7 +3644704,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmin,
       0, 3,
-      { 816, 819 },
+      { 841, 844 },
       0,
    } },
    { .constant = {
@@ -3644444,12 +3644719,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fge,
       -1, 3,
-      { 820, 821 },
+      { 845, 846 },
       -1,
    } },
 
-   /* replace3238_0_0 -> 814 in the cache */
-   /* replace3238_0_1_0 -> 815 in the cache */
+   /* replace3242_0_0 -> 839 in the cache */
+   /* replace3242_0_1_0 -> 840 in the cache */
    { .expression = {
       { nir_search_value_expression, -4 },
       nir_fp_fast_math,
@@ -3644458,7 +3644733,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 0,
-      { 815 },
+      { 840 },
       -1,
    } },
    { .expression = {
@@ -3644469,11 +3644744,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fge,
       -1, 0,
-      { 814, 823 },
+      { 839, 848 },
       -1,
    } },
-   /* replace3238_1_0 -> 817 in the cache */
-   /* replace3238_1_1_0 -> 818 in the cache */
+   /* replace3242_1_0 -> 842 in the cache */
+   /* replace3242_1_1_0 -> 843 in the cache */
    { .expression = {
       { nir_search_value_expression, -4 },
       nir_fp_fast_math,
@@ -3644482,7 +3644757,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 0,
-      { 818 },
+      { 843 },
       -1,
    } },
    { .expression = {
@@ -3644493,7 +3644768,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fge,
       -1, 0,
-      { 817, 825 },
+      { 842, 850 },
       -1,
    } },
    { .expression = {
@@ -3644504,24 +3644779,24 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iand,
       0, 1,
-      { 824, 826 },
+      { 849, 851 },
       -1,
    } },
 
    /* ('flt', ('fneg', 'a'), ('fneg', 'b')) => ('flt', 'b', 'a') */
-   /* search3239_0_0 -> 0 in the cache */
-   /* search3239_0 -> 8 in the cache */
-   /* search3239_1_0 -> 1 in the cache */
-   /* search3239_1 -> 5 in the cache */
-   /* search3239 -> 86 in the cache */
+   /* search3243_0_0 -> 0 in the cache */
+   /* search3243_0 -> 8 in the cache */
+   /* search3243_1_0 -> 1 in the cache */
+   /* search3243_1 -> 5 in the cache */
+   /* search3243 -> 86 in the cache */
 
-   /* replace3239_0 -> 1 in the cache */
-   /* replace3239_1 -> 0 in the cache */
-   /* replace3239 -> 96 in the cache */
+   /* replace3243_0 -> 1 in the cache */
+   /* replace3243_1 -> 0 in the cache */
+   /* replace3243 -> 96 in the cache */
 
    /* ('flt', ('fneg', 'a'), '#b') => ('flt', ('fneg', 'b'), 'a') */
-   /* search3240_0_0 -> 0 in the cache */
-   /* search3240_0 -> 8 in the cache */
+   /* search3244_0_0 -> 0 in the cache */
+   /* search3244_0 -> 8 in the cache */
    { .variable = {
       { nir_search_value_variable, -2 },
       1, /* b */
@@ -3644537,13 +3644812,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_flt,
       -1, 0,
-      { 8, 828 },
+      { 8, 853 },
       -1,
    } },
 
-   /* replace3240_0_0 -> 1 in the cache */
-   /* replace3240_0 -> 5 in the cache */
-   /* replace3240_1 -> 0 in the cache */
+   /* replace3244_0_0 -> 1 in the cache */
+   /* replace3244_0 -> 5 in the cache */
+   /* replace3244_1 -> 0 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3644557,120 +3644832,6 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('fltu', ('fneg', 'a'), ('fneg', 'b')) => ('fltu', 'b', 'a') */
-   /* search3241_0_0 -> 0 in the cache */
-   /* search3241_0 -> 8 in the cache */
-   /* search3241_1_0 -> 1 in the cache */
-   /* search3241_1 -> 5 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 1 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fltu,
-      -1, 0,
-      { 8, 5 },
-      -1,
-   } },
-
-   /* replace3241_0 -> 1 in the cache */
-   /* replace3241_1 -> 0 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 1 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fltu,
-      -1, 0,
-      { 1, 0 },
-      -1,
-   } },
-
-   /* ('fltu', ('fneg', 'a'), '#b') => ('fltu', ('fneg', 'b'), 'a') */
-   /* search3242_0_0 -> 0 in the cache */
-   /* search3242_0 -> 8 in the cache */
-   /* search3242_1 -> 828 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 1 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fltu,
-      -1, 0,
-      { 8, 828 },
-      -1,
-   } },
-
-   /* replace3242_0_0 -> 1 in the cache */
-   /* replace3242_0 -> 5 in the cache */
-   /* replace3242_1 -> 0 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 1 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fltu,
-      -1, 0,
-      { 5, 0 },
-      -1,
-   } },
-
-   /* ('fge', ('fneg', 'a'), ('fneg', 'b')) => ('fge', 'b', 'a') */
-   /* search3243_0_0 -> 0 in the cache */
-   /* search3243_0 -> 8 in the cache */
-   /* search3243_1_0 -> 1 in the cache */
-   /* search3243_1 -> 5 in the cache */
-   /* search3243 -> 178 in the cache */
-
-   /* replace3243_0 -> 1 in the cache */
-   /* replace3243_1 -> 0 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 1 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fge,
-      -1, 0,
-      { 1, 0 },
-      -1,
-   } },
-
-   /* ('fge', ('fneg', 'a'), '#b') => ('fge', ('fneg', 'b'), 'a') */
-   /* search3244_0_0 -> 0 in the cache */
-   /* search3244_0 -> 8 in the cache */
-   /* search3244_1 -> 828 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 1 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fge,
-      -1, 0,
-      { 8, 828 },
-      -1,
-   } },
-
-   /* replace3244_0_0 -> 1 in the cache */
-   /* replace3244_0 -> 5 in the cache */
-   /* replace3244_1 -> 0 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 1 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fge,
-      -1, 0,
-      { 5, 0 },
-      -1,
-   } },
-
-   /* ('fgeu', ('fneg', 'a'), ('fneg', 'b')) => ('fgeu', 'b', 'a') */
    /* search3245_0_0 -> 0 in the cache */
    /* search3245_0 -> 8 in the cache */
    /* search3245_1_0 -> 1 in the cache */
@@ -3644681,7 +3644842,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       nir_fp_fast_math,
       false,
       -1,
-      nir_op_fgeu,
+      nir_op_fltu,
       -1, 0,
       { 8, 5 },
       -1,
@@ -3644695,16 +3644856,100 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       nir_fp_fast_math,
       false,
       -1,
-      nir_op_fgeu,
+      nir_op_fltu,
       -1, 0,
       { 1, 0 },
       -1,
    } },
 
-   /* ('fgeu', ('fneg', 'a'), '#b') => ('fgeu', ('fneg', 'b'), 'a') */
+   /* ('fltu', ('fneg', 'a'), '#b') => ('fltu', ('fneg', 'b'), 'a') */
    /* search3246_0_0 -> 0 in the cache */
    /* search3246_0 -> 8 in the cache */
-   /* search3246_1 -> 828 in the cache */
+   /* search3246_1 -> 853 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 1 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fltu,
+      -1, 0,
+      { 8, 853 },
+      -1,
+   } },
+
+   /* replace3246_0_0 -> 1 in the cache */
+   /* replace3246_0 -> 5 in the cache */
+   /* replace3246_1 -> 0 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 1 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fltu,
+      -1, 0,
+      { 5, 0 },
+      -1,
+   } },
+
+   /* ('fge', ('fneg', 'a'), ('fneg', 'b')) => ('fge', 'b', 'a') */
+   /* search3247_0_0 -> 0 in the cache */
+   /* search3247_0 -> 8 in the cache */
+   /* search3247_1_0 -> 1 in the cache */
+   /* search3247_1 -> 5 in the cache */
+   /* search3247 -> 178 in the cache */
+
+   /* replace3247_0 -> 1 in the cache */
+   /* replace3247_1 -> 0 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 1 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fge,
+      -1, 0,
+      { 1, 0 },
+      -1,
+   } },
+
+   /* ('fge', ('fneg', 'a'), '#b') => ('fge', ('fneg', 'b'), 'a') */
+   /* search3248_0_0 -> 0 in the cache */
+   /* search3248_0 -> 8 in the cache */
+   /* search3248_1 -> 853 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 1 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fge,
+      -1, 0,
+      { 8, 853 },
+      -1,
+   } },
+
+   /* replace3248_0_0 -> 1 in the cache */
+   /* replace3248_0 -> 5 in the cache */
+   /* replace3248_1 -> 0 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 1 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fge,
+      -1, 0,
+      { 5, 0 },
+      -1,
+   } },
+
+   /* ('fgeu', ('fneg', 'a'), ('fneg', 'b')) => ('fgeu', 'b', 'a') */
+   /* search3249_0_0 -> 0 in the cache */
+   /* search3249_0 -> 8 in the cache */
+   /* search3249_1_0 -> 1 in the cache */
+   /* search3249_1 -> 5 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3644713,13 +3644958,43 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fgeu,
       -1, 0,
-      { 8, 828 },
+      { 8, 5 },
       -1,
    } },
 
-   /* replace3246_0_0 -> 1 in the cache */
-   /* replace3246_0 -> 5 in the cache */
-   /* replace3246_1 -> 0 in the cache */
+   /* replace3249_0 -> 1 in the cache */
+   /* replace3249_1 -> 0 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 1 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fgeu,
+      -1, 0,
+      { 1, 0 },
+      -1,
+   } },
+
+   /* ('fgeu', ('fneg', 'a'), '#b') => ('fgeu', ('fneg', 'b'), 'a') */
+   /* search3250_0_0 -> 0 in the cache */
+   /* search3250_0 -> 8 in the cache */
+   /* search3250_1 -> 853 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 1 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fgeu,
+      -1, 0,
+      { 8, 853 },
+      -1,
+   } },
+
+   /* replace3250_0_0 -> 1 in the cache */
+   /* replace3250_0 -> 5 in the cache */
+   /* replace3250_1 -> 0 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3644733,130 +3645008,6 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('feq', ('fneg', 'a'), ('fneg', 'b')) => ('feq', 'b', 'a') */
-   /* search3247_0_0 -> 0 in the cache */
-   /* search3247_0 -> 8 in the cache */
-   /* search3247_1_0 -> 1 in the cache */
-   /* search3247_1 -> 5 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 1 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_feq,
-      0, 1,
-      { 8, 5 },
-      -1,
-   } },
-
-   /* replace3247_0 -> 1 in the cache */
-   /* replace3247_1 -> 0 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 1 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_feq,
-      0, 1,
-      { 1, 0 },
-      -1,
-   } },
-
-   /* ('feq', ('fneg', 'a'), '#b') => ('feq', ('fneg', 'b'), 'a') */
-   /* search3248_0_0 -> 0 in the cache */
-   /* search3248_0 -> 8 in the cache */
-   /* search3248_1 -> 828 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 1 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_feq,
-      0, 1,
-      { 8, 828 },
-      -1,
-   } },
-
-   /* replace3248_0_0 -> 1 in the cache */
-   /* replace3248_0 -> 5 in the cache */
-   /* replace3248_1 -> 0 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 1 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_feq,
-      0, 1,
-      { 5, 0 },
-      -1,
-   } },
-
-   /* ('fequ', ('fneg', 'a'), ('fneg', 'b')) => ('fequ', 'b', 'a') */
-   /* search3249_0_0 -> 0 in the cache */
-   /* search3249_0 -> 8 in the cache */
-   /* search3249_1_0 -> 1 in the cache */
-   /* search3249_1 -> 5 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 1 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fequ,
-      0, 1,
-      { 8, 5 },
-      -1,
-   } },
-
-   /* replace3249_0 -> 1 in the cache */
-   /* replace3249_1 -> 0 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 1 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fequ,
-      0, 1,
-      { 1, 0 },
-      -1,
-   } },
-
-   /* ('fequ', ('fneg', 'a'), '#b') => ('fequ', ('fneg', 'b'), 'a') */
-   /* search3250_0_0 -> 0 in the cache */
-   /* search3250_0 -> 8 in the cache */
-   /* search3250_1 -> 828 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 1 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fequ,
-      0, 1,
-      { 8, 828 },
-      -1,
-   } },
-
-   /* replace3250_0_0 -> 1 in the cache */
-   /* replace3250_0 -> 5 in the cache */
-   /* replace3250_1 -> 0 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 1 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fequ,
-      0, 1,
-      { 5, 0 },
-      -1,
-   } },
-
-   /* ('fneo', ('fneg', 'a'), ('fneg', 'b')) => ('fneo', 'b', 'a') */
    /* search3251_0_0 -> 0 in the cache */
    /* search3251_0 -> 8 in the cache */
    /* search3251_1_0 -> 1 in the cache */
@@ -3644867,7 +3645018,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       nir_fp_fast_math,
       false,
       -1,
-      nir_op_fneo,
+      nir_op_feq,
       0, 1,
       { 8, 5 },
       -1,
@@ -3644881,25 +3645032,25 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       nir_fp_fast_math,
       false,
       -1,
-      nir_op_fneo,
+      nir_op_feq,
       0, 1,
       { 1, 0 },
       -1,
    } },
 
-   /* ('fneo', ('fneg', 'a'), '#b') => ('fneo', ('fneg', 'b'), 'a') */
+   /* ('feq', ('fneg', 'a'), '#b') => ('feq', ('fneg', 'b'), 'a') */
    /* search3252_0_0 -> 0 in the cache */
    /* search3252_0 -> 8 in the cache */
-   /* search3252_1 -> 828 in the cache */
+   /* search3252_1 -> 853 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
       nir_fp_fast_math,
       false,
       -1,
-      nir_op_fneo,
+      nir_op_feq,
       0, 1,
-      { 8, 828 },
+      { 8, 853 },
       -1,
    } },
 
@@ -3644912,13 +3645063,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       nir_fp_fast_math,
       false,
       -1,
-      nir_op_fneo,
+      nir_op_feq,
       0, 1,
       { 5, 0 },
       -1,
    } },
 
-   /* ('fneu', ('fneg', 'a'), ('fneg', 'b')) => ('fneu', 'b', 'a') */
+   /* ('fequ', ('fneg', 'a'), ('fneg', 'b')) => ('fequ', 'b', 'a') */
    /* search3253_0_0 -> 0 in the cache */
    /* search3253_0 -> 8 in the cache */
    /* search3253_1_0 -> 1 in the cache */
@@ -3644929,7 +3645080,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       nir_fp_fast_math,
       false,
       -1,
-      nir_op_fneu,
+      nir_op_fequ,
       0, 1,
       { 8, 5 },
       -1,
@@ -3644943,16 +3645094,110 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       nir_fp_fast_math,
       false,
       -1,
-      nir_op_fneu,
+      nir_op_fequ,
       0, 1,
       { 1, 0 },
       -1,
    } },
 
-   /* ('fneu', ('fneg', 'a'), '#b') => ('fneu', ('fneg', 'b'), 'a') */
+   /* ('fequ', ('fneg', 'a'), '#b') => ('fequ', ('fneg', 'b'), 'a') */
    /* search3254_0_0 -> 0 in the cache */
    /* search3254_0 -> 8 in the cache */
-   /* search3254_1 -> 828 in the cache */
+   /* search3254_1 -> 853 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 1 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fequ,
+      0, 1,
+      { 8, 853 },
+      -1,
+   } },
+
+   /* replace3254_0_0 -> 1 in the cache */
+   /* replace3254_0 -> 5 in the cache */
+   /* replace3254_1 -> 0 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 1 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fequ,
+      0, 1,
+      { 5, 0 },
+      -1,
+   } },
+
+   /* ('fneo', ('fneg', 'a'), ('fneg', 'b')) => ('fneo', 'b', 'a') */
+   /* search3255_0_0 -> 0 in the cache */
+   /* search3255_0 -> 8 in the cache */
+   /* search3255_1_0 -> 1 in the cache */
+   /* search3255_1 -> 5 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 1 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fneo,
+      0, 1,
+      { 8, 5 },
+      -1,
+   } },
+
+   /* replace3255_0 -> 1 in the cache */
+   /* replace3255_1 -> 0 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 1 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fneo,
+      0, 1,
+      { 1, 0 },
+      -1,
+   } },
+
+   /* ('fneo', ('fneg', 'a'), '#b') => ('fneo', ('fneg', 'b'), 'a') */
+   /* search3256_0_0 -> 0 in the cache */
+   /* search3256_0 -> 8 in the cache */
+   /* search3256_1 -> 853 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 1 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fneo,
+      0, 1,
+      { 8, 853 },
+      -1,
+   } },
+
+   /* replace3256_0_0 -> 1 in the cache */
+   /* replace3256_0 -> 5 in the cache */
+   /* replace3256_1 -> 0 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 1 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fneo,
+      0, 1,
+      { 5, 0 },
+      -1,
+   } },
+
+   /* ('fneu', ('fneg', 'a'), ('fneg', 'b')) => ('fneu', 'b', 'a') */
+   /* search3257_0_0 -> 0 in the cache */
+   /* search3257_0 -> 8 in the cache */
+   /* search3257_1_0 -> 1 in the cache */
+   /* search3257_1 -> 5 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3644961,13 +3645206,43 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneu,
       0, 1,
-      { 8, 828 },
+      { 8, 5 },
       -1,
    } },
 
-   /* replace3254_0_0 -> 1 in the cache */
-   /* replace3254_0 -> 5 in the cache */
-   /* replace3254_1 -> 0 in the cache */
+   /* replace3257_0 -> 1 in the cache */
+   /* replace3257_1 -> 0 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 1 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fneu,
+      0, 1,
+      { 1, 0 },
+      -1,
+   } },
+
+   /* ('fneu', ('fneg', 'a'), '#b') => ('fneu', ('fneg', 'b'), 'a') */
+   /* search3258_0_0 -> 0 in the cache */
+   /* search3258_0 -> 8 in the cache */
+   /* search3258_1 -> 853 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 1 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fneu,
+      0, 1,
+      { 8, 853 },
+      -1,
+   } },
+
+   /* replace3258_0_0 -> 1 in the cache */
+   /* replace3258_0 -> 5 in the cache */
+   /* replace3258_1 -> 0 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3644988,7 +3645263,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
    } },
-   /* search3255_1_0 -> 800 in the cache */
+   /* search3259_1_0 -> 825 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3644997,7 +3645272,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 0,
-      { 800 },
+      { 825 },
       -1,
    } },
    { .expression = {
@@ -3645008,12 +3645283,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_flt,
       -1, 0,
-      { 858, 859 },
+      { 883, 884 },
       -1,
    } },
 
-   /* replace3255_0 -> 800 in the cache */
-   /* replace3255_1_0 -> 803 in the cache */
+   /* replace3259_0 -> 825 in the cache */
+   /* replace3259_1_0 -> 828 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3645022,7 +3645297,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 0,
-      { 803 },
+      { 828 },
       -1,
    } },
    { .expression = {
@@ -3645033,14 +3645308,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_flt,
       -1, 0,
-      { 800, 861 },
+      { 825, 886 },
       -1,
    } },
 
    /* ('fltu', '#b', ('fneg', 'a')) => ('fltu', 'a', ('fneg', 'b')) */
-   /* search3256_0 -> 858 in the cache */
-   /* search3256_1_0 -> 800 in the cache */
-   /* search3256_1 -> 859 in the cache */
+   /* search3260_0 -> 883 in the cache */
+   /* search3260_1_0 -> 825 in the cache */
+   /* search3260_1 -> 884 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3645049,13 +3645324,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fltu,
       -1, 0,
-      { 858, 859 },
+      { 883, 884 },
       -1,
    } },
 
-   /* replace3256_0 -> 800 in the cache */
-   /* replace3256_1_0 -> 803 in the cache */
-   /* replace3256_1 -> 861 in the cache */
+   /* replace3260_0 -> 825 in the cache */
+   /* replace3260_1_0 -> 828 in the cache */
+   /* replace3260_1 -> 886 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3645064,14 +3645339,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fltu,
       -1, 0,
-      { 800, 861 },
+      { 825, 886 },
       -1,
    } },
 
    /* ('fge', '#b', ('fneg', 'a')) => ('fge', 'a', ('fneg', 'b')) */
-   /* search3257_0 -> 858 in the cache */
-   /* search3257_1_0 -> 800 in the cache */
-   /* search3257_1 -> 859 in the cache */
+   /* search3261_0 -> 883 in the cache */
+   /* search3261_1_0 -> 825 in the cache */
+   /* search3261_1 -> 884 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3645080,13 +3645355,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fge,
       -1, 0,
-      { 858, 859 },
+      { 883, 884 },
       -1,
    } },
 
-   /* replace3257_0 -> 800 in the cache */
-   /* replace3257_1_0 -> 803 in the cache */
-   /* replace3257_1 -> 861 in the cache */
+   /* replace3261_0 -> 825 in the cache */
+   /* replace3261_1_0 -> 828 in the cache */
+   /* replace3261_1 -> 886 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3645095,14 +3645370,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fge,
       -1, 0,
-      { 800, 861 },
+      { 825, 886 },
       -1,
    } },
 
    /* ('fgeu', '#b', ('fneg', 'a')) => ('fgeu', 'a', ('fneg', 'b')) */
-   /* search3258_0 -> 858 in the cache */
-   /* search3258_1_0 -> 800 in the cache */
-   /* search3258_1 -> 859 in the cache */
+   /* search3262_0 -> 883 in the cache */
+   /* search3262_1_0 -> 825 in the cache */
+   /* search3262_1 -> 884 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3645111,13 +3645386,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fgeu,
       -1, 0,
-      { 858, 859 },
+      { 883, 884 },
       -1,
    } },
 
-   /* replace3258_0 -> 800 in the cache */
-   /* replace3258_1_0 -> 803 in the cache */
-   /* replace3258_1 -> 861 in the cache */
+   /* replace3262_0 -> 825 in the cache */
+   /* replace3262_1_0 -> 828 in the cache */
+   /* replace3262_1 -> 886 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3645126,13 +3645401,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fgeu,
       -1, 0,
-      { 800, 861 },
+      { 825, 886 },
       -1,
    } },
 
    /* ('ior', 'a', 'a') => a */
-   /* search3259_0 -> 98 in the cache */
-   /* search3259_1 -> 98 in the cache */
+   /* search3263_0 -> 98 in the cache */
+   /* search3263_1 -> 98 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3645145,11 +3645420,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
    } },
 
-   /* replace3259 -> 98 in the cache */
+   /* replace3263 -> 98 in the cache */
 
    /* ('iand', 'a', 'a') => a */
-   /* search3260_0 -> 98 in the cache */
-   /* search3260_1 -> 98 in the cache */
+   /* search3264_0 -> 98 in the cache */
+   /* search3264_1 -> 98 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3645162,7 +3645437,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
    } },
 
-   /* replace3260 -> 98 in the cache */
+   /* replace3264 -> 98 in the cache */
 
    /* ('fadd', ('fneg(is_used_once)', ('fsat(is_used_once,nnan)', 'a(is_not_fmul)')), 1.0) => ('fsat', ('fadd', 1.0, ('fneg', 'a'))) */
    { .variable = {
@@ -3645180,7 +3645455,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fsat,
       -1, 0,
-      { 871 },
+      { 896 },
       0,
    } },
    { .expression = {
@@ -3645191,10 +3645466,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 0,
-      { 872 },
+      { 897 },
       0,
    } },
-   /* search3261_1 -> 811 in the cache */
+   /* search3265_1 -> 836 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3645203,13 +3645478,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 1,
-      { 873, 811 },
+      { 898, 836 },
       -1,
    } },
 
-   /* replace3261_0_0 -> 811 in the cache */
-   /* replace3261_0_1_0 -> 98 in the cache */
-   /* replace3261_0_1 -> 342 in the cache */
+   /* replace3265_0_0 -> 836 in the cache */
+   /* replace3265_0_1_0 -> 98 in the cache */
+   /* replace3265_0_1 -> 342 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3645218,7 +3645493,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 1,
-      { 811, 342 },
+      { 836, 342 },
       -1,
    } },
    { .expression = {
@@ -3645229,7 +3645504,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fsat,
       -1, 1,
-      { 875 },
+      { 900 },
       -1,
    } },
 
@@ -3645249,7 +3645524,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fsat,
       -1, 0,
-      { 877 },
+      { 902 },
       0,
    } },
    { .expression = {
@@ -3645260,11 +3645535,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fsqrt,
       -1, 0,
-      { 878 },
+      { 903 },
       -1,
    } },
 
-   /* replace3262_0_0 -> 98 in the cache */
+   /* replace3266_0_0 -> 98 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3645284,13 +3645559,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fsat,
       -1, 0,
-      { 880 },
+      { 905 },
       -1,
    } },
 
    /* ('fdot2', 'a', 'b') => ('fdot2_replicated', 'a', 'b') */
-   /* search3263_0 -> 0 in the cache */
-   /* search3263_1 -> 1 in the cache */
+   /* search3267_0 -> 0 in the cache */
+   /* search3267_1 -> 1 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3645303,8 +3645578,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
    } },
 
-   /* replace3263_0 -> 0 in the cache */
-   /* replace3263_1 -> 1 in the cache */
+   /* replace3267_0 -> 0 in the cache */
+   /* replace3267_1 -> 1 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3645318,8 +3645593,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('fdot3', 'a', 'b') => ('fdot3_replicated', 'a', 'b') */
-   /* search3264_0 -> 0 in the cache */
-   /* search3264_1 -> 1 in the cache */
+   /* search3268_0 -> 0 in the cache */
+   /* search3268_1 -> 1 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3645332,8 +3645607,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
    } },
 
-   /* replace3264_0 -> 0 in the cache */
-   /* replace3264_1 -> 1 in the cache */
+   /* replace3268_0 -> 0 in the cache */
+   /* replace3268_1 -> 1 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3645347,8 +3645622,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('fdot4', 'a', 'b') => ('fdot4_replicated', 'a', 'b') */
-   /* search3265_0 -> 0 in the cache */
-   /* search3265_1 -> 1 in the cache */
+   /* search3269_0 -> 0 in the cache */
+   /* search3269_1 -> 1 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3645361,8 +3645636,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
    } },
 
-   /* replace3265_0 -> 0 in the cache */
-   /* replace3265_1 -> 1 in the cache */
+   /* replace3269_0 -> 0 in the cache */
+   /* replace3269_1 -> 1 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3645376,8 +3645651,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('fdph', 'a', 'b') => ('fdph_replicated', 'a', 'b') */
-   /* search3266_0 -> 0 in the cache */
-   /* search3266_1 -> 1 in the cache */
+   /* search3270_0 -> 0 in the cache */
+   /* search3270_1 -> 1 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3645390,8 +3645665,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
    } },
 
-   /* replace3266_0 -> 0 in the cache */
-   /* replace3266_1 -> 1 in the cache */
+   /* replace3270_0 -> 0 in the cache */
+   /* replace3270_1 -> 1 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3645405,8 +3645680,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('~flrp', ('fadd(is_used_once)', 'a', 'b'), ('fadd(is_used_once)', 'a', 'c'), 'd') => ('fadd', ('flrp', 'b', 'c', 'd'), 'a') */
-   /* search3267_0_0 -> 814 in the cache */
-   /* search3267_0_1 -> 815 in the cache */
+   /* search3271_0_0 -> 839 in the cache */
+   /* search3271_0_1 -> 840 in the cache */
    { .expression = {
       { nir_search_value_expression, -4 },
       nir_fp_exact,
@@ -3645415,11 +3645690,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 1,
-      { 814, 815 },
+      { 839, 840 },
       0,
    } },
-   /* search3267_1_0 -> 814 in the cache */
-   /* search3267_1_1 -> 817 in the cache */
+   /* search3271_1_0 -> 839 in the cache */
+   /* search3271_1_1 -> 842 in the cache */
    { .expression = {
       { nir_search_value_expression, -4 },
       nir_fp_exact,
@@ -3645428,10 +3645703,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       1, 1,
-      { 814, 817 },
+      { 839, 842 },
       0,
    } },
-   /* search3267_2 -> 818 in the cache */
+   /* search3271_2 -> 843 in the cache */
    { .expression = {
       { nir_search_value_expression, -4 },
       nir_fp_exact,
@@ -3645440,13 +3645715,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_flrp,
       -1, 2,
-      { 890, 891, 818 },
+      { 915, 916, 843 },
       -1,
    } },
 
-   /* replace3267_0_0 -> 815 in the cache */
-   /* replace3267_0_1 -> 817 in the cache */
-   /* replace3267_0_2 -> 818 in the cache */
+   /* replace3271_0_0 -> 840 in the cache */
+   /* replace3271_0_1 -> 842 in the cache */
+   /* replace3271_0_2 -> 843 in the cache */
    { .expression = {
       { nir_search_value_expression, -4 },
       nir_fp_fast_math,
@@ -3645455,10 +3645730,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_flrp,
       -1, 0,
-      { 815, 817, 818 },
+      { 840, 842, 843 },
       -1,
    } },
-   /* replace3267_1 -> 814 in the cache */
+   /* replace3271_1 -> 839 in the cache */
    { .expression = {
       { nir_search_value_expression, -4 },
       nir_fp_fast_math,
@@ -3645467,12 +3645742,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 1,
-      { 893, 814 },
+      { 918, 839 },
       -1,
    } },
 
    /* ('fround_even', 'a') => ('fadd', ('ffloor', 'a'), ('bcsel', ('flt', 0.5, ('ffract', 'a')), 1.0, ('bcsel', ('feq', ('ffract', 'a'), 0.5), ('fmul', ('ffract', ('fmul', ('ffloor', 'a'), 0.5)), 2.0), 0.0))) */
-   /* search3268_0 -> 98 in the cache */
+   /* search3272_0 -> 98 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3645485,7 +3645760,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
    } },
 
-   /* replace3268_0_0 -> 98 in the cache */
+   /* replace3272_0_0 -> 98 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3645501,7 +3645776,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { nir_search_value_constant, -1 },
       nir_type_float, { 0x3fe0000000000000ull /* 0.5 */ },
    } },
-   /* replace3268_1_0_1_0 -> 98 in the cache */
+   /* replace3272_1_0_1_0 -> 98 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3645521,13 +3645796,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_flt,
       -1, 0,
-      { 897, 898 },
+      { 922, 923 },
       -1,
    } },
-   /* replace3268_1_1 -> 811 in the cache */
-   /* replace3268_1_2_0_0_0 -> 98 in the cache */
-   /* replace3268_1_2_0_0 -> 898 in the cache */
-   /* replace3268_1_2_0_1 -> 897 in the cache */
+   /* replace3272_1_1 -> 836 in the cache */
+   /* replace3272_1_2_0_0_0 -> 98 in the cache */
+   /* replace3272_1_2_0_0 -> 923 in the cache */
+   /* replace3272_1_2_0_1 -> 922 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3645536,12 +3645811,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_feq,
       1, 1,
-      { 898, 897 },
+      { 923, 922 },
       -1,
    } },
-   /* replace3268_1_2_1_0_0_0_0 -> 98 in the cache */
-   /* replace3268_1_2_1_0_0_0 -> 896 in the cache */
-   /* replace3268_1_2_1_0_0_1 -> 897 in the cache */
+   /* replace3272_1_2_1_0_0_0_0 -> 98 in the cache */
+   /* replace3272_1_2_1_0_0_0 -> 921 in the cache */
+   /* replace3272_1_2_1_0_0_1 -> 922 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3645550,7 +3645825,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmul,
       3, 1,
-      { 896, 897 },
+      { 921, 922 },
       -1,
    } },
    { .expression = {
@@ -3645561,7 +3645836,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffract,
       -1, 1,
-      { 901 },
+      { 926 },
       -1,
    } },
    { .constant = {
@@ -3645576,10 +3645851,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmul,
       2, 2,
-      { 902, 903 },
+      { 927, 928 },
       -1,
    } },
-   /* replace3268_1_2_2 -> 99 in the cache */
+   /* replace3272_1_2_2 -> 99 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3645588,7 +3645863,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 3,
-      { 900, 904, 99 },
+      { 925, 929, 99 },
       -1,
    } },
    { .expression = {
@@ -3645599,7 +3645874,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 3,
-      { 899, 811, 905 },
+      { 924, 836, 930 },
       -1,
    } },
    { .expression = {
@@ -3645610,12 +3645885,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 4,
-      { 896, 906 },
+      { 921, 931 },
       -1,
    } },
 
    /* ('~ffma@32', 'a', 2.0, -1.0) => ('flrp', -1.0, 1.0, 'a') */
-   /* search3269_0 -> 296 in the cache */
+   /* search3273_0 -> 296 in the cache */
    { .constant = {
       { nir_search_value_constant, 32 },
       nir_type_float, { 0x4000000000000000ull /* 2.0 */ },
@@ -3645632,16 +3645907,16 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 1,
-      { 296, 908, 909 },
+      { 296, 933, 934 },
       -1,
    } },
 
-   /* replace3269_0 -> 909 in the cache */
+   /* replace3273_0 -> 934 in the cache */
    { .constant = {
       { nir_search_value_constant, 32 },
       nir_type_float, { 0x3ff0000000000000ull /* 1.0 */ },
    } },
-   /* replace3269_2 -> 296 in the cache */
+   /* replace3273_2 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3645650,17 +3645925,17 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_flrp,
       -1, 0,
-      { 909, 911, 296 },
+      { 934, 936, 296 },
       -1,
    } },
 
    /* ('~ffma@32', 'a', -2.0, -1.0) => ('flrp', -1.0, 1.0, ('fneg', 'a')) */
-   /* search3270_0 -> 296 in the cache */
+   /* search3274_0 -> 296 in the cache */
    { .constant = {
       { nir_search_value_constant, 32 },
       nir_type_float, { 0xc000000000000000ull /* -2.0 */ },
    } },
-   /* search3270_2 -> 909 in the cache */
+   /* search3274_2 -> 934 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_exact,
@@ -3645669,14 +3645944,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 1,
-      { 296, 913, 909 },
+      { 296, 938, 934 },
       -1,
    } },
 
-   /* replace3270_0 -> 909 in the cache */
-   /* replace3270_1 -> 911 in the cache */
-   /* replace3270_2_0 -> 296 in the cache */
-   /* replace3270_2 -> 529 in the cache */
+   /* replace3274_0 -> 934 in the cache */
+   /* replace3274_1 -> 936 in the cache */
+   /* replace3274_2_0 -> 296 in the cache */
+   /* replace3274_2 -> 555 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3645685,14 +3645960,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_flrp,
       -1, 0,
-      { 909, 911, 529 },
+      { 934, 936, 555 },
       -1,
    } },
 
    /* ('~ffma@32', 'a', -2.0, 1.0) => ('flrp', 1.0, -1.0, 'a') */
-   /* search3271_0 -> 296 in the cache */
-   /* search3271_1 -> 913 in the cache */
-   /* search3271_2 -> 911 in the cache */
+   /* search3275_0 -> 296 in the cache */
+   /* search3275_1 -> 938 in the cache */
+   /* search3275_2 -> 936 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_exact,
@@ -3645701,13 +3645976,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 1,
-      { 296, 913, 911 },
+      { 296, 938, 936 },
       -1,
    } },
 
-   /* replace3271_0 -> 911 in the cache */
-   /* replace3271_1 -> 909 in the cache */
-   /* replace3271_2 -> 296 in the cache */
+   /* replace3275_0 -> 936 in the cache */
+   /* replace3275_1 -> 934 in the cache */
+   /* replace3275_2 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3645716,14 +3645991,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_flrp,
       -1, 0,
-      { 911, 909, 296 },
+      { 936, 934, 296 },
       -1,
    } },
 
    /* ('~ffma@32', 'a', 2.0, 1.0) => ('flrp', 1.0, -1.0, ('fneg', 'a')) */
-   /* search3272_0 -> 296 in the cache */
-   /* search3272_1 -> 908 in the cache */
-   /* search3272_2 -> 911 in the cache */
+   /* search3276_0 -> 296 in the cache */
+   /* search3276_1 -> 933 in the cache */
+   /* search3276_2 -> 936 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_exact,
@@ -3645732,14 +3646007,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 1,
-      { 296, 908, 911 },
+      { 296, 933, 936 },
       -1,
    } },
 
-   /* replace3272_0 -> 911 in the cache */
-   /* replace3272_1 -> 909 in the cache */
-   /* replace3272_2_0 -> 296 in the cache */
-   /* replace3272_2 -> 529 in the cache */
+   /* replace3276_0 -> 936 in the cache */
+   /* replace3276_1 -> 934 in the cache */
+   /* replace3276_2_0 -> 296 in the cache */
+   /* replace3276_2 -> 555 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3645748,14 +3646023,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_flrp,
       -1, 0,
-      { 911, 909, 529 },
+      { 936, 934, 555 },
       -1,
    } },
 
    /* ('~fmad@32', 'a', 2.0, -1.0) => ('flrp', -1.0, 1.0, 'a') */
-   /* search3273_0 -> 296 in the cache */
-   /* search3273_1 -> 908 in the cache */
-   /* search3273_2 -> 909 in the cache */
+   /* search3277_0 -> 296 in the cache */
+   /* search3277_1 -> 933 in the cache */
+   /* search3277_2 -> 934 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_exact,
@@ -3645764,19 +3646039,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       0, 1,
-      { 296, 908, 909 },
+      { 296, 933, 934 },
       -1,
    } },
 
-   /* replace3273_0 -> 909 in the cache */
-   /* replace3273_1 -> 911 in the cache */
-   /* replace3273_2 -> 296 in the cache */
-   /* replace3273 -> 912 in the cache */
+   /* replace3277_0 -> 934 in the cache */
+   /* replace3277_1 -> 936 in the cache */
+   /* replace3277_2 -> 296 in the cache */
+   /* replace3277 -> 937 in the cache */
 
    /* ('~fmad@32', 'a', -2.0, -1.0) => ('flrp', -1.0, 1.0, ('fneg', 'a')) */
-   /* search3274_0 -> 296 in the cache */
-   /* search3274_1 -> 913 in the cache */
-   /* search3274_2 -> 909 in the cache */
+   /* search3278_0 -> 296 in the cache */
+   /* search3278_1 -> 938 in the cache */
+   /* search3278_2 -> 934 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_exact,
@@ -3645785,20 +3646060,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       0, 1,
-      { 296, 913, 909 },
+      { 296, 938, 934 },
       -1,
    } },
 
-   /* replace3274_0 -> 909 in the cache */
-   /* replace3274_1 -> 911 in the cache */
-   /* replace3274_2_0 -> 296 in the cache */
-   /* replace3274_2 -> 529 in the cache */
-   /* replace3274 -> 915 in the cache */
+   /* replace3278_0 -> 934 in the cache */
+   /* replace3278_1 -> 936 in the cache */
+   /* replace3278_2_0 -> 296 in the cache */
+   /* replace3278_2 -> 555 in the cache */
+   /* replace3278 -> 940 in the cache */
 
    /* ('~fmad@32', 'a', -2.0, 1.0) => ('flrp', 1.0, -1.0, 'a') */
-   /* search3275_0 -> 296 in the cache */
-   /* search3275_1 -> 913 in the cache */
-   /* search3275_2 -> 911 in the cache */
+   /* search3279_0 -> 296 in the cache */
+   /* search3279_1 -> 938 in the cache */
+   /* search3279_2 -> 936 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_exact,
@@ -3645807,19 +3646082,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       0, 1,
-      { 296, 913, 911 },
+      { 296, 938, 936 },
       -1,
    } },
 
-   /* replace3275_0 -> 911 in the cache */
-   /* replace3275_1 -> 909 in the cache */
-   /* replace3275_2 -> 296 in the cache */
-   /* replace3275 -> 917 in the cache */
+   /* replace3279_0 -> 936 in the cache */
+   /* replace3279_1 -> 934 in the cache */
+   /* replace3279_2 -> 296 in the cache */
+   /* replace3279 -> 942 in the cache */
 
    /* ('~fmad@32', 'a', 2.0, 1.0) => ('flrp', 1.0, -1.0, ('fneg', 'a')) */
-   /* search3276_0 -> 296 in the cache */
-   /* search3276_1 -> 908 in the cache */
-   /* search3276_2 -> 911 in the cache */
+   /* search3280_0 -> 296 in the cache */
+   /* search3280_1 -> 933 in the cache */
+   /* search3280_2 -> 936 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_exact,
@@ -3645828,19 +3646103,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       0, 1,
-      { 296, 908, 911 },
+      { 296, 933, 936 },
       -1,
    } },
 
-   /* replace3276_0 -> 911 in the cache */
-   /* replace3276_1 -> 909 in the cache */
-   /* replace3276_2_0 -> 296 in the cache */
-   /* replace3276_2 -> 529 in the cache */
-   /* replace3276 -> 919 in the cache */
+   /* replace3280_0 -> 936 in the cache */
+   /* replace3280_1 -> 934 in the cache */
+   /* replace3280_2_0 -> 296 in the cache */
+   /* replace3280_2 -> 555 in the cache */
+   /* replace3280 -> 944 in the cache */
 
    /* ('~fadd@32', ('fmul(is_used_once)', 2.0, 'a'), -1.0) => ('flrp', -1.0, 1.0, 'a') */
-   /* search3277_0_0 -> 908 in the cache */
-   /* search3277_0_1 -> 296 in the cache */
+   /* search3281_0_0 -> 933 in the cache */
+   /* search3281_0_1 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_exact,
@@ -3645849,10 +3646124,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmul,
       1, 1,
-      { 908, 296 },
+      { 933, 296 },
       0,
    } },
-   /* search3277_1 -> 909 in the cache */
+   /* search3281_1 -> 934 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_exact,
@@ -3645861,18 +3646136,18 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 924, 909 },
+      { 949, 934 },
       -1,
    } },
 
-   /* replace3277_0 -> 909 in the cache */
-   /* replace3277_1 -> 911 in the cache */
-   /* replace3277_2 -> 296 in the cache */
-   /* replace3277 -> 912 in the cache */
+   /* replace3281_0 -> 934 in the cache */
+   /* replace3281_1 -> 936 in the cache */
+   /* replace3281_2 -> 296 in the cache */
+   /* replace3281 -> 937 in the cache */
 
    /* ('~fadd@32', ('fmul(is_used_once)', -2.0, 'a'), -1.0) => ('flrp', -1.0, 1.0, ('fneg', 'a')) */
-   /* search3278_0_0 -> 913 in the cache */
-   /* search3278_0_1 -> 296 in the cache */
+   /* search3282_0_0 -> 938 in the cache */
+   /* search3282_0_1 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_exact,
@@ -3645881,10 +3646156,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmul,
       1, 1,
-      { 913, 296 },
+      { 938, 296 },
       0,
    } },
-   /* search3278_1 -> 909 in the cache */
+   /* search3282_1 -> 934 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_exact,
@@ -3645893,21 +3646168,21 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 926, 909 },
+      { 951, 934 },
       -1,
    } },
 
-   /* replace3278_0 -> 909 in the cache */
-   /* replace3278_1 -> 911 in the cache */
-   /* replace3278_2_0 -> 296 in the cache */
-   /* replace3278_2 -> 529 in the cache */
-   /* replace3278 -> 915 in the cache */
+   /* replace3282_0 -> 934 in the cache */
+   /* replace3282_1 -> 936 in the cache */
+   /* replace3282_2_0 -> 296 in the cache */
+   /* replace3282_2 -> 555 in the cache */
+   /* replace3282 -> 940 in the cache */
 
    /* ('~fadd@32', ('fmul(is_used_once)', -2.0, 'a'), 1.0) => ('flrp', 1.0, -1.0, 'a') */
-   /* search3279_0_0 -> 913 in the cache */
-   /* search3279_0_1 -> 296 in the cache */
-   /* search3279_0 -> 926 in the cache */
-   /* search3279_1 -> 911 in the cache */
+   /* search3283_0_0 -> 938 in the cache */
+   /* search3283_0_1 -> 296 in the cache */
+   /* search3283_0 -> 951 in the cache */
+   /* search3283_1 -> 936 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_exact,
@@ -3645916,20 +3646191,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 926, 911 },
+      { 951, 936 },
       -1,
    } },
 
-   /* replace3279_0 -> 911 in the cache */
-   /* replace3279_1 -> 909 in the cache */
-   /* replace3279_2 -> 296 in the cache */
-   /* replace3279 -> 917 in the cache */
+   /* replace3283_0 -> 936 in the cache */
+   /* replace3283_1 -> 934 in the cache */
+   /* replace3283_2 -> 296 in the cache */
+   /* replace3283 -> 942 in the cache */
 
    /* ('~fadd@32', ('fmul(is_used_once)', 2.0, 'a'), 1.0) => ('flrp', 1.0, -1.0, ('fneg', 'a')) */
-   /* search3280_0_0 -> 908 in the cache */
-   /* search3280_0_1 -> 296 in the cache */
-   /* search3280_0 -> 924 in the cache */
-   /* search3280_1 -> 911 in the cache */
+   /* search3284_0_0 -> 933 in the cache */
+   /* search3284_0_1 -> 296 in the cache */
+   /* search3284_0 -> 949 in the cache */
+   /* search3284_1 -> 936 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_exact,
@@ -3645938,15 +3646213,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 924, 911 },
+      { 949, 936 },
       -1,
    } },
 
-   /* replace3280_0 -> 911 in the cache */
-   /* replace3280_1 -> 909 in the cache */
-   /* replace3280_2_0 -> 296 in the cache */
-   /* replace3280_2 -> 529 in the cache */
-   /* replace3280 -> 919 in the cache */
+   /* replace3284_0 -> 936 in the cache */
+   /* replace3284_1 -> 934 in the cache */
+   /* replace3284_2_0 -> 296 in the cache */
+   /* replace3284_2 -> 555 in the cache */
+   /* replace3284 -> 944 in the cache */
 
    /* ('~ffma@32', ('fadd', 'b', ('fneg', 'a')), 'a', 'a') => ('flrp', 'a', 'b', 'a') */
    { .variable = {
@@ -3645971,7 +3646246,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 0,
-      { 931 },
+      { 956 },
       -1,
    } },
    { .expression = {
@@ -3645982,11 +3646257,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       1, 1,
-      { 930, 932 },
+      { 955, 957 },
       -1,
    } },
-   /* search3281_1 -> 931 in the cache */
-   /* search3281_2 -> 931 in the cache */
+   /* search3285_1 -> 956 in the cache */
+   /* search3285_2 -> 956 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_exact,
@@ -3645995,13 +3646270,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 2,
-      { 933, 931, 931 },
+      { 958, 956, 956 },
       -1,
    } },
 
-   /* replace3281_0 -> 931 in the cache */
-   /* replace3281_1 -> 930 in the cache */
-   /* replace3281_2 -> 931 in the cache */
+   /* replace3285_0 -> 956 in the cache */
+   /* replace3285_1 -> 955 in the cache */
+   /* replace3285_2 -> 956 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3646010,15 +3646285,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_flrp,
       -1, 0,
-      { 931, 930, 931 },
+      { 956, 955, 956 },
       -1,
    } },
 
    /* ('~ffma@32', 'a', 2.0, ('fneg', ('fmul', 'a', 'a'))) => ('flrp', 'a', 1.0, 'a') */
-   /* search3282_0 -> 296 in the cache */
-   /* search3282_1 -> 908 in the cache */
-   /* search3282_2_0_0 -> 296 in the cache */
-   /* search3282_2_0_1 -> 296 in the cache */
+   /* search3286_0 -> 296 in the cache */
+   /* search3286_1 -> 933 in the cache */
+   /* search3286_2_0_0 -> 296 in the cache */
+   /* search3286_2_0_1 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_exact,
@@ -3646038,7 +3646313,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 0,
-      { 936 },
+      { 961 },
       -1,
    } },
    { .expression = {
@@ -3646049,13 +3646324,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 1,
-      { 296, 908, 937 },
+      { 296, 933, 962 },
       -1,
    } },
 
-   /* replace3282_0 -> 296 in the cache */
-   /* replace3282_1 -> 911 in the cache */
-   /* replace3282_2 -> 296 in the cache */
+   /* replace3286_0 -> 296 in the cache */
+   /* replace3286_1 -> 936 in the cache */
+   /* replace3286_2 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3646064,14 +3646339,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_flrp,
       -1, 0,
-      { 296, 911, 296 },
+      { 296, 936, 296 },
       -1,
    } },
 
    /* ('~ffma@32', 'a', 2.0, ('fmul', ('fneg', 'a'), 'a')) => ('flrp', 'a', 1.0, 'a') */
-   /* search3283_0 -> 296 in the cache */
-   /* search3283_1 -> 908 in the cache */
-   /* search3283_2_0_0 -> 296 in the cache */
+   /* search3287_0 -> 296 in the cache */
+   /* search3287_1 -> 933 in the cache */
+   /* search3287_2_0_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_exact,
@@ -3646083,7 +3646358,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 296 },
       -1,
    } },
-   /* search3283_2_1 -> 296 in the cache */
+   /* search3287_2_1 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_exact,
@@ -3646092,7 +3646367,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmul,
       1, 1,
-      { 940, 296 },
+      { 965, 296 },
       -1,
    } },
    { .expression = {
@@ -3646103,21 +3646378,21 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 2,
-      { 296, 908, 941 },
+      { 296, 933, 966 },
       -1,
    } },
 
-   /* replace3283_0 -> 296 in the cache */
-   /* replace3283_1 -> 911 in the cache */
-   /* replace3283_2 -> 296 in the cache */
-   /* replace3283 -> 939 in the cache */
+   /* replace3287_0 -> 296 in the cache */
+   /* replace3287_1 -> 936 in the cache */
+   /* replace3287_2 -> 296 in the cache */
+   /* replace3287 -> 964 in the cache */
 
    /* ('~ffma@32', 'a', ('fneg', 'a'), ('fmul', 2.0, 'a')) => ('flrp', 'a', 1.0, 'a') */
-   /* search3284_0 -> 296 in the cache */
-   /* search3284_1_0 -> 296 in the cache */
-   /* search3284_1 -> 940 in the cache */
-   /* search3284_2_0 -> 908 in the cache */
-   /* search3284_2_1 -> 296 in the cache */
+   /* search3288_0 -> 296 in the cache */
+   /* search3288_1_0 -> 296 in the cache */
+   /* search3288_1 -> 965 in the cache */
+   /* search3288_2_0 -> 933 in the cache */
+   /* search3288_2_1 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_exact,
@@ -3646126,7 +3646401,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmul,
       1, 1,
-      { 908, 296 },
+      { 933, 296 },
       -1,
    } },
    { .expression = {
@@ -3646137,22 +3646412,22 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 2,
-      { 296, 940, 943 },
+      { 296, 965, 968 },
       -1,
    } },
 
-   /* replace3284_0 -> 296 in the cache */
-   /* replace3284_1 -> 911 in the cache */
-   /* replace3284_2 -> 296 in the cache */
-   /* replace3284 -> 939 in the cache */
+   /* replace3288_0 -> 296 in the cache */
+   /* replace3288_1 -> 936 in the cache */
+   /* replace3288_2 -> 296 in the cache */
+   /* replace3288 -> 964 in the cache */
 
    /* ('~fmad@32', ('fadd', 'b', ('fneg', 'a')), 'a', 'a') => ('flrp', 'a', 'b', 'a') */
-   /* search3285_0_0 -> 930 in the cache */
-   /* search3285_0_1_0 -> 931 in the cache */
-   /* search3285_0_1 -> 932 in the cache */
-   /* search3285_0 -> 933 in the cache */
-   /* search3285_1 -> 931 in the cache */
-   /* search3285_2 -> 931 in the cache */
+   /* search3289_0_0 -> 955 in the cache */
+   /* search3289_0_1_0 -> 956 in the cache */
+   /* search3289_0_1 -> 957 in the cache */
+   /* search3289_0 -> 958 in the cache */
+   /* search3289_1 -> 956 in the cache */
+   /* search3289_2 -> 956 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_exact,
@@ -3646161,22 +3646436,22 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       0, 2,
-      { 933, 931, 931 },
+      { 958, 956, 956 },
       -1,
    } },
 
-   /* replace3285_0 -> 931 in the cache */
-   /* replace3285_1 -> 930 in the cache */
-   /* replace3285_2 -> 931 in the cache */
-   /* replace3285 -> 935 in the cache */
+   /* replace3289_0 -> 956 in the cache */
+   /* replace3289_1 -> 955 in the cache */
+   /* replace3289_2 -> 956 in the cache */
+   /* replace3289 -> 960 in the cache */
 
    /* ('~fmad@32', 'a', 2.0, ('fneg', ('fmul', 'a', 'a'))) => ('flrp', 'a', 1.0, 'a') */
-   /* search3286_0 -> 296 in the cache */
-   /* search3286_1 -> 908 in the cache */
-   /* search3286_2_0_0 -> 296 in the cache */
-   /* search3286_2_0_1 -> 296 in the cache */
-   /* search3286_2_0 -> 936 in the cache */
-   /* search3286_2 -> 937 in the cache */
+   /* search3290_0 -> 296 in the cache */
+   /* search3290_1 -> 933 in the cache */
+   /* search3290_2_0_0 -> 296 in the cache */
+   /* search3290_2_0_1 -> 296 in the cache */
+   /* search3290_2_0 -> 961 in the cache */
+   /* search3290_2 -> 962 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_exact,
@@ -3646185,22 +3646460,22 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       0, 1,
-      { 296, 908, 937 },
+      { 296, 933, 962 },
       -1,
    } },
 
-   /* replace3286_0 -> 296 in the cache */
-   /* replace3286_1 -> 911 in the cache */
-   /* replace3286_2 -> 296 in the cache */
-   /* replace3286 -> 939 in the cache */
+   /* replace3290_0 -> 296 in the cache */
+   /* replace3290_1 -> 936 in the cache */
+   /* replace3290_2 -> 296 in the cache */
+   /* replace3290 -> 964 in the cache */
 
    /* ('~fmad@32', 'a', 2.0, ('fmul', ('fneg', 'a'), 'a')) => ('flrp', 'a', 1.0, 'a') */
-   /* search3287_0 -> 296 in the cache */
-   /* search3287_1 -> 908 in the cache */
-   /* search3287_2_0_0 -> 296 in the cache */
-   /* search3287_2_0 -> 940 in the cache */
-   /* search3287_2_1 -> 296 in the cache */
-   /* search3287_2 -> 941 in the cache */
+   /* search3291_0 -> 296 in the cache */
+   /* search3291_1 -> 933 in the cache */
+   /* search3291_2_0_0 -> 296 in the cache */
+   /* search3291_2_0 -> 965 in the cache */
+   /* search3291_2_1 -> 296 in the cache */
+   /* search3291_2 -> 966 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_exact,
@@ -3646209,22 +3646484,22 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       0, 2,
-      { 296, 908, 941 },
+      { 296, 933, 966 },
       -1,
    } },
 
-   /* replace3287_0 -> 296 in the cache */
-   /* replace3287_1 -> 911 in the cache */
-   /* replace3287_2 -> 296 in the cache */
-   /* replace3287 -> 939 in the cache */
+   /* replace3291_0 -> 296 in the cache */
+   /* replace3291_1 -> 936 in the cache */
+   /* replace3291_2 -> 296 in the cache */
+   /* replace3291 -> 964 in the cache */
 
    /* ('~fmad@32', 'a', ('fneg', 'a'), ('fmul', 2.0, 'a')) => ('flrp', 'a', 1.0, 'a') */
-   /* search3288_0 -> 296 in the cache */
-   /* search3288_1_0 -> 296 in the cache */
-   /* search3288_1 -> 940 in the cache */
-   /* search3288_2_0 -> 908 in the cache */
-   /* search3288_2_1 -> 296 in the cache */
-   /* search3288_2 -> 943 in the cache */
+   /* search3292_0 -> 296 in the cache */
+   /* search3292_1_0 -> 296 in the cache */
+   /* search3292_1 -> 965 in the cache */
+   /* search3292_2_0 -> 933 in the cache */
+   /* search3292_2_1 -> 296 in the cache */
+   /* search3292_2 -> 968 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_exact,
@@ -3646233,20 +3646508,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       0, 2,
-      { 296, 940, 943 },
+      { 296, 965, 968 },
       -1,
    } },
 
-   /* replace3288_0 -> 296 in the cache */
-   /* replace3288_1 -> 911 in the cache */
-   /* replace3288_2 -> 296 in the cache */
-   /* replace3288 -> 939 in the cache */
+   /* replace3292_0 -> 296 in the cache */
+   /* replace3292_1 -> 936 in the cache */
+   /* replace3292_2 -> 296 in the cache */
+   /* replace3292 -> 964 in the cache */
 
    /* ('~fmul@32', 'a', ('fadd', 2.0, ('fneg', 'a'))) => ('flrp', 'a', 1.0, 'a') */
-   /* search3289_0 -> 296 in the cache */
-   /* search3289_1_0 -> 908 in the cache */
-   /* search3289_1_1_0 -> 296 in the cache */
-   /* search3289_1_1 -> 940 in the cache */
+   /* search3293_0 -> 296 in the cache */
+   /* search3293_1_0 -> 933 in the cache */
+   /* search3293_1_1_0 -> 296 in the cache */
+   /* search3293_1_1 -> 965 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_exact,
@@ -3646255,7 +3646530,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       1, 1,
-      { 908, 940 },
+      { 933, 965 },
       -1,
    } },
    { .expression = {
@@ -3646266,14 +3646541,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmul,
       0, 2,
-      { 296, 949 },
+      { 296, 974 },
       -1,
    } },
 
-   /* replace3289_0 -> 296 in the cache */
-   /* replace3289_1 -> 911 in the cache */
-   /* replace3289_2 -> 296 in the cache */
-   /* replace3289 -> 939 in the cache */
+   /* replace3293_0 -> 296 in the cache */
+   /* replace3293_1 -> 936 in the cache */
+   /* replace3293_2 -> 296 in the cache */
+   /* replace3293 -> 964 in the cache */
 
    /* ('fmin', ('fadd(is_used_once)', '#c', 'a'), ('fadd(is_used_once)', '#c', 'b')) => ('fadd', 'c', ('fmin', 'a', 'b')) */
    { .variable = {
@@ -3646298,10 +3646573,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       1, 1,
-      { 951, 952 },
+      { 976, 977 },
       0,
    } },
-   /* search3290_1_0 -> 951 in the cache */
+   /* search3294_1_0 -> 976 in the cache */
    { .variable = {
       { nir_search_value_variable, -3 },
       2, /* b */
@@ -3646317,7 +3646592,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       2, 1,
-      { 951, 954 },
+      { 976, 979 },
       0,
    } },
    { .expression = {
@@ -3646328,7 +3646603,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmin,
       0, 3,
-      { 953, 955 },
+      { 978, 980 },
       -1,
    } },
 
@@ -3646339,8 +3646614,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
    } },
-   /* replace3290_1_0 -> 952 in the cache */
-   /* replace3290_1_1 -> 954 in the cache */
+   /* replace3294_1_0 -> 977 in the cache */
+   /* replace3294_1_1 -> 979 in the cache */
    { .expression = {
       { nir_search_value_expression, -3 },
       nir_fp_fast_math,
@@ -3646349,7 +3646624,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmin,
       1, 1,
-      { 952, 954 },
+      { 977, 979 },
       -1,
    } },
    { .expression = {
@@ -3646360,17 +3646635,17 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 957, 958 },
+      { 982, 983 },
       -1,
    } },
 
    /* ('fmax', ('fadd(is_used_once)', '#c', 'a'), ('fadd(is_used_once)', '#c', 'b')) => ('fadd', 'c', ('fmax', 'a', 'b')) */
-   /* search3291_0_0 -> 951 in the cache */
-   /* search3291_0_1 -> 952 in the cache */
-   /* search3291_0 -> 953 in the cache */
-   /* search3291_1_0 -> 951 in the cache */
-   /* search3291_1_1 -> 954 in the cache */
-   /* search3291_1 -> 955 in the cache */
+   /* search3295_0_0 -> 976 in the cache */
+   /* search3295_0_1 -> 977 in the cache */
+   /* search3295_0 -> 978 in the cache */
+   /* search3295_1_0 -> 976 in the cache */
+   /* search3295_1_1 -> 979 in the cache */
+   /* search3295_1 -> 980 in the cache */
    { .expression = {
       { nir_search_value_expression, -3 },
       nir_fp_fast_math,
@@ -3646379,13 +3646654,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmax,
       0, 3,
-      { 953, 955 },
+      { 978, 980 },
       -1,
    } },
 
-   /* replace3291_0 -> 957 in the cache */
-   /* replace3291_1_0 -> 952 in the cache */
-   /* replace3291_1_1 -> 954 in the cache */
+   /* replace3295_0 -> 982 in the cache */
+   /* replace3295_1_0 -> 977 in the cache */
+   /* replace3295_1_1 -> 979 in the cache */
    { .expression = {
       { nir_search_value_expression, -3 },
       nir_fp_fast_math,
@@ -3646394,7 +3646669,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmax,
       1, 1,
-      { 952, 954 },
+      { 977, 979 },
       -1,
    } },
    { .expression = {
@@ -3646405,7 +3646680,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 2,
-      { 957, 961 },
+      { 982, 986 },
       -1,
    } },
 
@@ -3646425,10 +3646700,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fsqrt,
       -1, 0,
-      { 963 },
+      { 988 },
       -1,
    } },
-   /* search3292_0_1 -> 401 in the cache */
+   /* search3296_0_1 -> 427 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3646437,14 +3646712,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_feq,
       0, 1,
-      { 964, 401 },
+      { 989, 427 },
       -1,
    } },
    { .constant = {
       { nir_search_value_constant, 32 },
       nir_type_float, { 0x47efffffe0000000ull /* 3.4028234663852886e+38 */ },
    } },
-   /* search3292_2_0 -> 296 in the cache */
+   /* search3296_2_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3646464,13 +3646739,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 1,
-      { 965, 966, 967 },
+      { 990, 991, 992 },
       -1,
    } },
 
-   /* replace3292_0_0 -> 296 in the cache */
-   /* replace3292_0 -> 967 in the cache */
-   /* replace3292_1 -> 966 in the cache */
+   /* replace3296_0_0 -> 296 in the cache */
+   /* replace3296_0 -> 992 in the cache */
+   /* replace3296_1 -> 991 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3646479,7 +3646754,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmin,
       0, 1,
-      { 967, 966 },
+      { 992, 991 },
       -1,
    } },
 
@@ -3646548,7 +3646823,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmul,
       4, 1,
-      { 976, 977 },
+      { 1001, 1002 },
       0,
    } },
    { .expression = {
@@ -3646559,7 +3646834,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       3, 2,
-      { 974, 975, 978 },
+      { 999, 1000, 1003 },
       -1,
    } },
    { .expression = {
@@ -3646570,7 +3646845,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       2, 3,
-      { 972, 973, 979 },
+      { 997, 998, 1004 },
       0,
    } },
    { .expression = {
@@ -3646581,7 +3646856,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       1, 4,
-      { 970, 971, 980 },
+      { 995, 996, 1005 },
       0,
    } },
    { .variable = {
@@ -3646599,16 +3646874,16 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 5,
-      { 981, 982 },
+      { 1006, 1007 },
       -1,
    } },
 
-   /* replace3293_0 -> 970 in the cache */
-   /* replace3293_1 -> 971 in the cache */
-   /* replace3293_2_0 -> 972 in the cache */
-   /* replace3293_2_1 -> 973 in the cache */
-   /* replace3293_2_2_0 -> 974 in the cache */
-   /* replace3293_2_2_1 -> 975 in the cache */
+   /* replace3297_0 -> 995 in the cache */
+   /* replace3297_1 -> 996 in the cache */
+   /* replace3297_2_0 -> 997 in the cache */
+   /* replace3297_2_1 -> 998 in the cache */
+   /* replace3297_2_2_0 -> 999 in the cache */
+   /* replace3297_2_2_1 -> 1000 in the cache */
    { .variable = {
       { nir_search_value_variable, -9 },
       6, /* g */
@@ -3646638,7 +3646913,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       3, 1,
-      { 984, 985, 986 },
+      { 1009, 1010, 1011 },
       -1,
    } },
    { .expression = {
@@ -3646649,7 +3646924,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       2, 2,
-      { 974, 975, 987 },
+      { 999, 1000, 1012 },
       -1,
    } },
    { .expression = {
@@ -3646660,7 +3646935,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       1, 3,
-      { 972, 973, 988 },
+      { 997, 998, 1013 },
       -1,
    } },
    { .expression = {
@@ -3646671,7 +3646946,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 4,
-      { 970, 971, 989 },
+      { 995, 996, 1014 },
       -1,
    } },
 
@@ -3646726,7 +3647001,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmul,
       3, 1,
-      { 995, 996 },
+      { 1020, 1021 },
       0,
    } },
    { .expression = {
@@ -3646737,7 +3647012,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       2, 2,
-      { 993, 994, 997 },
+      { 1018, 1019, 1022 },
       -1,
    } },
    { .expression = {
@@ -3646748,7 +3647023,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       1, 3,
-      { 991, 992, 998 },
+      { 1016, 1017, 1023 },
       0,
    } },
    { .variable = {
@@ -3646766,14 +3647041,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 4,
-      { 999, 1000 },
+      { 1024, 1025 },
       -1,
    } },
 
-   /* replace3294_0 -> 991 in the cache */
-   /* replace3294_1 -> 992 in the cache */
-   /* replace3294_2_0 -> 993 in the cache */
-   /* replace3294_2_1 -> 994 in the cache */
+   /* replace3298_0 -> 1016 in the cache */
+   /* replace3298_1 -> 1017 in the cache */
+   /* replace3298_2_0 -> 1018 in the cache */
+   /* replace3298_2_1 -> 1019 in the cache */
    { .variable = {
       { nir_search_value_variable, -7 },
       4, /* e */
@@ -3646803,7 +3647078,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       2, 1,
-      { 1002, 1003, 1004 },
+      { 1027, 1028, 1029 },
       -1,
    } },
    { .expression = {
@@ -3646814,7 +3647089,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       1, 2,
-      { 993, 994, 1005 },
+      { 1018, 1019, 1030 },
       -1,
    } },
    { .expression = {
@@ -3646825,7 +3647100,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 3,
-      { 991, 992, 1006 },
+      { 1016, 1017, 1031 },
       -1,
    } },
 
@@ -3646866,7 +3647141,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmul,
       2, 1,
-      { 1010, 1011 },
+      { 1035, 1036 },
       0,
    } },
    { .expression = {
@@ -3646877,7 +3647152,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       1, 2,
-      { 1008, 1009, 1012 },
+      { 1033, 1034, 1037 },
       0,
    } },
    { .variable = {
@@ -3646895,12 +3647170,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 3,
-      { 1013, 1014 },
+      { 1038, 1039 },
       -1,
    } },
 
-   /* replace3295_0 -> 1008 in the cache */
-   /* replace3295_1 -> 1009 in the cache */
+   /* replace3299_0 -> 1033 in the cache */
+   /* replace3299_1 -> 1034 in the cache */
    { .variable = {
       { nir_search_value_variable, -5 },
       2, /* c */
@@ -3646930,7 +3647205,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       1, 1,
-      { 1016, 1017, 1018 },
+      { 1041, 1042, 1043 },
       -1,
    } },
    { .expression = {
@@ -3646941,20 +3647216,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 2,
-      { 1008, 1009, 1019 },
+      { 1033, 1034, 1044 },
       -1,
    } },
 
    /* ('~fadd', ('fneg', ('ffma(is_used_once)', 'a', 'b', ('ffma', 'c', 'd', ('fmul(is_used_once)', 'e(is_not_const_and_not_fsign)', 'f(is_not_const_and_not_fsign)')))), 'g(is_not_const)') => ('ffma', ('fneg', 'a'), 'b', ('ffma', ('fneg', 'c'), 'd', ('ffma', ('fneg', 'e'), 'f', 'g'))) */
-   /* search3296_0_0_0 -> 991 in the cache */
-   /* search3296_0_0_1 -> 992 in the cache */
-   /* search3296_0_0_2_0 -> 993 in the cache */
-   /* search3296_0_0_2_1 -> 994 in the cache */
-   /* search3296_0_0_2_2_0 -> 995 in the cache */
-   /* search3296_0_0_2_2_1 -> 996 in the cache */
-   /* search3296_0_0_2_2 -> 997 in the cache */
-   /* search3296_0_0_2 -> 998 in the cache */
-   /* search3296_0_0 -> 999 in the cache */
+   /* search3300_0_0_0 -> 1016 in the cache */
+   /* search3300_0_0_1 -> 1017 in the cache */
+   /* search3300_0_0_2_0 -> 1018 in the cache */
+   /* search3300_0_0_2_1 -> 1019 in the cache */
+   /* search3300_0_0_2_2_0 -> 1020 in the cache */
+   /* search3300_0_0_2_2_1 -> 1021 in the cache */
+   /* search3300_0_0_2_2 -> 1022 in the cache */
+   /* search3300_0_0_2 -> 1023 in the cache */
+   /* search3300_0_0 -> 1024 in the cache */
    { .expression = {
       { nir_search_value_expression, -7 },
       nir_fp_exact,
@@ -3646963,10 +3647238,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 3,
-      { 999 },
+      { 1024 },
       -1,
    } },
-   /* search3296_1 -> 1000 in the cache */
+   /* search3300_1 -> 1025 in the cache */
    { .expression = {
       { nir_search_value_expression, -7 },
       nir_fp_exact,
@@ -3646975,11 +3647250,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 4,
-      { 1021, 1000 },
+      { 1046, 1025 },
       -1,
    } },
 
-   /* replace3296_0_0 -> 991 in the cache */
+   /* replace3300_0_0 -> 1016 in the cache */
    { .expression = {
       { nir_search_value_expression, -7 },
       nir_fp_fast_math,
@@ -3646988,11 +3647263,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 0,
-      { 991 },
+      { 1016 },
       -1,
    } },
-   /* replace3296_1 -> 992 in the cache */
-   /* replace3296_2_0_0 -> 993 in the cache */
+   /* replace3300_1 -> 1017 in the cache */
+   /* replace3300_2_0_0 -> 1018 in the cache */
    { .expression = {
       { nir_search_value_expression, -7 },
       nir_fp_fast_math,
@@ -3647001,11 +3647276,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 0,
-      { 993 },
+      { 1018 },
       -1,
    } },
-   /* replace3296_2_1 -> 994 in the cache */
-   /* replace3296_2_2_0_0 -> 1002 in the cache */
+   /* replace3300_2_1 -> 1019 in the cache */
+   /* replace3300_2_2_0_0 -> 1027 in the cache */
    { .expression = {
       { nir_search_value_expression, -7 },
       nir_fp_fast_math,
@@ -3647014,11 +3647289,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 0,
-      { 1002 },
+      { 1027 },
       -1,
    } },
-   /* replace3296_2_2_1 -> 1003 in the cache */
-   /* replace3296_2_2_2 -> 1004 in the cache */
+   /* replace3300_2_2_1 -> 1028 in the cache */
+   /* replace3300_2_2_2 -> 1029 in the cache */
    { .expression = {
       { nir_search_value_expression, -7 },
       nir_fp_fast_math,
@@ -3647027,7 +3647302,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       2, 1,
-      { 1025, 1003, 1004 },
+      { 1050, 1028, 1029 },
       -1,
    } },
    { .expression = {
@@ -3647038,7 +3647313,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       1, 2,
-      { 1024, 994, 1026 },
+      { 1049, 1019, 1051 },
       -1,
    } },
    { .expression = {
@@ -3647049,20 +3647324,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 3,
-      { 1023, 992, 1027 },
+      { 1048, 1017, 1052 },
       -1,
    } },
 
    /* ('~fadd', ('fmad(is_used_once)', 'a', 'b', ('fmad(is_used_once)', 'c', 'd', ('fmad', 'e', 'f', ('fmul(is_used_once)', 'g(is_not_const_and_not_fsign)', 'h(is_not_const_and_not_fsign)')))), 'i(is_not_const)') => ('fmad', 'a', 'b', ('fmad', 'c', 'd', ('fmad', 'e', 'f', ('fmad', 'g', 'h', 'i')))) */
-   /* search3297_0_0 -> 970 in the cache */
-   /* search3297_0_1 -> 971 in the cache */
-   /* search3297_0_2_0 -> 972 in the cache */
-   /* search3297_0_2_1 -> 973 in the cache */
-   /* search3297_0_2_2_0 -> 974 in the cache */
-   /* search3297_0_2_2_1 -> 975 in the cache */
-   /* search3297_0_2_2_2_0 -> 976 in the cache */
-   /* search3297_0_2_2_2_1 -> 977 in the cache */
-   /* search3297_0_2_2_2 -> 978 in the cache */
+   /* search3301_0_0 -> 995 in the cache */
+   /* search3301_0_1 -> 996 in the cache */
+   /* search3301_0_2_0 -> 997 in the cache */
+   /* search3301_0_2_1 -> 998 in the cache */
+   /* search3301_0_2_2_0 -> 999 in the cache */
+   /* search3301_0_2_2_1 -> 1000 in the cache */
+   /* search3301_0_2_2_2_0 -> 1001 in the cache */
+   /* search3301_0_2_2_2_1 -> 1002 in the cache */
+   /* search3301_0_2_2_2 -> 1003 in the cache */
    { .expression = {
       { nir_search_value_expression, -9 },
       nir_fp_exact,
@@ -3647071,7 +3647346,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       3, 2,
-      { 974, 975, 978 },
+      { 999, 1000, 1003 },
       -1,
    } },
    { .expression = {
@@ -3647082,7 +3647357,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       2, 3,
-      { 972, 973, 1029 },
+      { 997, 998, 1054 },
       0,
    } },
    { .expression = {
@@ -3647093,10 +3647368,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       1, 4,
-      { 970, 971, 1030 },
+      { 995, 996, 1055 },
       0,
    } },
-   /* search3297_1 -> 982 in the cache */
+   /* search3301_1 -> 1007 in the cache */
    { .expression = {
       { nir_search_value_expression, -9 },
       nir_fp_exact,
@@ -3647105,19 +3647380,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 5,
-      { 1031, 982 },
+      { 1056, 1007 },
       -1,
    } },
 
-   /* replace3297_0 -> 970 in the cache */
-   /* replace3297_1 -> 971 in the cache */
-   /* replace3297_2_0 -> 972 in the cache */
-   /* replace3297_2_1 -> 973 in the cache */
-   /* replace3297_2_2_0 -> 974 in the cache */
-   /* replace3297_2_2_1 -> 975 in the cache */
-   /* replace3297_2_2_2_0 -> 984 in the cache */
-   /* replace3297_2_2_2_1 -> 985 in the cache */
-   /* replace3297_2_2_2_2 -> 986 in the cache */
+   /* replace3301_0 -> 995 in the cache */
+   /* replace3301_1 -> 996 in the cache */
+   /* replace3301_2_0 -> 997 in the cache */
+   /* replace3301_2_1 -> 998 in the cache */
+   /* replace3301_2_2_0 -> 999 in the cache */
+   /* replace3301_2_2_1 -> 1000 in the cache */
+   /* replace3301_2_2_2_0 -> 1009 in the cache */
+   /* replace3301_2_2_2_1 -> 1010 in the cache */
+   /* replace3301_2_2_2_2 -> 1011 in the cache */
    { .expression = {
       { nir_search_value_expression, -9 },
       nir_fp_fast_math,
@@ -3647126,7 +3647401,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       3, 1,
-      { 984, 985, 986 },
+      { 1009, 1010, 1011 },
       -1,
    } },
    { .expression = {
@@ -3647137,7 +3647412,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       2, 2,
-      { 974, 975, 1033 },
+      { 999, 1000, 1058 },
       -1,
    } },
    { .expression = {
@@ -3647148,7 +3647423,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       1, 3,
-      { 972, 973, 1034 },
+      { 997, 998, 1059 },
       -1,
    } },
    { .expression = {
@@ -3647159,18 +3647434,18 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       0, 4,
-      { 970, 971, 1035 },
+      { 995, 996, 1060 },
       -1,
    } },
 
    /* ('~fadd', ('fmad(is_used_once)', 'a', 'b', ('fmad', 'c', 'd', ('fmul(is_used_once)', 'e(is_not_const_and_not_fsign)', 'f(is_not_const_and_not_fsign)'))), 'g(is_not_const)') => ('fmad', 'a', 'b', ('fmad', 'c', 'd', ('fmad', 'e', 'f', 'g'))) */
-   /* search3298_0_0 -> 991 in the cache */
-   /* search3298_0_1 -> 992 in the cache */
-   /* search3298_0_2_0 -> 993 in the cache */
-   /* search3298_0_2_1 -> 994 in the cache */
-   /* search3298_0_2_2_0 -> 995 in the cache */
-   /* search3298_0_2_2_1 -> 996 in the cache */
-   /* search3298_0_2_2 -> 997 in the cache */
+   /* search3302_0_0 -> 1016 in the cache */
+   /* search3302_0_1 -> 1017 in the cache */
+   /* search3302_0_2_0 -> 1018 in the cache */
+   /* search3302_0_2_1 -> 1019 in the cache */
+   /* search3302_0_2_2_0 -> 1020 in the cache */
+   /* search3302_0_2_2_1 -> 1021 in the cache */
+   /* search3302_0_2_2 -> 1022 in the cache */
    { .expression = {
       { nir_search_value_expression, -7 },
       nir_fp_exact,
@@ -3647179,7 +3647454,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       2, 2,
-      { 993, 994, 997 },
+      { 1018, 1019, 1022 },
       -1,
    } },
    { .expression = {
@@ -3647190,10 +3647465,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       1, 3,
-      { 991, 992, 1037 },
+      { 1016, 1017, 1062 },
       0,
    } },
-   /* search3298_1 -> 1000 in the cache */
+   /* search3302_1 -> 1025 in the cache */
    { .expression = {
       { nir_search_value_expression, -7 },
       nir_fp_exact,
@@ -3647202,17 +3647477,17 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 4,
-      { 1038, 1000 },
+      { 1063, 1025 },
       -1,
    } },
 
-   /* replace3298_0 -> 991 in the cache */
-   /* replace3298_1 -> 992 in the cache */
-   /* replace3298_2_0 -> 993 in the cache */
-   /* replace3298_2_1 -> 994 in the cache */
-   /* replace3298_2_2_0 -> 1002 in the cache */
-   /* replace3298_2_2_1 -> 1003 in the cache */
-   /* replace3298_2_2_2 -> 1004 in the cache */
+   /* replace3302_0 -> 1016 in the cache */
+   /* replace3302_1 -> 1017 in the cache */
+   /* replace3302_2_0 -> 1018 in the cache */
+   /* replace3302_2_1 -> 1019 in the cache */
+   /* replace3302_2_2_0 -> 1027 in the cache */
+   /* replace3302_2_2_1 -> 1028 in the cache */
+   /* replace3302_2_2_2 -> 1029 in the cache */
    { .expression = {
       { nir_search_value_expression, -7 },
       nir_fp_fast_math,
@@ -3647221,7 +3647496,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       2, 1,
-      { 1002, 1003, 1004 },
+      { 1027, 1028, 1029 },
       -1,
    } },
    { .expression = {
@@ -3647232,7 +3647507,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       1, 2,
-      { 993, 994, 1040 },
+      { 1018, 1019, 1065 },
       -1,
    } },
    { .expression = {
@@ -3647243,16 +3647518,16 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       0, 3,
-      { 991, 992, 1041 },
+      { 1016, 1017, 1066 },
       -1,
    } },
 
    /* ('~fadd', ('fmad(is_used_once)', 'a', 'b', ('fmul(is_used_once)', 'c(is_not_const_and_not_fsign)', 'd(is_not_const_and_not_fsign)')), 'e(is_not_const)') => ('fmad', 'a', 'b', ('fmad', 'c', 'd', 'e')) */
-   /* search3299_0_0 -> 1008 in the cache */
-   /* search3299_0_1 -> 1009 in the cache */
-   /* search3299_0_2_0 -> 1010 in the cache */
-   /* search3299_0_2_1 -> 1011 in the cache */
-   /* search3299_0_2 -> 1012 in the cache */
+   /* search3303_0_0 -> 1033 in the cache */
+   /* search3303_0_1 -> 1034 in the cache */
+   /* search3303_0_2_0 -> 1035 in the cache */
+   /* search3303_0_2_1 -> 1036 in the cache */
+   /* search3303_0_2 -> 1037 in the cache */
    { .expression = {
       { nir_search_value_expression, -5 },
       nir_fp_exact,
@@ -3647261,10 +3647536,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       1, 2,
-      { 1008, 1009, 1012 },
+      { 1033, 1034, 1037 },
       0,
    } },
-   /* search3299_1 -> 1014 in the cache */
+   /* search3303_1 -> 1039 in the cache */
    { .expression = {
       { nir_search_value_expression, -5 },
       nir_fp_exact,
@@ -3647273,15 +3647548,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 3,
-      { 1043, 1014 },
+      { 1068, 1039 },
       -1,
    } },
 
-   /* replace3299_0 -> 1008 in the cache */
-   /* replace3299_1 -> 1009 in the cache */
-   /* replace3299_2_0 -> 1016 in the cache */
-   /* replace3299_2_1 -> 1017 in the cache */
-   /* replace3299_2_2 -> 1018 in the cache */
+   /* replace3303_0 -> 1033 in the cache */
+   /* replace3303_1 -> 1034 in the cache */
+   /* replace3303_2_0 -> 1041 in the cache */
+   /* replace3303_2_1 -> 1042 in the cache */
+   /* replace3303_2_2 -> 1043 in the cache */
    { .expression = {
       { nir_search_value_expression, -5 },
       nir_fp_fast_math,
@@ -3647290,7 +3647565,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       1, 1,
-      { 1016, 1017, 1018 },
+      { 1041, 1042, 1043 },
       -1,
    } },
    { .expression = {
@@ -3647301,20 +3647576,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       0, 2,
-      { 1008, 1009, 1045 },
+      { 1033, 1034, 1070 },
       -1,
    } },
 
    /* ('~fadd', ('fneg', ('fmad(is_used_once)', 'a', 'b', ('fmad', 'c', 'd', ('fmul(is_used_once)', 'e(is_not_const_and_not_fsign)', 'f(is_not_const_and_not_fsign)')))), 'g(is_not_const)') => ('fmad', ('fneg', 'a'), 'b', ('fmad', ('fneg', 'c'), 'd', ('fmad', ('fneg', 'e'), 'f', 'g'))) */
-   /* search3300_0_0_0 -> 991 in the cache */
-   /* search3300_0_0_1 -> 992 in the cache */
-   /* search3300_0_0_2_0 -> 993 in the cache */
-   /* search3300_0_0_2_1 -> 994 in the cache */
-   /* search3300_0_0_2_2_0 -> 995 in the cache */
-   /* search3300_0_0_2_2_1 -> 996 in the cache */
-   /* search3300_0_0_2_2 -> 997 in the cache */
-   /* search3300_0_0_2 -> 1037 in the cache */
-   /* search3300_0_0 -> 1038 in the cache */
+   /* search3304_0_0_0 -> 1016 in the cache */
+   /* search3304_0_0_1 -> 1017 in the cache */
+   /* search3304_0_0_2_0 -> 1018 in the cache */
+   /* search3304_0_0_2_1 -> 1019 in the cache */
+   /* search3304_0_0_2_2_0 -> 1020 in the cache */
+   /* search3304_0_0_2_2_1 -> 1021 in the cache */
+   /* search3304_0_0_2_2 -> 1022 in the cache */
+   /* search3304_0_0_2 -> 1062 in the cache */
+   /* search3304_0_0 -> 1063 in the cache */
    { .expression = {
       { nir_search_value_expression, -7 },
       nir_fp_exact,
@@ -3647323,10 +3647598,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 3,
-      { 1038 },
+      { 1063 },
       -1,
    } },
-   /* search3300_1 -> 1000 in the cache */
+   /* search3304_1 -> 1025 in the cache */
    { .expression = {
       { nir_search_value_expression, -7 },
       nir_fp_exact,
@@ -3647335,20 +3647610,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 4,
-      { 1047, 1000 },
+      { 1072, 1025 },
       -1,
    } },
 
-   /* replace3300_0_0 -> 991 in the cache */
-   /* replace3300_0 -> 1023 in the cache */
-   /* replace3300_1 -> 992 in the cache */
-   /* replace3300_2_0_0 -> 993 in the cache */
-   /* replace3300_2_0 -> 1024 in the cache */
-   /* replace3300_2_1 -> 994 in the cache */
-   /* replace3300_2_2_0_0 -> 1002 in the cache */
-   /* replace3300_2_2_0 -> 1025 in the cache */
-   /* replace3300_2_2_1 -> 1003 in the cache */
-   /* replace3300_2_2_2 -> 1004 in the cache */
+   /* replace3304_0_0 -> 1016 in the cache */
+   /* replace3304_0 -> 1048 in the cache */
+   /* replace3304_1 -> 1017 in the cache */
+   /* replace3304_2_0_0 -> 1018 in the cache */
+   /* replace3304_2_0 -> 1049 in the cache */
+   /* replace3304_2_1 -> 1019 in the cache */
+   /* replace3304_2_2_0_0 -> 1027 in the cache */
+   /* replace3304_2_2_0 -> 1050 in the cache */
+   /* replace3304_2_2_1 -> 1028 in the cache */
+   /* replace3304_2_2_2 -> 1029 in the cache */
    { .expression = {
       { nir_search_value_expression, -7 },
       nir_fp_fast_math,
@@ -3647357,7 +3647632,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       2, 1,
-      { 1025, 1003, 1004 },
+      { 1050, 1028, 1029 },
       -1,
    } },
    { .expression = {
@@ -3647368,7 +3647643,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       1, 2,
-      { 1024, 994, 1049 },
+      { 1049, 1019, 1074 },
       -1,
    } },
    { .expression = {
@@ -3647379,14 +3647654,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmad,
       0, 3,
-      { 1023, 992, 1050 },
+      { 1048, 1017, 1075 },
       -1,
    } },
 
    /* ('~fadd', ('ffmaz(is_used_once)', 'a', 'b', ('ffmaz', 'c', 'd', ('fmulz(is_used_once)', 'e(is_not_const_and_not_fsign)', 'f(is_not_const_and_not_fsign)'))), 'g(is_not_const)') => ('ffmaz', 'a', 'b', ('ffmaz', 'c', 'd', ('ffmaz', 'e', 'f', 'g'))) */
-   /* search3301_0_0 -> 296 in the cache */
-   /* search3301_0_1 -> 298 in the cache */
-   /* search3301_0_2_0 -> 345 in the cache */
+   /* search3305_0_0 -> 296 in the cache */
+   /* search3305_0_1 -> 298 in the cache */
+   /* search3305_0_2_0 -> 345 in the cache */
    { .variable = {
       { nir_search_value_variable, 32 },
       3, /* d */
@@ -3647416,7 +3647691,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmulz,
       3, 1,
-      { 1053, 1054 },
+      { 1078, 1079 },
       0,
    } },
    { .expression = {
@@ -3647427,7 +3647702,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffmaz,
       2, 2,
-      { 345, 1052, 1055 },
+      { 345, 1077, 1080 },
       -1,
    } },
    { .expression = {
@@ -3647438,7 +3647713,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffmaz,
       1, 3,
-      { 296, 298, 1056 },
+      { 296, 298, 1081 },
       0,
    } },
    { .variable = {
@@ -3647456,14 +3647731,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 4,
-      { 1057, 1058 },
+      { 1082, 1083 },
       -1,
    } },
 
-   /* replace3301_0 -> 296 in the cache */
-   /* replace3301_1 -> 298 in the cache */
-   /* replace3301_2_0 -> 345 in the cache */
-   /* replace3301_2_1 -> 1052 in the cache */
+   /* replace3305_0 -> 296 in the cache */
+   /* replace3305_1 -> 298 in the cache */
+   /* replace3305_2_0 -> 345 in the cache */
+   /* replace3305_2_1 -> 1077 in the cache */
    { .variable = {
       { nir_search_value_variable, 32 },
       4, /* e */
@@ -3647493,7 +3647768,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffmaz,
       2, 1,
-      { 1060, 1061, 1062 },
+      { 1085, 1086, 1087 },
       -1,
    } },
    { .expression = {
@@ -3647504,7 +3647779,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffmaz,
       1, 2,
-      { 345, 1052, 1063 },
+      { 345, 1077, 1088 },
       -1,
    } },
    { .expression = {
@@ -3647515,13 +3647790,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffmaz,
       0, 3,
-      { 296, 298, 1064 },
+      { 296, 298, 1089 },
       -1,
    } },
 
    /* ('~fadd', ('ffmaz(is_used_once)', 'a', 'b', ('fmulz(is_used_once)', 'c(is_not_const_and_not_fsign)', 'd(is_not_const_and_not_fsign)')), 'e(is_not_const)') => ('ffmaz', 'a', 'b', ('ffmaz', 'c', 'd', 'e')) */
-   /* search3302_0_0 -> 296 in the cache */
-   /* search3302_0_1 -> 298 in the cache */
+   /* search3306_0_0 -> 296 in the cache */
+   /* search3306_0_1 -> 298 in the cache */
    { .variable = {
       { nir_search_value_variable, 32 },
       2, /* c */
@@ -3647544,7 +3647819,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmulz,
       2, 1,
-      { 1066, 1067 },
+      { 1091, 1092 },
       0,
    } },
    { .expression = {
@@ -3647555,7 +3647830,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffmaz,
       1, 2,
-      { 296, 298, 1068 },
+      { 296, 298, 1093 },
       0,
    } },
    { .variable = {
@@ -3647573,15 +3647848,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 3,
-      { 1069, 1070 },
+      { 1094, 1095 },
       -1,
    } },
 
-   /* replace3302_0 -> 296 in the cache */
-   /* replace3302_1 -> 298 in the cache */
-   /* replace3302_2_0 -> 345 in the cache */
-   /* replace3302_2_1 -> 1052 in the cache */
-   /* replace3302_2_2 -> 1060 in the cache */
+   /* replace3306_0 -> 296 in the cache */
+   /* replace3306_1 -> 298 in the cache */
+   /* replace3306_2_0 -> 345 in the cache */
+   /* replace3306_2_1 -> 1077 in the cache */
+   /* replace3306_2_2 -> 1085 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3647590,7 +3647865,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffmaz,
       1, 1,
-      { 345, 1052, 1060 },
+      { 345, 1077, 1085 },
       -1,
    } },
    { .expression = {
@@ -3647601,260 +3647876,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffmaz,
       0, 2,
-      { 296, 298, 1072 },
+      { 296, 298, 1097 },
       -1,
    } },
 
    /* ('~fadd', ('fneg', ('ffmaz(is_used_once)', 'a', 'b', ('ffmaz', 'c', 'd', ('fmulz(is_used_once)', 'e(is_not_const_and_not_fsign)', 'f(is_not_const_and_not_fsign)')))), 'g(is_not_const)') => ('ffmaz', ('fneg', 'a'), 'b', ('ffmaz', ('fneg', 'c'), 'd', ('ffmaz', ('fneg', 'e'), 'f', 'g'))) */
-   /* search3303_0_0_0 -> 296 in the cache */
-   /* search3303_0_0_1 -> 298 in the cache */
-   /* search3303_0_0_2_0 -> 345 in the cache */
-   /* search3303_0_0_2_1 -> 1052 in the cache */
-   /* search3303_0_0_2_2_0 -> 1053 in the cache */
-   /* search3303_0_0_2_2_1 -> 1054 in the cache */
-   /* search3303_0_0_2_2 -> 1055 in the cache */
-   /* search3303_0_0_2 -> 1056 in the cache */
-   /* search3303_0_0 -> 1057 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_exact,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fneg,
-      -1, 3,
-      { 1057 },
-      -1,
-   } },
-   /* search3303_1 -> 1058 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_exact,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fadd,
-      0, 4,
-      { 1074, 1058 },
-      -1,
-   } },
-
-   /* replace3303_0_0 -> 296 in the cache */
-   /* replace3303_0 -> 529 in the cache */
-   /* replace3303_1 -> 298 in the cache */
-   /* replace3303_2_0_0 -> 345 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fneg,
-      -1, 0,
-      { 345 },
-      -1,
-   } },
-   /* replace3303_2_1 -> 1052 in the cache */
-   /* replace3303_2_2_0_0 -> 1060 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fneg,
-      -1, 0,
-      { 1060 },
-      -1,
-   } },
-   /* replace3303_2_2_1 -> 1061 in the cache */
-   /* replace3303_2_2_2 -> 1062 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_ffmaz,
-      2, 1,
-      { 1077, 1061, 1062 },
-      -1,
-   } },
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_ffmaz,
-      1, 2,
-      { 1076, 1052, 1078 },
-      -1,
-   } },
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_ffmaz,
-      0, 3,
-      { 529, 298, 1079 },
-      -1,
-   } },
-
-   /* ('~fadd', ('fmadz(is_used_once)', 'a', 'b', ('fmadz', 'c', 'd', ('fmulz(is_used_once)', 'e(is_not_const_and_not_fsign)', 'f(is_not_const_and_not_fsign)'))), 'g(is_not_const)') => ('fmadz', 'a', 'b', ('fmadz', 'c', 'd', ('fmadz', 'e', 'f', 'g'))) */
-   /* search3304_0_0 -> 296 in the cache */
-   /* search3304_0_1 -> 298 in the cache */
-   /* search3304_0_2_0 -> 345 in the cache */
-   /* search3304_0_2_1 -> 1052 in the cache */
-   /* search3304_0_2_2_0 -> 1053 in the cache */
-   /* search3304_0_2_2_1 -> 1054 in the cache */
-   /* search3304_0_2_2 -> 1055 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_exact,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fmadz,
-      2, 2,
-      { 345, 1052, 1055 },
-      -1,
-   } },
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_exact,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fmadz,
-      1, 3,
-      { 296, 298, 1081 },
-      0,
-   } },
-   /* search3304_1 -> 1058 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_exact,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fadd,
-      0, 4,
-      { 1082, 1058 },
-      -1,
-   } },
-
-   /* replace3304_0 -> 296 in the cache */
-   /* replace3304_1 -> 298 in the cache */
-   /* replace3304_2_0 -> 345 in the cache */
-   /* replace3304_2_1 -> 1052 in the cache */
-   /* replace3304_2_2_0 -> 1060 in the cache */
-   /* replace3304_2_2_1 -> 1061 in the cache */
-   /* replace3304_2_2_2 -> 1062 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fmadz,
-      2, 1,
-      { 1060, 1061, 1062 },
-      -1,
-   } },
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fmadz,
-      1, 2,
-      { 345, 1052, 1084 },
-      -1,
-   } },
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fmadz,
-      0, 3,
-      { 296, 298, 1085 },
-      -1,
-   } },
-
-   /* ('~fadd', ('fmadz(is_used_once)', 'a', 'b', ('fmulz(is_used_once)', 'c(is_not_const_and_not_fsign)', 'd(is_not_const_and_not_fsign)')), 'e(is_not_const)') => ('fmadz', 'a', 'b', ('fmadz', 'c', 'd', 'e')) */
-   /* search3305_0_0 -> 296 in the cache */
-   /* search3305_0_1 -> 298 in the cache */
-   /* search3305_0_2_0 -> 1066 in the cache */
-   /* search3305_0_2_1 -> 1067 in the cache */
-   /* search3305_0_2 -> 1068 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_exact,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fmadz,
-      1, 2,
-      { 296, 298, 1068 },
-      0,
-   } },
-   /* search3305_1 -> 1070 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_exact,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fadd,
-      0, 3,
-      { 1087, 1070 },
-      -1,
-   } },
-
-   /* replace3305_0 -> 296 in the cache */
-   /* replace3305_1 -> 298 in the cache */
-   /* replace3305_2_0 -> 345 in the cache */
-   /* replace3305_2_1 -> 1052 in the cache */
-   /* replace3305_2_2 -> 1060 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fmadz,
-      1, 1,
-      { 345, 1052, 1060 },
-      -1,
-   } },
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fmadz,
-      0, 2,
-      { 296, 298, 1089 },
-      -1,
-   } },
-
-   /* ('~fadd', ('fneg', ('fmadz(is_used_once)', 'a', 'b', ('fmadz', 'c', 'd', ('fmulz(is_used_once)', 'e(is_not_const_and_not_fsign)', 'f(is_not_const_and_not_fsign)')))), 'g(is_not_const)') => ('fmadz', ('fneg', 'a'), 'b', ('fmadz', ('fneg', 'c'), 'd', ('fmadz', ('fneg', 'e'), 'f', 'g'))) */
-   /* search3306_0_0_0 -> 296 in the cache */
-   /* search3306_0_0_1 -> 298 in the cache */
-   /* search3306_0_0_2_0 -> 345 in the cache */
-   /* search3306_0_0_2_1 -> 1052 in the cache */
-   /* search3306_0_0_2_2_0 -> 1053 in the cache */
-   /* search3306_0_0_2_2_1 -> 1054 in the cache */
-   /* search3306_0_0_2_2 -> 1055 in the cache */
-   /* search3306_0_0_2 -> 1081 in the cache */
-   /* search3306_0_0 -> 1082 in the cache */
+   /* search3307_0_0_0 -> 296 in the cache */
+   /* search3307_0_0_1 -> 298 in the cache */
+   /* search3307_0_0_2_0 -> 345 in the cache */
+   /* search3307_0_0_2_1 -> 1077 in the cache */
+   /* search3307_0_0_2_2_0 -> 1078 in the cache */
+   /* search3307_0_0_2_2_1 -> 1079 in the cache */
+   /* search3307_0_0_2_2 -> 1080 in the cache */
+   /* search3307_0_0_2 -> 1081 in the cache */
+   /* search3307_0_0 -> 1082 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_exact,
@@ -3647866,7 +3647901,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 1082 },
       -1,
    } },
-   /* search3306_1 -> 1058 in the cache */
+   /* search3307_1 -> 1083 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_exact,
@@ -3647875,20 +3647910,124 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 4,
-      { 1091, 1058 },
+      { 1099, 1083 },
       -1,
    } },
 
-   /* replace3306_0_0 -> 296 in the cache */
-   /* replace3306_0 -> 529 in the cache */
-   /* replace3306_1 -> 298 in the cache */
-   /* replace3306_2_0_0 -> 345 in the cache */
-   /* replace3306_2_0 -> 1076 in the cache */
-   /* replace3306_2_1 -> 1052 in the cache */
-   /* replace3306_2_2_0_0 -> 1060 in the cache */
-   /* replace3306_2_2_0 -> 1077 in the cache */
-   /* replace3306_2_2_1 -> 1061 in the cache */
-   /* replace3306_2_2_2 -> 1062 in the cache */
+   /* replace3307_0_0 -> 296 in the cache */
+   /* replace3307_0 -> 555 in the cache */
+   /* replace3307_1 -> 298 in the cache */
+   /* replace3307_2_0_0 -> 345 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fneg,
+      -1, 0,
+      { 345 },
+      -1,
+   } },
+   /* replace3307_2_1 -> 1077 in the cache */
+   /* replace3307_2_2_0_0 -> 1085 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fneg,
+      -1, 0,
+      { 1085 },
+      -1,
+   } },
+   /* replace3307_2_2_1 -> 1086 in the cache */
+   /* replace3307_2_2_2 -> 1087 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_ffmaz,
+      2, 1,
+      { 1102, 1086, 1087 },
+      -1,
+   } },
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_ffmaz,
+      1, 2,
+      { 1101, 1077, 1103 },
+      -1,
+   } },
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_ffmaz,
+      0, 3,
+      { 555, 298, 1104 },
+      -1,
+   } },
+
+   /* ('~fadd', ('fmadz(is_used_once)', 'a', 'b', ('fmadz', 'c', 'd', ('fmulz(is_used_once)', 'e(is_not_const_and_not_fsign)', 'f(is_not_const_and_not_fsign)'))), 'g(is_not_const)') => ('fmadz', 'a', 'b', ('fmadz', 'c', 'd', ('fmadz', 'e', 'f', 'g'))) */
+   /* search3308_0_0 -> 296 in the cache */
+   /* search3308_0_1 -> 298 in the cache */
+   /* search3308_0_2_0 -> 345 in the cache */
+   /* search3308_0_2_1 -> 1077 in the cache */
+   /* search3308_0_2_2_0 -> 1078 in the cache */
+   /* search3308_0_2_2_1 -> 1079 in the cache */
+   /* search3308_0_2_2 -> 1080 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_exact,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fmadz,
+      2, 2,
+      { 345, 1077, 1080 },
+      -1,
+   } },
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_exact,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fmadz,
+      1, 3,
+      { 296, 298, 1106 },
+      0,
+   } },
+   /* search3308_1 -> 1083 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_exact,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fadd,
+      0, 4,
+      { 1107, 1083 },
+      -1,
+   } },
+
+   /* replace3308_0 -> 296 in the cache */
+   /* replace3308_1 -> 298 in the cache */
+   /* replace3308_2_0 -> 345 in the cache */
+   /* replace3308_2_1 -> 1077 in the cache */
+   /* replace3308_2_2_0 -> 1085 in the cache */
+   /* replace3308_2_2_1 -> 1086 in the cache */
+   /* replace3308_2_2_2 -> 1087 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3647897,7 +3648036,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmadz,
       2, 1,
-      { 1077, 1061, 1062 },
+      { 1085, 1086, 1087 },
       -1,
    } },
    { .expression = {
@@ -3647908,7 +3648047,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmadz,
       1, 2,
-      { 1076, 1052, 1093 },
+      { 345, 1077, 1109 },
       -1,
    } },
    { .expression = {
@@ -3647919,14 +3648058,150 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmadz,
       0, 3,
-      { 529, 298, 1094 },
+      { 296, 298, 1110 },
+      -1,
+   } },
+
+   /* ('~fadd', ('fmadz(is_used_once)', 'a', 'b', ('fmulz(is_used_once)', 'c(is_not_const_and_not_fsign)', 'd(is_not_const_and_not_fsign)')), 'e(is_not_const)') => ('fmadz', 'a', 'b', ('fmadz', 'c', 'd', 'e')) */
+   /* search3309_0_0 -> 296 in the cache */
+   /* search3309_0_1 -> 298 in the cache */
+   /* search3309_0_2_0 -> 1091 in the cache */
+   /* search3309_0_2_1 -> 1092 in the cache */
+   /* search3309_0_2 -> 1093 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_exact,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fmadz,
+      1, 2,
+      { 296, 298, 1093 },
+      0,
+   } },
+   /* search3309_1 -> 1095 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_exact,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fadd,
+      0, 3,
+      { 1112, 1095 },
+      -1,
+   } },
+
+   /* replace3309_0 -> 296 in the cache */
+   /* replace3309_1 -> 298 in the cache */
+   /* replace3309_2_0 -> 345 in the cache */
+   /* replace3309_2_1 -> 1077 in the cache */
+   /* replace3309_2_2 -> 1085 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fmadz,
+      1, 1,
+      { 345, 1077, 1085 },
+      -1,
+   } },
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fmadz,
+      0, 2,
+      { 296, 298, 1114 },
+      -1,
+   } },
+
+   /* ('~fadd', ('fneg', ('fmadz(is_used_once)', 'a', 'b', ('fmadz', 'c', 'd', ('fmulz(is_used_once)', 'e(is_not_const_and_not_fsign)', 'f(is_not_const_and_not_fsign)')))), 'g(is_not_const)') => ('fmadz', ('fneg', 'a'), 'b', ('fmadz', ('fneg', 'c'), 'd', ('fmadz', ('fneg', 'e'), 'f', 'g'))) */
+   /* search3310_0_0_0 -> 296 in the cache */
+   /* search3310_0_0_1 -> 298 in the cache */
+   /* search3310_0_0_2_0 -> 345 in the cache */
+   /* search3310_0_0_2_1 -> 1077 in the cache */
+   /* search3310_0_0_2_2_0 -> 1078 in the cache */
+   /* search3310_0_0_2_2_1 -> 1079 in the cache */
+   /* search3310_0_0_2_2 -> 1080 in the cache */
+   /* search3310_0_0_2 -> 1106 in the cache */
+   /* search3310_0_0 -> 1107 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_exact,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fneg,
+      -1, 3,
+      { 1107 },
+      -1,
+   } },
+   /* search3310_1 -> 1083 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_exact,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fadd,
+      0, 4,
+      { 1116, 1083 },
+      -1,
+   } },
+
+   /* replace3310_0_0 -> 296 in the cache */
+   /* replace3310_0 -> 555 in the cache */
+   /* replace3310_1 -> 298 in the cache */
+   /* replace3310_2_0_0 -> 345 in the cache */
+   /* replace3310_2_0 -> 1101 in the cache */
+   /* replace3310_2_1 -> 1077 in the cache */
+   /* replace3310_2_2_0_0 -> 1085 in the cache */
+   /* replace3310_2_2_0 -> 1102 in the cache */
+   /* replace3310_2_2_1 -> 1086 in the cache */
+   /* replace3310_2_2_2 -> 1087 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fmadz,
+      2, 1,
+      { 1102, 1086, 1087 },
+      -1,
+   } },
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fmadz,
+      1, 2,
+      { 1101, 1077, 1118 },
+      -1,
+   } },
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fmadz,
+      0, 3,
+      { 555, 298, 1119 },
       -1,
    } },
 
    /* ('fmul(contract)', 'a', ('ldexp(is_used_once)', 1.0, 'b')) => ('ldexp', 'a', 'b') */
-   /* search3307_0 -> 98 in the cache */
-   /* search3307_1_0 -> 811 in the cache */
-   /* search3307_1_1 -> 298 in the cache */
+   /* search3311_0 -> 98 in the cache */
+   /* search3311_1_0 -> 836 in the cache */
+   /* search3311_1_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_no_contract,
@@ -3647935,7 +3648210,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ldexp,
       -1, 0,
-      { 811, 298 },
+      { 836, 298 },
       0,
    } },
    { .expression = {
@@ -3647946,12 +3648221,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmul,
       0, 1,
-      { 98, 1096 },
+      { 98, 1121 },
       -1,
    } },
 
-   /* replace3307_0 -> 98 in the cache */
-   /* replace3307_1 -> 298 in the cache */
+   /* replace3311_0 -> 98 in the cache */
+   /* replace3311_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3647969,7 +3648244,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { nir_search_value_constant, 0 },
       nir_type_float, { 0x3ff0000000000000ull /* 1.0 */ },
    } },
-   /* search3308_0_1 -> 930 in the cache */
+   /* search3312_0_1 -> 955 in the cache */
    { .expression = {
       { nir_search_value_expression, 0 },
       nir_fp_no_contract,
@@ -3647978,7 +3648253,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ldexp,
       -1, 0,
-      { 1099, 930 },
+      { 1124, 955 },
       -1,
    } },
    { .expression = {
@@ -3647989,12 +3648264,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_frcp,
       -1, 0,
-      { 1100 },
+      { 1125 },
       -1,
    } },
 
-   /* replace3308_0 -> 1099 in the cache */
-   /* replace3308_1_0 -> 930 in the cache */
+   /* replace3312_0 -> 1124 in the cache */
+   /* replace3312_1_0 -> 955 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3648003,7 +3648278,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ineg,
       -1, 0,
-      { 930 },
+      { 955 },
       -1,
    } },
    { .expression = {
@@ -3648014,13 +3648289,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ldexp,
       -1, 0,
-      { 1099, 1102 },
+      { 1124, 1127 },
       -1,
    } },
 
    /* ('ubfe', 'a', 'b', 0) => 0 */
-   /* search3309_0 -> 296 in the cache */
-   /* search3309_1 -> 298 in the cache */
+   /* search3313_0 -> 296 in the cache */
+   /* search3313_1 -> 298 in the cache */
    { .constant = {
       { nir_search_value_constant, 32 },
       nir_type_int, { 0x0ull /* 0 */ },
@@ -3648033,16 +3648308,16 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ubfe,
       -1, 0,
-      { 296, 298, 1104 },
+      { 296, 298, 1129 },
       -1,
    } },
 
-   /* replace3309 -> 1104 in the cache */
+   /* replace3313 -> 1129 in the cache */
 
    /* ('ibfe', 'a', 'b', 0) => 0 */
-   /* search3310_0 -> 296 in the cache */
-   /* search3310_1 -> 298 in the cache */
-   /* search3310_2 -> 1104 in the cache */
+   /* search3314_0 -> 296 in the cache */
+   /* search3314_1 -> 298 in the cache */
+   /* search3314_2 -> 1129 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3648051,14 +3648326,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ibfe,
       -1, 0,
-      { 296, 298, 1104 },
+      { 296, 298, 1129 },
       -1,
    } },
 
-   /* replace3310 -> 1104 in the cache */
+   /* replace3314 -> 1129 in the cache */
 
    /* ('ubfe', 'a', '#b', '#c') => ('iand', ('ushr', 4294967295, ('ineg', 'c')), ('ushr', 'a', 'b')) */
-   /* search3311_0 -> 296 in the cache */
+   /* search3315_0 -> 296 in the cache */
    { .variable = {
       { nir_search_value_variable, 32 },
       1, /* b */
@@ -3648081,7 +3648356,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ubfe,
       -1, 0,
-      { 296, 1107, 1108 },
+      { 296, 1132, 1133 },
       -1,
    } },
 
@@ -3648089,7 +3648364,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { nir_search_value_constant, 32 },
       nir_type_int, { 0xffffffffull /* 4294967295 */ },
    } },
-   /* replace3311_0_1_0 -> 345 in the cache */
+   /* replace3315_0_1_0 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3648109,11 +3648384,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ushr,
       -1, 0,
-      { 1110, 1111 },
+      { 1135, 1136 },
       -1,
    } },
-   /* replace3311_1_0 -> 296 in the cache */
-   /* replace3311_1_1 -> 298 in the cache */
+   /* replace3315_1_0 -> 296 in the cache */
+   /* replace3315_1_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3648133,14 +3648408,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iand,
       0, 1,
-      { 1112, 1113 },
+      { 1137, 1138 },
       -1,
    } },
 
    /* ('ibfe', 'a', '#b', '#c') => ('ishr', ('ishl', 'a', ('ineg', ('iadd', 'b', 'c'))), ('ineg', 'c')) */
-   /* search3312_0 -> 296 in the cache */
-   /* search3312_1 -> 1107 in the cache */
-   /* search3312_2 -> 1108 in the cache */
+   /* search3316_0 -> 296 in the cache */
+   /* search3316_1 -> 1132 in the cache */
+   /* search3316_2 -> 1133 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3648149,13 +3648424,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ibfe,
       -1, 0,
-      { 296, 1107, 1108 },
+      { 296, 1132, 1133 },
       -1,
    } },
 
-   /* replace3312_0_0 -> 296 in the cache */
-   /* replace3312_0_1_0_0 -> 298 in the cache */
-   /* replace3312_0_1_0_1 -> 345 in the cache */
+   /* replace3316_0_0 -> 296 in the cache */
+   /* replace3316_0_1_0_0 -> 298 in the cache */
+   /* replace3316_0_1_0_1 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3648175,7 +3648450,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ineg,
       -1, 1,
-      { 1116 },
+      { 1141 },
       -1,
    } },
    { .expression = {
@@ -3648186,11 +3648461,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ishl,
       -1, 1,
-      { 296, 1117 },
+      { 296, 1142 },
       -1,
    } },
-   /* replace3312_1_0 -> 345 in the cache */
-   /* replace3312_1 -> 1111 in the cache */
+   /* replace3316_1_0 -> 345 in the cache */
+   /* replace3316_1 -> 1136 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3648199,13 +3648474,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ishr,
       -1, 1,
-      { 1118, 1111 },
+      { 1143, 1136 },
       -1,
    } },
 
    /* ('ishl', 'a', 0) => a */
-   /* search3313_0 -> 98 in the cache */
-   /* search3313_1 -> 1104 in the cache */
+   /* search3317_0 -> 98 in the cache */
+   /* search3317_1 -> 1129 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3648214,14 +3648489,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ishl,
       -1, 0,
-      { 98, 1104 },
+      { 98, 1129 },
       -1,
    } },
 
-   /* replace3313 -> 98 in the cache */
+   /* replace3317 -> 98 in the cache */
 
    /* ('ishl', 'a', -32) => a */
-   /* search3314_0 -> 98 in the cache */
+   /* search3318_0 -> 98 in the cache */
    { .constant = {
       { nir_search_value_constant, 32 },
       nir_type_int, { 0xffffffffffffffe0ull /* -32 */ },
@@ -3648234,15 +3648509,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ishl,
       -1, 0,
-      { 98, 1121 },
+      { 98, 1146 },
       -1,
    } },
 
-   /* replace3314 -> 98 in the cache */
+   /* replace3318 -> 98 in the cache */
 
    /* ('ishr', 'a', 0) => a */
-   /* search3315_0 -> 98 in the cache */
-   /* search3315_1 -> 1104 in the cache */
+   /* search3319_0 -> 98 in the cache */
+   /* search3319_1 -> 1129 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3648251,15 +3648526,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ishr,
       -1, 0,
-      { 98, 1104 },
+      { 98, 1129 },
       -1,
    } },
 
-   /* replace3315 -> 98 in the cache */
+   /* replace3319 -> 98 in the cache */
 
    /* ('ishr', 'a', -32) => a */
-   /* search3316_0 -> 98 in the cache */
-   /* search3316_1 -> 1121 in the cache */
+   /* search3320_0 -> 98 in the cache */
+   /* search3320_1 -> 1146 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3648268,15 +3648543,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ishr,
       -1, 0,
-      { 98, 1121 },
+      { 98, 1146 },
       -1,
    } },
 
-   /* replace3316 -> 98 in the cache */
+   /* replace3320 -> 98 in the cache */
 
    /* ('ushr', 'a', 0) => a */
-   /* search3317_0 -> 98 in the cache */
-   /* search3317_1 -> 1104 in the cache */
+   /* search3321_0 -> 98 in the cache */
+   /* search3321_1 -> 1129 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3648285,15 +3648560,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ushr,
       -1, 0,
-      { 98, 1104 },
+      { 98, 1129 },
       -1,
    } },
 
-   /* replace3317 -> 98 in the cache */
+   /* replace3321 -> 98 in the cache */
 
    /* ('extract_i8', ('extract_i8', 'a', 'b'), 0) => ('extract_i8', 'a', 'b') */
-   /* search3318_0_0 -> 0 in the cache */
-   /* search3318_0_1 -> 1 in the cache */
+   /* search3322_0_0 -> 0 in the cache */
+   /* search3322_0_1 -> 1 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3648317,17 +3648592,17 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_extract_i8,
       -1, 0,
-      { 1126, 1127 },
+      { 1151, 1152 },
       -1,
    } },
 
-   /* replace3318_0 -> 0 in the cache */
-   /* replace3318_1 -> 1 in the cache */
-   /* replace3318 -> 1126 in the cache */
+   /* replace3322_0 -> 0 in the cache */
+   /* replace3322_1 -> 1 in the cache */
+   /* replace3322 -> 1151 in the cache */
 
    /* ('extract_i8', ('extract_u8', 'a', 'b'), 0) => ('extract_i8', 'a', 'b') */
-   /* search3319_0_0 -> 0 in the cache */
-   /* search3319_0_1 -> 1 in the cache */
+   /* search3323_0_0 -> 0 in the cache */
+   /* search3323_0_1 -> 1 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3648339,7 +3648614,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 0, 1 },
       -1,
    } },
-   /* search3319_1 -> 1127 in the cache */
+   /* search3323_1 -> 1152 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3648348,19 +3648623,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_extract_i8,
       -1, 0,
-      { 1129, 1127 },
+      { 1154, 1152 },
       -1,
    } },
 
-   /* replace3319_0 -> 0 in the cache */
-   /* replace3319_1 -> 1 in the cache */
-   /* replace3319 -> 1126 in the cache */
+   /* replace3323_0 -> 0 in the cache */
+   /* replace3323_1 -> 1 in the cache */
+   /* replace3323 -> 1151 in the cache */
 
    /* ('extract_u8', ('extract_i8', 'a', 'b'), 0) => ('extract_u8', 'a', 'b') */
-   /* search3320_0_0 -> 0 in the cache */
-   /* search3320_0_1 -> 1 in the cache */
-   /* search3320_0 -> 1126 in the cache */
-   /* search3320_1 -> 1127 in the cache */
+   /* search3324_0_0 -> 0 in the cache */
+   /* search3324_0_1 -> 1 in the cache */
+   /* search3324_0 -> 1151 in the cache */
+   /* search3324_1 -> 1152 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3648369,19 +3648644,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_extract_u8,
       -1, 0,
-      { 1126, 1127 },
+      { 1151, 1152 },
       -1,
    } },
 
-   /* replace3320_0 -> 0 in the cache */
-   /* replace3320_1 -> 1 in the cache */
-   /* replace3320 -> 1129 in the cache */
+   /* replace3324_0 -> 0 in the cache */
+   /* replace3324_1 -> 1 in the cache */
+   /* replace3324 -> 1154 in the cache */
 
    /* ('extract_u8', ('extract_u8', 'a', 'b'), 0) => ('extract_u8', 'a', 'b') */
-   /* search3321_0_0 -> 0 in the cache */
-   /* search3321_0_1 -> 1 in the cache */
-   /* search3321_0 -> 1129 in the cache */
-   /* search3321_1 -> 1127 in the cache */
+   /* search3325_0_0 -> 0 in the cache */
+   /* search3325_0_1 -> 1 in the cache */
+   /* search3325_0 -> 1154 in the cache */
+   /* search3325_1 -> 1152 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3648390,16 +3648665,16 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_extract_u8,
       -1, 0,
-      { 1129, 1127 },
+      { 1154, 1152 },
       -1,
    } },
 
-   /* replace3321_0 -> 0 in the cache */
-   /* replace3321_1 -> 1 in the cache */
-   /* replace3321 -> 1129 in the cache */
+   /* replace3325_0 -> 0 in the cache */
+   /* replace3325_1 -> 1 in the cache */
+   /* replace3325 -> 1154 in the cache */
 
    /* ('ine', ('iand', 'a', '#b(is_pos_power_of_two)'), 0) => ('bitnz', 'a', ('find_lsb', 'b')) */
-   /* search3322_0_0 -> 0 in the cache */
+   /* search3326_0_0 -> 0 in the cache */
    { .variable = {
       { nir_search_value_variable, -2 },
       1, /* b */
@@ -3648415,10 +3648690,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iand,
       1, 1,
-      { 0, 1133 },
+      { 0, 1158 },
       -1,
    } },
-   /* search3322_1 -> 1127 in the cache */
+   /* search3326_1 -> 1152 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3648427,12 +3648702,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ine,
       0, 2,
-      { 1134, 1127 },
+      { 1159, 1152 },
       -1,
    } },
 
-   /* replace3322_0 -> 0 in the cache */
-   /* replace3322_1_0 -> 1 in the cache */
+   /* replace3326_0 -> 0 in the cache */
+   /* replace3326_1_0 -> 1 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3648452,15 +3648727,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bitnz,
       -1, 0,
-      { 0, 1136 },
+      { 0, 1161 },
       -1,
    } },
 
    /* ('ieq', ('iand', 'a', '#b(is_pos_power_of_two)'), 0) => ('bitz', 'a', ('find_lsb', 'b')) */
-   /* search3323_0_0 -> 0 in the cache */
-   /* search3323_0_1 -> 1133 in the cache */
-   /* search3323_0 -> 1134 in the cache */
-   /* search3323_1 -> 1127 in the cache */
+   /* search3327_0_0 -> 0 in the cache */
+   /* search3327_0_1 -> 1158 in the cache */
+   /* search3327_0 -> 1159 in the cache */
+   /* search3327_1 -> 1152 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3648469,13 +3648744,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ieq,
       0, 2,
-      { 1134, 1127 },
+      { 1159, 1152 },
       -1,
    } },
 
-   /* replace3323_0 -> 0 in the cache */
-   /* replace3323_1_0 -> 1 in the cache */
-   /* replace3323_1 -> 1136 in the cache */
+   /* replace3327_0 -> 0 in the cache */
+   /* replace3327_1_0 -> 1 in the cache */
+   /* replace3327_1 -> 1161 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3648484,15 +3648759,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bitz,
       -1, 0,
-      { 0, 1136 },
+      { 0, 1161 },
       -1,
    } },
 
    /* ('ine', ('iand', 'a', '#b(is_pos_power_of_two)'), 'b') => ('bitz', 'a', ('find_lsb', 'b')) */
-   /* search3324_0_0 -> 0 in the cache */
-   /* search3324_0_1 -> 1133 in the cache */
-   /* search3324_0 -> 1134 in the cache */
-   /* search3324_1 -> 1 in the cache */
+   /* search3328_0_0 -> 0 in the cache */
+   /* search3328_0_1 -> 1158 in the cache */
+   /* search3328_0 -> 1159 in the cache */
+   /* search3328_1 -> 1 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3648501,20 +3648776,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ine,
       0, 2,
-      { 1134, 1 },
+      { 1159, 1 },
       -1,
    } },
 
-   /* replace3324_0 -> 0 in the cache */
-   /* replace3324_1_0 -> 1 in the cache */
-   /* replace3324_1 -> 1136 in the cache */
-   /* replace3324 -> 1139 in the cache */
+   /* replace3328_0 -> 0 in the cache */
+   /* replace3328_1_0 -> 1 in the cache */
+   /* replace3328_1 -> 1161 in the cache */
+   /* replace3328 -> 1164 in the cache */
 
    /* ('ieq', ('iand', 'a', '#b(is_pos_power_of_two)'), 'b') => ('bitnz', 'a', ('find_lsb', 'b')) */
-   /* search3325_0_0 -> 0 in the cache */
-   /* search3325_0_1 -> 1133 in the cache */
-   /* search3325_0 -> 1134 in the cache */
-   /* search3325_1 -> 1 in the cache */
+   /* search3329_0_0 -> 0 in the cache */
+   /* search3329_0_1 -> 1158 in the cache */
+   /* search3329_0 -> 1159 in the cache */
+   /* search3329_1 -> 1 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3648523,19 +3648798,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ieq,
       0, 2,
-      { 1134, 1 },
+      { 1159, 1 },
       -1,
    } },
 
-   /* replace3325_0 -> 0 in the cache */
-   /* replace3325_1_0 -> 1 in the cache */
-   /* replace3325_1 -> 1136 in the cache */
-   /* replace3325 -> 1137 in the cache */
+   /* replace3329_0 -> 0 in the cache */
+   /* replace3329_1_0 -> 1 in the cache */
+   /* replace3329_1 -> 1161 in the cache */
+   /* replace3329 -> 1162 in the cache */
 
    /* ('ine', ('iand', 'a', ('ishl', 1, 'b')), 0) => ('bitnz', 'a', 'b') */
-   /* search3326_0_0 -> 98 in the cache */
-   /* search3326_0_1_0 -> 359 in the cache */
-   /* search3326_0_1_1 -> 298 in the cache */
+   /* search3330_0_0 -> 98 in the cache */
+   /* search3330_0_1_0 -> 359 in the cache */
+   /* search3330_0_1_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3648555,10 +3648830,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iand,
       1, 1,
-      { 98, 1142 },
+      { 98, 1167 },
       -1,
    } },
-   /* search3326_1 -> 626 in the cache */
+   /* search3330_1 -> 652 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3648567,12 +3648842,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ine,
       0, 2,
-      { 1143, 626 },
+      { 1168, 652 },
       -1,
    } },
 
-   /* replace3326_0 -> 98 in the cache */
-   /* replace3326_1 -> 298 in the cache */
+   /* replace3330_0 -> 98 in the cache */
+   /* replace3330_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3648586,12 +3648861,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('ieq', ('iand', 'a', ('ishl', 1, 'b')), 0) => ('bitz', 'a', 'b') */
-   /* search3327_0_0 -> 98 in the cache */
-   /* search3327_0_1_0 -> 359 in the cache */
-   /* search3327_0_1_1 -> 298 in the cache */
-   /* search3327_0_1 -> 1142 in the cache */
-   /* search3327_0 -> 1143 in the cache */
-   /* search3327_1 -> 626 in the cache */
+   /* search3331_0_0 -> 98 in the cache */
+   /* search3331_0_1_0 -> 359 in the cache */
+   /* search3331_0_1_1 -> 298 in the cache */
+   /* search3331_0_1 -> 1167 in the cache */
+   /* search3331_0 -> 1168 in the cache */
+   /* search3331_1 -> 652 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3648600,12 +3648875,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ieq,
       0, 2,
-      { 1143, 626 },
+      { 1168, 652 },
       -1,
    } },
 
-   /* replace3327_0 -> 98 in the cache */
-   /* replace3327_1 -> 298 in the cache */
+   /* replace3331_0 -> 98 in the cache */
+   /* replace3331_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3648619,14 +3648894,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('ine', ('iand', 'a', ('ishl', 1, 'b')), ('ishl', 1, 'b')) => ('bitz', 'a', 'b') */
-   /* search3328_0_0 -> 98 in the cache */
-   /* search3328_0_1_0 -> 359 in the cache */
-   /* search3328_0_1_1 -> 298 in the cache */
-   /* search3328_0_1 -> 1142 in the cache */
-   /* search3328_0 -> 1143 in the cache */
-   /* search3328_1_0 -> 359 in the cache */
-   /* search3328_1_1 -> 298 in the cache */
-   /* search3328_1 -> 1142 in the cache */
+   /* search3332_0_0 -> 98 in the cache */
+   /* search3332_0_1_0 -> 359 in the cache */
+   /* search3332_0_1_1 -> 298 in the cache */
+   /* search3332_0_1 -> 1167 in the cache */
+   /* search3332_0 -> 1168 in the cache */
+   /* search3332_1_0 -> 359 in the cache */
+   /* search3332_1_1 -> 298 in the cache */
+   /* search3332_1 -> 1167 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3648635,23 +3648910,23 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ine,
       0, 2,
-      { 1143, 1142 },
+      { 1168, 1167 },
       -1,
    } },
 
-   /* replace3328_0 -> 98 in the cache */
-   /* replace3328_1 -> 298 in the cache */
-   /* replace3328 -> 1147 in the cache */
+   /* replace3332_0 -> 98 in the cache */
+   /* replace3332_1 -> 298 in the cache */
+   /* replace3332 -> 1172 in the cache */
 
    /* ('ieq', ('iand', 'a', ('ishl', 1, 'b')), ('ishl', 1, 'b')) => ('bitnz', 'a', 'b') */
-   /* search3329_0_0 -> 98 in the cache */
-   /* search3329_0_1_0 -> 359 in the cache */
-   /* search3329_0_1_1 -> 298 in the cache */
-   /* search3329_0_1 -> 1142 in the cache */
-   /* search3329_0 -> 1143 in the cache */
-   /* search3329_1_0 -> 359 in the cache */
-   /* search3329_1_1 -> 298 in the cache */
-   /* search3329_1 -> 1142 in the cache */
+   /* search3333_0_0 -> 98 in the cache */
+   /* search3333_0_1_0 -> 359 in the cache */
+   /* search3333_0_1_1 -> 298 in the cache */
+   /* search3333_0_1 -> 1167 in the cache */
+   /* search3333_0 -> 1168 in the cache */
+   /* search3333_1_0 -> 359 in the cache */
+   /* search3333_1_1 -> 298 in the cache */
+   /* search3333_1 -> 1167 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3648660,17 +3648935,17 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ieq,
       0, 2,
-      { 1143, 1142 },
+      { 1168, 1167 },
       -1,
    } },
 
-   /* replace3329_0 -> 98 in the cache */
-   /* replace3329_1 -> 298 in the cache */
-   /* replace3329 -> 1145 in the cache */
+   /* replace3333_0 -> 98 in the cache */
+   /* replace3333_1 -> 298 in the cache */
+   /* replace3333 -> 1170 in the cache */
 
    /* ('bitz', ('ushr', 'a', 'b'), 0) => ('bitz', 'a', 'b') */
-   /* search3330_0_0 -> 98 in the cache */
-   /* search3330_0_1 -> 298 in the cache */
+   /* search3334_0_0 -> 98 in the cache */
+   /* search3334_0_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3648682,7 +3648957,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 98, 298 },
       -1,
    } },
-   /* search3330_1 -> 1104 in the cache */
+   /* search3334_1 -> 1129 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3648691,17 +3648966,17 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bitz,
       -1, 0,
-      { 1150, 1104 },
+      { 1175, 1129 },
       -1,
    } },
 
-   /* replace3330_0 -> 98 in the cache */
-   /* replace3330_1 -> 298 in the cache */
-   /* replace3330 -> 1147 in the cache */
+   /* replace3334_0 -> 98 in the cache */
+   /* replace3334_1 -> 298 in the cache */
+   /* replace3334 -> 1172 in the cache */
 
    /* ('bitz', ('ishr', 'a', 'b'), 0) => ('bitz', 'a', 'b') */
-   /* search3331_0_0 -> 98 in the cache */
-   /* search3331_0_1 -> 298 in the cache */
+   /* search3335_0_0 -> 98 in the cache */
+   /* search3335_0_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3648713,7 +3648988,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 98, 298 },
       -1,
    } },
-   /* search3331_1 -> 1104 in the cache */
+   /* search3335_1 -> 1129 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3648722,19 +3648997,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bitz,
       -1, 0,
-      { 1152, 1104 },
+      { 1177, 1129 },
       -1,
    } },
 
-   /* replace3331_0 -> 98 in the cache */
-   /* replace3331_1 -> 298 in the cache */
-   /* replace3331 -> 1147 in the cache */
+   /* replace3335_0 -> 98 in the cache */
+   /* replace3335_1 -> 298 in the cache */
+   /* replace3335 -> 1172 in the cache */
 
    /* ('bitnz', ('ushr', 'a', 'b'), 0) => ('bitnz', 'a', 'b') */
-   /* search3332_0_0 -> 98 in the cache */
-   /* search3332_0_1 -> 298 in the cache */
-   /* search3332_0 -> 1150 in the cache */
-   /* search3332_1 -> 1104 in the cache */
+   /* search3336_0_0 -> 98 in the cache */
+   /* search3336_0_1 -> 298 in the cache */
+   /* search3336_0 -> 1175 in the cache */
+   /* search3336_1 -> 1129 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3648743,19 +3649018,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bitnz,
       -1, 0,
-      { 1150, 1104 },
+      { 1175, 1129 },
       -1,
    } },
 
-   /* replace3332_0 -> 98 in the cache */
-   /* replace3332_1 -> 298 in the cache */
-   /* replace3332 -> 1145 in the cache */
+   /* replace3336_0 -> 98 in the cache */
+   /* replace3336_1 -> 298 in the cache */
+   /* replace3336 -> 1170 in the cache */
 
    /* ('bitnz', ('ishr', 'a', 'b'), 0) => ('bitnz', 'a', 'b') */
-   /* search3333_0_0 -> 98 in the cache */
-   /* search3333_0_1 -> 298 in the cache */
-   /* search3333_0 -> 1152 in the cache */
-   /* search3333_1 -> 1104 in the cache */
+   /* search3337_0_0 -> 98 in the cache */
+   /* search3337_0_1 -> 298 in the cache */
+   /* search3337_0 -> 1177 in the cache */
+   /* search3337_1 -> 1129 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3648764,17 +3649039,17 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bitnz,
       -1, 0,
-      { 1152, 1104 },
+      { 1177, 1129 },
       -1,
    } },
 
-   /* replace3333_0 -> 98 in the cache */
-   /* replace3333_1 -> 298 in the cache */
-   /* replace3333 -> 1145 in the cache */
+   /* replace3337_0 -> 98 in the cache */
+   /* replace3337_1 -> 298 in the cache */
+   /* replace3337 -> 1170 in the cache */
 
    /* ('bitz', ('unpack_64_2x32_split_x', ('ushr', 'a', 'b')), 0) => ('bitz', 'a', 'b') */
-   /* search3334_0_0_0 -> 306 in the cache */
-   /* search3334_0_0_1 -> 298 in the cache */
+   /* search3338_0_0_0 -> 306 in the cache */
+   /* search3338_0_0_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3648794,10 +3649069,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_unpack_64_2x32_split_x,
       -1, 0,
-      { 1156 },
+      { 1181 },
       -1,
    } },
-   /* search3334_1 -> 1104 in the cache */
+   /* search3338_1 -> 1129 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3648806,12 +3649081,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bitz,
       -1, 0,
-      { 1157, 1104 },
+      { 1182, 1129 },
       -1,
    } },
 
-   /* replace3334_0 -> 306 in the cache */
-   /* replace3334_1 -> 298 in the cache */
+   /* replace3338_0 -> 306 in the cache */
+   /* replace3338_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3648825,8 +3649100,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('bitz', ('unpack_64_2x32_split_x', ('ishr', 'a', 'b')), 0) => ('bitz', 'a', 'b') */
-   /* search3335_0_0_0 -> 306 in the cache */
-   /* search3335_0_0_1 -> 298 in the cache */
+   /* search3339_0_0_0 -> 306 in the cache */
+   /* search3339_0_0_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3648846,10 +3649121,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_unpack_64_2x32_split_x,
       -1, 0,
-      { 1160 },
+      { 1185 },
       -1,
    } },
-   /* search3335_1 -> 1104 in the cache */
+   /* search3339_1 -> 1129 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3648858,20 +3649133,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bitz,
       -1, 0,
-      { 1161, 1104 },
+      { 1186, 1129 },
       -1,
    } },
 
-   /* replace3335_0 -> 306 in the cache */
-   /* replace3335_1 -> 298 in the cache */
-   /* replace3335 -> 1159 in the cache */
+   /* replace3339_0 -> 306 in the cache */
+   /* replace3339_1 -> 298 in the cache */
+   /* replace3339 -> 1184 in the cache */
 
    /* ('bitnz', ('unpack_64_2x32_split_x', ('ushr', 'a', 'b')), 0) => ('bitnz', 'a', 'b') */
-   /* search3336_0_0_0 -> 306 in the cache */
-   /* search3336_0_0_1 -> 298 in the cache */
-   /* search3336_0_0 -> 1156 in the cache */
-   /* search3336_0 -> 1157 in the cache */
-   /* search3336_1 -> 1104 in the cache */
+   /* search3340_0_0_0 -> 306 in the cache */
+   /* search3340_0_0_1 -> 298 in the cache */
+   /* search3340_0_0 -> 1181 in the cache */
+   /* search3340_0 -> 1182 in the cache */
+   /* search3340_1 -> 1129 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3648880,12 +3649155,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bitnz,
       -1, 0,
-      { 1157, 1104 },
+      { 1182, 1129 },
       -1,
    } },
 
-   /* replace3336_0 -> 306 in the cache */
-   /* replace3336_1 -> 298 in the cache */
+   /* replace3340_0 -> 306 in the cache */
+   /* replace3340_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3648899,11 +3649174,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('bitnz', ('unpack_64_2x32_split_x', ('ishr', 'a', 'b')), 0) => ('bitnz', 'a', 'b') */
-   /* search3337_0_0_0 -> 306 in the cache */
-   /* search3337_0_0_1 -> 298 in the cache */
-   /* search3337_0_0 -> 1160 in the cache */
-   /* search3337_0 -> 1161 in the cache */
-   /* search3337_1 -> 1104 in the cache */
+   /* search3341_0_0_0 -> 306 in the cache */
+   /* search3341_0_0_1 -> 298 in the cache */
+   /* search3341_0_0 -> 1185 in the cache */
+   /* search3341_0 -> 1186 in the cache */
+   /* search3341_1 -> 1129 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3648912,18 +3649187,18 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bitnz,
       -1, 0,
-      { 1161, 1104 },
+      { 1186, 1129 },
       -1,
    } },
 
-   /* replace3337_0 -> 306 in the cache */
-   /* replace3337_1 -> 298 in the cache */
-   /* replace3337 -> 1164 in the cache */
+   /* replace3341_0 -> 306 in the cache */
+   /* replace3341_1 -> 298 in the cache */
+   /* replace3341 -> 1189 in the cache */
 
    /* ('ine', ('ubfe', 'a', 'b', 1), 0) => ('bitnz', 'a', 'b') */
-   /* search3338_0_0 -> 296 in the cache */
-   /* search3338_0_1 -> 298 in the cache */
-   /* search3338_0_2 -> 652 in the cache */
+   /* search3342_0_0 -> 296 in the cache */
+   /* search3342_0_1 -> 298 in the cache */
+   /* search3342_0_2 -> 380 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3648932,10 +3649207,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ubfe,
       -1, 0,
-      { 296, 298, 652 },
+      { 296, 298, 380 },
       -1,
    } },
-   /* search3338_1 -> 1104 in the cache */
+   /* search3342_1 -> 1129 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3648944,12 +3649219,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ine,
       0, 1,
-      { 1166, 1104 },
+      { 1191, 1129 },
       -1,
    } },
 
-   /* replace3338_0 -> 296 in the cache */
-   /* replace3338_1 -> 298 in the cache */
+   /* replace3342_0 -> 296 in the cache */
+   /* replace3342_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3648963,11 +3649238,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('ieq', ('ubfe', 'a', 'b', 1), 0) => ('bitz', 'a', 'b') */
-   /* search3339_0_0 -> 296 in the cache */
-   /* search3339_0_1 -> 298 in the cache */
-   /* search3339_0_2 -> 652 in the cache */
-   /* search3339_0 -> 1166 in the cache */
-   /* search3339_1 -> 1104 in the cache */
+   /* search3343_0_0 -> 296 in the cache */
+   /* search3343_0_1 -> 298 in the cache */
+   /* search3343_0_2 -> 380 in the cache */
+   /* search3343_0 -> 1191 in the cache */
+   /* search3343_1 -> 1129 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3648976,12 +3649251,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ieq,
       0, 1,
-      { 1166, 1104 },
+      { 1191, 1129 },
       -1,
    } },
 
-   /* replace3339_0 -> 296 in the cache */
-   /* replace3339_1 -> 298 in the cache */
+   /* replace3343_0 -> 296 in the cache */
+   /* replace3343_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3648995,11 +3649270,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('ine', ('ubfe', 'a', 'b', 1), 1) => ('bitz', 'a', 'b') */
-   /* search3340_0_0 -> 296 in the cache */
-   /* search3340_0_1 -> 298 in the cache */
-   /* search3340_0_2 -> 652 in the cache */
-   /* search3340_0 -> 1166 in the cache */
-   /* search3340_1 -> 652 in the cache */
+   /* search3344_0_0 -> 296 in the cache */
+   /* search3344_0_1 -> 298 in the cache */
+   /* search3344_0_2 -> 380 in the cache */
+   /* search3344_0 -> 1191 in the cache */
+   /* search3344_1 -> 380 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3649008,20 +3649283,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ine,
       0, 1,
-      { 1166, 652 },
+      { 1191, 380 },
       -1,
    } },
 
-   /* replace3340_0 -> 296 in the cache */
-   /* replace3340_1 -> 298 in the cache */
-   /* replace3340 -> 1170 in the cache */
+   /* replace3344_0 -> 296 in the cache */
+   /* replace3344_1 -> 298 in the cache */
+   /* replace3344 -> 1195 in the cache */
 
    /* ('ieq', ('ubfe', 'a', 'b', 1), 1) => ('bitnz', 'a', 'b') */
-   /* search3341_0_0 -> 296 in the cache */
-   /* search3341_0_1 -> 298 in the cache */
-   /* search3341_0_2 -> 652 in the cache */
-   /* search3341_0 -> 1166 in the cache */
-   /* search3341_1 -> 652 in the cache */
+   /* search3345_0_0 -> 296 in the cache */
+   /* search3345_0_1 -> 298 in the cache */
+   /* search3345_0_2 -> 380 in the cache */
+   /* search3345_0 -> 1191 in the cache */
+   /* search3345_1 -> 380 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3649030,18 +3649305,18 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ieq,
       0, 1,
-      { 1166, 652 },
+      { 1191, 380 },
       -1,
    } },
 
-   /* replace3341_0 -> 296 in the cache */
-   /* replace3341_1 -> 298 in the cache */
-   /* replace3341 -> 1168 in the cache */
+   /* replace3345_0 -> 296 in the cache */
+   /* replace3345_1 -> 298 in the cache */
+   /* replace3345 -> 1193 in the cache */
 
    /* ('ine', ('ibfe', 'a', 'b', 1), 0) => ('bitnz', 'a', 'b') */
-   /* search3342_0_0 -> 296 in the cache */
-   /* search3342_0_1 -> 298 in the cache */
-   /* search3342_0_2 -> 652 in the cache */
+   /* search3346_0_0 -> 296 in the cache */
+   /* search3346_0_1 -> 298 in the cache */
+   /* search3346_0_2 -> 380 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3649050,10 +3649325,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ibfe,
       -1, 0,
-      { 296, 298, 652 },
+      { 296, 298, 380 },
       -1,
    } },
-   /* search3342_1 -> 1104 in the cache */
+   /* search3346_1 -> 1129 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3649062,20 +3649337,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ine,
       0, 1,
-      { 1173, 1104 },
+      { 1198, 1129 },
       -1,
    } },
 
-   /* replace3342_0 -> 296 in the cache */
-   /* replace3342_1 -> 298 in the cache */
-   /* replace3342 -> 1168 in the cache */
+   /* replace3346_0 -> 296 in the cache */
+   /* replace3346_1 -> 298 in the cache */
+   /* replace3346 -> 1193 in the cache */
 
    /* ('ieq', ('ibfe', 'a', 'b', 1), 0) => ('bitz', 'a', 'b') */
-   /* search3343_0_0 -> 296 in the cache */
-   /* search3343_0_1 -> 298 in the cache */
-   /* search3343_0_2 -> 652 in the cache */
-   /* search3343_0 -> 1173 in the cache */
-   /* search3343_1 -> 1104 in the cache */
+   /* search3347_0_0 -> 296 in the cache */
+   /* search3347_0_1 -> 298 in the cache */
+   /* search3347_0_2 -> 380 in the cache */
+   /* search3347_0 -> 1198 in the cache */
+   /* search3347_1 -> 1129 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3649084,23 +3649359,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ieq,
       0, 1,
-      { 1173, 1104 },
+      { 1198, 1129 },
       -1,
    } },
 
-   /* replace3343_0 -> 296 in the cache */
-   /* replace3343_1 -> 298 in the cache */
-   /* replace3343 -> 1170 in the cache */
+   /* replace3347_0 -> 296 in the cache */
+   /* replace3347_1 -> 298 in the cache */
+   /* replace3347 -> 1195 in the cache */
 
    /* ('ine', ('ibfe', 'a', 'b', 1), -1) => ('bitz', 'a', 'b') */
-   /* search3344_0_0 -> 296 in the cache */
-   /* search3344_0_1 -> 298 in the cache */
-   /* search3344_0_2 -> 652 in the cache */
-   /* search3344_0 -> 1173 in the cache */
-   { .constant = {
-      { nir_search_value_constant, 32 },
-      nir_type_int, { 0xffffffffffffffffull /* -1 */ },
-   } },
+   /* search3348_0_0 -> 296 in the cache */
+   /* search3348_0_1 -> 298 in the cache */
+   /* search3348_0_2 -> 380 in the cache */
+   /* search3348_0 -> 1198 in the cache */
+   /* search3348_1 -> 376 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3649109,20 +3649381,20 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ine,
       0, 1,
-      { 1173, 1176 },
+      { 1198, 376 },
       -1,
    } },
 
-   /* replace3344_0 -> 296 in the cache */
-   /* replace3344_1 -> 298 in the cache */
-   /* replace3344 -> 1170 in the cache */
+   /* replace3348_0 -> 296 in the cache */
+   /* replace3348_1 -> 298 in the cache */
+   /* replace3348 -> 1195 in the cache */
 
    /* ('ieq', ('ibfe', 'a', 'b', 1), -1) => ('bitnz', 'a', 'b') */
-   /* search3345_0_0 -> 296 in the cache */
-   /* search3345_0_1 -> 298 in the cache */
-   /* search3345_0_2 -> 652 in the cache */
-   /* search3345_0 -> 1173 in the cache */
-   /* search3345_1 -> 1176 in the cache */
+   /* search3349_0_0 -> 296 in the cache */
+   /* search3349_0_1 -> 298 in the cache */
+   /* search3349_0_2 -> 380 in the cache */
+   /* search3349_0 -> 1198 in the cache */
+   /* search3349_1 -> 376 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3649131,18 +3649403,18 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ieq,
       0, 1,
-      { 1173, 1176 },
+      { 1198, 376 },
       -1,
    } },
 
-   /* replace3345_0 -> 296 in the cache */
-   /* replace3345_1 -> 298 in the cache */
-   /* replace3345 -> 1168 in the cache */
+   /* replace3349_0 -> 296 in the cache */
+   /* replace3349_1 -> 298 in the cache */
+   /* replace3349 -> 1193 in the cache */
 
    /* ('inot', ('bitnz', 'a', 'b')) => ('bitz', 'a', 'b') */
-   /* search3346_0_0 -> 98 in the cache */
-   /* search3346_0_1 -> 298 in the cache */
-   /* search3346_0 -> 1145 in the cache */
+   /* search3350_0_0 -> 98 in the cache */
+   /* search3350_0_1 -> 298 in the cache */
+   /* search3350_0 -> 1170 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3649151,18 +3649423,18 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_inot,
       -1, 0,
-      { 1145 },
+      { 1170 },
       -1,
    } },
 
-   /* replace3346_0 -> 98 in the cache */
-   /* replace3346_1 -> 298 in the cache */
-   /* replace3346 -> 1147 in the cache */
+   /* replace3350_0 -> 98 in the cache */
+   /* replace3350_1 -> 298 in the cache */
+   /* replace3350 -> 1172 in the cache */
 
    /* ('inot', ('bitz', 'a', 'b')) => ('bitnz', 'a', 'b') */
-   /* search3347_0_0 -> 98 in the cache */
-   /* search3347_0_1 -> 298 in the cache */
-   /* search3347_0 -> 1147 in the cache */
+   /* search3351_0_0 -> 98 in the cache */
+   /* search3351_0_1 -> 298 in the cache */
+   /* search3351_0 -> 1172 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3649171,16 +3649443,16 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_inot,
       -1, 0,
-      { 1147 },
+      { 1172 },
       -1,
    } },
 
-   /* replace3347_0 -> 98 in the cache */
-   /* replace3347_1 -> 298 in the cache */
-   /* replace3347 -> 1145 in the cache */
+   /* replace3351_0 -> 98 in the cache */
+   /* replace3351_1 -> 298 in the cache */
+   /* replace3351 -> 1170 in the cache */
 
    /* ('bitnz', ('inot', 'a'), 'b') => ('bitz', 'a', 'b') */
-   /* search3348_0_0 -> 98 in the cache */
+   /* search3352_0_0 -> 98 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3649192,7 +3649464,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { 98 },
       -1,
    } },
-   /* search3348_1 -> 298 in the cache */
+   /* search3352_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3649201,18 +3649473,18 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bitnz,
       -1, 0,
-      { 1181, 298 },
+      { 1205, 298 },
       -1,
    } },
 
-   /* replace3348_0 -> 98 in the cache */
-   /* replace3348_1 -> 298 in the cache */
-   /* replace3348 -> 1147 in the cache */
+   /* replace3352_0 -> 98 in the cache */
+   /* replace3352_1 -> 298 in the cache */
+   /* replace3352 -> 1172 in the cache */
 
    /* ('bitz', ('inot', 'a'), 'b') => ('bitnz', 'a', 'b') */
-   /* search3349_0_0 -> 98 in the cache */
-   /* search3349_0 -> 1181 in the cache */
-   /* search3349_1 -> 298 in the cache */
+   /* search3353_0_0 -> 98 in the cache */
+   /* search3353_0 -> 1205 in the cache */
+   /* search3353_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3649221,16 +3649493,16 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bitz,
       -1, 0,
-      { 1181, 298 },
+      { 1205, 298 },
       -1,
    } },
 
-   /* replace3349_0 -> 98 in the cache */
-   /* replace3349_1 -> 298 in the cache */
-   /* replace3349 -> 1145 in the cache */
+   /* replace3353_0 -> 98 in the cache */
+   /* replace3353_1 -> 298 in the cache */
+   /* replace3353 -> 1170 in the cache */
 
    /* ('fcanonicalize', 'a') => ('fmul', 'a', 1.0) */
-   /* search3350_0 -> 98 in the cache */
+   /* search3354_0 -> 98 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3649243,8 +3649515,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
    } },
 
-   /* replace3350_0 -> 98 in the cache */
-   /* replace3350_1 -> 811 in the cache */
+   /* replace3354_0 -> 98 in the cache */
+   /* replace3354_1 -> 836 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3649253,12 +3649525,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmul,
       0, 1,
-      { 98, 811 },
+      { 98, 836 },
       -1,
    } },
 
    /* ('u2u16', ('u2u8', 'a@16')) => ('extract_u8', 'a', 0) */
-   /* search3351_0_0 -> 286 in the cache */
+   /* search3355_0_0 -> 286 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3649278,11 +3649550,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_u2u16,
       -1, 0,
-      { 1186 },
+      { 1210 },
       -1,
    } },
 
-   /* replace3351_0 -> 286 in the cache */
+   /* replace3355_0 -> 286 in the cache */
    { .constant = {
       { nir_search_value_constant, 16 },
       nir_type_int, { 0x0ull /* 0 */ },
@@ -3649295,12 +3649567,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_extract_u8,
       -1, 0,
-      { 286, 1188 },
+      { 286, 1212 },
       -1,
    } },
 
    /* ('u2u16', ('i2i8', 'a@16')) => ('extract_u8', 'a', 0) */
-   /* search3352_0_0 -> 286 in the cache */
+   /* search3356_0_0 -> 286 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3649320,17 +3649592,17 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_u2u16,
       -1, 0,
-      { 1190 },
+      { 1214 },
       -1,
    } },
 
-   /* replace3352_0 -> 286 in the cache */
-   /* replace3352_1 -> 1188 in the cache */
-   /* replace3352 -> 1189 in the cache */
+   /* replace3356_0 -> 286 in the cache */
+   /* replace3356_1 -> 1212 in the cache */
+   /* replace3356 -> 1213 in the cache */
 
    /* ('i2i16', ('u2u8', 'a@16')) => ('extract_i8', 'a', 0) */
-   /* search3353_0_0 -> 286 in the cache */
-   /* search3353_0 -> 1186 in the cache */
+   /* search3357_0_0 -> 286 in the cache */
+   /* search3357_0 -> 1210 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3649339,12 +3649611,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_i2i16,
       -1, 0,
-      { 1186 },
+      { 1210 },
       -1,
    } },
 
-   /* replace3353_0 -> 286 in the cache */
-   /* replace3353_1 -> 1188 in the cache */
+   /* replace3357_0 -> 286 in the cache */
+   /* replace3357_1 -> 1212 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3649353,13 +3649625,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_extract_i8,
       -1, 0,
-      { 286, 1188 },
+      { 286, 1212 },
       -1,
    } },
 
    /* ('i2i16', ('i2i8', 'a@16')) => ('extract_i8', 'a', 0) */
-   /* search3354_0_0 -> 286 in the cache */
-   /* search3354_0 -> 1190 in the cache */
+   /* search3358_0_0 -> 286 in the cache */
+   /* search3358_0 -> 1214 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3649368,16 +3649640,16 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_i2i16,
       -1, 0,
-      { 1190 },
+      { 1214 },
       -1,
    } },
 
-   /* replace3354_0 -> 286 in the cache */
-   /* replace3354_1 -> 1188 in the cache */
-   /* replace3354 -> 1193 in the cache */
+   /* replace3358_0 -> 286 in the cache */
+   /* replace3358_1 -> 1212 in the cache */
+   /* replace3358 -> 1217 in the cache */
 
    /* ('u2u32', ('u2u8', 'a@32')) => ('extract_u8', 'a', 0) */
-   /* search3355_0_0 -> 296 in the cache */
+   /* search3359_0_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3649397,12 +3649669,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_u2u32,
       -1, 0,
-      { 1195 },
+      { 1219 },
       -1,
    } },
 
-   /* replace3355_0 -> 296 in the cache */
-   /* replace3355_1 -> 1104 in the cache */
+   /* replace3359_0 -> 296 in the cache */
+   /* replace3359_1 -> 1129 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3649411,12 +3649683,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_extract_u8,
       -1, 0,
-      { 296, 1104 },
+      { 296, 1129 },
       -1,
    } },
 
    /* ('u2u32', ('i2i8', 'a@32')) => ('extract_u8', 'a', 0) */
-   /* search3356_0_0 -> 296 in the cache */
+   /* search3360_0_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3649436,16 +3649708,16 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_u2u32,
       -1, 0,
-      { 1198 },
+      { 1222 },
       -1,
    } },
 
-   /* replace3356_0 -> 296 in the cache */
-   /* replace3356_1 -> 1104 in the cache */
-   /* replace3356 -> 1197 in the cache */
+   /* replace3360_0 -> 296 in the cache */
+   /* replace3360_1 -> 1129 in the cache */
+   /* replace3360 -> 1221 in the cache */
 
    /* ('u2u32', ('u2u16', 'a@32')) => ('extract_u16', 'a', 0) */
-   /* search3357_0_0 -> 296 in the cache */
+   /* search3361_0_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3649465,12 +3649737,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_u2u32,
       -1, 0,
-      { 1200 },
+      { 1224 },
       -1,
    } },
 
-   /* replace3357_0 -> 296 in the cache */
-   /* replace3357_1 -> 1104 in the cache */
+   /* replace3361_0 -> 296 in the cache */
+   /* replace3361_1 -> 1129 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3649479,12 +3649751,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_extract_u16,
       -1, 0,
-      { 296, 1104 },
+      { 296, 1129 },
       -1,
    } },
 
    /* ('u2u32', ('i2i16', 'a@32')) => ('extract_u16', 'a', 0) */
-   /* search3358_0_0 -> 296 in the cache */
+   /* search3362_0_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3649504,17 +3649776,17 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_u2u32,
       -1, 0,
-      { 1203 },
+      { 1227 },
       -1,
    } },
 
-   /* replace3358_0 -> 296 in the cache */
-   /* replace3358_1 -> 1104 in the cache */
-   /* replace3358 -> 1202 in the cache */
+   /* replace3362_0 -> 296 in the cache */
+   /* replace3362_1 -> 1129 in the cache */
+   /* replace3362 -> 1226 in the cache */
 
    /* ('i2i32', ('u2u8', 'a@32')) => ('extract_i8', 'a', 0) */
-   /* search3359_0_0 -> 296 in the cache */
-   /* search3359_0 -> 1195 in the cache */
+   /* search3363_0_0 -> 296 in the cache */
+   /* search3363_0 -> 1219 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3649523,12 +3649795,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_i2i32,
       -1, 0,
-      { 1195 },
+      { 1219 },
       -1,
    } },
 
-   /* replace3359_0 -> 296 in the cache */
-   /* replace3359_1 -> 1104 in the cache */
+   /* replace3363_0 -> 296 in the cache */
+   /* replace3363_1 -> 1129 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3649537,13 +3649809,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_extract_i8,
       -1, 0,
-      { 296, 1104 },
+      { 296, 1129 },
       -1,
    } },
 
    /* ('i2i32', ('i2i8', 'a@32')) => ('extract_i8', 'a', 0) */
-   /* search3360_0_0 -> 296 in the cache */
-   /* search3360_0 -> 1198 in the cache */
+   /* search3364_0_0 -> 296 in the cache */
+   /* search3364_0 -> 1222 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3649552,17 +3649824,17 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_i2i32,
       -1, 0,
-      { 1198 },
+      { 1222 },
       -1,
    } },
 
-   /* replace3360_0 -> 296 in the cache */
-   /* replace3360_1 -> 1104 in the cache */
-   /* replace3360 -> 1206 in the cache */
+   /* replace3364_0 -> 296 in the cache */
+   /* replace3364_1 -> 1129 in the cache */
+   /* replace3364 -> 1230 in the cache */
 
    /* ('i2i32', ('u2u16', 'a@32')) => ('extract_i16', 'a', 0) */
-   /* search3361_0_0 -> 296 in the cache */
-   /* search3361_0 -> 1200 in the cache */
+   /* search3365_0_0 -> 296 in the cache */
+   /* search3365_0 -> 1224 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3649571,12 +3649843,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_i2i32,
       -1, 0,
-      { 1200 },
+      { 1224 },
       -1,
    } },
 
-   /* replace3361_0 -> 296 in the cache */
-   /* replace3361_1 -> 1104 in the cache */
+   /* replace3365_0 -> 296 in the cache */
+   /* replace3365_1 -> 1129 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3649585,13 +3649857,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_extract_i16,
       -1, 0,
-      { 296, 1104 },
+      { 296, 1129 },
       -1,
    } },
 
    /* ('i2i32', ('i2i16', 'a@32')) => ('extract_i16', 'a', 0) */
-   /* search3362_0_0 -> 296 in the cache */
-   /* search3362_0 -> 1203 in the cache */
+   /* search3366_0_0 -> 296 in the cache */
+   /* search3366_0 -> 1227 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3649600,18 +3649872,18 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_i2i32,
       -1, 0,
-      { 1203 },
+      { 1227 },
       -1,
    } },
 
-   /* replace3362_0 -> 296 in the cache */
-   /* replace3362_1 -> 1104 in the cache */
-   /* replace3362 -> 1209 in the cache */
+   /* replace3366_0 -> 296 in the cache */
+   /* replace3366_1 -> 1129 in the cache */
+   /* replace3366 -> 1233 in the cache */
 
    /* ('ishl', ('extract_u8', 'a@32', 0), 8) => ('insert_u8', 'a', 1) */
-   /* search3363_0_0 -> 296 in the cache */
-   /* search3363_0_1 -> 1104 in the cache */
-   /* search3363_0 -> 1197 in the cache */
+   /* search3367_0_0 -> 296 in the cache */
+   /* search3367_0_1 -> 1129 in the cache */
+   /* search3367_0 -> 1221 in the cache */
    { .constant = {
       { nir_search_value_constant, 32 },
       nir_type_int, { 0x8ull /* 8 */ },
@@ -3649624,12 +3649896,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ishl,
       -1, 0,
-      { 1197, 1211 },
+      { 1221, 1235 },
       -1,
    } },
 
-   /* replace3363_0 -> 296 in the cache */
-   /* replace3363_1 -> 652 in the cache */
+   /* replace3367_0 -> 296 in the cache */
+   /* replace3367_1 -> 380 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3649638,14 +3649910,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_insert_u8,
       -1, 0,
-      { 296, 652 },
+      { 296, 380 },
       -1,
    } },
 
    /* ('ishl', ('extract_u8', 'a@32', 0), 16) => ('insert_u8', 'a', 2) */
-   /* search3364_0_0 -> 296 in the cache */
-   /* search3364_0_1 -> 1104 in the cache */
-   /* search3364_0 -> 1197 in the cache */
+   /* search3368_0_0 -> 296 in the cache */
+   /* search3368_0_1 -> 1129 in the cache */
+   /* search3368_0 -> 1221 in the cache */
    { .constant = {
       { nir_search_value_constant, 32 },
       nir_type_int, { 0x10ull /* 16 */ },
@@ -3649658,12 +3649930,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ishl,
       -1, 0,
-      { 1197, 1214 },
+      { 1221, 1238 },
       -1,
    } },
 
-   /* replace3364_0 -> 296 in the cache */
-   /* replace3364_1 -> 349 in the cache */
+   /* replace3368_0 -> 296 in the cache */
+   /* replace3368_1 -> 349 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3649677,9 +3649949,9 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('ishl', ('extract_u8', 'a@32', 0), 24) => ('insert_u8', 'a', 3) */
-   /* search3365_0_0 -> 296 in the cache */
-   /* search3365_0_1 -> 1104 in the cache */
-   /* search3365_0 -> 1197 in the cache */
+   /* search3369_0_0 -> 296 in the cache */
+   /* search3369_0_1 -> 1129 in the cache */
+   /* search3369_0 -> 1221 in the cache */
    { .constant = {
       { nir_search_value_constant, 32 },
       nir_type_int, { 0x18ull /* 24 */ },
@@ -3649692,11 +3649964,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ishl,
       -1, 0,
-      { 1197, 1217 },
+      { 1221, 1241 },
       -1,
    } },
 
-   /* replace3365_0 -> 296 in the cache */
+   /* replace3369_0 -> 296 in the cache */
    { .constant = {
       { nir_search_value_constant, 32 },
       nir_type_int, { 0x3ull /* 3 */ },
@@ -3649709,13 +3649981,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_insert_u8,
       -1, 0,
-      { 296, 1219 },
+      { 296, 1243 },
       -1,
    } },
 
    /* ('iand', ('ishl', 'a@32', 8), 65280) => ('insert_u8', 'a', 1) */
-   /* search3366_0_0 -> 296 in the cache */
-   /* search3366_0_1 -> 1211 in the cache */
+   /* search3370_0_0 -> 296 in the cache */
+   /* search3370_0_1 -> 1235 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3649724,7 +3649996,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ishl,
       -1, 0,
-      { 296, 1211 },
+      { 296, 1235 },
       -1,
    } },
    { .constant = {
@@ -3649739,17 +3650011,17 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iand,
       0, 1,
-      { 1221, 1222 },
+      { 1245, 1246 },
       -1,
    } },
 
-   /* replace3366_0 -> 296 in the cache */
-   /* replace3366_1 -> 652 in the cache */
-   /* replace3366 -> 1213 in the cache */
+   /* replace3370_0 -> 296 in the cache */
+   /* replace3370_1 -> 380 in the cache */
+   /* replace3370 -> 1237 in the cache */
 
    /* ('iand', ('ishl', 'a@32', 16), 16711680) => ('insert_u8', 'a', 2) */
-   /* search3367_0_0 -> 296 in the cache */
-   /* search3367_0_1 -> 1214 in the cache */
+   /* search3371_0_0 -> 296 in the cache */
+   /* search3371_0_1 -> 1238 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3649758,7 +3650030,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ishl,
       -1, 0,
-      { 296, 1214 },
+      { 296, 1238 },
       -1,
    } },
    { .constant = {
@@ -3649773,17 +3650045,17 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iand,
       0, 1,
-      { 1224, 1225 },
+      { 1248, 1249 },
       -1,
    } },
 
-   /* replace3367_0 -> 296 in the cache */
-   /* replace3367_1 -> 349 in the cache */
-   /* replace3367 -> 1216 in the cache */
+   /* replace3371_0 -> 296 in the cache */
+   /* replace3371_1 -> 349 in the cache */
+   /* replace3371 -> 1240 in the cache */
 
    /* ('iand', ('ishl', 'a@32', 24), 4278190080) => ('insert_u8', 'a', 3) */
-   /* search3368_0_0 -> 296 in the cache */
-   /* search3368_0_1 -> 1217 in the cache */
+   /* search3372_0_0 -> 296 in the cache */
+   /* search3372_0_1 -> 1241 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3649792,7 +3650064,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ishl,
       -1, 0,
-      { 296, 1217 },
+      { 296, 1241 },
       -1,
    } },
    { .constant = {
@@ -3649807,30 +3650079,30 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_iand,
       0, 1,
-      { 1227, 1228 },
+      { 1251, 1252 },
       -1,
    } },
 
-   /* replace3368_0 -> 296 in the cache */
-   /* replace3368_1 -> 1219 in the cache */
-   /* replace3368 -> 1220 in the cache */
+   /* replace3372_0 -> 296 in the cache */
+   /* replace3372_1 -> 1243 in the cache */
+   /* replace3372 -> 1244 in the cache */
 
    /* ('ishl', 'a@32', 24) => ('insert_u8', 'a', 3) */
-   /* search3369_0 -> 296 in the cache */
-   /* search3369_1 -> 1217 in the cache */
-   /* search3369 -> 1227 in the cache */
+   /* search3373_0 -> 296 in the cache */
+   /* search3373_1 -> 1241 in the cache */
+   /* search3373 -> 1251 in the cache */
 
-   /* replace3369_0 -> 296 in the cache */
-   /* replace3369_1 -> 1219 in the cache */
-   /* replace3369 -> 1220 in the cache */
+   /* replace3373_0 -> 296 in the cache */
+   /* replace3373_1 -> 1243 in the cache */
+   /* replace3373 -> 1244 in the cache */
 
    /* ('ishl', 'a@32', 16) => ('insert_u16', 'a', 1) */
-   /* search3370_0 -> 296 in the cache */
-   /* search3370_1 -> 1214 in the cache */
-   /* search3370 -> 1224 in the cache */
+   /* search3374_0 -> 296 in the cache */
+   /* search3374_1 -> 1238 in the cache */
+   /* search3374 -> 1248 in the cache */
 
-   /* replace3370_0 -> 296 in the cache */
-   /* replace3370_1 -> 652 in the cache */
+   /* replace3374_0 -> 296 in the cache */
+   /* replace3374_1 -> 380 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3649839,13 +3650111,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_insert_u16,
       -1, 0,
-      { 296, 652 },
+      { 296, 380 },
       -1,
    } },
 
    /* ('insert_u8', ('extract_u8', 'a', 0), 'b') => ('insert_u8', 'a', 'b') */
-   /* search3371_0_0 -> 0 in the cache */
-   /* search3371_0_1 -> 1127 in the cache */
+   /* search3375_0_0 -> 0 in the cache */
+   /* search3375_0_1 -> 1152 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3649854,10 +3650126,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_extract_u8,
       -1, 0,
-      { 0, 1127 },
+      { 0, 1152 },
       -1,
    } },
-   /* search3371_1 -> 1 in the cache */
+   /* search3375_1 -> 1 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3649866,12 +3650138,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_insert_u8,
       -1, 0,
-      { 1231, 1 },
+      { 1255, 1 },
       -1,
    } },
 
-   /* replace3371_0 -> 0 in the cache */
-   /* replace3371_1 -> 1 in the cache */
+   /* replace3375_0 -> 0 in the cache */
+   /* replace3375_1 -> 1 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3649885,8 +3650157,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('insert_u16', ('extract_u16', 'a', 0), 'b') => ('insert_u16', 'a', 'b') */
-   /* search3372_0_0 -> 0 in the cache */
-   /* search3372_0_1 -> 1127 in the cache */
+   /* search3376_0_0 -> 0 in the cache */
+   /* search3376_0_1 -> 1152 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3649895,10 +3650167,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_extract_u16,
       -1, 0,
-      { 0, 1127 },
+      { 0, 1152 },
       -1,
    } },
-   /* search3372_1 -> 1 in the cache */
+   /* search3376_1 -> 1 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3649907,12 +3650179,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_insert_u16,
       -1, 0,
-      { 1234, 1 },
+      { 1258, 1 },
       -1,
    } },
 
-   /* replace3372_0 -> 0 in the cache */
-   /* replace3372_1 -> 1 in the cache */
+   /* replace3376_0 -> 0 in the cache */
+   /* replace3376_1 -> 1 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3649926,7 +3650198,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('~fadd@16', 1.0, ('fmul(is_used_once)', 'c', ('fadd', 'b', -1.0))) => ('fadd', ('fadd', 1.0, ('fneg', 'c')), ('fmul', 'b', 'c')) */
-   /* search3373_0 -> 793 in the cache */
+   /* search3377_0 -> 818 in the cache */
    { .variable = {
       { nir_search_value_variable, 16 },
       0, /* c */
@@ -3649934,8 +3650206,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
    } },
-   /* search3373_1_1_0 -> 288 in the cache */
-   /* search3373_1_1_1 -> 792 in the cache */
+   /* search3377_1_1_0 -> 288 in the cache */
+   /* search3377_1_1_1 -> 817 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_exact,
@@ -3649944,7 +3650216,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       2, 1,
-      { 288, 792 },
+      { 288, 817 },
       -1,
    } },
    { .expression = {
@@ -3649955,7 +3650227,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmul,
       1, 2,
-      { 1237, 1238 },
+      { 1261, 1262 },
       0,
    } },
    { .expression = {
@@ -3649966,12 +3650238,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 3,
-      { 793, 1239 },
+      { 818, 1263 },
       -1,
    } },
 
-   /* replace3373_0_0 -> 793 in the cache */
-   /* replace3373_0_1_0 -> 1237 in the cache */
+   /* replace3377_0_0 -> 818 in the cache */
+   /* replace3377_0_1_0 -> 1261 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3649980,7 +3650252,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 0,
-      { 1237 },
+      { 1261 },
       -1,
    } },
    { .expression = {
@@ -3649991,11 +3650263,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       1, 1,
-      { 793, 1241 },
+      { 818, 1265 },
       -1,
    } },
-   /* replace3373_1_0 -> 288 in the cache */
-   /* replace3373_1_1 -> 1237 in the cache */
+   /* replace3377_1_0 -> 288 in the cache */
+   /* replace3377_1_1 -> 1261 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3650004,7 +3650276,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmul,
       2, 1,
-      { 288, 1237 },
+      { 288, 1261 },
       -1,
    } },
    { .expression = {
@@ -3650015,12 +3650287,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 3,
-      { 1242, 1243 },
+      { 1266, 1267 },
       -1,
    } },
 
    /* ('~fadd@32', 1.0, ('fmul(is_used_once)', 'c', ('fadd', 'b', -1.0))) => ('fadd', ('fadd', 1.0, ('fneg', 'c')), ('fmul', 'b', 'c')) */
-   /* search3374_0 -> 911 in the cache */
+   /* search3378_0 -> 936 in the cache */
    { .variable = {
       { nir_search_value_variable, 32 },
       0, /* c */
@@ -3650028,8 +3650300,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
    } },
-   /* search3374_1_1_0 -> 298 in the cache */
-   /* search3374_1_1_1 -> 909 in the cache */
+   /* search3378_1_1_0 -> 298 in the cache */
+   /* search3378_1_1_1 -> 934 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_exact,
@@ -3650038,7 +3650310,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       2, 1,
-      { 298, 909 },
+      { 298, 934 },
       -1,
    } },
    { .expression = {
@@ -3650049,7 +3650321,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmul,
       1, 2,
-      { 1245, 1246 },
+      { 1269, 1270 },
       0,
    } },
    { .expression = {
@@ -3650060,12 +3650332,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 3,
-      { 911, 1247 },
+      { 936, 1271 },
       -1,
    } },
 
-   /* replace3374_0_0 -> 911 in the cache */
-   /* replace3374_0_1_0 -> 1245 in the cache */
+   /* replace3378_0_0 -> 936 in the cache */
+   /* replace3378_0_1_0 -> 1269 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3650074,7 +3650346,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 0,
-      { 1245 },
+      { 1269 },
       -1,
    } },
    { .expression = {
@@ -3650085,11 +3650357,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       1, 1,
-      { 911, 1249 },
+      { 936, 1273 },
       -1,
    } },
-   /* replace3374_1_0 -> 298 in the cache */
-   /* replace3374_1_1 -> 1245 in the cache */
+   /* replace3378_1_0 -> 298 in the cache */
+   /* replace3378_1_1 -> 1269 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3650098,7 +3650370,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmul,
       2, 1,
-      { 298, 1245 },
+      { 298, 1269 },
       -1,
    } },
    { .expression = {
@@ -3650109,7 +3650381,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 3,
-      { 1250, 1251 },
+      { 1274, 1275 },
       -1,
    } },
 
@@ -3650125,7 +3650397,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
    } },
-   /* search3375_1_1_0 -> 308 in the cache */
+   /* search3379_1_1_0 -> 308 in the cache */
    { .constant = {
       { nir_search_value_constant, 64 },
       nir_type_float, { 0xbff0000000000000ull /* -1.0 */ },
@@ -3650138,7 +3650410,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       2, 1,
-      { 308, 1255 },
+      { 308, 1279 },
       -1,
    } },
    { .expression = {
@@ -3650149,7 +3650421,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmul,
       1, 2,
-      { 1254, 1256 },
+      { 1278, 1280 },
       0,
    } },
    { .expression = {
@@ -3650160,12 +3650432,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 3,
-      { 1253, 1257 },
+      { 1277, 1281 },
       -1,
    } },
 
-   /* replace3375_0_0 -> 1253 in the cache */
-   /* replace3375_0_1_0 -> 1254 in the cache */
+   /* replace3379_0_0 -> 1277 in the cache */
+   /* replace3379_0_1_0 -> 1278 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3650174,7 +3650446,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 0,
-      { 1254 },
+      { 1278 },
       -1,
    } },
    { .expression = {
@@ -3650185,11 +3650457,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       1, 1,
-      { 1253, 1259 },
+      { 1277, 1283 },
       -1,
    } },
-   /* replace3375_1_0 -> 308 in the cache */
-   /* replace3375_1_1 -> 1254 in the cache */
+   /* replace3379_1_0 -> 308 in the cache */
+   /* replace3379_1_1 -> 1278 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3650198,7 +3650470,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmul,
       2, 1,
-      { 308, 1254 },
+      { 308, 1278 },
       -1,
    } },
    { .expression = {
@@ -3650209,7 +3650481,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 3,
-      { 1260, 1261 },
+      { 1284, 1285 },
       -1,
    } },
 
@@ -3650221,8 +3650493,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
    } },
-   /* search3376_1_0 -> 815 in the cache */
-   /* search3376_1_1 -> 817 in the cache */
+   /* search3380_1_0 -> 840 in the cache */
+   /* search3380_1_1 -> 842 in the cache */
    { .expression = {
       { nir_search_value_expression, -4 },
       nir_fp_fast_math,
@@ -3650231,11 +3650503,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 1,
-      { 815, 817 },
+      { 840, 842 },
       0,
    } },
-   /* search3376_2_0 -> 815 in the cache */
-   /* search3376_2_1 -> 818 in the cache */
+   /* search3380_2_0 -> 840 in the cache */
+   /* search3380_2_1 -> 843 in the cache */
    { .expression = {
       { nir_search_value_expression, -4 },
       nir_fp_fast_math,
@@ -3650244,7 +3650516,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       1, 1,
-      { 815, 818 },
+      { 840, 843 },
       -1,
    } },
    { .expression = {
@@ -3650255,14 +3650527,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 2,
-      { 1263, 1264, 1265 },
+      { 1287, 1288, 1289 },
       -1,
    } },
 
-   /* replace3376_0 -> 815 in the cache */
-   /* replace3376_1_0 -> 1263 in the cache */
-   /* replace3376_1_1 -> 817 in the cache */
-   /* replace3376_1_2 -> 818 in the cache */
+   /* replace3380_0 -> 840 in the cache */
+   /* replace3380_1_0 -> 1287 in the cache */
+   /* replace3380_1_1 -> 842 in the cache */
+   /* replace3380_1_2 -> 843 in the cache */
    { .expression = {
       { nir_search_value_expression, -4 },
       nir_fp_fast_math,
@@ -3650271,7 +3650543,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 0,
-      { 1263, 817, 818 },
+      { 1287, 842, 843 },
       -1,
    } },
    { .expression = {
@@ -3650282,14 +3650554,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 1,
-      { 815, 1267 },
+      { 840, 1291 },
       -1,
    } },
 
    /* ('bcsel', 'a', ('fadd', 'b', 'c'), ('fadd(is_used_once)', 'b', 'd')) => ('fadd', 'b', ('bcsel', 'a', 'c', 'd')) */
-   /* search3377_0 -> 1263 in the cache */
-   /* search3377_1_0 -> 815 in the cache */
-   /* search3377_1_1 -> 817 in the cache */
+   /* search3381_0 -> 1287 in the cache */
+   /* search3381_1_0 -> 840 in the cache */
+   /* search3381_1_1 -> 842 in the cache */
    { .expression = {
       { nir_search_value_expression, -4 },
       nir_fp_fast_math,
@@ -3650298,11 +3650570,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 1,
-      { 815, 817 },
+      { 840, 842 },
       -1,
    } },
-   /* search3377_2_0 -> 815 in the cache */
-   /* search3377_2_1 -> 818 in the cache */
+   /* search3381_2_0 -> 840 in the cache */
+   /* search3381_2_1 -> 843 in the cache */
    { .expression = {
       { nir_search_value_expression, -4 },
       nir_fp_fast_math,
@@ -3650311,7 +3650583,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       1, 1,
-      { 815, 818 },
+      { 840, 843 },
       0,
    } },
    { .expression = {
@@ -3650322,22 +3650594,22 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 2,
-      { 1263, 1269, 1270 },
+      { 1287, 1293, 1294 },
       -1,
    } },
 
-   /* replace3377_0 -> 815 in the cache */
-   /* replace3377_1_0 -> 1263 in the cache */
-   /* replace3377_1_1 -> 817 in the cache */
-   /* replace3377_1_2 -> 818 in the cache */
-   /* replace3377_1 -> 1267 in the cache */
-   /* replace3377 -> 1268 in the cache */
+   /* replace3381_0 -> 840 in the cache */
+   /* replace3381_1_0 -> 1287 in the cache */
+   /* replace3381_1_1 -> 842 in the cache */
+   /* replace3381_1_2 -> 843 in the cache */
+   /* replace3381_1 -> 1291 in the cache */
+   /* replace3381 -> 1292 in the cache */
 
    /* ('bcsel', 'a', ('ffma(is_used_once)', 'b', 'c', 'd'), ('ffma', 'b', 'c', 'e')) => ('ffma', 'b', 'c', ('bcsel', 'a', 'd', 'e')) */
-   /* search3378_0 -> 1263 in the cache */
-   /* search3378_1_0 -> 1009 in the cache */
-   /* search3378_1_1 -> 1016 in the cache */
-   /* search3378_1_2 -> 1017 in the cache */
+   /* search3382_0 -> 1287 in the cache */
+   /* search3382_1_0 -> 1034 in the cache */
+   /* search3382_1_1 -> 1041 in the cache */
+   /* search3382_1_2 -> 1042 in the cache */
    { .expression = {
       { nir_search_value_expression, -5 },
       nir_fp_fast_math,
@@ -3650346,12 +3650618,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 1,
-      { 1009, 1016, 1017 },
+      { 1034, 1041, 1042 },
       0,
    } },
-   /* search3378_2_0 -> 1009 in the cache */
-   /* search3378_2_1 -> 1016 in the cache */
-   /* search3378_2_2 -> 1018 in the cache */
+   /* search3382_2_0 -> 1034 in the cache */
+   /* search3382_2_1 -> 1041 in the cache */
+   /* search3382_2_2 -> 1043 in the cache */
    { .expression = {
       { nir_search_value_expression, -5 },
       nir_fp_fast_math,
@@ -3650360,7 +3650632,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       1, 1,
-      { 1009, 1016, 1018 },
+      { 1034, 1041, 1043 },
       -1,
    } },
    { .expression = {
@@ -3650371,15 +3650643,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 2,
-      { 1263, 1272, 1273 },
+      { 1287, 1296, 1297 },
       -1,
    } },
 
-   /* replace3378_0 -> 1009 in the cache */
-   /* replace3378_1 -> 1016 in the cache */
-   /* replace3378_2_0 -> 1263 in the cache */
-   /* replace3378_2_1 -> 1017 in the cache */
-   /* replace3378_2_2 -> 1018 in the cache */
+   /* replace3382_0 -> 1034 in the cache */
+   /* replace3382_1 -> 1041 in the cache */
+   /* replace3382_2_0 -> 1287 in the cache */
+   /* replace3382_2_1 -> 1042 in the cache */
+   /* replace3382_2_2 -> 1043 in the cache */
    { .expression = {
       { nir_search_value_expression, -5 },
       nir_fp_fast_math,
@@ -3650388,7 +3650660,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 0,
-      { 1263, 1017, 1018 },
+      { 1287, 1042, 1043 },
       -1,
    } },
    { .expression = {
@@ -3650399,15 +3650671,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 1,
-      { 1009, 1016, 1275 },
+      { 1034, 1041, 1299 },
       -1,
    } },
 
    /* ('bcsel', 'a', ('ffma', 'b', 'c', 'd'), ('ffma(is_used_once)', 'b', 'c', 'e')) => ('ffma', 'b', 'c', ('bcsel', 'a', 'd', 'e')) */
-   /* search3379_0 -> 1263 in the cache */
-   /* search3379_1_0 -> 1009 in the cache */
-   /* search3379_1_1 -> 1016 in the cache */
-   /* search3379_1_2 -> 1017 in the cache */
+   /* search3383_0 -> 1287 in the cache */
+   /* search3383_1_0 -> 1034 in the cache */
+   /* search3383_1_1 -> 1041 in the cache */
+   /* search3383_1_2 -> 1042 in the cache */
    { .expression = {
       { nir_search_value_expression, -5 },
       nir_fp_fast_math,
@@ -3650416,12 +3650688,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 1,
-      { 1009, 1016, 1017 },
+      { 1034, 1041, 1042 },
       -1,
    } },
-   /* search3379_2_0 -> 1009 in the cache */
-   /* search3379_2_1 -> 1016 in the cache */
-   /* search3379_2_2 -> 1018 in the cache */
+   /* search3383_2_0 -> 1034 in the cache */
+   /* search3383_2_1 -> 1041 in the cache */
+   /* search3383_2_2 -> 1043 in the cache */
    { .expression = {
       { nir_search_value_expression, -5 },
       nir_fp_fast_math,
@@ -3650430,7 +3650702,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       1, 1,
-      { 1009, 1016, 1018 },
+      { 1034, 1041, 1043 },
       0,
    } },
    { .expression = {
@@ -3650441,27 +3650713,27 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 2,
-      { 1263, 1277, 1278 },
+      { 1287, 1301, 1302 },
       -1,
    } },
 
-   /* replace3379_0 -> 1009 in the cache */
-   /* replace3379_1 -> 1016 in the cache */
-   /* replace3379_2_0 -> 1263 in the cache */
-   /* replace3379_2_1 -> 1017 in the cache */
-   /* replace3379_2_2 -> 1018 in the cache */
-   /* replace3379_2 -> 1275 in the cache */
-   /* replace3379 -> 1276 in the cache */
+   /* replace3383_0 -> 1034 in the cache */
+   /* replace3383_1 -> 1041 in the cache */
+   /* replace3383_2_0 -> 1287 in the cache */
+   /* replace3383_2_1 -> 1042 in the cache */
+   /* replace3383_2_2 -> 1043 in the cache */
+   /* replace3383_2 -> 1299 in the cache */
+   /* replace3383 -> 1300 in the cache */
 
    /* ('bcsel', 'a', ('ffma(is_used_once)', 'b', 'c', 'd'), ('ffma', 'b', 'e', 'd')) => ('ffma', 'b', ('bcsel', 'a', 'c', 'e'), 'd') */
-   /* search3380_0 -> 1263 in the cache */
-   /* search3380_1_0 -> 1009 in the cache */
-   /* search3380_1_1 -> 1016 in the cache */
-   /* search3380_1_2 -> 1017 in the cache */
-   /* search3380_1 -> 1272 in the cache */
-   /* search3380_2_0 -> 1009 in the cache */
-   /* search3380_2_1 -> 1018 in the cache */
-   /* search3380_2_2 -> 1017 in the cache */
+   /* search3384_0 -> 1287 in the cache */
+   /* search3384_1_0 -> 1034 in the cache */
+   /* search3384_1_1 -> 1041 in the cache */
+   /* search3384_1_2 -> 1042 in the cache */
+   /* search3384_1 -> 1296 in the cache */
+   /* search3384_2_0 -> 1034 in the cache */
+   /* search3384_2_1 -> 1043 in the cache */
+   /* search3384_2_2 -> 1042 in the cache */
    { .expression = {
       { nir_search_value_expression, -5 },
       nir_fp_fast_math,
@@ -3650470,7 +3650742,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       1, 1,
-      { 1009, 1018, 1017 },
+      { 1034, 1043, 1042 },
       -1,
    } },
    { .expression = {
@@ -3650481,14 +3650753,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 2,
-      { 1263, 1272, 1280 },
+      { 1287, 1296, 1304 },
       -1,
    } },
 
-   /* replace3380_0 -> 1009 in the cache */
-   /* replace3380_1_0 -> 1263 in the cache */
-   /* replace3380_1_1 -> 1016 in the cache */
-   /* replace3380_1_2 -> 1018 in the cache */
+   /* replace3384_0 -> 1034 in the cache */
+   /* replace3384_1_0 -> 1287 in the cache */
+   /* replace3384_1_1 -> 1041 in the cache */
+   /* replace3384_1_2 -> 1043 in the cache */
    { .expression = {
       { nir_search_value_expression, -5 },
       nir_fp_fast_math,
@@ -3650497,10 +3650769,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 0,
-      { 1263, 1016, 1018 },
+      { 1287, 1041, 1043 },
       -1,
    } },
-   /* replace3380_2 -> 1017 in the cache */
+   /* replace3384_2 -> 1042 in the cache */
    { .expression = {
       { nir_search_value_expression, -5 },
       nir_fp_fast_math,
@@ -3650509,19 +3650781,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 1,
-      { 1009, 1282, 1017 },
+      { 1034, 1306, 1042 },
       -1,
    } },
 
    /* ('bcsel', 'a', ('ffma', 'b', 'c', 'd'), ('ffma(is_used_once)', 'b', 'e', 'd')) => ('ffma', 'b', ('bcsel', 'a', 'c', 'e'), 'd') */
-   /* search3381_0 -> 1263 in the cache */
-   /* search3381_1_0 -> 1009 in the cache */
-   /* search3381_1_1 -> 1016 in the cache */
-   /* search3381_1_2 -> 1017 in the cache */
-   /* search3381_1 -> 1277 in the cache */
-   /* search3381_2_0 -> 1009 in the cache */
-   /* search3381_2_1 -> 1018 in the cache */
-   /* search3381_2_2 -> 1017 in the cache */
+   /* search3385_0 -> 1287 in the cache */
+   /* search3385_1_0 -> 1034 in the cache */
+   /* search3385_1_1 -> 1041 in the cache */
+   /* search3385_1_2 -> 1042 in the cache */
+   /* search3385_1 -> 1301 in the cache */
+   /* search3385_2_0 -> 1034 in the cache */
+   /* search3385_2_1 -> 1043 in the cache */
+   /* search3385_2_2 -> 1042 in the cache */
    { .expression = {
       { nir_search_value_expression, -5 },
       nir_fp_fast_math,
@@ -3650530,7 +3650802,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       1, 1,
-      { 1009, 1018, 1017 },
+      { 1034, 1043, 1042 },
       0,
    } },
    { .expression = {
@@ -3650541,23 +3650813,23 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 2,
-      { 1263, 1277, 1284 },
+      { 1287, 1301, 1308 },
       -1,
    } },
 
-   /* replace3381_0 -> 1009 in the cache */
-   /* replace3381_1_0 -> 1263 in the cache */
-   /* replace3381_1_1 -> 1016 in the cache */
-   /* replace3381_1_2 -> 1018 in the cache */
-   /* replace3381_1 -> 1282 in the cache */
-   /* replace3381_2 -> 1017 in the cache */
-   /* replace3381 -> 1283 in the cache */
+   /* replace3385_0 -> 1034 in the cache */
+   /* replace3385_1_0 -> 1287 in the cache */
+   /* replace3385_1_1 -> 1041 in the cache */
+   /* replace3385_1_2 -> 1043 in the cache */
+   /* replace3385_1 -> 1306 in the cache */
+   /* replace3385_2 -> 1042 in the cache */
+   /* replace3385 -> 1307 in the cache */
 
    /* ('bcsel', 'a', ('ffmaz(is_used_once)', 'b', 'c', 'd'), ('ffmaz', 'b', 'c', 'e')) => ('ffmaz', 'b', 'c', ('bcsel', 'a', 'd', 'e')) */
-   /* search3382_0 -> 1263 in the cache */
-   /* search3382_1_0 -> 298 in the cache */
-   /* search3382_1_1 -> 345 in the cache */
-   /* search3382_1_2 -> 1052 in the cache */
+   /* search3386_0 -> 1287 in the cache */
+   /* search3386_1_0 -> 298 in the cache */
+   /* search3386_1_1 -> 345 in the cache */
+   /* search3386_1_2 -> 1077 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3650566,12 +3650838,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffmaz,
       0, 1,
-      { 298, 345, 1052 },
+      { 298, 345, 1077 },
       0,
    } },
-   /* search3382_2_0 -> 298 in the cache */
-   /* search3382_2_1 -> 345 in the cache */
-   /* search3382_2_2 -> 1060 in the cache */
+   /* search3386_2_0 -> 298 in the cache */
+   /* search3386_2_1 -> 345 in the cache */
+   /* search3386_2_2 -> 1085 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3650580,7 +3650852,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffmaz,
       1, 1,
-      { 298, 345, 1060 },
+      { 298, 345, 1085 },
       -1,
    } },
    { .expression = {
@@ -3650591,15 +3650863,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 2,
-      { 1263, 1286, 1287 },
+      { 1287, 1310, 1311 },
       -1,
    } },
 
-   /* replace3382_0 -> 298 in the cache */
-   /* replace3382_1 -> 345 in the cache */
-   /* replace3382_2_0 -> 1263 in the cache */
-   /* replace3382_2_1 -> 1052 in the cache */
-   /* replace3382_2_2 -> 1060 in the cache */
+   /* replace3386_0 -> 298 in the cache */
+   /* replace3386_1 -> 345 in the cache */
+   /* replace3386_2_0 -> 1287 in the cache */
+   /* replace3386_2_1 -> 1077 in the cache */
+   /* replace3386_2_2 -> 1085 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3650608,7 +3650880,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 0,
-      { 1263, 1052, 1060 },
+      { 1287, 1077, 1085 },
       -1,
    } },
    { .expression = {
@@ -3650619,15 +3650891,15 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffmaz,
       0, 1,
-      { 298, 345, 1289 },
+      { 298, 345, 1313 },
       -1,
    } },
 
    /* ('bcsel', 'a', ('ffmaz', 'b', 'c', 'd'), ('ffmaz(is_used_once)', 'b', 'c', 'e')) => ('ffmaz', 'b', 'c', ('bcsel', 'a', 'd', 'e')) */
-   /* search3383_0 -> 1263 in the cache */
-   /* search3383_1_0 -> 298 in the cache */
-   /* search3383_1_1 -> 345 in the cache */
-   /* search3383_1_2 -> 1052 in the cache */
+   /* search3387_0 -> 1287 in the cache */
+   /* search3387_1_0 -> 298 in the cache */
+   /* search3387_1_1 -> 345 in the cache */
+   /* search3387_1_2 -> 1077 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3650636,12 +3650908,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffmaz,
       0, 1,
-      { 298, 345, 1052 },
+      { 298, 345, 1077 },
       -1,
    } },
-   /* search3383_2_0 -> 298 in the cache */
-   /* search3383_2_1 -> 345 in the cache */
-   /* search3383_2_2 -> 1060 in the cache */
+   /* search3387_2_0 -> 298 in the cache */
+   /* search3387_2_1 -> 345 in the cache */
+   /* search3387_2_2 -> 1085 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3650650,7 +3650922,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffmaz,
       1, 1,
-      { 298, 345, 1060 },
+      { 298, 345, 1085 },
       0,
    } },
    { .expression = {
@@ -3650661,27 +3650933,27 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 2,
-      { 1263, 1291, 1292 },
+      { 1287, 1315, 1316 },
       -1,
    } },
 
-   /* replace3383_0 -> 298 in the cache */
-   /* replace3383_1 -> 345 in the cache */
-   /* replace3383_2_0 -> 1263 in the cache */
-   /* replace3383_2_1 -> 1052 in the cache */
-   /* replace3383_2_2 -> 1060 in the cache */
-   /* replace3383_2 -> 1289 in the cache */
-   /* replace3383 -> 1290 in the cache */
+   /* replace3387_0 -> 298 in the cache */
+   /* replace3387_1 -> 345 in the cache */
+   /* replace3387_2_0 -> 1287 in the cache */
+   /* replace3387_2_1 -> 1077 in the cache */
+   /* replace3387_2_2 -> 1085 in the cache */
+   /* replace3387_2 -> 1313 in the cache */
+   /* replace3387 -> 1314 in the cache */
 
    /* ('bcsel', 'a', ('ffmaz(is_used_once)', 'b', 'c', 'd'), ('ffmaz', 'b', 'e', 'd')) => ('ffmaz', 'b', ('bcsel', 'a', 'c', 'e'), 'd') */
-   /* search3384_0 -> 1263 in the cache */
-   /* search3384_1_0 -> 298 in the cache */
-   /* search3384_1_1 -> 345 in the cache */
-   /* search3384_1_2 -> 1052 in the cache */
-   /* search3384_1 -> 1286 in the cache */
-   /* search3384_2_0 -> 298 in the cache */
-   /* search3384_2_1 -> 1060 in the cache */
-   /* search3384_2_2 -> 1052 in the cache */
+   /* search3388_0 -> 1287 in the cache */
+   /* search3388_1_0 -> 298 in the cache */
+   /* search3388_1_1 -> 345 in the cache */
+   /* search3388_1_2 -> 1077 in the cache */
+   /* search3388_1 -> 1310 in the cache */
+   /* search3388_2_0 -> 298 in the cache */
+   /* search3388_2_1 -> 1085 in the cache */
+   /* search3388_2_2 -> 1077 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3650690,7 +3650962,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffmaz,
       1, 1,
-      { 298, 1060, 1052 },
+      { 298, 1085, 1077 },
       -1,
    } },
    { .expression = {
@@ -3650701,14 +3650973,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 2,
-      { 1263, 1286, 1294 },
+      { 1287, 1310, 1318 },
       -1,
    } },
 
-   /* replace3384_0 -> 298 in the cache */
-   /* replace3384_1_0 -> 1263 in the cache */
-   /* replace3384_1_1 -> 345 in the cache */
-   /* replace3384_1_2 -> 1060 in the cache */
+   /* replace3388_0 -> 298 in the cache */
+   /* replace3388_1_0 -> 1287 in the cache */
+   /* replace3388_1_1 -> 345 in the cache */
+   /* replace3388_1_2 -> 1085 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3650717,10 +3650989,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 0,
-      { 1263, 345, 1060 },
+      { 1287, 345, 1085 },
       -1,
    } },
-   /* replace3384_2 -> 1052 in the cache */
+   /* replace3388_2 -> 1077 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3650729,19 +3651001,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffmaz,
       0, 1,
-      { 298, 1296, 1052 },
+      { 298, 1320, 1077 },
       -1,
    } },
 
    /* ('bcsel', 'a', ('ffmaz', 'b', 'c', 'd'), ('ffmaz(is_used_once)', 'b', 'e', 'd')) => ('ffmaz', 'b', ('bcsel', 'a', 'c', 'e'), 'd') */
-   /* search3385_0 -> 1263 in the cache */
-   /* search3385_1_0 -> 298 in the cache */
-   /* search3385_1_1 -> 345 in the cache */
-   /* search3385_1_2 -> 1052 in the cache */
-   /* search3385_1 -> 1291 in the cache */
-   /* search3385_2_0 -> 298 in the cache */
-   /* search3385_2_1 -> 1060 in the cache */
-   /* search3385_2_2 -> 1052 in the cache */
+   /* search3389_0 -> 1287 in the cache */
+   /* search3389_1_0 -> 298 in the cache */
+   /* search3389_1_1 -> 345 in the cache */
+   /* search3389_1_2 -> 1077 in the cache */
+   /* search3389_1 -> 1315 in the cache */
+   /* search3389_2_0 -> 298 in the cache */
+   /* search3389_2_1 -> 1085 in the cache */
+   /* search3389_2_2 -> 1077 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3650750,7 +3651022,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffmaz,
       1, 1,
-      { 298, 1060, 1052 },
+      { 298, 1085, 1077 },
       0,
    } },
    { .expression = {
@@ -3650761,21 +3651033,21 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 2,
-      { 1263, 1291, 1298 },
+      { 1287, 1315, 1322 },
       -1,
    } },
 
-   /* replace3385_0 -> 298 in the cache */
-   /* replace3385_1_0 -> 1263 in the cache */
-   /* replace3385_1_1 -> 345 in the cache */
-   /* replace3385_1_2 -> 1060 in the cache */
-   /* replace3385_1 -> 1296 in the cache */
-   /* replace3385_2 -> 1052 in the cache */
-   /* replace3385 -> 1297 in the cache */
+   /* replace3389_0 -> 298 in the cache */
+   /* replace3389_1_0 -> 1287 in the cache */
+   /* replace3389_1_1 -> 345 in the cache */
+   /* replace3389_1_2 -> 1085 in the cache */
+   /* replace3389_1 -> 1320 in the cache */
+   /* replace3389_2 -> 1077 in the cache */
+   /* replace3389 -> 1321 in the cache */
 
    /* ('fmulz@32', 'a', 'b') => ('bcsel', ('feq', ('fmin', ('fabs', 'a'), ('fabs', 'b')), 0.0), 0.0, ('fmul', 'a', 'b')) */
-   /* search3386_0 -> 296 in the cache */
-   /* search3386_1 -> 298 in the cache */
+   /* search3390_0 -> 296 in the cache */
+   /* search3390_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3650788,10 +3651060,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
    } },
 
-   /* replace3386_0_0_0_0 -> 296 in the cache */
-   /* replace3386_0_0_0 -> 533 in the cache */
-   /* replace3386_0_0_1_0 -> 298 in the cache */
-   /* replace3386_0_0_1 -> 534 in the cache */
+   /* replace3390_0_0_0_0 -> 296 in the cache */
+   /* replace3390_0_0_0 -> 559 in the cache */
+   /* replace3390_0_0_1_0 -> 298 in the cache */
+   /* replace3390_0_0_1 -> 560 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3650800,10 +3651072,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmin,
       1, 1,
-      { 533, 534 },
+      { 559, 560 },
       -1,
    } },
-   /* replace3386_0_1 -> 401 in the cache */
+   /* replace3390_0_1 -> 427 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3650812,12 +3651084,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_feq,
       0, 2,
-      { 1301, 401 },
+      { 1325, 427 },
       -1,
    } },
-   /* replace3386_1 -> 401 in the cache */
-   /* replace3386_2_0 -> 296 in the cache */
-   /* replace3386_2_1 -> 298 in the cache */
+   /* replace3390_1 -> 427 in the cache */
+   /* replace3390_2_0 -> 296 in the cache */
+   /* replace3390_2_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3650837,27 +3651109,27 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 3,
-      { 1302, 401, 1303 },
+      { 1326, 427, 1327 },
       -1,
    } },
 
    /* ('ffmaz@32', 'a', 'b', 'c') => ('bcsel', ('feq', ('fmin', ('fabs', 'a'), ('fabs', 'b')), 0.0), 'c', ('ffma@32', 'a', 'b', 'c')) */
-   /* search3387_0 -> 296 in the cache */
-   /* search3387_1 -> 298 in the cache */
-   /* search3387_2 -> 345 in the cache */
-   /* search3387 -> 556 in the cache */
+   /* search3391_0 -> 296 in the cache */
+   /* search3391_1 -> 298 in the cache */
+   /* search3391_2 -> 345 in the cache */
+   /* search3391 -> 582 in the cache */
 
-   /* replace3387_0_0_0_0 -> 296 in the cache */
-   /* replace3387_0_0_0 -> 533 in the cache */
-   /* replace3387_0_0_1_0 -> 298 in the cache */
-   /* replace3387_0_0_1 -> 534 in the cache */
-   /* replace3387_0_0 -> 1301 in the cache */
-   /* replace3387_0_1 -> 401 in the cache */
-   /* replace3387_0 -> 1302 in the cache */
-   /* replace3387_1 -> 345 in the cache */
-   /* replace3387_2_0 -> 296 in the cache */
-   /* replace3387_2_1 -> 298 in the cache */
-   /* replace3387_2_2 -> 345 in the cache */
+   /* replace3391_0_0_0_0 -> 296 in the cache */
+   /* replace3391_0_0_0 -> 559 in the cache */
+   /* replace3391_0_0_1_0 -> 298 in the cache */
+   /* replace3391_0_0_1 -> 560 in the cache */
+   /* replace3391_0_0 -> 1325 in the cache */
+   /* replace3391_0_1 -> 427 in the cache */
+   /* replace3391_0 -> 1326 in the cache */
+   /* replace3391_1 -> 345 in the cache */
+   /* replace3391_2_0 -> 296 in the cache */
+   /* replace3391_2_1 -> 298 in the cache */
+   /* replace3391_2_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3650877,27 +3651149,27 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 3,
-      { 1302, 345, 1305 },
+      { 1326, 345, 1329 },
       -1,
    } },
 
    /* ('fmadz@32', 'a', 'b', 'c') => ('bcsel', ('feq', ('fmin', ('fabs', 'a'), ('fabs', 'b')), 0.0), 'c', ('fmad@32', 'a', 'b', 'c')) */
-   /* search3388_0 -> 296 in the cache */
-   /* search3388_1 -> 298 in the cache */
-   /* search3388_2 -> 345 in the cache */
-   /* search3388 -> 569 in the cache */
+   /* search3392_0 -> 296 in the cache */
+   /* search3392_1 -> 298 in the cache */
+   /* search3392_2 -> 345 in the cache */
+   /* search3392 -> 595 in the cache */
 
-   /* replace3388_0_0_0_0 -> 296 in the cache */
-   /* replace3388_0_0_0 -> 533 in the cache */
-   /* replace3388_0_0_1_0 -> 298 in the cache */
-   /* replace3388_0_0_1 -> 534 in the cache */
-   /* replace3388_0_0 -> 1301 in the cache */
-   /* replace3388_0_1 -> 401 in the cache */
-   /* replace3388_0 -> 1302 in the cache */
-   /* replace3388_1 -> 345 in the cache */
-   /* replace3388_2_0 -> 296 in the cache */
-   /* replace3388_2_1 -> 298 in the cache */
-   /* replace3388_2_2 -> 345 in the cache */
+   /* replace3392_0_0_0_0 -> 296 in the cache */
+   /* replace3392_0_0_0 -> 559 in the cache */
+   /* replace3392_0_0_1_0 -> 298 in the cache */
+   /* replace3392_0_0_1 -> 560 in the cache */
+   /* replace3392_0_0 -> 1325 in the cache */
+   /* replace3392_0_1 -> 427 in the cache */
+   /* replace3392_0 -> 1326 in the cache */
+   /* replace3392_1 -> 345 in the cache */
+   /* replace3392_2_0 -> 296 in the cache */
+   /* replace3392_2_1 -> 298 in the cache */
+   /* replace3392_2_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3650917,12 +3651189,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 3,
-      { 1302, 345, 1307 },
+      { 1326, 345, 1331 },
       -1,
    } },
 
    /* ('~f2f32', ('fabs', ('f2fmp', 'a'))) => ('fabs', 'a') */
-   /* search3389_0_0_0 -> 296 in the cache */
+   /* search3393_0_0_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_exact,
@@ -3650942,7 +3651214,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fabs,
       -1, 0,
-      { 1309 },
+      { 1333 },
       -1,
    } },
    { .expression = {
@@ -3650953,16 +3651225,16 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2f32,
       -1, 0,
-      { 1310 },
+      { 1334 },
       -1,
    } },
 
-   /* replace3389_0 -> 296 in the cache */
-   /* replace3389 -> 533 in the cache */
+   /* replace3393_0 -> 296 in the cache */
+   /* replace3393 -> 559 in the cache */
 
    /* ('~f2f32', ('fceil', ('f2fmp', 'a'))) => ('fceil', 'a') */
-   /* search3390_0_0_0 -> 296 in the cache */
-   /* search3390_0_0 -> 1309 in the cache */
+   /* search3394_0_0_0 -> 296 in the cache */
+   /* search3394_0_0 -> 1333 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_exact,
@@ -3650971,7 +3651243,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fceil,
       -1, 0,
-      { 1309 },
+      { 1333 },
       -1,
    } },
    { .expression = {
@@ -3650982,11 +3651254,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2f32,
       -1, 0,
-      { 1312 },
+      { 1336 },
       -1,
    } },
 
-   /* replace3390_0 -> 296 in the cache */
+   /* replace3394_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3651000,8 +3651272,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('~f2f32', ('fcos', ('f2fmp', 'a'))) => ('fcos', 'a') */
-   /* search3391_0_0_0 -> 296 in the cache */
-   /* search3391_0_0 -> 1309 in the cache */
+   /* search3395_0_0_0 -> 296 in the cache */
+   /* search3395_0_0 -> 1333 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_exact,
@@ -3651010,7 +3651282,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fcos,
       -1, 0,
-      { 1309 },
+      { 1333 },
       -1,
    } },
    { .expression = {
@@ -3651021,11 +3651293,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2f32,
       -1, 0,
-      { 1315 },
+      { 1339 },
       -1,
    } },
 
-   /* replace3391_0 -> 296 in the cache */
+   /* replace3395_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3651039,8 +3651311,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('~f2f32', ('fexp2', ('f2fmp', 'a'))) => ('fexp2', 'a') */
-   /* search3392_0_0_0 -> 296 in the cache */
-   /* search3392_0_0 -> 1309 in the cache */
+   /* search3396_0_0_0 -> 296 in the cache */
+   /* search3396_0_0 -> 1333 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_exact,
@@ -3651049,7 +3651321,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fexp2,
       -1, 0,
-      { 1309 },
+      { 1333 },
       -1,
    } },
    { .expression = {
@@ -3651060,11 +3651332,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2f32,
       -1, 0,
-      { 1318 },
+      { 1342 },
       -1,
    } },
 
-   /* replace3392_0 -> 296 in the cache */
+   /* replace3396_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3651078,8 +3651350,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('~f2f32', ('ffloor', ('f2fmp', 'a'))) => ('ffloor', 'a') */
-   /* search3393_0_0_0 -> 296 in the cache */
-   /* search3393_0_0 -> 1309 in the cache */
+   /* search3397_0_0_0 -> 296 in the cache */
+   /* search3397_0_0 -> 1333 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_exact,
@@ -3651088,7 +3651360,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffloor,
       -1, 0,
-      { 1309 },
+      { 1333 },
       -1,
    } },
    { .expression = {
@@ -3651099,11 +3651371,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2f32,
       -1, 0,
-      { 1321 },
+      { 1345 },
       -1,
    } },
 
-   /* replace3393_0 -> 296 in the cache */
+   /* replace3397_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3651117,8 +3651389,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('~f2f32', ('ffract', ('f2fmp', 'a'))) => ('ffract', 'a') */
-   /* search3394_0_0_0 -> 296 in the cache */
-   /* search3394_0_0 -> 1309 in the cache */
+   /* search3398_0_0_0 -> 296 in the cache */
+   /* search3398_0_0 -> 1333 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_exact,
@@ -3651127,7 +3651399,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffract,
       -1, 0,
-      { 1309 },
+      { 1333 },
       -1,
    } },
    { .expression = {
@@ -3651138,11 +3651410,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2f32,
       -1, 0,
-      { 1324 },
+      { 1348 },
       -1,
    } },
 
-   /* replace3394_0 -> 296 in the cache */
+   /* replace3398_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3651156,8 +3651428,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('~f2f32', ('flog2', ('f2fmp', 'a'))) => ('flog2', 'a') */
-   /* search3395_0_0_0 -> 296 in the cache */
-   /* search3395_0_0 -> 1309 in the cache */
+   /* search3399_0_0_0 -> 296 in the cache */
+   /* search3399_0_0 -> 1333 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_exact,
@@ -3651166,7 +3651438,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_flog2,
       -1, 0,
-      { 1309 },
+      { 1333 },
       -1,
    } },
    { .expression = {
@@ -3651177,11 +3651449,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2f32,
       -1, 0,
-      { 1327 },
+      { 1351 },
       -1,
    } },
 
-   /* replace3395_0 -> 296 in the cache */
+   /* replace3399_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3651195,8 +3651467,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('~f2f32', ('fneg', ('f2fmp', 'a'))) => ('fneg', 'a') */
-   /* search3396_0_0_0 -> 296 in the cache */
-   /* search3396_0_0 -> 1309 in the cache */
+   /* search3400_0_0_0 -> 296 in the cache */
+   /* search3400_0_0 -> 1333 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_exact,
@@ -3651205,7 +3651477,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneg,
       -1, 0,
-      { 1309 },
+      { 1333 },
       -1,
    } },
    { .expression = {
@@ -3651216,16 +3651488,16 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2f32,
       -1, 0,
-      { 1330 },
+      { 1354 },
       -1,
    } },
 
-   /* replace3396_0 -> 296 in the cache */
-   /* replace3396 -> 529 in the cache */
+   /* replace3400_0 -> 296 in the cache */
+   /* replace3400 -> 555 in the cache */
 
    /* ('~f2f32', ('frcp', ('f2fmp', 'a'))) => ('frcp', 'a') */
-   /* search3397_0_0_0 -> 296 in the cache */
-   /* search3397_0_0 -> 1309 in the cache */
+   /* search3401_0_0_0 -> 296 in the cache */
+   /* search3401_0_0 -> 1333 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_exact,
@@ -3651234,7 +3651506,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_frcp,
       -1, 0,
-      { 1309 },
+      { 1333 },
       -1,
    } },
    { .expression = {
@@ -3651245,11 +3651517,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2f32,
       -1, 0,
-      { 1332 },
+      { 1356 },
       -1,
    } },
 
-   /* replace3397_0 -> 296 in the cache */
+   /* replace3401_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3651263,8 +3651535,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('~f2f32', ('fround_even', ('f2fmp', 'a'))) => ('fround_even', 'a') */
-   /* search3398_0_0_0 -> 296 in the cache */
-   /* search3398_0_0 -> 1309 in the cache */
+   /* search3402_0_0_0 -> 296 in the cache */
+   /* search3402_0_0 -> 1333 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_exact,
@@ -3651273,7 +3651545,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fround_even,
       -1, 0,
-      { 1309 },
+      { 1333 },
       -1,
    } },
    { .expression = {
@@ -3651284,11 +3651556,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2f32,
       -1, 0,
-      { 1335 },
+      { 1359 },
       -1,
    } },
 
-   /* replace3398_0 -> 296 in the cache */
+   /* replace3402_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3651302,8 +3651574,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('~f2f32', ('frsq', ('f2fmp', 'a'))) => ('frsq', 'a') */
-   /* search3399_0_0_0 -> 296 in the cache */
-   /* search3399_0_0 -> 1309 in the cache */
+   /* search3403_0_0_0 -> 296 in the cache */
+   /* search3403_0_0 -> 1333 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_exact,
@@ -3651312,7 +3651584,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_frsq,
       -1, 0,
-      { 1309 },
+      { 1333 },
       -1,
    } },
    { .expression = {
@@ -3651323,16 +3651595,16 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2f32,
       -1, 0,
-      { 1338 },
+      { 1362 },
       -1,
    } },
 
-   /* replace3399_0 -> 296 in the cache */
-   /* replace3399 -> 967 in the cache */
+   /* replace3403_0 -> 296 in the cache */
+   /* replace3403 -> 992 in the cache */
 
    /* ('~f2f32', ('fsat', ('f2fmp', 'a'))) => ('fsat', 'a') */
-   /* search3400_0_0_0 -> 296 in the cache */
-   /* search3400_0_0 -> 1309 in the cache */
+   /* search3404_0_0_0 -> 296 in the cache */
+   /* search3404_0_0 -> 1333 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_exact,
@@ -3651341,7 +3651613,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fsat,
       -1, 0,
-      { 1309 },
+      { 1333 },
       -1,
    } },
    { .expression = {
@@ -3651352,11 +3651624,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2f32,
       -1, 0,
-      { 1340 },
+      { 1364 },
       -1,
    } },
 
-   /* replace3400_0 -> 296 in the cache */
+   /* replace3404_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3651370,8 +3651642,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('~f2f32', ('fsign', ('f2fmp', 'a'))) => ('fsign', 'a') */
-   /* search3401_0_0_0 -> 296 in the cache */
-   /* search3401_0_0 -> 1309 in the cache */
+   /* search3405_0_0_0 -> 296 in the cache */
+   /* search3405_0_0 -> 1333 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_exact,
@@ -3651380,7 +3651652,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fsign,
       -1, 0,
-      { 1309 },
+      { 1333 },
       -1,
    } },
    { .expression = {
@@ -3651391,11 +3651663,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2f32,
       -1, 0,
-      { 1343 },
+      { 1367 },
       -1,
    } },
 
-   /* replace3401_0 -> 296 in the cache */
+   /* replace3405_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3651409,8 +3651681,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('~f2f32', ('fsin', ('f2fmp', 'a'))) => ('fsin', 'a') */
-   /* search3402_0_0_0 -> 296 in the cache */
-   /* search3402_0_0 -> 1309 in the cache */
+   /* search3406_0_0_0 -> 296 in the cache */
+   /* search3406_0_0 -> 1333 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_exact,
@@ -3651419,7 +3651691,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fsin,
       -1, 0,
-      { 1309 },
+      { 1333 },
       -1,
    } },
    { .expression = {
@@ -3651430,11 +3651702,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2f32,
       -1, 0,
-      { 1346 },
+      { 1370 },
       -1,
    } },
 
-   /* replace3402_0 -> 296 in the cache */
+   /* replace3406_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3651448,8 +3651720,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('~f2f32', ('fsqrt', ('f2fmp', 'a'))) => ('fsqrt', 'a') */
-   /* search3403_0_0_0 -> 296 in the cache */
-   /* search3403_0_0 -> 1309 in the cache */
+   /* search3407_0_0_0 -> 296 in the cache */
+   /* search3407_0_0 -> 1333 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_exact,
@@ -3651458,7 +3651730,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fsqrt,
       -1, 0,
-      { 1309 },
+      { 1333 },
       -1,
    } },
    { .expression = {
@@ -3651469,11 +3651741,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2f32,
       -1, 0,
-      { 1349 },
+      { 1373 },
       -1,
    } },
 
-   /* replace3403_0 -> 296 in the cache */
+   /* replace3407_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3651487,9 +3651759,9 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('~f2f32', ('fadd', ('f2fmp', 'a'), ('f2fmp', 'b'))) => ('fadd', 'a', 'b') */
-   /* search3404_0_0_0 -> 296 in the cache */
-   /* search3404_0_0 -> 1309 in the cache */
-   /* search3404_0_1_0 -> 298 in the cache */
+   /* search3408_0_0_0 -> 296 in the cache */
+   /* search3408_0_0 -> 1333 in the cache */
+   /* search3408_0_1_0 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_exact,
@@ -3651509,7 +3651781,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fadd,
       0, 1,
-      { 1309, 1352 },
+      { 1333, 1376 },
       -1,
    } },
    { .expression = {
@@ -3651520,12 +3651792,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2f32,
       -1, 1,
-      { 1353 },
+      { 1377 },
       -1,
    } },
 
-   /* replace3404_0 -> 296 in the cache */
-   /* replace3404_1 -> 298 in the cache */
+   /* replace3408_0 -> 296 in the cache */
+   /* replace3408_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3651539,10 +3651811,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('~f2f32', ('fdiv', ('f2fmp', 'a'), ('f2fmp', 'b'))) => ('fdiv', 'a', 'b') */
-   /* search3405_0_0_0 -> 296 in the cache */
-   /* search3405_0_0 -> 1309 in the cache */
-   /* search3405_0_1_0 -> 298 in the cache */
-   /* search3405_0_1 -> 1352 in the cache */
+   /* search3409_0_0_0 -> 296 in the cache */
+   /* search3409_0_0 -> 1333 in the cache */
+   /* search3409_0_1_0 -> 298 in the cache */
+   /* search3409_0_1 -> 1376 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_exact,
@@ -3651551,7 +3651823,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fdiv,
       -1, 0,
-      { 1309, 1352 },
+      { 1333, 1376 },
       -1,
    } },
    { .expression = {
@@ -3651562,12 +3651834,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2f32,
       -1, 0,
-      { 1356 },
+      { 1380 },
       -1,
    } },
 
-   /* replace3405_0 -> 296 in the cache */
-   /* replace3405_1 -> 298 in the cache */
+   /* replace3409_0 -> 296 in the cache */
+   /* replace3409_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3651581,10 +3651853,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('~f2f32', ('fmax', ('f2fmp', 'a'), ('f2fmp', 'b'))) => ('fmax', 'a', 'b') */
-   /* search3406_0_0_0 -> 296 in the cache */
-   /* search3406_0_0 -> 1309 in the cache */
-   /* search3406_0_1_0 -> 298 in the cache */
-   /* search3406_0_1 -> 1352 in the cache */
+   /* search3410_0_0_0 -> 296 in the cache */
+   /* search3410_0_0 -> 1333 in the cache */
+   /* search3410_0_1_0 -> 298 in the cache */
+   /* search3410_0_1 -> 1376 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_exact,
@@ -3651593,7 +3651865,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmax,
       0, 1,
-      { 1309, 1352 },
+      { 1333, 1376 },
       -1,
    } },
    { .expression = {
@@ -3651604,12 +3651876,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2f32,
       -1, 1,
-      { 1359 },
+      { 1383 },
       -1,
    } },
 
-   /* replace3406_0 -> 296 in the cache */
-   /* replace3406_1 -> 298 in the cache */
+   /* replace3410_0 -> 296 in the cache */
+   /* replace3410_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3651623,10 +3651895,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('~f2f32', ('fmin', ('f2fmp', 'a'), ('f2fmp', 'b'))) => ('fmin', 'a', 'b') */
-   /* search3407_0_0_0 -> 296 in the cache */
-   /* search3407_0_0 -> 1309 in the cache */
-   /* search3407_0_1_0 -> 298 in the cache */
-   /* search3407_0_1 -> 1352 in the cache */
+   /* search3411_0_0_0 -> 296 in the cache */
+   /* search3411_0_0 -> 1333 in the cache */
+   /* search3411_0_1_0 -> 298 in the cache */
+   /* search3411_0_1 -> 1376 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_exact,
@@ -3651635,7 +3651907,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmin,
       0, 1,
-      { 1309, 1352 },
+      { 1333, 1376 },
       -1,
    } },
    { .expression = {
@@ -3651646,12 +3651918,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2f32,
       -1, 1,
-      { 1362 },
+      { 1386 },
       -1,
    } },
 
-   /* replace3407_0 -> 296 in the cache */
-   /* replace3407_1 -> 298 in the cache */
+   /* replace3411_0 -> 296 in the cache */
+   /* replace3411_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3651665,10 +3651937,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('~f2f32', ('fmod', ('f2fmp', 'a'), ('f2fmp', 'b'))) => ('fmod', 'a', 'b') */
-   /* search3408_0_0_0 -> 296 in the cache */
-   /* search3408_0_0 -> 1309 in the cache */
-   /* search3408_0_1_0 -> 298 in the cache */
-   /* search3408_0_1 -> 1352 in the cache */
+   /* search3412_0_0_0 -> 296 in the cache */
+   /* search3412_0_0 -> 1333 in the cache */
+   /* search3412_0_1_0 -> 298 in the cache */
+   /* search3412_0_1 -> 1376 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_exact,
@@ -3651677,7 +3651949,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmod,
       -1, 0,
-      { 1309, 1352 },
+      { 1333, 1376 },
       -1,
    } },
    { .expression = {
@@ -3651688,12 +3651960,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2f32,
       -1, 0,
-      { 1365 },
+      { 1389 },
       -1,
    } },
 
-   /* replace3408_0 -> 296 in the cache */
-   /* replace3408_1 -> 298 in the cache */
+   /* replace3412_0 -> 296 in the cache */
+   /* replace3412_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3651707,10 +3651979,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('~f2f32', ('fmul', ('f2fmp', 'a'), ('f2fmp', 'b'))) => ('fmul', 'a', 'b') */
-   /* search3409_0_0_0 -> 296 in the cache */
-   /* search3409_0_0 -> 1309 in the cache */
-   /* search3409_0_1_0 -> 298 in the cache */
-   /* search3409_0_1 -> 1352 in the cache */
+   /* search3413_0_0_0 -> 296 in the cache */
+   /* search3413_0_0 -> 1333 in the cache */
+   /* search3413_0_1_0 -> 298 in the cache */
+   /* search3413_0_1 -> 1376 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_exact,
@@ -3651719,7 +3651991,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fmul,
       0, 1,
-      { 1309, 1352 },
+      { 1333, 1376 },
       -1,
    } },
    { .expression = {
@@ -3651730,12 +3652002,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2f32,
       -1, 1,
-      { 1368 },
+      { 1392 },
       -1,
    } },
 
-   /* replace3409_0 -> 296 in the cache */
-   /* replace3409_1 -> 298 in the cache */
+   /* replace3413_0 -> 296 in the cache */
+   /* replace3413_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3651749,10 +3652021,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('~f2f32', ('fpow', ('f2fmp', 'a'), ('f2fmp', 'b'))) => ('fpow', 'a', 'b') */
-   /* search3410_0_0_0 -> 296 in the cache */
-   /* search3410_0_0 -> 1309 in the cache */
-   /* search3410_0_1_0 -> 298 in the cache */
-   /* search3410_0_1 -> 1352 in the cache */
+   /* search3414_0_0_0 -> 296 in the cache */
+   /* search3414_0_0 -> 1333 in the cache */
+   /* search3414_0_1_0 -> 298 in the cache */
+   /* search3414_0_1 -> 1376 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_exact,
@@ -3651761,7 +3652033,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fpow,
       -1, 0,
-      { 1309, 1352 },
+      { 1333, 1376 },
       -1,
    } },
    { .expression = {
@@ -3651772,12 +3652044,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2f32,
       -1, 0,
-      { 1371 },
+      { 1395 },
       -1,
    } },
 
-   /* replace3410_0 -> 296 in the cache */
-   /* replace3410_1 -> 298 in the cache */
+   /* replace3414_0 -> 296 in the cache */
+   /* replace3414_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3651791,10 +3652063,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('~f2f32', ('frem', ('f2fmp', 'a'), ('f2fmp', 'b'))) => ('frem', 'a', 'b') */
-   /* search3411_0_0_0 -> 296 in the cache */
-   /* search3411_0_0 -> 1309 in the cache */
-   /* search3411_0_1_0 -> 298 in the cache */
-   /* search3411_0_1 -> 1352 in the cache */
+   /* search3415_0_0_0 -> 296 in the cache */
+   /* search3415_0_0 -> 1333 in the cache */
+   /* search3415_0_1_0 -> 298 in the cache */
+   /* search3415_0_1 -> 1376 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_exact,
@@ -3651803,7 +3652075,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_frem,
       -1, 0,
-      { 1309, 1352 },
+      { 1333, 1376 },
       -1,
    } },
    { .expression = {
@@ -3651814,12 +3652086,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2f32,
       -1, 0,
-      { 1374 },
+      { 1398 },
       -1,
    } },
 
-   /* replace3411_0 -> 296 in the cache */
-   /* replace3411_1 -> 298 in the cache */
+   /* replace3415_0 -> 296 in the cache */
+   /* replace3415_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3651833,11 +3652105,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('~f2f32', ('ffma', ('f2fmp', 'a'), ('f2fmp', 'b'), ('f2fmp', 'c'))) => ('ffma', 'a', 'b', 'c') */
-   /* search3412_0_0_0 -> 296 in the cache */
-   /* search3412_0_0 -> 1309 in the cache */
-   /* search3412_0_1_0 -> 298 in the cache */
-   /* search3412_0_1 -> 1352 in the cache */
-   /* search3412_0_2_0 -> 345 in the cache */
+   /* search3416_0_0_0 -> 296 in the cache */
+   /* search3416_0_0 -> 1333 in the cache */
+   /* search3416_0_1_0 -> 298 in the cache */
+   /* search3416_0_1 -> 1376 in the cache */
+   /* search3416_0_2_0 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_exact,
@@ -3651857,7 +3652129,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ffma,
       0, 1,
-      { 1309, 1352, 1377 },
+      { 1333, 1376, 1401 },
       -1,
    } },
    { .expression = {
@@ -3651868,22 +3652140,22 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2f32,
       -1, 1,
-      { 1378 },
+      { 1402 },
       -1,
    } },
 
-   /* replace3412_0 -> 296 in the cache */
-   /* replace3412_1 -> 298 in the cache */
-   /* replace3412_2 -> 345 in the cache */
-   /* replace3412 -> 526 in the cache */
+   /* replace3416_0 -> 296 in the cache */
+   /* replace3416_1 -> 298 in the cache */
+   /* replace3416_2 -> 345 in the cache */
+   /* replace3416 -> 552 in the cache */
 
    /* ('~f2f32', ('flrp', ('f2fmp', 'a'), ('f2fmp', 'b'), ('f2fmp', 'c'))) => ('flrp', 'a', 'b', 'c') */
-   /* search3413_0_0_0 -> 296 in the cache */
-   /* search3413_0_0 -> 1309 in the cache */
-   /* search3413_0_1_0 -> 298 in the cache */
-   /* search3413_0_1 -> 1352 in the cache */
-   /* search3413_0_2_0 -> 345 in the cache */
-   /* search3413_0_2 -> 1377 in the cache */
+   /* search3417_0_0_0 -> 296 in the cache */
+   /* search3417_0_0 -> 1333 in the cache */
+   /* search3417_0_1_0 -> 298 in the cache */
+   /* search3417_0_1 -> 1376 in the cache */
+   /* search3417_0_2_0 -> 345 in the cache */
+   /* search3417_0_2 -> 1401 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_exact,
@@ -3651892,7 +3652164,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_flrp,
       -1, 0,
-      { 1309, 1352, 1377 },
+      { 1333, 1376, 1401 },
       -1,
    } },
    { .expression = {
@@ -3651903,13 +3652175,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2f32,
       -1, 0,
-      { 1380 },
+      { 1404 },
       -1,
    } },
 
-   /* replace3413_0 -> 296 in the cache */
-   /* replace3413_1 -> 298 in the cache */
-   /* replace3413_2 -> 345 in the cache */
+   /* replace3417_0 -> 296 in the cache */
+   /* replace3417_1 -> 298 in the cache */
+   /* replace3417_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3651923,10 +3652195,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('~feq', ('f2fmp', 'a'), ('f2fmp', 'b')) => ('feq', 'a', 'b') */
-   /* search3414_0_0 -> 296 in the cache */
-   /* search3414_0 -> 1309 in the cache */
-   /* search3414_1_0 -> 298 in the cache */
-   /* search3414_1 -> 1352 in the cache */
+   /* search3418_0_0 -> 296 in the cache */
+   /* search3418_0 -> 1333 in the cache */
+   /* search3418_1_0 -> 298 in the cache */
+   /* search3418_1 -> 1376 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_exact,
@@ -3651935,12 +3652207,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_feq,
       0, 1,
-      { 1309, 1352 },
+      { 1333, 1376 },
       -1,
    } },
 
-   /* replace3414_0 -> 296 in the cache */
-   /* replace3414_1 -> 298 in the cache */
+   /* replace3418_0 -> 296 in the cache */
+   /* replace3418_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3651954,10 +3652226,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('~fge', ('f2fmp', 'a'), ('f2fmp', 'b')) => ('fge', 'a', 'b') */
-   /* search3415_0_0 -> 296 in the cache */
-   /* search3415_0 -> 1309 in the cache */
-   /* search3415_1_0 -> 298 in the cache */
-   /* search3415_1 -> 1352 in the cache */
+   /* search3419_0_0 -> 296 in the cache */
+   /* search3419_0 -> 1333 in the cache */
+   /* search3419_1_0 -> 298 in the cache */
+   /* search3419_1 -> 1376 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_exact,
@@ -3651966,12 +3652238,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fge,
       -1, 0,
-      { 1309, 1352 },
+      { 1333, 1376 },
       -1,
    } },
 
-   /* replace3415_0 -> 296 in the cache */
-   /* replace3415_1 -> 298 in the cache */
+   /* replace3419_0 -> 296 in the cache */
+   /* replace3419_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3651985,10 +3652257,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('~flt', ('f2fmp', 'a'), ('f2fmp', 'b')) => ('flt', 'a', 'b') */
-   /* search3416_0_0 -> 296 in the cache */
-   /* search3416_0 -> 1309 in the cache */
-   /* search3416_1_0 -> 298 in the cache */
-   /* search3416_1 -> 1352 in the cache */
+   /* search3420_0_0 -> 296 in the cache */
+   /* search3420_0 -> 1333 in the cache */
+   /* search3420_1_0 -> 298 in the cache */
+   /* search3420_1 -> 1376 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_exact,
@@ -3651997,12 +3652269,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_flt,
       -1, 0,
-      { 1309, 1352 },
+      { 1333, 1376 },
       -1,
    } },
 
-   /* replace3416_0 -> 296 in the cache */
-   /* replace3416_1 -> 298 in the cache */
+   /* replace3420_0 -> 296 in the cache */
+   /* replace3420_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3652016,10 +3652288,10 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('~fneu', ('f2fmp', 'a'), ('f2fmp', 'b')) => ('fneu', 'a', 'b') */
-   /* search3417_0_0 -> 296 in the cache */
-   /* search3417_0 -> 1309 in the cache */
-   /* search3417_1_0 -> 298 in the cache */
-   /* search3417_1 -> 1352 in the cache */
+   /* search3421_0_0 -> 296 in the cache */
+   /* search3421_0 -> 1333 in the cache */
+   /* search3421_1_0 -> 298 in the cache */
+   /* search3421_1 -> 1376 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_exact,
@@ -3652028,12 +3652300,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fneu,
       0, 1,
-      { 1309, 1352 },
+      { 1333, 1376 },
       -1,
    } },
 
-   /* replace3417_0 -> 296 in the cache */
-   /* replace3417_1 -> 298 in the cache */
+   /* replace3421_0 -> 296 in the cache */
+   /* replace3421_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3652047,7 +3652319,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('f2fmp', 'a') => ('f2f16', 'a') */
-   /* search3418_0 -> 296 in the cache */
+   /* search3422_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3652060,7 +3652332,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
    } },
 
-   /* replace3418_0 -> 296 in the cache */
+   /* replace3422_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3652074,7 +3652346,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('f2imp', 'a') => ('f2i16', 'a') */
-   /* search3419_0 -> 296 in the cache */
+   /* search3423_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3652087,7 +3652359,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
    } },
 
-   /* replace3419_0 -> 296 in the cache */
+   /* replace3423_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3652101,7 +3652373,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('f2ump', 'a') => ('f2u16', 'a') */
-   /* search3420_0 -> 296 in the cache */
+   /* search3424_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3652114,7 +3652386,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
    } },
 
-   /* replace3420_0 -> 296 in the cache */
+   /* replace3424_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3652128,7 +3652400,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('i2imp', 'a') => ('i2i16', 'a') */
-   /* search3421_0 -> 296 in the cache */
+   /* search3425_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3652141,11 +3652413,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
    } },
 
-   /* replace3421_0 -> 296 in the cache */
-   /* replace3421 -> 1203 in the cache */
+   /* replace3425_0 -> 296 in the cache */
+   /* replace3425 -> 1227 in the cache */
 
    /* ('i2fmp', 'a') => ('i2f16', 'a') */
-   /* search3422_0 -> 296 in the cache */
+   /* search3426_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3652158,7 +3652430,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
    } },
 
-   /* replace3422_0 -> 296 in the cache */
+   /* replace3426_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3652172,14 +3652444,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('i2imp', 'a') => ('u2u16', 'a') */
-   /* search3423_0 -> 296 in the cache */
-   /* search3423 -> 1397 in the cache */
+   /* search3427_0 -> 296 in the cache */
+   /* search3427 -> 1421 in the cache */
 
-   /* replace3423_0 -> 296 in the cache */
-   /* replace3423 -> 1200 in the cache */
+   /* replace3427_0 -> 296 in the cache */
+   /* replace3427 -> 1224 in the cache */
 
    /* ('u2fmp', 'a') => ('u2f16', 'a') */
-   /* search3424_0 -> 296 in the cache */
+   /* search3428_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3652192,7 +3652464,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
    } },
 
-   /* replace3424_0 -> 296 in the cache */
+   /* replace3428_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3652206,7 +3652478,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('fisfinite(ninf)', 'a') => ('feq', 'a', 'a') */
-   /* search3425_0 -> 98 in the cache */
+   /* search3429_0 -> 98 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_preserve_inf,
@@ -3652219,12 +3652491,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
    } },
 
-   /* replace3425_0 -> 98 in the cache */
-   /* replace3425_1 -> 98 in the cache */
-   /* replace3425 -> 101 in the cache */
+   /* replace3429_0 -> 98 in the cache */
+   /* replace3429_1 -> 98 in the cache */
+   /* replace3429 -> 101 in the cache */
 
    /* ('fisfinite', 'a') => ('flt', ('fabs', 'a'), inf) */
-   /* search3426_0 -> 98 in the cache */
+   /* search3430_0 -> 98 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3652237,8 +3652509,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
    } },
 
-   /* replace3426_0_0 -> 98 in the cache */
-   /* replace3426_0 -> 103 in the cache */
+   /* replace3430_0_0 -> 98 in the cache */
+   /* replace3430_0 -> 103 in the cache */
    { .constant = {
       { nir_search_value_constant, -1 },
       nir_type_float, { 0x7ff0000000000000ull /* inf */ },
@@ -3652251,12 +3652523,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_flt,
       -1, 0,
-      { 103, 1404 },
+      { 103, 1428 },
       -1,
    } },
 
    /* ('f2f16', 'a') => ('f2f16_rtz', 'a') */
-   /* search3427_0 -> 98 in the cache */
+   /* search3431_0 -> 98 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3652269,7 +3652541,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
    } },
 
-   /* replace3427_0 -> 98 in the cache */
+   /* replace3431_0 -> 98 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3652283,8 +3652555,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('fcsel', ('slt', 0, 'a'), 'b', 'c') => ('fcsel_gt', 'a', 'b', 'c') */
-   /* search3428_0_0 -> 1104 in the cache */
-   /* search3428_0_1 -> 296 in the cache */
+   /* search3432_0_0 -> 1129 in the cache */
+   /* search3432_0_1 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3652293,11 +3652565,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_slt,
       -1, 0,
-      { 1104, 296 },
+      { 1129, 296 },
       -1,
    } },
-   /* search3428_1 -> 298 in the cache */
-   /* search3428_2 -> 345 in the cache */
+   /* search3432_1 -> 298 in the cache */
+   /* search3432_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3652306,13 +3652578,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fcsel,
       -1, 0,
-      { 1408, 298, 345 },
+      { 1432, 298, 345 },
       -1,
    } },
 
-   /* replace3428_0 -> 296 in the cache */
-   /* replace3428_1 -> 298 in the cache */
-   /* replace3428_2 -> 345 in the cache */
+   /* replace3432_0 -> 296 in the cache */
+   /* replace3432_1 -> 298 in the cache */
+   /* replace3432_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3652326,8 +3652598,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('fcsel', ('slt', 'a', 0), 'b', 'c') => ('fcsel_gt', ('fneg', 'a'), 'b', 'c') */
-   /* search3429_0_0 -> 296 in the cache */
-   /* search3429_0_1 -> 1104 in the cache */
+   /* search3433_0_0 -> 296 in the cache */
+   /* search3433_0_1 -> 1129 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3652336,11 +3652608,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_slt,
       -1, 0,
-      { 296, 1104 },
+      { 296, 1129 },
       -1,
    } },
-   /* search3429_1 -> 298 in the cache */
-   /* search3429_2 -> 345 in the cache */
+   /* search3433_1 -> 298 in the cache */
+   /* search3433_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3652349,14 +3652621,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fcsel,
       -1, 0,
-      { 1411, 298, 345 },
+      { 1435, 298, 345 },
       -1,
    } },
 
-   /* replace3429_0_0 -> 296 in the cache */
-   /* replace3429_0 -> 529 in the cache */
-   /* replace3429_1 -> 298 in the cache */
-   /* replace3429_2 -> 345 in the cache */
+   /* replace3433_0_0 -> 296 in the cache */
+   /* replace3433_0 -> 555 in the cache */
+   /* replace3433_1 -> 298 in the cache */
+   /* replace3433_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3652365,13 +3652637,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fcsel_gt,
       -1, 0,
-      { 529, 298, 345 },
+      { 555, 298, 345 },
       -1,
    } },
 
    /* ('fcsel', ('sge', 'a', 0), 'b', 'c') => ('fcsel_ge', 'a', 'b', 'c') */
-   /* search3430_0_0 -> 296 in the cache */
-   /* search3430_0_1 -> 1104 in the cache */
+   /* search3434_0_0 -> 296 in the cache */
+   /* search3434_0_1 -> 1129 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3652380,11 +3652652,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_sge,
       -1, 0,
-      { 296, 1104 },
+      { 296, 1129 },
       -1,
    } },
-   /* search3430_1 -> 298 in the cache */
-   /* search3430_2 -> 345 in the cache */
+   /* search3434_1 -> 298 in the cache */
+   /* search3434_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3652393,13 +3652665,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fcsel,
       -1, 0,
-      { 1414, 298, 345 },
+      { 1438, 298, 345 },
       -1,
    } },
 
-   /* replace3430_0 -> 296 in the cache */
-   /* replace3430_1 -> 298 in the cache */
-   /* replace3430_2 -> 345 in the cache */
+   /* replace3434_0 -> 296 in the cache */
+   /* replace3434_1 -> 298 in the cache */
+   /* replace3434_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3652413,8 +3652685,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('fcsel', ('sge', 0, 'a'), 'b', 'c') => ('fcsel_ge', ('fneg', 'a'), 'b', 'c') */
-   /* search3431_0_0 -> 1104 in the cache */
-   /* search3431_0_1 -> 296 in the cache */
+   /* search3435_0_0 -> 1129 in the cache */
+   /* search3435_0_1 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3652423,11 +3652695,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_sge,
       -1, 0,
-      { 1104, 296 },
+      { 1129, 296 },
       -1,
    } },
-   /* search3431_1 -> 298 in the cache */
-   /* search3431_2 -> 345 in the cache */
+   /* search3435_1 -> 298 in the cache */
+   /* search3435_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3652436,14 +3652708,14 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fcsel,
       -1, 0,
-      { 1417, 298, 345 },
+      { 1441, 298, 345 },
       -1,
    } },
 
-   /* replace3431_0_0 -> 296 in the cache */
-   /* replace3431_0 -> 529 in the cache */
-   /* replace3431_1 -> 298 in the cache */
-   /* replace3431_2 -> 345 in the cache */
+   /* replace3435_0_0 -> 296 in the cache */
+   /* replace3435_0 -> 555 in the cache */
+   /* replace3435_1 -> 298 in the cache */
+   /* replace3435_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3652452,13 +3652724,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fcsel_ge,
       -1, 0,
-      { 529, 298, 345 },
+      { 555, 298, 345 },
       -1,
    } },
 
    /* ('bcsel', ('ilt', 0, 'a@32'), 'b@32', 'c@32') => ('i32csel_gt', 'a', 'b', 'c') */
-   /* search3432_0_0 -> 1104 in the cache */
-   /* search3432_0_1 -> 296 in the cache */
+   /* search3436_0_0 -> 1129 in the cache */
+   /* search3436_0_1 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3652467,11 +3652739,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ilt,
       -1, 0,
-      { 1104, 296 },
+      { 1129, 296 },
       -1,
    } },
-   /* search3432_1 -> 298 in the cache */
-   /* search3432_2 -> 345 in the cache */
+   /* search3436_1 -> 298 in the cache */
+   /* search3436_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3652480,13 +3652752,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 0,
-      { 1420, 298, 345 },
+      { 1444, 298, 345 },
       -1,
    } },
 
-   /* replace3432_0 -> 296 in the cache */
-   /* replace3432_1 -> 298 in the cache */
-   /* replace3432_2 -> 345 in the cache */
+   /* replace3436_0 -> 296 in the cache */
+   /* replace3436_1 -> 298 in the cache */
+   /* replace3436_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3652500,8 +3652772,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('bcsel', ('ilt', 'a@32', 0), 'b@32', 'c@32') => ('i32csel_ge', 'a', 'c', 'b') */
-   /* search3433_0_0 -> 296 in the cache */
-   /* search3433_0_1 -> 1104 in the cache */
+   /* search3437_0_0 -> 296 in the cache */
+   /* search3437_0_1 -> 1129 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3652510,11 +3652782,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ilt,
       -1, 0,
-      { 296, 1104 },
+      { 296, 1129 },
       -1,
    } },
-   /* search3433_1 -> 298 in the cache */
-   /* search3433_2 -> 345 in the cache */
+   /* search3437_1 -> 298 in the cache */
+   /* search3437_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3652523,13 +3652795,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 0,
-      { 1423, 298, 345 },
+      { 1447, 298, 345 },
       -1,
    } },
 
-   /* replace3433_0 -> 296 in the cache */
-   /* replace3433_1 -> 345 in the cache */
-   /* replace3433_2 -> 298 in the cache */
+   /* replace3437_0 -> 296 in the cache */
+   /* replace3437_1 -> 345 in the cache */
+   /* replace3437_2 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3652543,8 +3652815,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('bcsel', ('ige', 'a@32', 0), 'b@32', 'c@32') => ('i32csel_ge', 'a', 'b', 'c') */
-   /* search3434_0_0 -> 296 in the cache */
-   /* search3434_0_1 -> 1104 in the cache */
+   /* search3438_0_0 -> 296 in the cache */
+   /* search3438_0_1 -> 1129 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3652553,11 +3652825,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ige,
       -1, 0,
-      { 296, 1104 },
+      { 296, 1129 },
       -1,
    } },
-   /* search3434_1 -> 298 in the cache */
-   /* search3434_2 -> 345 in the cache */
+   /* search3438_1 -> 298 in the cache */
+   /* search3438_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3652566,13 +3652838,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 0,
-      { 1426, 298, 345 },
+      { 1450, 298, 345 },
       -1,
    } },
 
-   /* replace3434_0 -> 296 in the cache */
-   /* replace3434_1 -> 298 in the cache */
-   /* replace3434_2 -> 345 in the cache */
+   /* replace3438_0 -> 296 in the cache */
+   /* replace3438_1 -> 298 in the cache */
+   /* replace3438_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3652586,8 +3652858,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('bcsel', ('ige', 0, 'a@32'), 'b@32', 'c@32') => ('i32csel_gt', 'a', 'c', 'b') */
-   /* search3435_0_0 -> 1104 in the cache */
-   /* search3435_0_1 -> 296 in the cache */
+   /* search3439_0_0 -> 1129 in the cache */
+   /* search3439_0_1 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3652596,11 +3652868,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ige,
       -1, 0,
-      { 1104, 296 },
+      { 1129, 296 },
       -1,
    } },
-   /* search3435_1 -> 298 in the cache */
-   /* search3435_2 -> 345 in the cache */
+   /* search3439_1 -> 298 in the cache */
+   /* search3439_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3652609,13 +3652881,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 0,
-      { 1429, 298, 345 },
+      { 1453, 298, 345 },
       -1,
    } },
 
-   /* replace3435_0 -> 296 in the cache */
-   /* replace3435_1 -> 345 in the cache */
-   /* replace3435_2 -> 298 in the cache */
+   /* replace3439_0 -> 296 in the cache */
+   /* replace3439_1 -> 345 in the cache */
+   /* replace3439_2 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3652629,8 +3652901,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('bcsel', ('flt', 0, 'a@32'), 'b@32', 'c@32') => ('fcsel_gt', 'a', 'b', 'c') */
-   /* search3436_0_0 -> 1104 in the cache */
-   /* search3436_0_1 -> 296 in the cache */
+   /* search3440_0_0 -> 1129 in the cache */
+   /* search3440_0_1 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3652639,11 +3652911,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_flt,
       -1, 0,
-      { 1104, 296 },
+      { 1129, 296 },
       -1,
    } },
-   /* search3436_1 -> 298 in the cache */
-   /* search3436_2 -> 345 in the cache */
+   /* search3440_1 -> 298 in the cache */
+   /* search3440_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3652652,18 +3652924,18 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 0,
-      { 1432, 298, 345 },
+      { 1456, 298, 345 },
       -1,
    } },
 
-   /* replace3436_0 -> 296 in the cache */
-   /* replace3436_1 -> 298 in the cache */
-   /* replace3436_2 -> 345 in the cache */
-   /* replace3436 -> 1410 in the cache */
+   /* replace3440_0 -> 296 in the cache */
+   /* replace3440_1 -> 298 in the cache */
+   /* replace3440_2 -> 345 in the cache */
+   /* replace3440 -> 1434 in the cache */
 
    /* ('bcsel', ('flt', 'a@32', 0), 'b@32', 'c@32') => ('fcsel_gt', ('fneg', 'a'), 'b', 'c') */
-   /* search3437_0_0 -> 296 in the cache */
-   /* search3437_0_1 -> 1104 in the cache */
+   /* search3441_0_0 -> 296 in the cache */
+   /* search3441_0_1 -> 1129 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3652672,11 +3652944,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_flt,
       -1, 0,
-      { 296, 1104 },
+      { 296, 1129 },
       -1,
    } },
-   /* search3437_1 -> 298 in the cache */
-   /* search3437_2 -> 345 in the cache */
+   /* search3441_1 -> 298 in the cache */
+   /* search3441_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3652685,19 +3652957,19 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 0,
-      { 1434, 298, 345 },
+      { 1458, 298, 345 },
       -1,
    } },
 
-   /* replace3437_0_0 -> 296 in the cache */
-   /* replace3437_0 -> 529 in the cache */
-   /* replace3437_1 -> 298 in the cache */
-   /* replace3437_2 -> 345 in the cache */
-   /* replace3437 -> 1413 in the cache */
+   /* replace3441_0_0 -> 296 in the cache */
+   /* replace3441_0 -> 555 in the cache */
+   /* replace3441_1 -> 298 in the cache */
+   /* replace3441_2 -> 345 in the cache */
+   /* replace3441 -> 1437 in the cache */
 
    /* ('bcsel', ('fge', 'a@32', 0), 'b@32', 'c@32') => ('fcsel_ge', 'a', 'b', 'c') */
-   /* search3438_0_0 -> 296 in the cache */
-   /* search3438_0_1 -> 1104 in the cache */
+   /* search3442_0_0 -> 296 in the cache */
+   /* search3442_0_1 -> 1129 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3652706,160 +3652978,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_fge,
       -1, 0,
-      { 296, 1104 },
-      -1,
-   } },
-   /* search3438_1 -> 298 in the cache */
-   /* search3438_2 -> 345 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_bcsel,
-      -1, 0,
-      { 1436, 298, 345 },
-      -1,
-   } },
-
-   /* replace3438_0 -> 296 in the cache */
-   /* replace3438_1 -> 298 in the cache */
-   /* replace3438_2 -> 345 in the cache */
-   /* replace3438 -> 1416 in the cache */
-
-   /* ('bcsel', ('fge', 0, 'a@32'), 'b@32', 'c@32') => ('fcsel_ge', ('fneg', 'a'), 'b', 'c') */
-   /* search3439_0_0 -> 1104 in the cache */
-   /* search3439_0_1 -> 296 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 1 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_fge,
-      -1, 0,
-      { 1104, 296 },
-      -1,
-   } },
-   /* search3439_1 -> 298 in the cache */
-   /* search3439_2 -> 345 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 32 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_bcsel,
-      -1, 0,
-      { 1438, 298, 345 },
-      -1,
-   } },
-
-   /* replace3439_0_0 -> 296 in the cache */
-   /* replace3439_0 -> 529 in the cache */
-   /* replace3439_1 -> 298 in the cache */
-   /* replace3439_2 -> 345 in the cache */
-   /* replace3439 -> 1419 in the cache */
-
-   /* ('bcsel@16', ('ieq', 0, 'a@16'), 'b@16', 'c@16') => ('icsel_eqz', 'a', 'b', 'c') */
-   /* search3440_0_0 -> 1188 in the cache */
-   /* search3440_0_1 -> 286 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 1 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_ieq,
-      0, 1,
-      { 1188, 286 },
-      -1,
-   } },
-   /* search3440_1 -> 288 in the cache */
-   /* search3440_2 -> 494 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 16 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_bcsel,
-      -1, 1,
-      { 1440, 288, 494 },
-      -1,
-   } },
-
-   /* replace3440_0 -> 286 in the cache */
-   /* replace3440_1 -> 288 in the cache */
-   /* replace3440_2 -> 494 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 16 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_icsel_eqz,
-      -1, 0,
-      { 286, 288, 494 },
-      -1,
-   } },
-
-   /* ('bcsel@16', ('ine', 0, 'a@16'), 'b@16', 'c@16') => ('icsel_eqz', 'a', 'c', 'b') */
-   /* search3441_0_0 -> 1188 in the cache */
-   /* search3441_0_1 -> 286 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 1 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_ine,
-      0, 1,
-      { 1188, 286 },
-      -1,
-   } },
-   /* search3441_1 -> 288 in the cache */
-   /* search3441_2 -> 494 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 16 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_bcsel,
-      -1, 1,
-      { 1443, 288, 494 },
-      -1,
-   } },
-
-   /* replace3441_0 -> 286 in the cache */
-   /* replace3441_1 -> 494 in the cache */
-   /* replace3441_2 -> 288 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 16 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_icsel_eqz,
-      -1, 0,
-      { 286, 494, 288 },
-      -1,
-   } },
-
-   /* ('bcsel@32', ('ieq', 0, 'a@32'), 'b@32', 'c@32') => ('icsel_eqz', 'a', 'b', 'c') */
-   /* search3442_0_0 -> 1104 in the cache */
-   /* search3442_0_1 -> 296 in the cache */
-   { .expression = {
-      { nir_search_value_expression, 1 },
-      nir_fp_fast_math,
-      nir_fp_fast_math,
-      false,
-      -1,
-      nir_op_ieq,
-      0, 1,
-      { 1104, 296 },
+      { 296, 1129 },
       -1,
    } },
    /* search3442_1 -> 298 in the cache */
@@ -3652871,14 +3652990,167 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       false,
       -1,
       nir_op_bcsel,
-      -1, 1,
-      { 1446, 298, 345 },
+      -1, 0,
+      { 1460, 298, 345 },
       -1,
    } },
 
    /* replace3442_0 -> 296 in the cache */
    /* replace3442_1 -> 298 in the cache */
    /* replace3442_2 -> 345 in the cache */
+   /* replace3442 -> 1440 in the cache */
+
+   /* ('bcsel', ('fge', 0, 'a@32'), 'b@32', 'c@32') => ('fcsel_ge', ('fneg', 'a'), 'b', 'c') */
+   /* search3443_0_0 -> 1129 in the cache */
+   /* search3443_0_1 -> 296 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 1 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_fge,
+      -1, 0,
+      { 1129, 296 },
+      -1,
+   } },
+   /* search3443_1 -> 298 in the cache */
+   /* search3443_2 -> 345 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_bcsel,
+      -1, 0,
+      { 1462, 298, 345 },
+      -1,
+   } },
+
+   /* replace3443_0_0 -> 296 in the cache */
+   /* replace3443_0 -> 555 in the cache */
+   /* replace3443_1 -> 298 in the cache */
+   /* replace3443_2 -> 345 in the cache */
+   /* replace3443 -> 1443 in the cache */
+
+   /* ('bcsel@16', ('ieq', 0, 'a@16'), 'b@16', 'c@16') => ('icsel_eqz', 'a', 'b', 'c') */
+   /* search3444_0_0 -> 1212 in the cache */
+   /* search3444_0_1 -> 286 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 1 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_ieq,
+      0, 1,
+      { 1212, 286 },
+      -1,
+   } },
+   /* search3444_1 -> 288 in the cache */
+   /* search3444_2 -> 520 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 16 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_bcsel,
+      -1, 1,
+      { 1464, 288, 520 },
+      -1,
+   } },
+
+   /* replace3444_0 -> 286 in the cache */
+   /* replace3444_1 -> 288 in the cache */
+   /* replace3444_2 -> 520 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 16 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_icsel_eqz,
+      -1, 0,
+      { 286, 288, 520 },
+      -1,
+   } },
+
+   /* ('bcsel@16', ('ine', 0, 'a@16'), 'b@16', 'c@16') => ('icsel_eqz', 'a', 'c', 'b') */
+   /* search3445_0_0 -> 1212 in the cache */
+   /* search3445_0_1 -> 286 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 1 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_ine,
+      0, 1,
+      { 1212, 286 },
+      -1,
+   } },
+   /* search3445_1 -> 288 in the cache */
+   /* search3445_2 -> 520 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 16 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_bcsel,
+      -1, 1,
+      { 1467, 288, 520 },
+      -1,
+   } },
+
+   /* replace3445_0 -> 286 in the cache */
+   /* replace3445_1 -> 520 in the cache */
+   /* replace3445_2 -> 288 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 16 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_icsel_eqz,
+      -1, 0,
+      { 286, 520, 288 },
+      -1,
+   } },
+
+   /* ('bcsel@32', ('ieq', 0, 'a@32'), 'b@32', 'c@32') => ('icsel_eqz', 'a', 'b', 'c') */
+   /* search3446_0_0 -> 1129 in the cache */
+   /* search3446_0_1 -> 296 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 1 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_ieq,
+      0, 1,
+      { 1129, 296 },
+      -1,
+   } },
+   /* search3446_1 -> 298 in the cache */
+   /* search3446_2 -> 345 in the cache */
+   { .expression = {
+      { nir_search_value_expression, 32 },
+      nir_fp_fast_math,
+      nir_fp_fast_math,
+      false,
+      -1,
+      nir_op_bcsel,
+      -1, 1,
+      { 1470, 298, 345 },
+      -1,
+   } },
+
+   /* replace3446_0 -> 296 in the cache */
+   /* replace3446_1 -> 298 in the cache */
+   /* replace3446_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3652892,8 +3653164,8 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
    } },
 
    /* ('bcsel@32', ('ine', 0, 'a@32'), 'b@32', 'c@32') => ('icsel_eqz', 'a', 'c', 'b') */
-   /* search3443_0_0 -> 1104 in the cache */
-   /* search3443_0_1 -> 296 in the cache */
+   /* search3447_0_0 -> 1129 in the cache */
+   /* search3447_0_1 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3652902,11 +3653174,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ine,
       0, 1,
-      { 1104, 296 },
+      { 1129, 296 },
       -1,
    } },
-   /* search3443_1 -> 298 in the cache */
-   /* search3443_2 -> 345 in the cache */
+   /* search3447_1 -> 298 in the cache */
+   /* search3447_2 -> 345 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3652915,13 +3653187,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 1,
-      { 1449, 298, 345 },
+      { 1473, 298, 345 },
       -1,
    } },
 
-   /* replace3443_0 -> 296 in the cache */
-   /* replace3443_1 -> 345 in the cache */
-   /* replace3443_2 -> 298 in the cache */
+   /* replace3447_0 -> 296 in the cache */
+   /* replace3447_1 -> 345 in the cache */
+   /* replace3447_2 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3652939,7 +3653211,7 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       { nir_search_value_constant, 64 },
       nir_type_int, { 0x0ull /* 0 */ },
    } },
-   /* search3444_0_1 -> 306 in the cache */
+   /* search3448_0_1 -> 306 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3652948,11 +3653220,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ieq,
       0, 1,
-      { 1452, 306 },
+      { 1476, 306 },
       -1,
    } },
-   /* search3444_1 -> 308 in the cache */
-   /* search3444_2 -> 581 in the cache */
+   /* search3448_1 -> 308 in the cache */
+   /* search3448_2 -> 607 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3652961,13 +3653233,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 1,
-      { 1453, 308, 581 },
+      { 1477, 308, 607 },
       -1,
    } },
 
-   /* replace3444_0 -> 306 in the cache */
-   /* replace3444_1 -> 308 in the cache */
-   /* replace3444_2 -> 581 in the cache */
+   /* replace3448_0 -> 306 in the cache */
+   /* replace3448_1 -> 308 in the cache */
+   /* replace3448_2 -> 607 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3652976,13 +3653248,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_icsel_eqz,
       -1, 0,
-      { 306, 308, 581 },
+      { 306, 308, 607 },
       -1,
    } },
 
    /* ('bcsel@64', ('ine', 0, 'a@64'), 'b@64', 'c@64') => ('icsel_eqz', 'a', 'c', 'b') */
-   /* search3445_0_0 -> 1452 in the cache */
-   /* search3445_0_1 -> 306 in the cache */
+   /* search3449_0_0 -> 1476 in the cache */
+   /* search3449_0_1 -> 306 in the cache */
    { .expression = {
       { nir_search_value_expression, 1 },
       nir_fp_fast_math,
@@ -3652991,11 +3653263,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_ine,
       0, 1,
-      { 1452, 306 },
+      { 1476, 306 },
       -1,
    } },
-   /* search3445_1 -> 308 in the cache */
-   /* search3445_2 -> 581 in the cache */
+   /* search3449_1 -> 308 in the cache */
+   /* search3449_2 -> 607 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3653004,13 +3653276,13 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_bcsel,
       -1, 1,
-      { 1456, 308, 581 },
+      { 1480, 308, 607 },
       -1,
    } },
 
-   /* replace3445_0 -> 306 in the cache */
-   /* replace3445_1 -> 581 in the cache */
-   /* replace3445_2 -> 308 in the cache */
+   /* replace3449_0 -> 306 in the cache */
+   /* replace3449_1 -> 607 in the cache */
+   /* replace3449_2 -> 308 in the cache */
    { .expression = {
       { nir_search_value_expression, 64 },
       nir_fp_fast_math,
@@ -3653019,12 +3653291,12 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_icsel_eqz,
       -1, 0,
-      { 306, 581, 308 },
+      { 306, 607, 308 },
       -1,
    } },
 
    /* ('f2i32', ('fround_even(is_used_once)', 'a@32')) => ('f2i32_rtne', 'a') */
-   /* search3446_0_0 -> 296 in the cache */
+   /* search3450_0_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3653044,11 +3653316,11 @@ static const nir_search_value_union nir_opt_algebraic_late_values[] = {
       -1,
       nir_op_f2i32,
       -1, 0,
-      { 1459 },
+      { 1483 },
       -1,
    } },
 
-   /* replace3446_0 -> 296 in the cache */
+   /* replace3450_0 -> 296 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3653088,152 +3653360,152 @@ static const nir_search_variable_cond nir_opt_algebraic_late_variable_cond[] = {
 static const struct transform nir_opt_algebraic_late_transforms[] = {
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 870, 98, 0 },
+   { 895, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 870, 98, 0 },
+   { 895, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 342, 621, 200 },
+   { 342, 647, 201 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 348, 350, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 625, 627, 202 },
+   { 651, 653, 203 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1300, 1304, 212 },
+   { 1324, 1328, 212 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 628, 629, 203 },
+   { 654, 655, 204 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1120, 98, 0 },
-   { 1122, 98, 0 },
-   { 1227, 1220, 210 },
-   { 1224, 1230, 211 },
+   { 1145, 98, 0 },
+   { 1147, 98, 0 },
+   { 1251, 1244, 210 },
+   { 1248, 1254, 211 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1120, 98, 0 },
-   { 1122, 98, 0 },
-   { 1227, 1220, 210 },
-   { 1224, 1230, 211 },
+   { 1145, 98, 0 },
+   { 1147, 98, 0 },
+   { 1251, 1244, 210 },
+   { 1248, 1254, 211 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 882, 883, 205 },
+   { 907, 908, 205 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 884, 885, 205 },
+   { 909, 910, 205 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 886, 887, 205 },
+   { 911, 912, 205 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 888, 889, 205 },
+   { 913, 914, 205 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 895, 907, 206 },
+   { 920, 932, 206 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 910, 912, 30 },
-   { 914, 915, 30 },
-   { 916, 917, 30 },
-   { 918, 919, 30 },
+   { 935, 937, 30 },
+   { 939, 940, 30 },
+   { 941, 942, 30 },
+   { 943, 944, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 920, 912, 30 },
-   { 921, 915, 30 },
-   { 922, 917, 30 },
-   { 923, 919, 30 },
+   { 945, 937, 30 },
+   { 946, 940, 30 },
+   { 947, 942, 30 },
+   { 948, 944, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 556, 1306, 212 },
+   { 582, 1330, 212 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 569, 1308, 212 },
+   { 595, 1332, 212 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1105, 1104, 0 },
+   { 1130, 1129, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1105, 1104, 0 },
-   { 1109, 1114, 174 },
+   { 1130, 1129, 0 },
+   { 1134, 1139, 174 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1106, 1104, 0 },
+   { 1131, 1129, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1106, 1104, 0 },
-   { 1115, 1119, 174 },
+   { 1131, 1129, 0 },
+   { 1140, 1144, 174 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1123, 98, 0 },
-   { 1124, 98, 0 },
+   { 1148, 98, 0 },
+   { 1149, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1125, 98, 0 },
+   { 1150, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1184, 1185, 209 },
+   { 1208, 1209, 209 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1406, 1407, 214 },
+   { 1430, 1431, 214 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1391, 1392, 213 },
+   { 1415, 1416, 213 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1393, 1394, 213 },
+   { 1417, 1418, 213 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1395, 1396, 213 },
+   { 1419, 1420, 213 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1397, 1203, 213 },
-   { 1397, 1200, 213 },
+   { 1421, 1227, 213 },
+   { 1421, 1224, 213 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1398, 1399, 213 },
+   { 1422, 1423, 213 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1400, 1401, 213 },
+   { 1424, 1425, 213 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1402, 101, 0 },
-   { 1403, 1405, 0 },
+   { 1426, 101, 0 },
+   { 1427, 1429, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 97, 272, 178 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 235, 194, 0 },
    { 252, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 243, 226, 0 },
    { 260, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 283, 284, 178 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 140, 142, 0 },
    { 283, 284, 178 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 290, 291, 179 },
    { 300, 301, 179 },
    { 310, 311, 179 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 333, 334, 178 },
@@ -3653266,2535 +3653538,2555 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 320, 321, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1180, 1145, 0 },
+   { 1204, 1170, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1179, 1147, 0 },
+   { 1203, 1172, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1266, 1268, 0 },
-   { 1271, 1268, 0 },
+   { 1290, 1292, 0 },
+   { 1295, 1292, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1274, 1276, 0 },
-   { 1279, 1276, 0 },
-   { 1281, 1283, 0 },
-   { 1285, 1283, 0 },
+   { 1298, 1300, 0 },
+   { 1303, 1300, 0 },
+   { 1305, 1307, 0 },
+   { 1309, 1307, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1288, 1290, 0 },
-   { 1293, 1290, 0 },
-   { 1295, 1297, 0 },
-   { 1299, 1297, 0 },
+   { 1312, 1314, 0 },
+   { 1317, 1314, 0 },
+   { 1319, 1321, 0 },
+   { 1323, 1321, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1435, 1413, 215 },
+   { 1459, 1437, 215 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1266, 1268, 0 },
-   { 1271, 1268, 0 },
-   { 1435, 1413, 215 },
+   { 1290, 1292, 0 },
+   { 1295, 1292, 0 },
+   { 1459, 1437, 215 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1274, 1276, 0 },
-   { 1279, 1276, 0 },
-   { 1281, 1283, 0 },
-   { 1285, 1283, 0 },
-   { 1435, 1413, 215 },
+   { 1298, 1300, 0 },
+   { 1303, 1300, 0 },
+   { 1305, 1307, 0 },
+   { 1309, 1307, 0 },
+   { 1459, 1437, 215 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1288, 1290, 0 },
-   { 1293, 1290, 0 },
-   { 1295, 1297, 0 },
-   { 1299, 1297, 0 },
-   { 1435, 1413, 215 },
+   { 1312, 1314, 0 },
+   { 1317, 1314, 0 },
+   { 1319, 1321, 0 },
+   { 1323, 1321, 0 },
+   { 1459, 1437, 215 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1433, 1410, 215 },
+   { 1457, 1434, 215 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1266, 1268, 0 },
-   { 1271, 1268, 0 },
-   { 1433, 1410, 215 },
+   { 1290, 1292, 0 },
+   { 1295, 1292, 0 },
+   { 1457, 1434, 215 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1274, 1276, 0 },
-   { 1279, 1276, 0 },
-   { 1281, 1283, 0 },
-   { 1285, 1283, 0 },
-   { 1433, 1410, 215 },
+   { 1298, 1300, 0 },
+   { 1303, 1300, 0 },
+   { 1305, 1307, 0 },
+   { 1309, 1307, 0 },
+   { 1457, 1434, 215 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1288, 1290, 0 },
-   { 1293, 1290, 0 },
-   { 1295, 1297, 0 },
-   { 1299, 1297, 0 },
-   { 1433, 1410, 215 },
+   { 1312, 1314, 0 },
+   { 1317, 1314, 0 },
+   { 1319, 1321, 0 },
+   { 1323, 1321, 0 },
+   { 1457, 1434, 215 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1433, 1410, 215 },
-   { 1435, 1413, 215 },
+   { 1457, 1434, 215 },
+   { 1459, 1437, 215 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1266, 1268, 0 },
-   { 1271, 1268, 0 },
-   { 1433, 1410, 215 },
-   { 1435, 1413, 215 },
+   { 1290, 1292, 0 },
+   { 1295, 1292, 0 },
+   { 1457, 1434, 215 },
+   { 1459, 1437, 215 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1274, 1276, 0 },
-   { 1279, 1276, 0 },
-   { 1281, 1283, 0 },
-   { 1285, 1283, 0 },
-   { 1433, 1410, 215 },
-   { 1435, 1413, 215 },
+   { 1298, 1300, 0 },
+   { 1303, 1300, 0 },
+   { 1305, 1307, 0 },
+   { 1309, 1307, 0 },
+   { 1457, 1434, 215 },
+   { 1459, 1437, 215 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1288, 1290, 0 },
-   { 1293, 1290, 0 },
-   { 1295, 1297, 0 },
-   { 1299, 1297, 0 },
-   { 1433, 1410, 215 },
-   { 1435, 1413, 215 },
+   { 1312, 1314, 0 },
+   { 1317, 1314, 0 },
+   { 1319, 1321, 0 },
+   { 1323, 1321, 0 },
+   { 1457, 1434, 215 },
+   { 1459, 1437, 215 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1437, 1416, 215 },
+   { 1461, 1440, 215 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1266, 1268, 0 },
-   { 1271, 1268, 0 },
-   { 1437, 1416, 215 },
+   { 1290, 1292, 0 },
+   { 1295, 1292, 0 },
+   { 1461, 1440, 215 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1274, 1276, 0 },
-   { 1279, 1276, 0 },
-   { 1281, 1283, 0 },
-   { 1285, 1283, 0 },
-   { 1437, 1416, 215 },
+   { 1298, 1300, 0 },
+   { 1303, 1300, 0 },
+   { 1305, 1307, 0 },
+   { 1309, 1307, 0 },
+   { 1461, 1440, 215 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1288, 1290, 0 },
-   { 1293, 1290, 0 },
-   { 1295, 1297, 0 },
-   { 1299, 1297, 0 },
-   { 1437, 1416, 215 },
+   { 1312, 1314, 0 },
+   { 1317, 1314, 0 },
+   { 1319, 1321, 0 },
+   { 1323, 1321, 0 },
+   { 1461, 1440, 215 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1439, 1419, 215 },
+   { 1463, 1443, 215 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1266, 1268, 0 },
-   { 1271, 1268, 0 },
-   { 1439, 1419, 215 },
+   { 1290, 1292, 0 },
+   { 1295, 1292, 0 },
+   { 1463, 1443, 215 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1274, 1276, 0 },
-   { 1279, 1276, 0 },
-   { 1281, 1283, 0 },
-   { 1285, 1283, 0 },
-   { 1439, 1419, 215 },
+   { 1298, 1300, 0 },
+   { 1303, 1300, 0 },
+   { 1305, 1307, 0 },
+   { 1309, 1307, 0 },
+   { 1463, 1443, 215 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1288, 1290, 0 },
-   { 1293, 1290, 0 },
-   { 1295, 1297, 0 },
-   { 1299, 1297, 0 },
-   { 1439, 1419, 215 },
+   { 1312, 1314, 0 },
+   { 1317, 1314, 0 },
+   { 1319, 1321, 0 },
+   { 1323, 1321, 0 },
+   { 1463, 1443, 215 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1437, 1416, 215 },
-   { 1439, 1419, 215 },
+   { 1461, 1440, 215 },
+   { 1463, 1443, 215 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1266, 1268, 0 },
-   { 1271, 1268, 0 },
-   { 1437, 1416, 215 },
-   { 1439, 1419, 215 },
+   { 1290, 1292, 0 },
+   { 1295, 1292, 0 },
+   { 1461, 1440, 215 },
+   { 1463, 1443, 215 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1274, 1276, 0 },
-   { 1279, 1276, 0 },
-   { 1281, 1283, 0 },
-   { 1285, 1283, 0 },
-   { 1437, 1416, 215 },
-   { 1439, 1419, 215 },
+   { 1298, 1300, 0 },
+   { 1303, 1300, 0 },
+   { 1305, 1307, 0 },
+   { 1309, 1307, 0 },
+   { 1461, 1440, 215 },
+   { 1463, 1443, 215 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1288, 1290, 0 },
-   { 1293, 1290, 0 },
-   { 1295, 1297, 0 },
-   { 1299, 1297, 0 },
-   { 1437, 1416, 215 },
-   { 1439, 1419, 215 },
+   { 1312, 1314, 0 },
+   { 1317, 1314, 0 },
+   { 1319, 1321, 0 },
+   { 1323, 1321, 0 },
+   { 1461, 1440, 215 },
+   { 1463, 1443, 215 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1444, 1445, 217 },
-   { 1450, 1451, 218 },
-   { 1457, 1458, 219 },
+   { 1468, 1469, 217 },
+   { 1474, 1475, 218 },
+   { 1481, 1482, 219 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1266, 1268, 0 },
-   { 1271, 1268, 0 },
-   { 1444, 1445, 217 },
-   { 1450, 1451, 218 },
-   { 1457, 1458, 219 },
+   { 1290, 1292, 0 },
+   { 1295, 1292, 0 },
+   { 1468, 1469, 217 },
+   { 1474, 1475, 218 },
+   { 1481, 1482, 219 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1274, 1276, 0 },
-   { 1279, 1276, 0 },
-   { 1281, 1283, 0 },
-   { 1285, 1283, 0 },
-   { 1444, 1445, 217 },
-   { 1450, 1451, 218 },
-   { 1457, 1458, 219 },
+   { 1298, 1300, 0 },
+   { 1303, 1300, 0 },
+   { 1305, 1307, 0 },
+   { 1309, 1307, 0 },
+   { 1468, 1469, 217 },
+   { 1474, 1475, 218 },
+   { 1481, 1482, 219 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1288, 1290, 0 },
-   { 1293, 1290, 0 },
-   { 1295, 1297, 0 },
-   { 1299, 1297, 0 },
-   { 1444, 1445, 217 },
-   { 1450, 1451, 218 },
-   { 1457, 1458, 219 },
+   { 1312, 1314, 0 },
+   { 1317, 1314, 0 },
+   { 1319, 1321, 0 },
+   { 1323, 1321, 0 },
+   { 1468, 1469, 217 },
+   { 1474, 1475, 218 },
+   { 1481, 1482, 219 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1441, 1442, 217 },
-   { 1447, 1448, 218 },
-   { 1454, 1455, 219 },
+   { 1465, 1466, 217 },
+   { 1471, 1472, 218 },
+   { 1478, 1479, 219 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1266, 1268, 0 },
-   { 1271, 1268, 0 },
-   { 1441, 1442, 217 },
-   { 1447, 1448, 218 },
-   { 1454, 1455, 219 },
+   { 1290, 1292, 0 },
+   { 1295, 1292, 0 },
+   { 1465, 1466, 217 },
+   { 1471, 1472, 218 },
+   { 1478, 1479, 219 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1274, 1276, 0 },
-   { 1279, 1276, 0 },
-   { 1281, 1283, 0 },
-   { 1285, 1283, 0 },
-   { 1441, 1442, 217 },
-   { 1447, 1448, 218 },
-   { 1454, 1455, 219 },
+   { 1298, 1300, 0 },
+   { 1303, 1300, 0 },
+   { 1305, 1307, 0 },
+   { 1309, 1307, 0 },
+   { 1465, 1466, 217 },
+   { 1471, 1472, 218 },
+   { 1478, 1479, 219 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1288, 1290, 0 },
-   { 1293, 1290, 0 },
-   { 1295, 1297, 0 },
-   { 1299, 1297, 0 },
-   { 1441, 1442, 217 },
-   { 1447, 1448, 218 },
-   { 1454, 1455, 219 },
+   { 1312, 1314, 0 },
+   { 1317, 1314, 0 },
+   { 1319, 1321, 0 },
+   { 1323, 1321, 0 },
+   { 1465, 1466, 217 },
+   { 1471, 1472, 218 },
+   { 1478, 1479, 219 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1424, 1425, 216 },
+   { 1448, 1449, 216 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1266, 1268, 0 },
-   { 1271, 1268, 0 },
-   { 1424, 1425, 216 },
+   { 1290, 1292, 0 },
+   { 1295, 1292, 0 },
+   { 1448, 1449, 216 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1274, 1276, 0 },
-   { 1279, 1276, 0 },
-   { 1281, 1283, 0 },
-   { 1285, 1283, 0 },
-   { 1424, 1425, 216 },
+   { 1298, 1300, 0 },
+   { 1303, 1300, 0 },
+   { 1305, 1307, 0 },
+   { 1309, 1307, 0 },
+   { 1448, 1449, 216 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1288, 1290, 0 },
-   { 1293, 1290, 0 },
-   { 1295, 1297, 0 },
-   { 1299, 1297, 0 },
-   { 1424, 1425, 216 },
+   { 1312, 1314, 0 },
+   { 1317, 1314, 0 },
+   { 1319, 1321, 0 },
+   { 1323, 1321, 0 },
+   { 1448, 1449, 216 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1421, 1422, 216 },
+   { 1445, 1446, 216 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1266, 1268, 0 },
-   { 1271, 1268, 0 },
-   { 1421, 1422, 216 },
+   { 1290, 1292, 0 },
+   { 1295, 1292, 0 },
+   { 1445, 1446, 216 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1274, 1276, 0 },
-   { 1279, 1276, 0 },
-   { 1281, 1283, 0 },
-   { 1285, 1283, 0 },
-   { 1421, 1422, 216 },
+   { 1298, 1300, 0 },
+   { 1303, 1300, 0 },
+   { 1305, 1307, 0 },
+   { 1309, 1307, 0 },
+   { 1445, 1446, 216 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1288, 1290, 0 },
-   { 1293, 1290, 0 },
-   { 1295, 1297, 0 },
-   { 1299, 1297, 0 },
-   { 1421, 1422, 216 },
+   { 1312, 1314, 0 },
+   { 1317, 1314, 0 },
+   { 1319, 1321, 0 },
+   { 1323, 1321, 0 },
+   { 1445, 1446, 216 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1421, 1422, 216 },
-   { 1424, 1425, 216 },
+   { 1445, 1446, 216 },
+   { 1448, 1449, 216 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1266, 1268, 0 },
-   { 1271, 1268, 0 },
-   { 1421, 1422, 216 },
-   { 1424, 1425, 216 },
+   { 1290, 1292, 0 },
+   { 1295, 1292, 0 },
+   { 1445, 1446, 216 },
+   { 1448, 1449, 216 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1274, 1276, 0 },
-   { 1279, 1276, 0 },
-   { 1281, 1283, 0 },
-   { 1285, 1283, 0 },
-   { 1421, 1422, 216 },
-   { 1424, 1425, 216 },
+   { 1298, 1300, 0 },
+   { 1303, 1300, 0 },
+   { 1305, 1307, 0 },
+   { 1309, 1307, 0 },
+   { 1445, 1446, 216 },
+   { 1448, 1449, 216 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1288, 1290, 0 },
-   { 1293, 1290, 0 },
-   { 1295, 1297, 0 },
-   { 1299, 1297, 0 },
-   { 1421, 1422, 216 },
-   { 1424, 1425, 216 },
+   { 1312, 1314, 0 },
+   { 1317, 1314, 0 },
+   { 1319, 1321, 0 },
+   { 1323, 1321, 0 },
+   { 1445, 1446, 216 },
+   { 1448, 1449, 216 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1427, 1428, 216 },
+   { 1451, 1452, 216 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1266, 1268, 0 },
-   { 1271, 1268, 0 },
-   { 1427, 1428, 216 },
+   { 1290, 1292, 0 },
+   { 1295, 1292, 0 },
+   { 1451, 1452, 216 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1274, 1276, 0 },
-   { 1279, 1276, 0 },
-   { 1281, 1283, 0 },
-   { 1285, 1283, 0 },
-   { 1427, 1428, 216 },
+   { 1298, 1300, 0 },
+   { 1303, 1300, 0 },
+   { 1305, 1307, 0 },
+   { 1309, 1307, 0 },
+   { 1451, 1452, 216 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1288, 1290, 0 },
-   { 1293, 1290, 0 },
-   { 1295, 1297, 0 },
-   { 1299, 1297, 0 },
-   { 1427, 1428, 216 },
+   { 1312, 1314, 0 },
+   { 1317, 1314, 0 },
+   { 1319, 1321, 0 },
+   { 1323, 1321, 0 },
+   { 1451, 1452, 216 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1430, 1431, 216 },
+   { 1454, 1455, 216 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1266, 1268, 0 },
-   { 1271, 1268, 0 },
-   { 1430, 1431, 216 },
+   { 1290, 1292, 0 },
+   { 1295, 1292, 0 },
+   { 1454, 1455, 216 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1274, 1276, 0 },
-   { 1279, 1276, 0 },
-   { 1281, 1283, 0 },
-   { 1285, 1283, 0 },
-   { 1430, 1431, 216 },
+   { 1298, 1300, 0 },
+   { 1303, 1300, 0 },
+   { 1305, 1307, 0 },
+   { 1309, 1307, 0 },
+   { 1454, 1455, 216 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1288, 1290, 0 },
-   { 1293, 1290, 0 },
-   { 1295, 1297, 0 },
-   { 1299, 1297, 0 },
-   { 1430, 1431, 216 },
+   { 1312, 1314, 0 },
+   { 1317, 1314, 0 },
+   { 1319, 1321, 0 },
+   { 1323, 1321, 0 },
+   { 1454, 1455, 216 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1427, 1428, 216 },
-   { 1430, 1431, 216 },
+   { 1451, 1452, 216 },
+   { 1454, 1455, 216 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1266, 1268, 0 },
-   { 1271, 1268, 0 },
-   { 1427, 1428, 216 },
-   { 1430, 1431, 216 },
+   { 1290, 1292, 0 },
+   { 1295, 1292, 0 },
+   { 1451, 1452, 216 },
+   { 1454, 1455, 216 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1274, 1276, 0 },
-   { 1279, 1276, 0 },
-   { 1281, 1283, 0 },
-   { 1285, 1283, 0 },
-   { 1427, 1428, 216 },
-   { 1430, 1431, 216 },
+   { 1298, 1300, 0 },
+   { 1303, 1300, 0 },
+   { 1305, 1307, 0 },
+   { 1309, 1307, 0 },
+   { 1451, 1452, 216 },
+   { 1454, 1455, 216 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1288, 1290, 0 },
-   { 1293, 1290, 0 },
-   { 1295, 1297, 0 },
-   { 1299, 1297, 0 },
-   { 1427, 1428, 216 },
-   { 1430, 1431, 216 },
+   { 1312, 1314, 0 },
+   { 1317, 1314, 0 },
+   { 1319, 1321, 0 },
+   { 1323, 1321, 0 },
+   { 1451, 1452, 216 },
+   { 1454, 1455, 216 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 7, 9, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 860, 862, 0 },
+   { 885, 887, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 104, 285, 178 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 802, 804, 0 },
+   { 827, 829, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 4, 6, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 829, 830, 0 },
+   { 854, 855, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 86, 96, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1387, 1388, 0 },
+   { 1411, 1412, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 13, 14, 0 },
    { 38, 14, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 863, 864, 0 },
+   { 888, 889, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 11, 12, 0 },
    { 37, 12, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 833, 834, 0 },
+   { 858, 859, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 831, 832, 0 },
+   { 856, 857, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 17, 18, 0 },
    { 36, 18, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 865, 866, 0 },
+   { 890, 891, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 15, 16, 0 },
    { 35, 16, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 836, 837, 0 },
+   { 861, 862, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 178, 835, 0 },
+   { 178, 860, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 807, 193, 0 },
-   { 812, 813, 0 },
+   { 832, 193, 0 },
+   { 837, 838, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1385, 1386, 0 },
+   { 1409, 1410, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 21, 22, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 867, 868, 0 },
+   { 892, 893, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 19, 20, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 840, 841, 0 },
+   { 865, 866, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 838, 839, 0 },
+   { 863, 864, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 24, 25, 0 },
    { 40, 25, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 844, 845, 0 },
+   { 869, 870, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 808, 327, 0 },
+   { 833, 327, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 842, 843, 0 },
+   { 867, 868, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1383, 1384, 0 },
+   { 1407, 1408, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 27, 28, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 848, 849, 0 },
+   { 873, 874, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 846, 847, 0 },
+   { 871, 872, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 29, 30, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 852, 853, 0 },
+   { 877, 878, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 850, 851, 0 },
+   { 875, 876, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 31, 32, 0 },
    { 41, 32, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 856, 857, 0 },
+   { 881, 882, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 809, 324, 0 },
+   { 834, 324, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 854, 855, 0 },
+   { 879, 880, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1389, 1390, 0 },
+   { 1413, 1414, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 956, 959, 0 },
+   { 981, 984, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 892, 894, 0 },
+   { 917, 919, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 960, 962, 0 },
+   { 985, 987, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1097, 1098, 168 },
+   { 1122, 1123, 168 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1097, 1098, 168 },
+   { 1122, 1123, 168 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1097, 1098, 168 },
+   { 1122, 1123, 168 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1097, 1098, 168 },
+   { 1122, 1123, 168 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 870, 98, 0 },
+   { 895, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 870, 98, 0 },
-   { 1223, 1213, 210 },
-   { 1226, 1216, 210 },
-   { 1229, 1220, 210 },
+   { 895, 98, 0 },
+   { 1247, 1237, 210 },
+   { 1250, 1240, 210 },
+   { 1253, 1244, 210 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 870, 98, 0 },
+   { 895, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 870, 98, 0 },
-   { 1223, 1213, 210 },
-   { 1226, 1216, 210 },
-   { 1229, 1220, 210 },
+   { 895, 98, 0 },
+   { 1247, 1237, 210 },
+   { 1250, 1240, 210 },
+   { 1253, 1244, 210 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 294, 295, 179 },
    { 304, 305, 179 },
    { 314, 315, 179 },
-   { 870, 98, 0 },
+   { 895, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 271, 272, 178 },
-   { 870, 98, 0 },
+   { 895, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 102, 104, 0 },
    { 271, 272, 178 },
-   { 870, 98, 0 },
+   { 895, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1140, 1139, 208 },
+   { 1165, 1164, 208 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1135, 1137, 208 },
-   { 1140, 1139, 208 },
+   { 1160, 1162, 208 },
+   { 1165, 1164, 208 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1167, 1168, 208 },
-   { 1171, 1170, 208 },
+   { 1192, 1193, 208 },
+   { 1196, 1195, 208 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1174, 1168, 208 },
-   { 1177, 1170, 208 },
+   { 1199, 1193, 208 },
+   { 1201, 1195, 208 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1141, 1137, 208 },
+   { 1166, 1162, 208 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1138, 1139, 208 },
-   { 1141, 1137, 208 },
+   { 1163, 1164, 208 },
+   { 1166, 1162, 208 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1169, 1170, 208 },
-   { 1172, 1168, 208 },
+   { 1194, 1195, 208 },
+   { 1197, 1193, 208 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1175, 1170, 208 },
-   { 1178, 1168, 208 },
+   { 1200, 1195, 208 },
+   { 1202, 1193, 208 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 495, 496, 184 },
-   { 512, 513, 186 },
-   { 525, 526, 188 },
-   { 542, 543, 190 },
-   { 582, 583, 194 },
-   { 599, 600, 196 },
+   { 521, 522, 185 },
+   { 538, 539, 187 },
+   { 551, 552, 189 },
+   { 568, 569, 191 },
+   { 608, 609, 195 },
+   { 625, 626, 197 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 555, 556, 192 },
-   { 568, 569, 190 },
+   { 581, 582, 193 },
+   { 594, 595, 191 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 495, 496, 184 },
-   { 512, 513, 186 },
-   { 525, 526, 188 },
-   { 542, 543, 190 },
-   { 582, 583, 194 },
-   { 599, 600, 196 },
+   { 521, 522, 185 },
+   { 538, 539, 187 },
+   { 551, 552, 189 },
+   { 568, 569, 191 },
+   { 608, 609, 195 },
+   { 625, 626, 197 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 495, 496, 184 },
-   { 512, 513, 186 },
-   { 525, 526, 188 },
-   { 542, 543, 190 },
-   { 582, 583, 194 },
-   { 599, 600, 196 },
-   { 925, 912, 30 },
-   { 927, 915, 30 },
-   { 928, 917, 30 },
-   { 929, 919, 30 },
+   { 521, 522, 185 },
+   { 538, 539, 187 },
+   { 551, 552, 189 },
+   { 568, 569, 191 },
+   { 608, 609, 195 },
+   { 625, 626, 197 },
+   { 950, 937, 30 },
+   { 952, 940, 30 },
+   { 953, 942, 30 },
+   { 954, 944, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 555, 556, 192 },
-   { 568, 569, 190 },
+   { 581, 582, 193 },
+   { 594, 595, 191 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 495, 496, 184 },
-   { 512, 513, 186 },
-   { 525, 526, 188 },
-   { 542, 543, 190 },
-   { 582, 583, 194 },
-   { 599, 600, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
+   { 521, 522, 185 },
+   { 538, 539, 187 },
+   { 551, 552, 189 },
+   { 568, 569, 191 },
+   { 608, 609, 195 },
+   { 625, 626, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 555, 556, 192 },
-   { 568, 569, 190 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
+   { 581, 582, 193 },
+   { 594, 595, 191 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 495, 496, 184 },
-   { 512, 513, 186 },
-   { 525, 526, 188 },
-   { 542, 543, 190 },
-   { 555, 556, 192 },
-   { 568, 569, 190 },
-   { 582, 583, 194 },
-   { 599, 600, 196 },
+   { 521, 522, 185 },
+   { 538, 539, 187 },
+   { 551, 552, 189 },
+   { 568, 569, 191 },
+   { 581, 582, 193 },
+   { 594, 595, 191 },
+   { 608, 609, 195 },
+   { 625, 626, 197 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 343, 98, 0 },
-   { 342, 621, 200 },
+   { 342, 647, 201 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 342, 621, 200 },
+   { 342, 647, 201 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 342, 621, 200 },
+   { 342, 647, 201 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 342, 621, 200 },
+   { 342, 647, 201 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 342, 621, 200 },
+   { 342, 647, 201 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 342, 621, 200 },
+   { 342, 647, 201 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 796, 798, 166 },
+   { 821, 823, 166 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 790, 795, 166 },
+   { 815, 820, 166 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 790, 795, 166 },
-   { 796, 798, 166 },
+   { 815, 820, 166 },
+   { 821, 823, 166 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 944, 939, 30 },
+   { 969, 964, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 948, 939, 30 },
+   { 973, 964, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1183, 1145, 0 },
+   { 1207, 1170, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1153, 1147, 0 },
+   { 1178, 1172, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1151, 1147, 0 },
+   { 1176, 1172, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1182, 1147, 0 },
+   { 1206, 1172, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1155, 1145, 0 },
+   { 1180, 1170, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1154, 1145, 0 },
+   { 1179, 1170, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 634, 638, 181 },
-   { 677, 678, 181 },
-   { 716, 717, 181 },
-   { 755, 756, 204 },
+   { 660, 664, 181 },
+   { 702, 703, 181 },
+   { 741, 742, 181 },
+   { 780, 781, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 634, 638, 181 },
-   { 641, 638, 181 },
-   { 677, 678, 181 },
-   { 681, 678, 181 },
-   { 716, 717, 181 },
-   { 720, 717, 181 },
-   { 755, 756, 204 },
-   { 759, 756, 204 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 346, 347, 180 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 623, 624, 201 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 654, 655, 181 },
-   { 693, 694, 181 },
-   { 732, 733, 181 },
-   { 771, 772, 204 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 634, 638, 181 },
-   { 643, 638, 181 },
-   { 677, 678, 181 },
-   { 683, 678, 181 },
-   { 716, 717, 181 },
-   { 722, 717, 181 },
-   { 755, 756, 204 },
-   { 761, 756, 204 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 634, 638, 181 },
-   { 641, 638, 181 },
-   { 643, 638, 181 },
-   { 677, 678, 181 },
-   { 681, 678, 181 },
-   { 683, 678, 181 },
-   { 716, 717, 181 },
-   { 720, 717, 181 },
-   { 722, 717, 181 },
-   { 755, 756, 204 },
-   { 759, 756, 204 },
-   { 761, 756, 204 },
+   { 660, 664, 181 },
+   { 667, 664, 181 },
+   { 702, 703, 181 },
+   { 706, 703, 181 },
+   { 741, 742, 181 },
+   { 745, 742, 181 },
+   { 780, 781, 182 },
+   { 784, 781, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 346, 347, 180 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 623, 624, 201 },
+   { 649, 650, 202 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 654, 655, 181 },
-   { 657, 655, 181 },
-   { 693, 694, 181 },
-   { 696, 694, 181 },
-   { 732, 733, 181 },
-   { 735, 733, 181 },
-   { 771, 772, 204 },
-   { 774, 772, 204 },
+   { 679, 680, 181 },
+   { 718, 719, 181 },
+   { 757, 758, 181 },
+   { 796, 797, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 346, 347, 180 },
-   { 634, 638, 181 },
-   { 677, 678, 181 },
-   { 716, 717, 181 },
-   { 755, 756, 204 },
+   { 660, 664, 181 },
+   { 669, 664, 181 },
+   { 702, 703, 181 },
+   { 708, 703, 181 },
+   { 741, 742, 181 },
+   { 747, 742, 181 },
+   { 780, 781, 182 },
+   { 786, 781, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 623, 624, 201 },
-   { 634, 638, 181 },
-   { 677, 678, 181 },
-   { 716, 717, 181 },
-   { 755, 756, 204 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 634, 638, 181 },
-   { 654, 655, 181 },
-   { 677, 678, 181 },
-   { 693, 694, 181 },
-   { 716, 717, 181 },
-   { 732, 733, 181 },
-   { 755, 756, 204 },
-   { 771, 772, 204 },
+   { 660, 664, 181 },
+   { 667, 664, 181 },
+   { 669, 664, 181 },
+   { 702, 703, 181 },
+   { 706, 703, 181 },
+   { 708, 703, 181 },
+   { 741, 742, 181 },
+   { 745, 742, 181 },
+   { 747, 742, 181 },
+   { 780, 781, 182 },
+   { 784, 781, 182 },
+   { 786, 781, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 346, 347, 180 },
-   { 634, 638, 181 },
-   { 641, 638, 181 },
-   { 677, 678, 181 },
-   { 681, 678, 181 },
-   { 716, 717, 181 },
-   { 720, 717, 181 },
-   { 755, 756, 204 },
-   { 759, 756, 204 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 623, 624, 201 },
-   { 634, 638, 181 },
-   { 641, 638, 181 },
-   { 677, 678, 181 },
-   { 681, 678, 181 },
-   { 716, 717, 181 },
-   { 720, 717, 181 },
-   { 755, 756, 204 },
-   { 759, 756, 204 },
+   { 649, 650, 202 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 634, 638, 181 },
-   { 641, 638, 181 },
-   { 654, 655, 181 },
-   { 677, 678, 181 },
-   { 681, 678, 181 },
-   { 693, 694, 181 },
-   { 716, 717, 181 },
-   { 720, 717, 181 },
-   { 732, 733, 181 },
-   { 755, 756, 204 },
-   { 759, 756, 204 },
-   { 771, 772, 204 },
+   { 679, 680, 181 },
+   { 682, 680, 181 },
+   { 718, 719, 181 },
+   { 721, 719, 181 },
+   { 757, 758, 181 },
+   { 760, 758, 181 },
+   { 796, 797, 182 },
+   { 799, 797, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 346, 347, 180 },
-   { 623, 624, 201 },
+   { 660, 664, 181 },
+   { 702, 703, 181 },
+   { 741, 742, 181 },
+   { 780, 781, 182 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 649, 650, 202 },
+   { 660, 664, 181 },
+   { 702, 703, 181 },
+   { 741, 742, 181 },
+   { 780, 781, 182 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 660, 664, 181 },
+   { 679, 680, 181 },
+   { 702, 703, 181 },
+   { 718, 719, 181 },
+   { 741, 742, 181 },
+   { 757, 758, 181 },
+   { 780, 781, 182 },
+   { 796, 797, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 346, 347, 180 },
-   { 654, 655, 181 },
-   { 693, 694, 181 },
-   { 732, 733, 181 },
-   { 771, 772, 204 },
+   { 660, 664, 181 },
+   { 667, 664, 181 },
+   { 702, 703, 181 },
+   { 706, 703, 181 },
+   { 741, 742, 181 },
+   { 745, 742, 181 },
+   { 780, 781, 182 },
+   { 784, 781, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 623, 624, 201 },
-   { 654, 655, 181 },
-   { 693, 694, 181 },
-   { 732, 733, 181 },
-   { 771, 772, 204 },
+   { 649, 650, 202 },
+   { 660, 664, 181 },
+   { 667, 664, 181 },
+   { 702, 703, 181 },
+   { 706, 703, 181 },
+   { 741, 742, 181 },
+   { 745, 742, 181 },
+   { 780, 781, 182 },
+   { 784, 781, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 625, 627, 202 },
+   { 660, 664, 181 },
+   { 667, 664, 181 },
+   { 679, 680, 181 },
+   { 702, 703, 181 },
+   { 706, 703, 181 },
+   { 718, 719, 181 },
+   { 741, 742, 181 },
+   { 745, 742, 181 },
+   { 757, 758, 181 },
+   { 780, 781, 182 },
+   { 784, 781, 182 },
+   { 796, 797, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 625, 627, 202 },
+   { 346, 347, 180 },
+   { 649, 650, 202 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 625, 627, 202 },
+   { 346, 347, 180 },
+   { 679, 680, 181 },
+   { 718, 719, 181 },
+   { 757, 758, 181 },
+   { 796, 797, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 664, 666, 181 },
-   { 703, 705, 181 },
-   { 742, 744, 181 },
-   { 781, 783, 204 },
-   { 1120, 98, 0 },
-   { 1122, 98, 0 },
-   { 1227, 1220, 210 },
-   { 1224, 1230, 211 },
+   { 649, 650, 202 },
+   { 679, 680, 181 },
+   { 718, 719, 181 },
+   { 757, 758, 181 },
+   { 796, 797, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1120, 98, 0 },
-   { 1122, 98, 0 },
-   { 1212, 1213, 210 },
-   { 1215, 1216, 210 },
-   { 1218, 1220, 210 },
-   { 1227, 1220, 210 },
-   { 1224, 1230, 211 },
+   { 651, 653, 203 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 369, 370, 182 },
-   { 392, 393, 182 },
-   { 422, 423, 182 },
-   { 440, 441, 182 },
-   { 478, 479, 182 },
+   { 651, 653, 203 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 373, 370, 182 },
-   { 396, 393, 182 },
-   { 426, 423, 182 },
-   { 444, 441, 182 },
-   { 482, 479, 182 },
+   { 651, 653, 203 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1460, 1461, 220 },
+   { 689, 691, 181 },
+   { 728, 730, 181 },
+   { 767, 769, 181 },
+   { 806, 808, 182 },
+   { 1145, 98, 0 },
+   { 1147, 98, 0 },
+   { 1251, 1244, 210 },
+   { 1248, 1254, 211 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 380, 377, 183 },
-   { 403, 400, 183 },
-   { 412, 413, 183 },
-   { 431, 430, 183 },
-   { 451, 448, 183 },
-   { 460, 461, 183 },
-   { 468, 469, 183 },
-   { 487, 486, 183 },
+   { 1145, 98, 0 },
+   { 1147, 98, 0 },
+   { 1236, 1237, 210 },
+   { 1239, 1240, 210 },
+   { 1242, 1244, 210 },
+   { 1251, 1244, 210 },
+   { 1248, 1254, 211 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 376, 377, 183 },
-   { 399, 400, 183 },
-   { 429, 430, 183 },
-   { 447, 448, 183 },
-   { 485, 486, 183 },
+   { 395, 396, 183 },
+   { 418, 419, 183 },
+   { 448, 449, 183 },
+   { 466, 467, 183 },
+   { 504, 505, 183 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 382, 377, 183 },
-   { 405, 400, 183 },
-   { 414, 413, 183 },
-   { 432, 430, 183 },
-   { 453, 448, 183 },
-   { 462, 461, 183 },
-   { 470, 469, 183 },
-   { 488, 486, 183 },
+   { 399, 396, 183 },
+   { 422, 419, 183 },
+   { 452, 449, 183 },
+   { 470, 467, 183 },
+   { 508, 505, 183 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 556, 1306, 212 },
+   { 1484, 1485, 220 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 569, 1308, 212 },
+   { 406, 403, 184 },
+   { 429, 426, 184 },
+   { 438, 439, 184 },
+   { 457, 456, 184 },
+   { 477, 474, 184 },
+   { 486, 487, 184 },
+   { 494, 495, 184 },
+   { 513, 512, 184 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 879, 881, 0 },
+   { 402, 403, 184 },
+   { 425, 426, 184 },
+   { 455, 456, 184 },
+   { 473, 474, 184 },
+   { 511, 512, 184 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1101, 1103, 168 },
+   { 408, 403, 184 },
+   { 431, 426, 184 },
+   { 440, 439, 184 },
+   { 458, 456, 184 },
+   { 479, 474, 184 },
+   { 488, 487, 184 },
+   { 496, 495, 184 },
+   { 514, 512, 184 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1128, 1126, 0 },
+   { 582, 1330, 212 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1130, 1126, 0 },
+   { 595, 1332, 212 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1131, 1129, 0 },
+   { 904, 906, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1132, 1129, 0 },
+   { 1126, 1128, 168 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1232, 1233, 0 },
+   { 1153, 1151, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1187, 1189, 88 },
-   { 1196, 1197, 88 },
-   { 1201, 1202, 89 },
+   { 1155, 1151, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1191, 1189, 88 },
-   { 1199, 1197, 88 },
-   { 1204, 1202, 89 },
+   { 1156, 1154, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1192, 1193, 88 },
-   { 1205, 1206, 88 },
-   { 1208, 1209, 89 },
+   { 1157, 1154, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1194, 1193, 88 },
-   { 1207, 1206, 88 },
-   { 1210, 1209, 89 },
+   { 1256, 1257, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1235, 1236, 0 },
+   { 1211, 1213, 88 },
+   { 1220, 1221, 88 },
+   { 1225, 1226, 89 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 895, 907, 206 },
+   { 1215, 1213, 88 },
+   { 1223, 1221, 88 },
+   { 1228, 1226, 89 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1412, 1413, 215 },
+   { 1216, 1217, 88 },
+   { 1229, 1230, 88 },
+   { 1232, 1233, 89 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1409, 1410, 215 },
+   { 1218, 1217, 88 },
+   { 1231, 1230, 88 },
+   { 1234, 1233, 89 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1409, 1410, 215 },
-   { 1412, 1413, 215 },
+   { 1259, 1260, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1415, 1416, 215 },
+   { 920, 932, 206 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1418, 1419, 215 },
+   { 1436, 1437, 215 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1415, 1416, 215 },
-   { 1418, 1419, 215 },
+   { 1433, 1434, 215 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 1433, 1434, 215 },
+   { 1436, 1437, 215 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 1439, 1440, 215 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 1442, 1443, 215 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 1439, 1440, 215 },
+   { 1442, 1443, 215 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 192, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 225, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 136, 137, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 235, 194, 0 },
    { 250, 191, 0 },
    { 252, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 235, 194, 0 },
    { 248, 189, 0 },
    { 252, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 233, 181, 0 },
    { 235, 194, 0 },
    { 252, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 233, 181, 0 },
    { 235, 194, 0 },
    { 250, 191, 0 },
    { 252, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 233, 181, 0 },
    { 235, 194, 0 },
    { 248, 189, 0 },
    { 252, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 231, 168, 0 },
    { 235, 194, 0 },
    { 252, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 231, 168, 0 },
    { 235, 194, 0 },
    { 250, 191, 0 },
    { 252, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 231, 168, 0 },
    { 235, 194, 0 },
    { 248, 189, 0 },
    { 252, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 243, 226, 0 },
    { 258, 224, 0 },
    { 260, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 243, 226, 0 },
    { 256, 222, 0 },
    { 260, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 241, 218, 0 },
    { 243, 226, 0 },
    { 260, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 241, 218, 0 },
    { 243, 226, 0 },
    { 258, 224, 0 },
    { 260, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 241, 218, 0 },
    { 243, 226, 0 },
    { 256, 222, 0 },
    { 260, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 239, 210, 0 },
    { 243, 226, 0 },
    { 260, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 239, 210, 0 },
    { 243, 226, 0 },
    { 258, 224, 0 },
    { 260, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 239, 210, 0 },
    { 243, 226, 0 },
    { 256, 222, 0 },
    { 260, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 280, 281, 178 },
    { 283, 284, 178 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 277, 278, 178 },
    { 283, 284, 178 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 140, 142, 0 },
    { 280, 281, 178 },
    { 283, 284, 178 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 140, 142, 0 },
    { 277, 278, 178 },
    { 283, 284, 178 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 277, 278, 178 },
    { 280, 281, 178 },
    { 283, 284, 178 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 190, 191, 0 },
    { 192, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 187, 189, 0 },
    { 192, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 180, 181, 0 },
    { 192, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 177, 179, 0 },
    { 180, 181, 0 },
    { 190, 191, 0 },
    { 192, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 174, 176, 0 },
    { 180, 181, 0 },
    { 187, 189, 0 },
    { 192, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 166, 168, 0 },
    { 192, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 163, 165, 0 },
    { 166, 168, 0 },
    { 190, 191, 0 },
    { 192, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 160, 162, 0 },
    { 166, 168, 0 },
    { 187, 189, 0 },
    { 192, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 223, 224, 0 },
    { 225, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 221, 222, 0 },
    { 225, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 217, 218, 0 },
    { 225, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 215, 216, 0 },
    { 217, 218, 0 },
    { 223, 224, 0 },
    { 225, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 213, 214, 0 },
    { 217, 218, 0 },
    { 221, 222, 0 },
    { 225, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 209, 210, 0 },
    { 225, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 207, 208, 0 },
    { 209, 210, 0 },
    { 223, 224, 0 },
    { 225, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 205, 206, 0 },
    { 209, 210, 0 },
    { 221, 222, 0 },
    { 225, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 133, 134, 0 },
    { 136, 137, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 127, 128, 0 },
    { 136, 137, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 130, 131, 0 },
    { 133, 134, 0 },
    { 136, 137, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 124, 125, 0 },
    { 127, 128, 0 },
    { 133, 134, 0 },
    { 136, 137, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 121, 122, 0 },
    { 127, 128, 0 },
    { 136, 137, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 384, 370, 182 },
-   { 407, 393, 182 },
-   { 415, 416, 182 },
-   { 433, 423, 182 },
-   { 455, 441, 182 },
-   { 463, 464, 182 },
-   { 471, 472, 182 },
-   { 489, 479, 182 },
+   { 410, 396, 183 },
+   { 433, 419, 183 },
+   { 441, 442, 183 },
+   { 459, 449, 183 },
+   { 481, 467, 183 },
+   { 489, 490, 183 },
+   { 497, 498, 183 },
+   { 515, 505, 183 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 387, 370, 182 },
-   { 410, 393, 182 },
-   { 418, 416, 182 },
-   { 435, 423, 182 },
-   { 458, 441, 182 },
-   { 466, 464, 182 },
-   { 474, 472, 182 },
-   { 491, 479, 182 },
+   { 413, 396, 183 },
+   { 436, 419, 183 },
+   { 444, 442, 183 },
+   { 461, 449, 183 },
+   { 484, 467, 183 },
+   { 492, 490, 183 },
+   { 500, 498, 183 },
+   { 517, 505, 183 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 385, 377, 183 },
-   { 408, 400, 183 },
-   { 417, 413, 183 },
-   { 434, 430, 183 },
-   { 456, 448, 183 },
-   { 465, 461, 183 },
-   { 473, 469, 183 },
-   { 490, 486, 183 },
+   { 411, 403, 184 },
+   { 434, 426, 184 },
+   { 443, 439, 184 },
+   { 460, 456, 184 },
+   { 482, 474, 184 },
+   { 491, 487, 184 },
+   { 499, 495, 184 },
+   { 516, 512, 184 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 388, 377, 183 },
-   { 411, 400, 183 },
-   { 419, 413, 183 },
-   { 436, 430, 183 },
-   { 459, 448, 183 },
-   { 467, 461, 183 },
-   { 475, 469, 183 },
-   { 492, 486, 183 },
+   { 414, 403, 184 },
+   { 437, 426, 184 },
+   { 445, 439, 184 },
+   { 462, 456, 184 },
+   { 485, 474, 184 },
+   { 493, 487, 184 },
+   { 501, 495, 184 },
+   { 518, 512, 184 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 968, 969, 0 },
+   { 993, 994, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 268, 269, 178 },
    { 271, 272, 178 },
-   { 870, 98, 0 },
+   { 895, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 265, 266, 178 },
    { 271, 272, 178 },
-   { 870, 98, 0 },
+   { 895, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 102, 104, 0 },
    { 268, 269, 178 },
    { 271, 272, 178 },
-   { 870, 98, 0 },
+   { 895, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 102, 104, 0 },
    { 265, 266, 178 },
    { 271, 272, 178 },
-   { 870, 98, 0 },
+   { 895, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 265, 266, 178 },
    { 268, 269, 178 },
    { 271, 272, 178 },
-   { 870, 98, 0 },
+   { 895, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 94, 97, 0 },
-   { 870, 98, 0 },
+   { 895, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 90, 92, 0 },
    { 94, 97, 0 },
-   { 870, 98, 0 },
+   { 895, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 80, 83, 0 },
    { 94, 97, 0 },
-   { 870, 98, 0 },
+   { 895, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 85, 88, 0 },
    { 90, 92, 0 },
    { 94, 97, 0 },
-   { 870, 98, 0 },
+   { 895, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 75, 78, 0 },
    { 80, 83, 0 },
    { 90, 92, 0 },
    { 94, 97, 0 },
-   { 870, 98, 0 },
+   { 895, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 70, 73, 0 },
    { 80, 83, 0 },
    { 94, 97, 0 },
-   { 870, 98, 0 },
+   { 895, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 865, 866, 0 },
+   { 890, 891, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 178, 835, 0 },
+   { 178, 860, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 822, 827, 0 },
+   { 847, 852, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 836, 837, 0 },
+   { 861, 862, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 178, 835, 0 },
+   { 178, 860, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 178, 835, 0 },
+   { 178, 860, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1363, 1364, 0 },
-   { 1406, 1407, 214 },
+   { 1387, 1388, 0 },
+   { 1430, 1431, 214 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1381, 1382, 0 },
-   { 1406, 1407, 214 },
+   { 1405, 1406, 0 },
+   { 1430, 1431, 214 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1360, 1361, 0 },
-   { 1406, 1407, 214 },
+   { 1384, 1385, 0 },
+   { 1430, 1431, 214 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1369, 1370, 0 },
-   { 1406, 1407, 214 },
+   { 1393, 1394, 0 },
+   { 1430, 1431, 214 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1354, 1355, 0 },
-   { 1406, 1407, 214 },
+   { 1378, 1379, 0 },
+   { 1430, 1431, 214 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1331, 529, 0 },
-   { 1406, 1407, 214 },
+   { 1355, 555, 0 },
+   { 1430, 1431, 214 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1379, 526, 0 },
-   { 1406, 1407, 214 },
+   { 1403, 552, 0 },
+   { 1430, 1431, 214 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1311, 533, 0 },
-   { 1406, 1407, 214 },
+   { 1335, 559, 0 },
+   { 1430, 1431, 214 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1350, 1351, 0 },
-   { 1406, 1407, 214 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1333, 1334, 0 },
-   { 1406, 1407, 214 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1341, 1342, 0 },
-   { 1406, 1407, 214 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1336, 1337, 0 },
-   { 1406, 1407, 214 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1339, 967, 0 },
-   { 1406, 1407, 214 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1313, 1314, 0 },
-   { 1406, 1407, 214 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1316, 1317, 0 },
-   { 1406, 1407, 214 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1319, 1320, 0 },
-   { 1406, 1407, 214 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1322, 1323, 0 },
-   { 1406, 1407, 214 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1325, 1326, 0 },
-   { 1406, 1407, 214 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1328, 1329, 0 },
-   { 1406, 1407, 214 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1344, 1345, 0 },
-   { 1406, 1407, 214 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1347, 1348, 0 },
-   { 1406, 1407, 214 },
+   { 1374, 1375, 0 },
+   { 1430, 1431, 214 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 1357, 1358, 0 },
-   { 1406, 1407, 214 },
+   { 1430, 1431, 214 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1366, 1367, 0 },
-   { 1406, 1407, 214 },
+   { 1365, 1366, 0 },
+   { 1430, 1431, 214 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1372, 1373, 0 },
-   { 1406, 1407, 214 },
+   { 1360, 1361, 0 },
+   { 1430, 1431, 214 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1375, 1376, 0 },
-   { 1406, 1407, 214 },
+   { 1363, 992, 0 },
+   { 1430, 1431, 214 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 498, 500, 184 },
-   { 515, 516, 186 },
-   { 528, 530, 188 },
-   { 545, 546, 190 },
-   { 585, 587, 194 },
-   { 602, 603, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
+   { 1337, 1338, 0 },
+   { 1430, 1431, 214 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 558, 559, 192 },
-   { 571, 572, 190 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
+   { 1340, 1341, 0 },
+   { 1430, 1431, 214 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1015, 1020, 207 },
+   { 1343, 1344, 0 },
+   { 1430, 1431, 214 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1044, 1046, 207 },
+   { 1346, 1347, 0 },
+   { 1430, 1431, 214 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 502, 505, 185 },
-   { 518, 519, 187 },
-   { 532, 535, 189 },
-   { 548, 549, 191 },
-   { 589, 592, 195 },
-   { 605, 606, 197 },
+   { 1349, 1350, 0 },
+   { 1430, 1431, 214 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 561, 562, 193 },
-   { 574, 575, 191 },
+   { 1352, 1353, 0 },
+   { 1430, 1431, 214 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1071, 1073, 207 },
+   { 1368, 1369, 0 },
+   { 1430, 1431, 214 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1088, 1090, 207 },
+   { 1371, 1372, 0 },
+   { 1430, 1431, 214 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 495, 496, 184 },
-   { 512, 513, 186 },
-   { 525, 526, 188 },
-   { 542, 543, 190 },
-   { 582, 583, 194 },
-   { 599, 600, 196 },
-   { 1240, 1244, 27 },
-   { 1248, 1252, 29 },
-   { 1258, 1262, 31 },
+   { 1381, 1382, 0 },
+   { 1430, 1431, 214 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 495, 496, 184 },
-   { 512, 513, 186 },
-   { 525, 526, 188 },
-   { 542, 543, 190 },
-   { 582, 583, 194 },
-   { 599, 600, 196 },
-   { 925, 912, 30 },
-   { 927, 915, 30 },
-   { 928, 917, 30 },
-   { 929, 919, 30 },
-   { 1240, 1244, 27 },
-   { 1248, 1252, 29 },
-   { 1258, 1262, 31 },
+   { 1390, 1391, 0 },
+   { 1430, 1431, 214 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 498, 500, 184 },
-   { 515, 516, 186 },
-   { 528, 530, 188 },
-   { 545, 546, 190 },
-   { 585, 587, 194 },
-   { 602, 603, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
+   { 1396, 1397, 0 },
+   { 1430, 1431, 214 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 558, 559, 192 },
-   { 571, 572, 190 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
+   { 1399, 1400, 0 },
+   { 1430, 1431, 214 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 874, 876, 0 },
+   { 524, 526, 185 },
+   { 541, 542, 187 },
+   { 554, 556, 189 },
+   { 571, 572, 191 },
+   { 611, 613, 195 },
+   { 628, 629, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1015, 1020, 207 },
+   { 584, 585, 193 },
+   { 597, 598, 191 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1044, 1046, 207 },
+   { 1040, 1045, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 502, 505, 185 },
-   { 518, 519, 187 },
-   { 532, 535, 189 },
-   { 548, 549, 191 },
-   { 589, 592, 195 },
-   { 605, 606, 197 },
+   { 1069, 1071, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 561, 562, 193 },
-   { 574, 575, 191 },
+   { 528, 531, 186 },
+   { 544, 545, 188 },
+   { 558, 561, 190 },
+   { 574, 575, 192 },
+   { 615, 618, 196 },
+   { 631, 632, 198 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1071, 1073, 207 },
+   { 587, 588, 194 },
+   { 600, 601, 192 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1088, 1090, 207 },
+   { 1096, 1098, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1015, 1020, 207 },
+   { 1113, 1115, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1044, 1046, 207 },
+   { 521, 522, 185 },
+   { 538, 539, 187 },
+   { 551, 552, 189 },
+   { 568, 569, 191 },
+   { 608, 609, 195 },
+   { 625, 626, 197 },
+   { 1264, 1268, 27 },
+   { 1272, 1276, 29 },
+   { 1282, 1286, 31 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 502, 505, 185 },
-   { 518, 519, 187 },
-   { 532, 535, 189 },
-   { 548, 549, 191 },
-   { 589, 592, 195 },
-   { 605, 606, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
+   { 521, 522, 185 },
+   { 538, 539, 187 },
+   { 551, 552, 189 },
+   { 568, 569, 191 },
+   { 608, 609, 195 },
+   { 625, 626, 197 },
+   { 950, 937, 30 },
+   { 952, 940, 30 },
+   { 953, 942, 30 },
+   { 954, 944, 30 },
+   { 1264, 1268, 27 },
+   { 1272, 1276, 29 },
+   { 1282, 1286, 31 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 561, 562, 193 },
-   { 574, 575, 191 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
+   { 524, 526, 185 },
+   { 541, 542, 187 },
+   { 554, 556, 189 },
+   { 571, 572, 191 },
+   { 611, 613, 195 },
+   { 628, 629, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1071, 1073, 207 },
+   { 584, 585, 193 },
+   { 597, 598, 191 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1088, 1090, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 899, 901, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 495, 496, 184 },
-   { 498, 500, 184 },
-   { 512, 513, 186 },
-   { 515, 516, 186 },
-   { 525, 526, 188 },
-   { 528, 530, 188 },
-   { 542, 543, 190 },
-   { 545, 546, 190 },
-   { 582, 583, 194 },
-   { 585, 587, 194 },
-   { 599, 600, 196 },
-   { 602, 603, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
+   { 1040, 1045, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 495, 496, 184 },
-   { 512, 513, 186 },
-   { 525, 526, 188 },
-   { 542, 543, 190 },
-   { 558, 559, 192 },
-   { 571, 572, 190 },
-   { 582, 583, 194 },
-   { 599, 600, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
+   { 1069, 1071, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 495, 496, 184 },
-   { 512, 513, 186 },
-   { 525, 526, 188 },
-   { 542, 543, 190 },
-   { 582, 583, 194 },
-   { 599, 600, 196 },
-   { 1015, 1020, 207 },
+   { 528, 531, 186 },
+   { 544, 545, 188 },
+   { 558, 561, 190 },
+   { 574, 575, 192 },
+   { 615, 618, 196 },
+   { 631, 632, 198 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 495, 496, 184 },
-   { 512, 513, 186 },
-   { 525, 526, 188 },
-   { 542, 543, 190 },
-   { 582, 583, 194 },
-   { 599, 600, 196 },
-   { 1044, 1046, 207 },
+   { 587, 588, 194 },
+   { 600, 601, 192 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 495, 496, 184 },
-   { 502, 505, 185 },
-   { 512, 513, 186 },
-   { 518, 519, 187 },
-   { 525, 526, 188 },
-   { 532, 535, 189 },
-   { 542, 543, 190 },
-   { 548, 549, 191 },
-   { 582, 583, 194 },
-   { 589, 592, 195 },
-   { 599, 600, 196 },
-   { 605, 606, 197 },
+   { 1096, 1098, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 495, 496, 184 },
-   { 512, 513, 186 },
-   { 525, 526, 188 },
-   { 542, 543, 190 },
-   { 561, 562, 193 },
-   { 574, 575, 191 },
-   { 582, 583, 194 },
-   { 599, 600, 196 },
+   { 1113, 1115, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 495, 496, 184 },
-   { 512, 513, 186 },
-   { 525, 526, 188 },
-   { 542, 543, 190 },
-   { 582, 583, 194 },
-   { 599, 600, 196 },
-   { 1071, 1073, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1040, 1045, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 495, 496, 184 },
-   { 512, 513, 186 },
-   { 525, 526, 188 },
-   { 542, 543, 190 },
-   { 582, 583, 194 },
-   { 599, 600, 196 },
-   { 1088, 1090, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 498, 500, 184 },
-   { 515, 516, 186 },
-   { 528, 530, 188 },
-   { 545, 546, 190 },
-   { 555, 556, 192 },
-   { 568, 569, 190 },
-   { 585, 587, 194 },
-   { 602, 603, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 555, 556, 192 },
-   { 558, 559, 192 },
-   { 568, 569, 190 },
-   { 571, 572, 190 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 555, 556, 192 },
-   { 568, 569, 190 },
-   { 1015, 1020, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 555, 556, 192 },
-   { 568, 569, 190 },
-   { 1044, 1046, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 502, 505, 185 },
-   { 518, 519, 187 },
-   { 532, 535, 189 },
-   { 548, 549, 191 },
-   { 555, 556, 192 },
-   { 568, 569, 190 },
-   { 589, 592, 195 },
-   { 605, 606, 197 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 555, 556, 192 },
-   { 561, 562, 193 },
-   { 568, 569, 190 },
-   { 574, 575, 191 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 555, 556, 192 },
-   { 568, 569, 190 },
-   { 1071, 1073, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 555, 556, 192 },
-   { 568, 569, 190 },
-   { 1088, 1090, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 498, 500, 184 },
-   { 515, 516, 186 },
-   { 528, 530, 188 },
-   { 545, 546, 190 },
-   { 558, 559, 192 },
-   { 571, 572, 190 },
-   { 585, 587, 194 },
-   { 602, 603, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 498, 500, 184 },
-   { 515, 516, 186 },
-   { 528, 530, 188 },
-   { 545, 546, 190 },
-   { 585, 587, 194 },
-   { 602, 603, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1015, 1020, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 498, 500, 184 },
-   { 515, 516, 186 },
-   { 528, 530, 188 },
-   { 545, 546, 190 },
-   { 585, 587, 194 },
-   { 602, 603, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1044, 1046, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 498, 500, 184 },
-   { 502, 505, 185 },
-   { 515, 516, 186 },
-   { 518, 519, 187 },
-   { 528, 530, 188 },
-   { 532, 535, 189 },
-   { 545, 546, 190 },
-   { 548, 549, 191 },
-   { 585, 587, 194 },
-   { 589, 592, 195 },
-   { 602, 603, 196 },
-   { 605, 606, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 498, 500, 184 },
-   { 515, 516, 186 },
-   { 528, 530, 188 },
-   { 545, 546, 190 },
-   { 561, 562, 193 },
-   { 574, 575, 191 },
-   { 585, 587, 194 },
-   { 602, 603, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 498, 500, 184 },
-   { 515, 516, 186 },
-   { 528, 530, 188 },
-   { 545, 546, 190 },
-   { 585, 587, 194 },
-   { 602, 603, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1071, 1073, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 498, 500, 184 },
-   { 515, 516, 186 },
-   { 528, 530, 188 },
-   { 545, 546, 190 },
-   { 585, 587, 194 },
-   { 602, 603, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1088, 1090, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 558, 559, 192 },
-   { 571, 572, 190 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1015, 1020, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 558, 559, 192 },
-   { 571, 572, 190 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1044, 1046, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 502, 505, 185 },
-   { 518, 519, 187 },
-   { 532, 535, 189 },
-   { 548, 549, 191 },
-   { 558, 559, 192 },
-   { 571, 572, 190 },
-   { 589, 592, 195 },
-   { 605, 606, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 558, 559, 192 },
-   { 561, 562, 193 },
-   { 571, 572, 190 },
-   { 574, 575, 191 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 558, 559, 192 },
-   { 571, 572, 190 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1071, 1073, 207 },
+
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1069, 1071, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 528, 531, 186 },
+   { 544, 545, 188 },
+   { 558, 561, 190 },
+   { 574, 575, 192 },
+   { 615, 618, 196 },
+   { 631, 632, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 587, 588, 194 },
+   { 600, 601, 192 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1096, 1098, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 558, 559, 192 },
-   { 571, 572, 190 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1088, 1090, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1113, 1115, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 521, 522, 185 },
+   { 524, 526, 185 },
+   { 538, 539, 187 },
+   { 541, 542, 187 },
+   { 551, 552, 189 },
+   { 554, 556, 189 },
+   { 568, 569, 191 },
+   { 571, 572, 191 },
+   { 608, 609, 195 },
+   { 611, 613, 195 },
+   { 625, 626, 197 },
+   { 628, 629, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 521, 522, 185 },
+   { 538, 539, 187 },
+   { 551, 552, 189 },
+   { 568, 569, 191 },
+   { 584, 585, 193 },
+   { 597, 598, 191 },
+   { 608, 609, 195 },
+   { 625, 626, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 521, 522, 185 },
+   { 538, 539, 187 },
+   { 551, 552, 189 },
+   { 568, 569, 191 },
+   { 608, 609, 195 },
+   { 625, 626, 197 },
+   { 1040, 1045, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 521, 522, 185 },
+   { 538, 539, 187 },
+   { 551, 552, 189 },
+   { 568, 569, 191 },
+   { 608, 609, 195 },
+   { 625, 626, 197 },
+   { 1069, 1071, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 521, 522, 185 },
+   { 528, 531, 186 },
+   { 538, 539, 187 },
+   { 544, 545, 188 },
+   { 551, 552, 189 },
+   { 558, 561, 190 },
+   { 568, 569, 191 },
+   { 574, 575, 192 },
+   { 608, 609, 195 },
+   { 615, 618, 196 },
+   { 625, 626, 197 },
+   { 631, 632, 198 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 521, 522, 185 },
+   { 538, 539, 187 },
+   { 551, 552, 189 },
+   { 568, 569, 191 },
+   { 587, 588, 194 },
+   { 600, 601, 192 },
+   { 608, 609, 195 },
+   { 625, 626, 197 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 521, 522, 185 },
+   { 538, 539, 187 },
+   { 551, 552, 189 },
+   { 568, 569, 191 },
+   { 608, 609, 195 },
+   { 625, 626, 197 },
+   { 1096, 1098, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 521, 522, 185 },
+   { 538, 539, 187 },
+   { 551, 552, 189 },
+   { 568, 569, 191 },
+   { 608, 609, 195 },
+   { 625, 626, 197 },
+   { 1113, 1115, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 524, 526, 185 },
+   { 541, 542, 187 },
+   { 554, 556, 189 },
+   { 571, 572, 191 },
+   { 581, 582, 193 },
+   { 594, 595, 191 },
+   { 611, 613, 195 },
+   { 628, 629, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 581, 582, 193 },
+   { 584, 585, 193 },
+   { 594, 595, 191 },
+   { 597, 598, 191 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 581, 582, 193 },
+   { 594, 595, 191 },
+   { 1040, 1045, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 581, 582, 193 },
+   { 594, 595, 191 },
+   { 1069, 1071, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 528, 531, 186 },
+   { 544, 545, 188 },
+   { 558, 561, 190 },
+   { 574, 575, 192 },
+   { 581, 582, 193 },
+   { 594, 595, 191 },
+   { 615, 618, 196 },
+   { 631, 632, 198 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 581, 582, 193 },
+   { 587, 588, 194 },
+   { 594, 595, 191 },
+   { 600, 601, 192 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 581, 582, 193 },
+   { 594, 595, 191 },
+   { 1096, 1098, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 581, 582, 193 },
+   { 594, 595, 191 },
+   { 1113, 1115, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 524, 526, 185 },
+   { 541, 542, 187 },
+   { 554, 556, 189 },
+   { 571, 572, 191 },
+   { 584, 585, 193 },
+   { 597, 598, 191 },
+   { 611, 613, 195 },
+   { 628, 629, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 524, 526, 185 },
+   { 541, 542, 187 },
+   { 554, 556, 189 },
+   { 571, 572, 191 },
+   { 611, 613, 195 },
+   { 628, 629, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1040, 1045, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 524, 526, 185 },
+   { 541, 542, 187 },
+   { 554, 556, 189 },
+   { 571, 572, 191 },
+   { 611, 613, 195 },
+   { 628, 629, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1069, 1071, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 524, 526, 185 },
+   { 528, 531, 186 },
+   { 541, 542, 187 },
+   { 544, 545, 188 },
+   { 554, 556, 189 },
+   { 558, 561, 190 },
+   { 571, 572, 191 },
+   { 574, 575, 192 },
+   { 611, 613, 195 },
+   { 615, 618, 196 },
+   { 628, 629, 197 },
+   { 631, 632, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 524, 526, 185 },
+   { 541, 542, 187 },
+   { 554, 556, 189 },
+   { 571, 572, 191 },
+   { 587, 588, 194 },
+   { 600, 601, 192 },
+   { 611, 613, 195 },
+   { 628, 629, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 524, 526, 185 },
+   { 541, 542, 187 },
+   { 554, 556, 189 },
+   { 571, 572, 191 },
+   { 611, 613, 195 },
+   { 628, 629, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1096, 1098, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 524, 526, 185 },
+   { 541, 542, 187 },
+   { 554, 556, 189 },
+   { 571, 572, 191 },
+   { 611, 613, 195 },
+   { 628, 629, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1113, 1115, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 584, 585, 193 },
+   { 597, 598, 191 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1040, 1045, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 584, 585, 193 },
+   { 597, 598, 191 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1069, 1071, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 528, 531, 186 },
+   { 544, 545, 188 },
+   { 558, 561, 190 },
+   { 574, 575, 192 },
+   { 584, 585, 193 },
+   { 597, 598, 191 },
+   { 615, 618, 196 },
+   { 631, 632, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 584, 585, 193 },
+   { 587, 588, 194 },
+   { 597, 598, 191 },
+   { 600, 601, 192 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 584, 585, 193 },
+   { 597, 598, 191 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1096, 1098, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 584, 585, 193 },
+   { 597, 598, 191 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1113, 1115, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1015, 1020, 207 },
-   { 1044, 1046, 207 },
+   { 1040, 1045, 207 },
+   { 1069, 1071, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 502, 505, 185 },
-   { 518, 519, 187 },
-   { 532, 535, 189 },
-   { 548, 549, 191 },
-   { 589, 592, 195 },
-   { 605, 606, 197 },
-   { 1015, 1020, 207 },
+   { 528, 531, 186 },
+   { 544, 545, 188 },
+   { 558, 561, 190 },
+   { 574, 575, 192 },
+   { 615, 618, 196 },
+   { 631, 632, 198 },
+   { 1040, 1045, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 561, 562, 193 },
-   { 574, 575, 191 },
-   { 1015, 1020, 207 },
+   { 587, 588, 194 },
+   { 600, 601, 192 },
+   { 1040, 1045, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1015, 1020, 207 },
-   { 1071, 1073, 207 },
+   { 1040, 1045, 207 },
+   { 1096, 1098, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1015, 1020, 207 },
-   { 1088, 1090, 207 },
+   { 1040, 1045, 207 },
+   { 1113, 1115, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 502, 505, 185 },
-   { 518, 519, 187 },
-   { 532, 535, 189 },
-   { 548, 549, 191 },
-   { 589, 592, 195 },
-   { 605, 606, 197 },
-   { 1044, 1046, 207 },
+   { 528, 531, 186 },
+   { 544, 545, 188 },
+   { 558, 561, 190 },
+   { 574, 575, 192 },
+   { 615, 618, 196 },
+   { 631, 632, 198 },
+   { 1069, 1071, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 561, 562, 193 },
-   { 574, 575, 191 },
-   { 1044, 1046, 207 },
+   { 587, 588, 194 },
+   { 600, 601, 192 },
+   { 1069, 1071, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1044, 1046, 207 },
-   { 1071, 1073, 207 },
+   { 1069, 1071, 207 },
+   { 1096, 1098, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1044, 1046, 207 },
-   { 1088, 1090, 207 },
+   { 1069, 1071, 207 },
+   { 1113, 1115, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 502, 505, 185 },
-   { 518, 519, 187 },
-   { 532, 535, 189 },
-   { 548, 549, 191 },
-   { 561, 562, 193 },
-   { 574, 575, 191 },
-   { 589, 592, 195 },
-   { 605, 606, 197 },
+   { 528, 531, 186 },
+   { 544, 545, 188 },
+   { 558, 561, 190 },
+   { 574, 575, 192 },
+   { 587, 588, 194 },
+   { 600, 601, 192 },
+   { 615, 618, 196 },
+   { 631, 632, 198 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 502, 505, 185 },
-   { 518, 519, 187 },
-   { 532, 535, 189 },
-   { 548, 549, 191 },
-   { 589, 592, 195 },
-   { 605, 606, 197 },
-   { 1071, 1073, 207 },
+   { 528, 531, 186 },
+   { 544, 545, 188 },
+   { 558, 561, 190 },
+   { 574, 575, 192 },
+   { 615, 618, 196 },
+   { 631, 632, 198 },
+   { 1096, 1098, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 502, 505, 185 },
-   { 518, 519, 187 },
-   { 532, 535, 189 },
-   { 548, 549, 191 },
-   { 589, 592, 195 },
-   { 605, 606, 197 },
-   { 1088, 1090, 207 },
+   { 528, 531, 186 },
+   { 544, 545, 188 },
+   { 558, 561, 190 },
+   { 574, 575, 192 },
+   { 615, 618, 196 },
+   { 631, 632, 198 },
+   { 1113, 1115, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 561, 562, 193 },
-   { 574, 575, 191 },
-   { 1071, 1073, 207 },
+   { 587, 588, 194 },
+   { 600, 601, 192 },
+   { 1096, 1098, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 561, 562, 193 },
-   { 574, 575, 191 },
-   { 1088, 1090, 207 },
+   { 587, 588, 194 },
+   { 600, 601, 192 },
+   { 1113, 1115, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1071, 1073, 207 },
-   { 1088, 1090, 207 },
+   { 1096, 1098, 207 },
+   { 1113, 1115, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 942, 939, 30 },
+   { 967, 964, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 938, 939, 30 },
+   { 963, 964, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 934, 935, 30 },
+   { 959, 960, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 934, 935, 30 },
+   { 959, 960, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 934, 935, 30 },
+   { 959, 960, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 942, 939, 30 },
-   { 944, 939, 30 },
+   { 967, 964, 30 },
+   { 969, 964, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 910, 912, 30 },
-   { 914, 915, 30 },
-   { 916, 917, 30 },
-   { 918, 919, 30 },
-   { 934, 935, 30 },
+   { 935, 937, 30 },
+   { 939, 940, 30 },
+   { 941, 942, 30 },
+   { 943, 944, 30 },
+   { 959, 960, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 934, 935, 30 },
-   { 942, 939, 30 },
+   { 959, 960, 30 },
+   { 967, 964, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 934, 935, 30 },
-   { 938, 939, 30 },
+   { 959, 960, 30 },
+   { 963, 964, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 934, 935, 30 },
-   { 944, 939, 30 },
+   { 959, 960, 30 },
+   { 969, 964, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 947, 939, 30 },
+   { 972, 964, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 946, 939, 30 },
+   { 971, 964, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 945, 935, 30 },
+   { 970, 960, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 945, 935, 30 },
+   { 970, 960, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 945, 935, 30 },
+   { 970, 960, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 947, 939, 30 },
-   { 948, 939, 30 },
+   { 972, 964, 30 },
+   { 973, 964, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 920, 912, 30 },
-   { 921, 915, 30 },
-   { 922, 917, 30 },
-   { 923, 919, 30 },
-   { 945, 935, 30 },
+   { 945, 937, 30 },
+   { 946, 940, 30 },
+   { 947, 942, 30 },
+   { 948, 944, 30 },
+   { 970, 960, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 945, 935, 30 },
-   { 947, 939, 30 },
+   { 970, 960, 30 },
+   { 972, 964, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 945, 935, 30 },
-   { 946, 939, 30 },
+   { 970, 960, 30 },
+   { 971, 964, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 945, 935, 30 },
-   { 948, 939, 30 },
+   { 970, 960, 30 },
+   { 973, 964, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1144, 1145, 208 },
+   { 1169, 1170, 208 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1135, 1137, 208 },
-   { 1140, 1139, 208 },
-   { 1144, 1145, 208 },
+   { 1160, 1162, 208 },
+   { 1165, 1164, 208 },
+   { 1169, 1170, 208 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1148, 1147, 208 },
+   { 1173, 1172, 208 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1140, 1139, 208 },
-   { 1148, 1147, 208 },
+   { 1165, 1164, 208 },
+   { 1173, 1172, 208 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1146, 1147, 208 },
+   { 1171, 1172, 208 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1138, 1139, 208 },
-   { 1141, 1137, 208 },
-   { 1146, 1147, 208 },
+   { 1163, 1164, 208 },
+   { 1166, 1162, 208 },
+   { 1171, 1172, 208 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1149, 1145, 208 },
+   { 1174, 1170, 208 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1141, 1137, 208 },
-   { 1149, 1145, 208 },
+   { 1166, 1162, 208 },
+   { 1174, 1170, 208 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 950, 939, 30 },
+   { 975, 964, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 950, 939, 30 },
+   { 975, 964, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 950, 939, 30 },
+   { 975, 964, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 950, 939, 30 },
-   { 1097, 1098, 168 },
+   { 975, 964, 30 },
+   { 1122, 1123, 168 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 860, 862, 0 },
+   { 885, 887, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 86, 96, 0 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 829, 830, 0 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 86, 96, 0 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 86, 96, 0 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 844, 845, 0 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 842, 843, 0 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 842, 843, 0 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 856, 857, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 854, 855, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 854, 855, 0 },
+   { 86, 96, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 364, 365, 181 },
+   { 86, 96, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 623, 624, 201 },
-   { 645, 648, 181 },
-   { 685, 688, 181 },
-   { 724, 727, 181 },
-   { 763, 766, 204 },
+   { 869, 870, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 623, 624, 201 },
-   { 645, 648, 181 },
-   { 650, 648, 181 },
-   { 685, 688, 181 },
-   { 690, 688, 181 },
-   { 724, 727, 181 },
-   { 729, 727, 181 },
-   { 763, 766, 204 },
-   { 768, 766, 204 },
+   { 867, 868, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 623, 624, 201 },
-   { 659, 660, 181 },
-   { 698, 699, 181 },
-   { 737, 738, 181 },
-   { 776, 777, 204 },
+   { 867, 868, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 364, 365, 181 },
+   { 881, 882, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 623, 624, 201 },
-   { 645, 648, 181 },
-   { 651, 648, 181 },
-   { 685, 688, 181 },
-   { 691, 688, 181 },
-   { 724, 727, 181 },
-   { 730, 727, 181 },
-   { 763, 766, 204 },
-   { 769, 766, 204 },
+   { 879, 880, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 623, 624, 201 },
-   { 645, 648, 181 },
-   { 650, 648, 181 },
-   { 651, 648, 181 },
-   { 685, 688, 181 },
-   { 690, 688, 181 },
-   { 691, 688, 181 },
-   { 724, 727, 181 },
-   { 729, 727, 181 },
-   { 730, 727, 181 },
-   { 763, 766, 204 },
-   { 768, 766, 204 },
-   { 769, 766, 204 },
+   { 879, 880, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 623, 624, 201 },
-   { 659, 660, 181 },
-   { 661, 660, 181 },
-   { 698, 699, 181 },
-   { 700, 699, 181 },
-   { 737, 738, 181 },
-   { 739, 738, 181 },
-   { 776, 777, 204 },
-   { 778, 777, 204 },
+   { 368, 371, 181 },
+   { 378, 381, 181 },
+   { 388, 391, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 364, 365, 181 },
-   { 634, 638, 181 },
-   { 677, 678, 181 },
-   { 716, 717, 181 },
-   { 755, 756, 204 },
+   { 649, 650, 202 },
+   { 671, 674, 181 },
+   { 710, 713, 181 },
+   { 749, 752, 181 },
+   { 788, 791, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 623, 624, 201 },
-   { 634, 638, 181 },
-   { 645, 648, 181 },
-   { 677, 678, 181 },
-   { 685, 688, 181 },
-   { 716, 717, 181 },
-   { 724, 727, 181 },
-   { 755, 756, 204 },
-   { 763, 766, 204 },
+   { 649, 650, 202 },
+   { 671, 674, 181 },
+   { 676, 674, 181 },
+   { 710, 713, 181 },
+   { 715, 713, 181 },
+   { 749, 752, 181 },
+   { 754, 752, 181 },
+   { 788, 791, 182 },
+   { 793, 791, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 623, 624, 201 },
-   { 634, 638, 181 },
-   { 645, 648, 181 },
-   { 650, 648, 181 },
-   { 677, 678, 181 },
-   { 685, 688, 181 },
-   { 690, 688, 181 },
-   { 716, 717, 181 },
-   { 724, 727, 181 },
-   { 729, 727, 181 },
-   { 755, 756, 204 },
-   { 763, 766, 204 },
-   { 768, 766, 204 },
+   { 649, 650, 202 },
+   { 684, 685, 181 },
+   { 723, 724, 181 },
+   { 762, 763, 181 },
+   { 801, 802, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 623, 624, 201 },
-   { 634, 638, 181 },
-   { 659, 660, 181 },
-   { 677, 678, 181 },
-   { 698, 699, 181 },
-   { 716, 717, 181 },
-   { 737, 738, 181 },
-   { 755, 756, 204 },
-   { 776, 777, 204 },
+   { 368, 371, 181 },
+   { 378, 381, 181 },
+   { 388, 391, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 364, 365, 181 },
-   { 634, 638, 181 },
-   { 641, 638, 181 },
-   { 677, 678, 181 },
-   { 681, 678, 181 },
-   { 716, 717, 181 },
-   { 720, 717, 181 },
-   { 755, 756, 204 },
-   { 759, 756, 204 },
+   { 649, 650, 202 },
+   { 671, 674, 181 },
+   { 677, 674, 181 },
+   { 710, 713, 181 },
+   { 716, 713, 181 },
+   { 749, 752, 181 },
+   { 755, 752, 181 },
+   { 788, 791, 182 },
+   { 794, 791, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 623, 624, 201 },
-   { 634, 638, 181 },
-   { 641, 638, 181 },
-   { 645, 648, 181 },
-   { 677, 678, 181 },
-   { 681, 678, 181 },
-   { 685, 688, 181 },
-   { 716, 717, 181 },
-   { 720, 717, 181 },
-   { 724, 727, 181 },
-   { 755, 756, 204 },
-   { 759, 756, 204 },
-   { 763, 766, 204 },
+   { 649, 650, 202 },
+   { 671, 674, 181 },
+   { 676, 674, 181 },
+   { 677, 674, 181 },
+   { 710, 713, 181 },
+   { 715, 713, 181 },
+   { 716, 713, 181 },
+   { 749, 752, 181 },
+   { 754, 752, 181 },
+   { 755, 752, 181 },
+   { 788, 791, 182 },
+   { 793, 791, 182 },
+   { 794, 791, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 623, 624, 201 },
-   { 634, 638, 181 },
-   { 641, 638, 181 },
-   { 645, 648, 181 },
-   { 650, 648, 181 },
-   { 677, 678, 181 },
-   { 681, 678, 181 },
-   { 685, 688, 181 },
-   { 690, 688, 181 },
-   { 716, 717, 181 },
-   { 720, 717, 181 },
-   { 724, 727, 181 },
-   { 729, 727, 181 },
-   { 755, 756, 204 },
-   { 759, 756, 204 },
-   { 763, 766, 204 },
-   { 768, 766, 204 },
+   { 649, 650, 202 },
+   { 684, 685, 181 },
+   { 686, 685, 181 },
+   { 723, 724, 181 },
+   { 725, 724, 181 },
+   { 762, 763, 181 },
+   { 764, 763, 181 },
+   { 801, 802, 182 },
+   { 803, 802, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 623, 624, 201 },
-   { 634, 638, 181 },
-   { 641, 638, 181 },
-   { 659, 660, 181 },
-   { 677, 678, 181 },
-   { 681, 678, 181 },
-   { 698, 699, 181 },
-   { 716, 717, 181 },
-   { 720, 717, 181 },
-   { 737, 738, 181 },
-   { 755, 756, 204 },
-   { 759, 756, 204 },
-   { 776, 777, 204 },
+   { 368, 371, 181 },
+   { 378, 381, 181 },
+   { 388, 391, 182 },
+   { 660, 664, 181 },
+   { 702, 703, 181 },
+   { 741, 742, 181 },
+   { 780, 781, 182 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 649, 650, 202 },
+   { 660, 664, 181 },
+   { 671, 674, 181 },
+   { 702, 703, 181 },
+   { 710, 713, 181 },
+   { 741, 742, 181 },
+   { 749, 752, 181 },
+   { 780, 781, 182 },
+   { 788, 791, 182 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 649, 650, 202 },
+   { 660, 664, 181 },
+   { 671, 674, 181 },
+   { 676, 674, 181 },
+   { 702, 703, 181 },
+   { 710, 713, 181 },
+   { 715, 713, 181 },
+   { 741, 742, 181 },
+   { 749, 752, 181 },
+   { 754, 752, 181 },
+   { 780, 781, 182 },
+   { 788, 791, 182 },
+   { 793, 791, 182 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 649, 650, 202 },
+   { 660, 664, 181 },
+   { 684, 685, 181 },
+   { 702, 703, 181 },
+   { 723, 724, 181 },
+   { 741, 742, 181 },
+   { 762, 763, 181 },
+   { 780, 781, 182 },
+   { 801, 802, 182 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 368, 371, 181 },
+   { 378, 381, 181 },
+   { 388, 391, 182 },
+   { 660, 664, 181 },
+   { 667, 664, 181 },
+   { 702, 703, 181 },
+   { 706, 703, 181 },
+   { 741, 742, 181 },
+   { 745, 742, 181 },
+   { 780, 781, 182 },
+   { 784, 781, 182 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 649, 650, 202 },
+   { 660, 664, 181 },
+   { 667, 664, 181 },
+   { 671, 674, 181 },
+   { 702, 703, 181 },
+   { 706, 703, 181 },
+   { 710, 713, 181 },
+   { 741, 742, 181 },
+   { 745, 742, 181 },
+   { 749, 752, 181 },
+   { 780, 781, 182 },
+   { 784, 781, 182 },
+   { 788, 791, 182 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 649, 650, 202 },
+   { 660, 664, 181 },
+   { 667, 664, 181 },
+   { 671, 674, 181 },
+   { 676, 674, 181 },
+   { 702, 703, 181 },
+   { 706, 703, 181 },
+   { 710, 713, 181 },
+   { 715, 713, 181 },
+   { 741, 742, 181 },
+   { 745, 742, 181 },
+   { 749, 752, 181 },
+   { 754, 752, 181 },
+   { 780, 781, 182 },
+   { 784, 781, 182 },
+   { 788, 791, 182 },
+   { 793, 791, 182 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 649, 650, 202 },
+   { 660, 664, 181 },
+   { 667, 664, 181 },
+   { 684, 685, 181 },
+   { 702, 703, 181 },
+   { 706, 703, 181 },
+   { 723, 724, 181 },
+   { 741, 742, 181 },
+   { 745, 742, 181 },
+   { 762, 763, 181 },
+   { 780, 781, 182 },
+   { 784, 781, 182 },
+   { 801, 802, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 346, 347, 180 },
-   { 364, 365, 181 },
+   { 368, 371, 181 },
+   { 378, 381, 181 },
+   { 388, 391, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 346, 347, 180 },
-   { 623, 624, 201 },
-   { 645, 648, 181 },
-   { 685, 688, 181 },
-   { 724, 727, 181 },
-   { 763, 766, 204 },
+   { 649, 650, 202 },
+   { 671, 674, 181 },
+   { 710, 713, 181 },
+   { 749, 752, 181 },
+   { 788, 791, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 346, 347, 180 },
-   { 623, 624, 201 },
-   { 645, 648, 181 },
-   { 650, 648, 181 },
-   { 685, 688, 181 },
-   { 690, 688, 181 },
-   { 724, 727, 181 },
-   { 729, 727, 181 },
-   { 763, 766, 204 },
-   { 768, 766, 204 },
+   { 649, 650, 202 },
+   { 671, 674, 181 },
+   { 676, 674, 181 },
+   { 710, 713, 181 },
+   { 715, 713, 181 },
+   { 749, 752, 181 },
+   { 754, 752, 181 },
+   { 788, 791, 182 },
+   { 793, 791, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 346, 347, 180 },
-   { 623, 624, 201 },
-   { 659, 660, 181 },
-   { 698, 699, 181 },
-   { 737, 738, 181 },
-   { 776, 777, 204 },
+   { 649, 650, 202 },
+   { 684, 685, 181 },
+   { 723, 724, 181 },
+   { 762, 763, 181 },
+   { 801, 802, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 364, 365, 181 },
-   { 623, 624, 201 },
+   { 368, 371, 181 },
+   { 378, 381, 181 },
+   { 388, 391, 182 },
+   { 649, 650, 202 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 364, 365, 181 },
-   { 654, 655, 181 },
-   { 693, 694, 181 },
-   { 732, 733, 181 },
-   { 771, 772, 204 },
+   { 368, 371, 181 },
+   { 378, 381, 181 },
+   { 388, 391, 182 },
+   { 679, 680, 181 },
+   { 718, 719, 181 },
+   { 757, 758, 181 },
+   { 796, 797, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 623, 624, 201 },
-   { 645, 648, 181 },
-   { 654, 655, 181 },
-   { 685, 688, 181 },
-   { 693, 694, 181 },
-   { 724, 727, 181 },
-   { 732, 733, 181 },
-   { 763, 766, 204 },
-   { 771, 772, 204 },
+   { 649, 650, 202 },
+   { 671, 674, 181 },
+   { 679, 680, 181 },
+   { 710, 713, 181 },
+   { 718, 719, 181 },
+   { 749, 752, 181 },
+   { 757, 758, 181 },
+   { 788, 791, 182 },
+   { 796, 797, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 623, 624, 201 },
-   { 645, 648, 181 },
-   { 650, 648, 181 },
-   { 654, 655, 181 },
-   { 685, 688, 181 },
-   { 690, 688, 181 },
-   { 693, 694, 181 },
-   { 724, 727, 181 },
-   { 729, 727, 181 },
-   { 732, 733, 181 },
-   { 763, 766, 204 },
-   { 768, 766, 204 },
-   { 771, 772, 204 },
+   { 649, 650, 202 },
+   { 671, 674, 181 },
+   { 676, 674, 181 },
+   { 679, 680, 181 },
+   { 710, 713, 181 },
+   { 715, 713, 181 },
+   { 718, 719, 181 },
+   { 749, 752, 181 },
+   { 754, 752, 181 },
+   { 757, 758, 181 },
+   { 788, 791, 182 },
+   { 793, 791, 182 },
+   { 796, 797, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 623, 624, 201 },
-   { 654, 655, 181 },
-   { 659, 660, 181 },
-   { 693, 694, 181 },
-   { 698, 699, 181 },
-   { 732, 733, 181 },
-   { 737, 738, 181 },
-   { 771, 772, 204 },
-   { 776, 777, 204 },
+   { 649, 650, 202 },
+   { 679, 680, 181 },
+   { 684, 685, 181 },
+   { 718, 719, 181 },
+   { 723, 724, 181 },
+   { 757, 758, 181 },
+   { 762, 763, 181 },
+   { 796, 797, 182 },
+   { 801, 802, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 364, 365, 181 },
-   { 623, 624, 201 },
-   { 645, 648, 181 },
-   { 685, 688, 181 },
-   { 724, 727, 181 },
-   { 763, 766, 204 },
+   { 368, 371, 181 },
+   { 378, 381, 181 },
+   { 388, 391, 182 },
+   { 649, 650, 202 },
+   { 671, 674, 181 },
+   { 710, 713, 181 },
+   { 749, 752, 181 },
+   { 788, 791, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 364, 365, 181 },
-   { 623, 624, 201 },
-   { 645, 648, 181 },
-   { 650, 648, 181 },
-   { 685, 688, 181 },
-   { 690, 688, 181 },
-   { 724, 727, 181 },
-   { 729, 727, 181 },
-   { 763, 766, 204 },
-   { 768, 766, 204 },
+   { 368, 371, 181 },
+   { 378, 381, 181 },
+   { 388, 391, 182 },
+   { 649, 650, 202 },
+   { 671, 674, 181 },
+   { 676, 674, 181 },
+   { 710, 713, 181 },
+   { 715, 713, 181 },
+   { 749, 752, 181 },
+   { 754, 752, 181 },
+   { 788, 791, 182 },
+   { 793, 791, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 364, 365, 181 },
-   { 623, 624, 201 },
-   { 659, 660, 181 },
-   { 698, 699, 181 },
-   { 737, 738, 181 },
-   { 776, 777, 204 },
+   { 368, 371, 181 },
+   { 378, 381, 181 },
+   { 388, 391, 182 },
+   { 649, 650, 202 },
+   { 684, 685, 181 },
+   { 723, 724, 181 },
+   { 762, 763, 181 },
+   { 801, 802, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 623, 624, 201 },
-   { 645, 648, 181 },
-   { 659, 660, 181 },
-   { 685, 688, 181 },
-   { 698, 699, 181 },
-   { 724, 727, 181 },
-   { 737, 738, 181 },
-   { 763, 766, 204 },
-   { 776, 777, 204 },
+   { 649, 650, 202 },
+   { 671, 674, 181 },
+   { 684, 685, 181 },
+   { 710, 713, 181 },
+   { 723, 724, 181 },
+   { 749, 752, 181 },
+   { 762, 763, 181 },
+   { 788, 791, 182 },
+   { 801, 802, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 623, 624, 201 },
-   { 645, 648, 181 },
-   { 650, 648, 181 },
-   { 659, 660, 181 },
-   { 685, 688, 181 },
-   { 690, 688, 181 },
-   { 698, 699, 181 },
-   { 724, 727, 181 },
-   { 729, 727, 181 },
-   { 737, 738, 181 },
-   { 763, 766, 204 },
-   { 768, 766, 204 },
-   { 776, 777, 204 },
+   { 649, 650, 202 },
+   { 671, 674, 181 },
+   { 676, 674, 181 },
+   { 684, 685, 181 },
+   { 710, 713, 181 },
+   { 715, 713, 181 },
+   { 723, 724, 181 },
+   { 749, 752, 181 },
+   { 754, 752, 181 },
+   { 762, 763, 181 },
+   { 788, 791, 182 },
+   { 793, 791, 182 },
+   { 801, 802, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 354, 357, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 625, 627, 202 },
+   { 651, 653, 203 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 670, 672, 181 },
-   { 709, 711, 181 },
-   { 748, 750, 181 },
-   { 787, 789, 204 },
-   { 1120, 98, 0 },
-   { 1122, 98, 0 },
-   { 1227, 1220, 210 },
-   { 1224, 1230, 211 },
+   { 695, 697, 181 },
+   { 734, 736, 181 },
+   { 773, 775, 181 },
+   { 812, 814, 182 },
+   { 1145, 98, 0 },
+   { 1147, 98, 0 },
+   { 1251, 1244, 210 },
+   { 1248, 1254, 211 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 342, 621, 200 },
+   { 342, 647, 201 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 342, 621, 200 },
+   { 342, 647, 201 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 556, 1306, 212 },
+   { 582, 1330, 212 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 569, 1308, 212 },
+   { 595, 1332, 212 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1162, 1159, 0 },
+   { 1187, 1184, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1158, 1159, 0 },
+   { 1183, 1184, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1165, 1164, 0 },
+   { 1190, 1189, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1163, 1164, 0 },
+   { 1188, 1189, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 243, 226, 0 },
    { 254, 220, 0 },
    { 258, 224, 0 },
    { 260, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 241, 218, 0 },
@@ -3655802,7 +3656094,7 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 254, 220, 0 },
    { 258, 224, 0 },
    { 260, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 239, 210, 0 },
@@ -3655810,14 +3656102,14 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 254, 220, 0 },
    { 258, 224, 0 },
    { 260, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 237, 202, 0 },
    { 241, 218, 0 },
    { 243, 226, 0 },
    { 260, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 237, 202, 0 },
@@ -3655825,7 +3656117,7 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 243, 226, 0 },
    { 258, 224, 0 },
    { 260, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 237, 202, 0 },
@@ -3655833,7 +3656125,7 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 243, 226, 0 },
    { 256, 222, 0 },
    { 260, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 237, 202, 0 },
@@ -3655842,14 +3656134,14 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 254, 220, 0 },
    { 258, 224, 0 },
    { 260, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 235, 194, 0 },
    { 246, 185, 0 },
    { 250, 191, 0 },
    { 252, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 233, 181, 0 },
@@ -3655857,7 +3656149,7 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 246, 185, 0 },
    { 250, 191, 0 },
    { 252, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 231, 168, 0 },
@@ -3655865,14 +3656157,14 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 246, 185, 0 },
    { 250, 191, 0 },
    { 252, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 229, 155, 0 },
    { 233, 181, 0 },
    { 235, 194, 0 },
    { 252, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 229, 155, 0 },
@@ -3655880,7 +3656172,7 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 235, 194, 0 },
    { 250, 191, 0 },
    { 252, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 229, 155, 0 },
@@ -3655888,7 +3656180,7 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 235, 194, 0 },
    { 248, 189, 0 },
    { 252, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 229, 155, 0 },
@@ -3655897,33 +3656189,33 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 246, 185, 0 },
    { 250, 191, 0 },
    { 252, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 274, 275, 178 },
    { 280, 281, 178 },
    { 283, 284, 178 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 140, 142, 0 },
    { 274, 275, 178 },
    { 280, 281, 178 },
    { 283, 284, 178 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 274, 275, 178 },
    { 277, 278, 178 },
    { 280, 281, 178 },
    { 283, 284, 178 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 219, 220, 0 },
    { 223, 224, 0 },
    { 225, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 211, 212, 0 },
@@ -3655932,7 +3656224,7 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 219, 220, 0 },
    { 223, 224, 0 },
    { 225, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 203, 204, 0 },
@@ -3655941,13 +3656233,13 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 219, 220, 0 },
    { 223, 224, 0 },
    { 225, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 201, 202, 0 },
    { 217, 218, 0 },
    { 225, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 199, 200, 0 },
@@ -3655956,7 +3656248,7 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 217, 218, 0 },
    { 223, 224, 0 },
    { 225, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 197, 198, 0 },
@@ -3655965,7 +3656257,7 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 217, 218, 0 },
    { 221, 222, 0 },
    { 225, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 195, 196, 0 },
@@ -3655977,13 +3656269,13 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 219, 220, 0 },
    { 223, 224, 0 },
    { 225, 226, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 183, 185, 0 },
    { 190, 191, 0 },
    { 192, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 170, 172, 0 },
@@ -3655992,7 +3656284,7 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 183, 185, 0 },
    { 190, 191, 0 },
    { 192, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 157, 159, 0 },
@@ -3656001,13 +3656293,13 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 183, 185, 0 },
    { 190, 191, 0 },
    { 192, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 153, 155, 0 },
    { 180, 181, 0 },
    { 192, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 150, 152, 0 },
@@ -3656016,7 +3656308,7 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 180, 181, 0 },
    { 190, 191, 0 },
    { 192, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 147, 149, 0 },
@@ -3656025,7 +3656317,7 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 180, 181, 0 },
    { 187, 189, 0 },
    { 192, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 144, 146, 0 },
@@ -3656037,13 +3656329,13 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 183, 185, 0 },
    { 190, 191, 0 },
    { 192, 194, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 118, 119, 0 },
    { 133, 134, 0 },
    { 136, 137, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 115, 116, 0 },
@@ -3656051,7 +3656343,7 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 130, 131, 0 },
    { 133, 134, 0 },
    { 136, 137, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 112, 113, 0 },
@@ -3656060,7 +3656352,7 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 127, 128, 0 },
    { 133, 134, 0 },
    { 136, 137, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 109, 110, 0 },
@@ -3656069,744 +3656361,744 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 130, 131, 0 },
    { 133, 134, 0 },
    { 136, 137, 0 },
-   { 869, 98, 0 },
+   { 894, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1001, 1007, 207 },
+   { 1026, 1032, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1039, 1042, 207 },
+   { 1064, 1067, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 508, 510, 185 },
-   { 522, 523, 187 },
-   { 538, 540, 189 },
-   { 552, 553, 191 },
-   { 595, 597, 195 },
-   { 609, 610, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
+   { 534, 536, 186 },
+   { 548, 549, 188 },
+   { 564, 566, 190 },
+   { 578, 579, 192 },
+   { 621, 623, 196 },
+   { 635, 636, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 565, 566, 193 },
-   { 578, 579, 191 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
+   { 591, 592, 194 },
+   { 604, 605, 192 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1059, 1065, 207 },
+   { 1084, 1090, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1083, 1086, 207 },
+   { 1108, 1111, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1001, 1007, 207 },
+   { 1026, 1032, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1039, 1042, 207 },
+   { 1064, 1067, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 508, 510, 185 },
-   { 522, 523, 187 },
-   { 538, 540, 189 },
-   { 552, 553, 191 },
-   { 595, 597, 195 },
-   { 609, 610, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
+   { 534, 536, 186 },
+   { 548, 549, 188 },
+   { 564, 566, 190 },
+   { 578, 579, 192 },
+   { 621, 623, 196 },
+   { 635, 636, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 565, 566, 193 },
-   { 578, 579, 191 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
+   { 591, 592, 194 },
+   { 604, 605, 192 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1059, 1065, 207 },
+   { 1084, 1090, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1083, 1086, 207 },
+   { 1108, 1111, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1001, 1007, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1026, 1032, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1039, 1042, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1064, 1067, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1059, 1065, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1084, 1090, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1083, 1086, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1108, 1111, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 495, 496, 184 },
-   { 512, 513, 186 },
-   { 525, 526, 188 },
-   { 542, 543, 190 },
-   { 582, 583, 194 },
-   { 599, 600, 196 },
-   { 1001, 1007, 207 },
+   { 521, 522, 185 },
+   { 538, 539, 187 },
+   { 551, 552, 189 },
+   { 568, 569, 191 },
+   { 608, 609, 195 },
+   { 625, 626, 197 },
+   { 1026, 1032, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 495, 496, 184 },
-   { 512, 513, 186 },
-   { 525, 526, 188 },
-   { 542, 543, 190 },
-   { 582, 583, 194 },
-   { 599, 600, 196 },
-   { 1039, 1042, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 495, 496, 184 },
-   { 508, 510, 185 },
-   { 512, 513, 186 },
-   { 522, 523, 187 },
-   { 525, 526, 188 },
-   { 538, 540, 189 },
-   { 542, 543, 190 },
-   { 552, 553, 191 },
-   { 582, 583, 194 },
-   { 595, 597, 195 },
-   { 599, 600, 196 },
-   { 609, 610, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 495, 496, 184 },
-   { 512, 513, 186 },
-   { 525, 526, 188 },
-   { 542, 543, 190 },
-   { 565, 566, 193 },
-   { 578, 579, 191 },
-   { 582, 583, 194 },
-   { 599, 600, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 495, 496, 184 },
-   { 512, 513, 186 },
-   { 525, 526, 188 },
-   { 542, 543, 190 },
-   { 582, 583, 194 },
-   { 599, 600, 196 },
-   { 1059, 1065, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 495, 496, 184 },
-   { 512, 513, 186 },
-   { 525, 526, 188 },
-   { 542, 543, 190 },
-   { 582, 583, 194 },
-   { 599, 600, 196 },
-   { 1083, 1086, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 555, 556, 192 },
-   { 568, 569, 190 },
-   { 1001, 1007, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 555, 556, 192 },
-   { 568, 569, 190 },
-   { 1039, 1042, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 508, 510, 185 },
-   { 522, 523, 187 },
-   { 538, 540, 189 },
-   { 552, 553, 191 },
-   { 555, 556, 192 },
-   { 568, 569, 190 },
-   { 595, 597, 195 },
-   { 609, 610, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 555, 556, 192 },
-   { 565, 566, 193 },
-   { 568, 569, 190 },
-   { 578, 579, 191 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 555, 556, 192 },
-   { 568, 569, 190 },
-   { 1059, 1065, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 555, 556, 192 },
-   { 568, 569, 190 },
-   { 1083, 1086, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 498, 500, 184 },
-   { 515, 516, 186 },
-   { 528, 530, 188 },
-   { 545, 546, 190 },
-   { 585, 587, 194 },
-   { 602, 603, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1001, 1007, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 498, 500, 184 },
-   { 515, 516, 186 },
-   { 528, 530, 188 },
-   { 545, 546, 190 },
-   { 585, 587, 194 },
-   { 602, 603, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1039, 1042, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 498, 500, 184 },
-   { 508, 510, 185 },
-   { 515, 516, 186 },
-   { 522, 523, 187 },
-   { 528, 530, 188 },
-   { 538, 540, 189 },
-   { 545, 546, 190 },
-   { 552, 553, 191 },
-   { 585, 587, 194 },
-   { 595, 597, 195 },
-   { 602, 603, 196 },
-   { 609, 610, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 498, 500, 184 },
-   { 515, 516, 186 },
-   { 528, 530, 188 },
-   { 545, 546, 190 },
-   { 565, 566, 193 },
-   { 578, 579, 191 },
-   { 585, 587, 194 },
-   { 602, 603, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 498, 500, 184 },
-   { 515, 516, 186 },
-   { 528, 530, 188 },
-   { 545, 546, 190 },
-   { 585, 587, 194 },
-   { 602, 603, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1059, 1065, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 498, 500, 184 },
-   { 515, 516, 186 },
-   { 528, 530, 188 },
-   { 545, 546, 190 },
-   { 585, 587, 194 },
-   { 602, 603, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1083, 1086, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 558, 559, 192 },
-   { 571, 572, 190 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1001, 1007, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 558, 559, 192 },
-   { 571, 572, 190 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1039, 1042, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 508, 510, 185 },
-   { 522, 523, 187 },
-   { 538, 540, 189 },
-   { 552, 553, 191 },
-   { 558, 559, 192 },
-   { 571, 572, 190 },
-   { 595, 597, 195 },
-   { 609, 610, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 558, 559, 192 },
-   { 565, 566, 193 },
-   { 571, 572, 190 },
-   { 578, 579, 191 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 558, 559, 192 },
-   { 571, 572, 190 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1059, 1065, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 558, 559, 192 },
-   { 571, 572, 190 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1083, 1086, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1001, 1007, 207 },
-   { 1015, 1020, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1015, 1020, 207 },
-   { 1039, 1042, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 508, 510, 185 },
-   { 522, 523, 187 },
-   { 538, 540, 189 },
-   { 552, 553, 191 },
-   { 595, 597, 195 },
-   { 609, 610, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1015, 1020, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 565, 566, 193 },
-   { 578, 579, 191 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1015, 1020, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1015, 1020, 207 },
-   { 1059, 1065, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1015, 1020, 207 },
-   { 1083, 1086, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1001, 1007, 207 },
-   { 1044, 1046, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1039, 1042, 207 },
-   { 1044, 1046, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 508, 510, 185 },
-   { 522, 523, 187 },
-   { 538, 540, 189 },
-   { 552, 553, 191 },
-   { 595, 597, 195 },
-   { 609, 610, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1044, 1046, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 565, 566, 193 },
-   { 578, 579, 191 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1044, 1046, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1044, 1046, 207 },
-   { 1059, 1065, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1044, 1046, 207 },
-   { 1083, 1086, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 502, 505, 185 },
-   { 518, 519, 187 },
-   { 532, 535, 189 },
-   { 548, 549, 191 },
-   { 589, 592, 195 },
-   { 605, 606, 197 },
-   { 1001, 1007, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 502, 505, 185 },
-   { 518, 519, 187 },
-   { 532, 535, 189 },
-   { 548, 549, 191 },
-   { 589, 592, 195 },
-   { 605, 606, 197 },
-   { 1039, 1042, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 502, 505, 185 },
-   { 508, 510, 185 },
-   { 518, 519, 187 },
-   { 522, 523, 187 },
-   { 532, 535, 189 },
-   { 538, 540, 189 },
-   { 548, 549, 191 },
-   { 552, 553, 191 },
-   { 589, 592, 195 },
-   { 595, 597, 195 },
-   { 605, 606, 197 },
-   { 609, 610, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 502, 505, 185 },
-   { 518, 519, 187 },
-   { 532, 535, 189 },
-   { 548, 549, 191 },
-   { 565, 566, 193 },
-   { 578, 579, 191 },
-   { 589, 592, 195 },
-   { 605, 606, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 502, 505, 185 },
-   { 518, 519, 187 },
-   { 532, 535, 189 },
-   { 548, 549, 191 },
-   { 589, 592, 195 },
-   { 605, 606, 197 },
-   { 1059, 1065, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 502, 505, 185 },
-   { 518, 519, 187 },
-   { 532, 535, 189 },
-   { 548, 549, 191 },
-   { 589, 592, 195 },
-   { 605, 606, 197 },
-   { 1083, 1086, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 561, 562, 193 },
-   { 574, 575, 191 },
-   { 1001, 1007, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 561, 562, 193 },
-   { 574, 575, 191 },
-   { 1039, 1042, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 508, 510, 185 },
-   { 522, 523, 187 },
-   { 538, 540, 189 },
-   { 552, 553, 191 },
-   { 561, 562, 193 },
-   { 574, 575, 191 },
-   { 595, 597, 195 },
-   { 609, 610, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 561, 562, 193 },
-   { 565, 566, 193 },
-   { 574, 575, 191 },
-   { 578, 579, 191 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 561, 562, 193 },
-   { 574, 575, 191 },
-   { 1059, 1065, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 561, 562, 193 },
-   { 574, 575, 191 },
-   { 1083, 1086, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1001, 1007, 207 },
-   { 1071, 1073, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1039, 1042, 207 },
-   { 1071, 1073, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 508, 510, 185 },
-   { 522, 523, 187 },
-   { 538, 540, 189 },
-   { 552, 553, 191 },
-   { 595, 597, 195 },
-   { 609, 610, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1071, 1073, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 565, 566, 193 },
-   { 578, 579, 191 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1071, 1073, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1059, 1065, 207 },
-   { 1071, 1073, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
+   { 521, 522, 185 },
+   { 538, 539, 187 },
+   { 551, 552, 189 },
+   { 568, 569, 191 },
+   { 608, 609, 195 },
+   { 625, 626, 197 },
+   { 1064, 1067, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 521, 522, 185 },
+   { 534, 536, 186 },
+   { 538, 539, 187 },
+   { 548, 549, 188 },
+   { 551, 552, 189 },
+   { 564, 566, 190 },
+   { 568, 569, 191 },
+   { 578, 579, 192 },
+   { 608, 609, 195 },
+   { 621, 623, 196 },
+   { 625, 626, 197 },
+   { 635, 636, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 521, 522, 185 },
+   { 538, 539, 187 },
+   { 551, 552, 189 },
+   { 568, 569, 191 },
+   { 591, 592, 194 },
+   { 604, 605, 192 },
+   { 608, 609, 195 },
+   { 625, 626, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 521, 522, 185 },
+   { 538, 539, 187 },
+   { 551, 552, 189 },
+   { 568, 569, 191 },
+   { 608, 609, 195 },
+   { 625, 626, 197 },
+   { 1084, 1090, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 521, 522, 185 },
+   { 538, 539, 187 },
+   { 551, 552, 189 },
+   { 568, 569, 191 },
+   { 608, 609, 195 },
+   { 625, 626, 197 },
+   { 1108, 1111, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 581, 582, 193 },
+   { 594, 595, 191 },
+   { 1026, 1032, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 581, 582, 193 },
+   { 594, 595, 191 },
+   { 1064, 1067, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 534, 536, 186 },
+   { 548, 549, 188 },
+   { 564, 566, 190 },
+   { 578, 579, 192 },
+   { 581, 582, 193 },
+   { 594, 595, 191 },
+   { 621, 623, 196 },
+   { 635, 636, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 581, 582, 193 },
+   { 591, 592, 194 },
+   { 594, 595, 191 },
+   { 604, 605, 192 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 581, 582, 193 },
+   { 594, 595, 191 },
+   { 1084, 1090, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 581, 582, 193 },
+   { 594, 595, 191 },
+   { 1108, 1111, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 524, 526, 185 },
+   { 541, 542, 187 },
+   { 554, 556, 189 },
+   { 571, 572, 191 },
+   { 611, 613, 195 },
+   { 628, 629, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1026, 1032, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 524, 526, 185 },
+   { 541, 542, 187 },
+   { 554, 556, 189 },
+   { 571, 572, 191 },
+   { 611, 613, 195 },
+   { 628, 629, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1064, 1067, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 524, 526, 185 },
+   { 534, 536, 186 },
+   { 541, 542, 187 },
+   { 548, 549, 188 },
+   { 554, 556, 189 },
+   { 564, 566, 190 },
+   { 571, 572, 191 },
+   { 578, 579, 192 },
+   { 611, 613, 195 },
+   { 621, 623, 196 },
+   { 628, 629, 197 },
+   { 635, 636, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 524, 526, 185 },
+   { 541, 542, 187 },
+   { 554, 556, 189 },
+   { 571, 572, 191 },
+   { 591, 592, 194 },
+   { 604, 605, 192 },
+   { 611, 613, 195 },
+   { 628, 629, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 524, 526, 185 },
+   { 541, 542, 187 },
+   { 554, 556, 189 },
+   { 571, 572, 191 },
+   { 611, 613, 195 },
+   { 628, 629, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1084, 1090, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 524, 526, 185 },
+   { 541, 542, 187 },
+   { 554, 556, 189 },
+   { 571, 572, 191 },
+   { 611, 613, 195 },
+   { 628, 629, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1108, 1111, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 584, 585, 193 },
+   { 597, 598, 191 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1026, 1032, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 584, 585, 193 },
+   { 597, 598, 191 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1064, 1067, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 534, 536, 186 },
+   { 548, 549, 188 },
+   { 564, 566, 190 },
+   { 578, 579, 192 },
+   { 584, 585, 193 },
+   { 597, 598, 191 },
+   { 621, 623, 196 },
+   { 635, 636, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 584, 585, 193 },
+   { 591, 592, 194 },
+   { 597, 598, 191 },
+   { 604, 605, 192 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 584, 585, 193 },
+   { 597, 598, 191 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1084, 1090, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 584, 585, 193 },
+   { 597, 598, 191 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1108, 1111, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 1026, 1032, 207 },
+   { 1040, 1045, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 1040, 1045, 207 },
+   { 1064, 1067, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 534, 536, 186 },
+   { 548, 549, 188 },
+   { 564, 566, 190 },
+   { 578, 579, 192 },
+   { 621, 623, 196 },
+   { 635, 636, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1040, 1045, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 591, 592, 194 },
+   { 604, 605, 192 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1040, 1045, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 1040, 1045, 207 },
+   { 1084, 1090, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 1040, 1045, 207 },
+   { 1108, 1111, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 1026, 1032, 207 },
+   { 1069, 1071, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 1064, 1067, 207 },
+   { 1069, 1071, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 534, 536, 186 },
+   { 548, 549, 188 },
+   { 564, 566, 190 },
+   { 578, 579, 192 },
+   { 621, 623, 196 },
+   { 635, 636, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1069, 1071, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 591, 592, 194 },
+   { 604, 605, 192 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1069, 1071, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 1069, 1071, 207 },
+   { 1084, 1090, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 1069, 1071, 207 },
+   { 1108, 1111, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 528, 531, 186 },
+   { 544, 545, 188 },
+   { 558, 561, 190 },
+   { 574, 575, 192 },
+   { 615, 618, 196 },
+   { 631, 632, 198 },
+   { 1026, 1032, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 528, 531, 186 },
+   { 544, 545, 188 },
+   { 558, 561, 190 },
+   { 574, 575, 192 },
+   { 615, 618, 196 },
+   { 631, 632, 198 },
+   { 1064, 1067, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 528, 531, 186 },
+   { 534, 536, 186 },
+   { 544, 545, 188 },
+   { 548, 549, 188 },
+   { 558, 561, 190 },
+   { 564, 566, 190 },
+   { 574, 575, 192 },
+   { 578, 579, 192 },
+   { 615, 618, 196 },
+   { 621, 623, 196 },
+   { 631, 632, 198 },
+   { 635, 636, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 528, 531, 186 },
+   { 544, 545, 188 },
+   { 558, 561, 190 },
+   { 574, 575, 192 },
+   { 591, 592, 194 },
+   { 604, 605, 192 },
+   { 615, 618, 196 },
+   { 631, 632, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 528, 531, 186 },
+   { 544, 545, 188 },
+   { 558, 561, 190 },
+   { 574, 575, 192 },
+   { 615, 618, 196 },
+   { 631, 632, 198 },
+   { 1084, 1090, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 528, 531, 186 },
+   { 544, 545, 188 },
+   { 558, 561, 190 },
+   { 574, 575, 192 },
+   { 615, 618, 196 },
+   { 631, 632, 198 },
+   { 1108, 1111, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 587, 588, 194 },
+   { 600, 601, 192 },
+   { 1026, 1032, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 587, 588, 194 },
+   { 600, 601, 192 },
+   { 1064, 1067, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 534, 536, 186 },
+   { 548, 549, 188 },
+   { 564, 566, 190 },
+   { 578, 579, 192 },
+   { 587, 588, 194 },
+   { 600, 601, 192 },
+   { 621, 623, 196 },
+   { 635, 636, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 587, 588, 194 },
+   { 591, 592, 194 },
+   { 600, 601, 192 },
+   { 604, 605, 192 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 587, 588, 194 },
+   { 600, 601, 192 },
+   { 1084, 1090, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 587, 588, 194 },
+   { 600, 601, 192 },
+   { 1108, 1111, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 1026, 1032, 207 },
+   { 1096, 1098, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 1064, 1067, 207 },
+   { 1096, 1098, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 534, 536, 186 },
+   { 548, 549, 188 },
+   { 564, 566, 190 },
+   { 578, 579, 192 },
+   { 621, 623, 196 },
+   { 635, 636, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1096, 1098, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 591, 592, 194 },
+   { 604, 605, 192 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1096, 1098, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 1084, 1090, 207 },
+   { 1096, 1098, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1071, 1073, 207 },
-   { 1083, 1086, 207 },
+   { 1096, 1098, 207 },
+   { 1108, 1111, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1001, 1007, 207 },
-   { 1088, 1090, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1039, 1042, 207 },
-   { 1088, 1090, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 508, 510, 185 },
-   { 522, 523, 187 },
-   { 538, 540, 189 },
-   { 552, 553, 191 },
-   { 595, 597, 195 },
-   { 609, 610, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1088, 1090, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 565, 566, 193 },
-   { 578, 579, 191 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1088, 1090, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1059, 1065, 207 },
-   { 1088, 1090, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1083, 1086, 207 },
-   { 1088, 1090, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1001, 1007, 207 },
-   { 1039, 1042, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 508, 510, 185 },
-   { 522, 523, 187 },
-   { 538, 540, 189 },
-   { 552, 553, 191 },
-   { 595, 597, 195 },
-   { 609, 610, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1001, 1007, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 565, 566, 193 },
-   { 578, 579, 191 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1001, 1007, 207 },
+   { 1026, 1032, 207 },
+   { 1113, 1115, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 1064, 1067, 207 },
+   { 1113, 1115, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 534, 536, 186 },
+   { 548, 549, 188 },
+   { 564, 566, 190 },
+   { 578, 579, 192 },
+   { 621, 623, 196 },
+   { 635, 636, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1113, 1115, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 591, 592, 194 },
+   { 604, 605, 192 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1113, 1115, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 1084, 1090, 207 },
+   { 1113, 1115, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 1108, 1111, 207 },
+   { 1113, 1115, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 1026, 1032, 207 },
+   { 1064, 1067, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 534, 536, 186 },
+   { 548, 549, 188 },
+   { 564, 566, 190 },
+   { 578, 579, 192 },
+   { 621, 623, 196 },
+   { 635, 636, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1026, 1032, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 591, 592, 194 },
+   { 604, 605, 192 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1026, 1032, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1001, 1007, 207 },
-   { 1059, 1065, 207 },
+   { 1026, 1032, 207 },
+   { 1084, 1090, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1001, 1007, 207 },
-   { 1083, 1086, 207 },
+   { 1026, 1032, 207 },
+   { 1108, 1111, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 508, 510, 185 },
-   { 522, 523, 187 },
-   { 538, 540, 189 },
-   { 552, 553, 191 },
-   { 595, 597, 195 },
-   { 609, 610, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1039, 1042, 207 },
+   { 534, 536, 186 },
+   { 548, 549, 188 },
+   { 564, 566, 190 },
+   { 578, 579, 192 },
+   { 621, 623, 196 },
+   { 635, 636, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1064, 1067, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 565, 566, 193 },
-   { 578, 579, 191 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1039, 1042, 207 },
+   { 591, 592, 194 },
+   { 604, 605, 192 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1064, 1067, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1039, 1042, 207 },
-   { 1059, 1065, 207 },
+   { 1064, 1067, 207 },
+   { 1084, 1090, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1039, 1042, 207 },
-   { 1083, 1086, 207 },
+   { 1064, 1067, 207 },
+   { 1108, 1111, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 508, 510, 185 },
-   { 522, 523, 187 },
-   { 538, 540, 189 },
-   { 552, 553, 191 },
-   { 565, 566, 193 },
-   { 578, 579, 191 },
-   { 595, 597, 195 },
-   { 609, 610, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
+   { 534, 536, 186 },
+   { 548, 549, 188 },
+   { 564, 566, 190 },
+   { 578, 579, 192 },
+   { 591, 592, 194 },
+   { 604, 605, 192 },
+   { 621, 623, 196 },
+   { 635, 636, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 508, 510, 185 },
-   { 522, 523, 187 },
-   { 538, 540, 189 },
-   { 552, 553, 191 },
-   { 595, 597, 195 },
-   { 609, 610, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1059, 1065, 207 },
+   { 534, 536, 186 },
+   { 548, 549, 188 },
+   { 564, 566, 190 },
+   { 578, 579, 192 },
+   { 621, 623, 196 },
+   { 635, 636, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1084, 1090, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 508, 510, 185 },
-   { 522, 523, 187 },
-   { 538, 540, 189 },
-   { 552, 553, 191 },
-   { 595, 597, 195 },
-   { 609, 610, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1083, 1086, 207 },
+   { 534, 536, 186 },
+   { 548, 549, 188 },
+   { 564, 566, 190 },
+   { 578, 579, 192 },
+   { 621, 623, 196 },
+   { 635, 636, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1108, 1111, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 565, 566, 193 },
-   { 578, 579, 191 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1059, 1065, 207 },
+   { 591, 592, 194 },
+   { 604, 605, 192 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1084, 1090, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 565, 566, 193 },
-   { 578, 579, 191 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1083, 1086, 207 },
+   { 591, 592, 194 },
+   { 604, 605, 192 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1108, 1111, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1059, 1065, 207 },
-   { 1083, 1086, 207 },
+   { 1084, 1090, 207 },
+   { 1108, 1111, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 342, 621, 200 },
+   { 342, 647, 201 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 342, 621, 200 },
+   { 342, 647, 201 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 342, 621, 200 },
+   { 342, 647, 201 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 342, 621, 200 },
+   { 342, 647, 201 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 934, 935, 30 },
+   { 959, 960, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 945, 935, 30 },
+   { 970, 960, 30 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 262, 263, 178 },
    { 268, 269, 178 },
    { 271, 272, 178 },
-   { 870, 98, 0 },
+   { 895, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 102, 104, 0 },
    { 262, 263, 178 },
    { 268, 269, 178 },
    { 271, 272, 178 },
-   { 870, 98, 0 },
+   { 895, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 262, 263, 178 },
    { 265, 266, 178 },
    { 268, 269, 178 },
    { 271, 272, 178 },
-   { 870, 98, 0 },
+   { 895, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 65, 68, 0 },
    { 90, 92, 0 },
    { 94, 97, 0 },
-   { 870, 98, 0 },
+   { 895, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 60, 63, 0 },
@@ -3656814,7 +3657106,7 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 85, 88, 0 },
    { 90, 92, 0 },
    { 94, 97, 0 },
-   { 870, 98, 0 },
+   { 895, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 55, 58, 0 },
@@ -3656823,7 +3657115,7 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 80, 83, 0 },
    { 90, 92, 0 },
    { 94, 97, 0 },
-   { 870, 98, 0 },
+   { 895, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 50, 53, 0 },
@@ -3656832,81 +3657124,103 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 85, 88, 0 },
    { 90, 92, 0 },
    { 94, 97, 0 },
-   { 870, 98, 0 },
+   { 895, 98, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 362, 363, 181 },
-   { 623, 624, 201 },
+   { 364, 367, 181 },
+   { 374, 377, 181 },
+   { 384, 387, 182 },
+   { 649, 650, 202 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 362, 363, 181 },
-   { 623, 624, 201 },
+   { 364, 367, 181 },
+   { 374, 377, 181 },
+   { 384, 387, 182 },
+   { 649, 650, 202 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 362, 363, 181 },
-   { 623, 624, 201 },
-   { 634, 638, 181 },
-   { 677, 678, 181 },
-   { 716, 717, 181 },
-   { 755, 756, 204 },
+   { 364, 367, 181 },
+   { 374, 377, 181 },
+   { 384, 387, 182 },
+   { 649, 650, 202 },
+   { 660, 664, 181 },
+   { 702, 703, 181 },
+   { 741, 742, 181 },
+   { 780, 781, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 362, 363, 181 },
-   { 623, 624, 201 },
-   { 634, 638, 181 },
-   { 641, 638, 181 },
-   { 677, 678, 181 },
-   { 681, 678, 181 },
-   { 716, 717, 181 },
-   { 720, 717, 181 },
-   { 755, 756, 204 },
-   { 759, 756, 204 },
+   { 364, 367, 181 },
+   { 374, 377, 181 },
+   { 384, 387, 182 },
+   { 649, 650, 202 },
+   { 660, 664, 181 },
+   { 667, 664, 181 },
+   { 702, 703, 181 },
+   { 706, 703, 181 },
+   { 741, 742, 181 },
+   { 745, 742, 181 },
+   { 780, 781, 182 },
+   { 784, 781, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 346, 347, 180 },
-   { 362, 363, 181 },
-   { 623, 624, 201 },
+   { 364, 367, 181 },
+   { 374, 377, 181 },
+   { 384, 387, 182 },
+   { 649, 650, 202 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 362, 363, 181 },
-   { 623, 624, 201 },
-   { 654, 655, 181 },
-   { 693, 694, 181 },
-   { 732, 733, 181 },
-   { 771, 772, 204 },
+   { 364, 367, 181 },
+   { 374, 377, 181 },
+   { 384, 387, 182 },
+   { 649, 650, 202 },
+   { 679, 680, 181 },
+   { 718, 719, 181 },
+   { 757, 758, 181 },
+   { 796, 797, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 362, 363, 181 },
-   { 364, 365, 181 },
-   { 623, 624, 201 },
+   { 364, 367, 181 },
+   { 368, 371, 181 },
+   { 374, 377, 181 },
+   { 378, 381, 181 },
+   { 384, 387, 182 },
+   { 388, 391, 182 },
+   { 649, 650, 202 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 362, 363, 181 },
-   { 623, 624, 201 },
-   { 645, 648, 181 },
-   { 685, 688, 181 },
-   { 724, 727, 181 },
-   { 763, 766, 204 },
+   { 364, 367, 181 },
+   { 374, 377, 181 },
+   { 384, 387, 182 },
+   { 649, 650, 202 },
+   { 671, 674, 181 },
+   { 710, 713, 181 },
+   { 749, 752, 181 },
+   { 788, 791, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 362, 363, 181 },
-   { 623, 624, 201 },
-   { 645, 648, 181 },
-   { 650, 648, 181 },
-   { 685, 688, 181 },
-   { 690, 688, 181 },
-   { 724, 727, 181 },
-   { 729, 727, 181 },
-   { 763, 766, 204 },
-   { 768, 766, 204 },
+   { 364, 367, 181 },
+   { 374, 377, 181 },
+   { 384, 387, 182 },
+   { 649, 650, 202 },
+   { 671, 674, 181 },
+   { 676, 674, 181 },
+   { 710, 713, 181 },
+   { 715, 713, 181 },
+   { 749, 752, 181 },
+   { 754, 752, 181 },
+   { 788, 791, 182 },
+   { 793, 791, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 362, 363, 181 },
-   { 623, 624, 201 },
-   { 659, 660, 181 },
-   { 698, 699, 181 },
-   { 737, 738, 181 },
-   { 776, 777, 204 },
+   { 364, 367, 181 },
+   { 374, 377, 181 },
+   { 384, 387, 182 },
+   { 649, 650, 202 },
+   { 684, 685, 181 },
+   { 723, 724, 181 },
+   { 762, 763, 181 },
+   { 801, 802, 182 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
    { 360, 361, 0 },
@@ -3656916,922 +3657230,922 @@ static const struct transform nir_opt_algebraic_late_transforms[] = {
    { 360, 361, 0 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1022, 1028, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1047, 1053, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1048, 1051, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1073, 1076, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1075, 1080, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1100, 1105, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1092, 1095, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1117, 1120, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 983, 990, 207 },
+   { 1008, 1015, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1032, 1036, 207 },
+   { 1057, 1061, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1022, 1028, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1047, 1053, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1048, 1051, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1073, 1076, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1075, 1080, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1100, 1105, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1092, 1095, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1117, 1120, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 983, 990, 207 },
+   { 1008, 1015, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1032, 1036, 207 },
+   { 1057, 1061, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 983, 990, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1008, 1015, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1032, 1036, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1057, 1061, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 495, 496, 184 },
-   { 512, 513, 186 },
-   { 525, 526, 188 },
-   { 542, 543, 190 },
-   { 582, 583, 194 },
-   { 599, 600, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1022, 1028, 207 },
+   { 521, 522, 185 },
+   { 538, 539, 187 },
+   { 551, 552, 189 },
+   { 568, 569, 191 },
+   { 608, 609, 195 },
+   { 625, 626, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1047, 1053, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 495, 496, 184 },
-   { 512, 513, 186 },
-   { 525, 526, 188 },
-   { 542, 543, 190 },
-   { 582, 583, 194 },
-   { 599, 600, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1048, 1051, 207 },
+   { 521, 522, 185 },
+   { 538, 539, 187 },
+   { 551, 552, 189 },
+   { 568, 569, 191 },
+   { 608, 609, 195 },
+   { 625, 626, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1073, 1076, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 495, 496, 184 },
-   { 512, 513, 186 },
-   { 525, 526, 188 },
-   { 542, 543, 190 },
-   { 582, 583, 194 },
-   { 599, 600, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1075, 1080, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 495, 496, 184 },
-   { 512, 513, 186 },
-   { 525, 526, 188 },
-   { 542, 543, 190 },
-   { 582, 583, 194 },
-   { 599, 600, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1092, 1095, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 495, 496, 184 },
-   { 512, 513, 186 },
-   { 525, 526, 188 },
-   { 542, 543, 190 },
-   { 582, 583, 194 },
-   { 599, 600, 196 },
-   { 983, 990, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 495, 496, 184 },
-   { 512, 513, 186 },
-   { 525, 526, 188 },
-   { 542, 543, 190 },
-   { 582, 583, 194 },
-   { 599, 600, 196 },
-   { 1032, 1036, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 555, 556, 192 },
-   { 568, 569, 190 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1022, 1028, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 555, 556, 192 },
-   { 568, 569, 190 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1048, 1051, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 555, 556, 192 },
-   { 568, 569, 190 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1075, 1080, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 555, 556, 192 },
-   { 568, 569, 190 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1092, 1095, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 555, 556, 192 },
-   { 568, 569, 190 },
-   { 983, 990, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 555, 556, 192 },
-   { 568, 569, 190 },
-   { 1032, 1036, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 498, 500, 184 },
-   { 515, 516, 186 },
-   { 528, 530, 188 },
-   { 545, 546, 190 },
-   { 585, 587, 194 },
-   { 602, 603, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1022, 1028, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 498, 500, 184 },
-   { 515, 516, 186 },
-   { 528, 530, 188 },
-   { 545, 546, 190 },
-   { 585, 587, 194 },
-   { 602, 603, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1048, 1051, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 498, 500, 184 },
-   { 515, 516, 186 },
-   { 528, 530, 188 },
-   { 545, 546, 190 },
-   { 585, 587, 194 },
-   { 602, 603, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1075, 1080, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 498, 500, 184 },
-   { 515, 516, 186 },
-   { 528, 530, 188 },
-   { 545, 546, 190 },
-   { 585, 587, 194 },
-   { 602, 603, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1092, 1095, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 498, 500, 184 },
-   { 515, 516, 186 },
-   { 528, 530, 188 },
-   { 545, 546, 190 },
-   { 585, 587, 194 },
-   { 602, 603, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 983, 990, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 498, 500, 184 },
-   { 515, 516, 186 },
-   { 528, 530, 188 },
-   { 545, 546, 190 },
-   { 585, 587, 194 },
-   { 602, 603, 196 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1032, 1036, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 558, 559, 192 },
-   { 571, 572, 190 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1022, 1028, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 558, 559, 192 },
-   { 571, 572, 190 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1048, 1051, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 558, 559, 192 },
-   { 571, 572, 190 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1075, 1080, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 558, 559, 192 },
-   { 571, 572, 190 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1092, 1095, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 558, 559, 192 },
-   { 571, 572, 190 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 983, 990, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 558, 559, 192 },
-   { 571, 572, 190 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1032, 1036, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1015, 1020, 207 },
-   { 1022, 1028, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1015, 1020, 207 },
-   { 1048, 1051, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1015, 1020, 207 },
-   { 1075, 1080, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1015, 1020, 207 },
-   { 1092, 1095, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 983, 990, 207 },
-   { 1015, 1020, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1015, 1020, 207 },
-   { 1032, 1036, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1022, 1028, 207 },
-   { 1044, 1046, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1044, 1046, 207 },
-   { 1048, 1051, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1044, 1046, 207 },
-   { 1075, 1080, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1044, 1046, 207 },
-   { 1092, 1095, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 983, 990, 207 },
-   { 1044, 1046, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 1032, 1036, 207 },
-   { 1044, 1046, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 502, 505, 185 },
-   { 518, 519, 187 },
-   { 532, 535, 189 },
-   { 548, 549, 191 },
-   { 589, 592, 195 },
-   { 605, 606, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1022, 1028, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 502, 505, 185 },
-   { 518, 519, 187 },
-   { 532, 535, 189 },
-   { 548, 549, 191 },
-   { 589, 592, 195 },
-   { 605, 606, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1048, 1051, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 502, 505, 185 },
-   { 518, 519, 187 },
-   { 532, 535, 189 },
-   { 548, 549, 191 },
-   { 589, 592, 195 },
-   { 605, 606, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1075, 1080, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 502, 505, 185 },
-   { 518, 519, 187 },
-   { 532, 535, 189 },
-   { 548, 549, 191 },
-   { 589, 592, 195 },
-   { 605, 606, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1092, 1095, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 502, 505, 185 },
-   { 518, 519, 187 },
-   { 532, 535, 189 },
-   { 548, 549, 191 },
-   { 589, 592, 195 },
-   { 605, 606, 197 },
-   { 983, 990, 207 },
-   { ~0, ~0, ~0 }, /* Sentinel */
-
-   { 502, 505, 185 },
-   { 518, 519, 187 },
-   { 532, 535, 189 },
-   { 548, 549, 191 },
-   { 589, 592, 195 },
-   { 605, 606, 197 },
-   { 1032, 1036, 207 },
+   { 521, 522, 185 },
+   { 538, 539, 187 },
+   { 551, 552, 189 },
+   { 568, 569, 191 },
+   { 608, 609, 195 },
+   { 625, 626, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1100, 1105, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 521, 522, 185 },
+   { 538, 539, 187 },
+   { 551, 552, 189 },
+   { 568, 569, 191 },
+   { 608, 609, 195 },
+   { 625, 626, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1117, 1120, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 521, 522, 185 },
+   { 538, 539, 187 },
+   { 551, 552, 189 },
+   { 568, 569, 191 },
+   { 608, 609, 195 },
+   { 625, 626, 197 },
+   { 1008, 1015, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 521, 522, 185 },
+   { 538, 539, 187 },
+   { 551, 552, 189 },
+   { 568, 569, 191 },
+   { 608, 609, 195 },
+   { 625, 626, 197 },
+   { 1057, 1061, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 581, 582, 193 },
+   { 594, 595, 191 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1047, 1053, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 581, 582, 193 },
+   { 594, 595, 191 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1073, 1076, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 581, 582, 193 },
+   { 594, 595, 191 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1100, 1105, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 581, 582, 193 },
+   { 594, 595, 191 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1117, 1120, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 581, 582, 193 },
+   { 594, 595, 191 },
+   { 1008, 1015, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 581, 582, 193 },
+   { 594, 595, 191 },
+   { 1057, 1061, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 524, 526, 185 },
+   { 541, 542, 187 },
+   { 554, 556, 189 },
+   { 571, 572, 191 },
+   { 611, 613, 195 },
+   { 628, 629, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1047, 1053, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 524, 526, 185 },
+   { 541, 542, 187 },
+   { 554, 556, 189 },
+   { 571, 572, 191 },
+   { 611, 613, 195 },
+   { 628, 629, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1073, 1076, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 524, 526, 185 },
+   { 541, 542, 187 },
+   { 554, 556, 189 },
+   { 571, 572, 191 },
+   { 611, 613, 195 },
+   { 628, 629, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1100, 1105, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 524, 526, 185 },
+   { 541, 542, 187 },
+   { 554, 556, 189 },
+   { 571, 572, 191 },
+   { 611, 613, 195 },
+   { 628, 629, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1117, 1120, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 524, 526, 185 },
+   { 541, 542, 187 },
+   { 554, 556, 189 },
+   { 571, 572, 191 },
+   { 611, 613, 195 },
+   { 628, 629, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1008, 1015, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 524, 526, 185 },
+   { 541, 542, 187 },
+   { 554, 556, 189 },
+   { 571, 572, 191 },
+   { 611, 613, 195 },
+   { 628, 629, 197 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1057, 1061, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 584, 585, 193 },
+   { 597, 598, 191 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1047, 1053, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 584, 585, 193 },
+   { 597, 598, 191 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1073, 1076, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 584, 585, 193 },
+   { 597, 598, 191 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1100, 1105, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 584, 585, 193 },
+   { 597, 598, 191 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1117, 1120, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 584, 585, 193 },
+   { 597, 598, 191 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1008, 1015, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 584, 585, 193 },
+   { 597, 598, 191 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1057, 1061, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1040, 1045, 207 },
+   { 1047, 1053, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1040, 1045, 207 },
+   { 1073, 1076, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1040, 1045, 207 },
+   { 1100, 1105, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1040, 1045, 207 },
+   { 1117, 1120, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 1008, 1015, 207 },
+   { 1040, 1045, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 1040, 1045, 207 },
+   { 1057, 1061, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1047, 1053, 207 },
+   { 1069, 1071, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1069, 1071, 207 },
+   { 1073, 1076, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1069, 1071, 207 },
+   { 1100, 1105, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1069, 1071, 207 },
+   { 1117, 1120, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 1008, 1015, 207 },
+   { 1069, 1071, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 1057, 1061, 207 },
+   { 1069, 1071, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 528, 531, 186 },
+   { 544, 545, 188 },
+   { 558, 561, 190 },
+   { 574, 575, 192 },
+   { 615, 618, 196 },
+   { 631, 632, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1047, 1053, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 528, 531, 186 },
+   { 544, 545, 188 },
+   { 558, 561, 190 },
+   { 574, 575, 192 },
+   { 615, 618, 196 },
+   { 631, 632, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1073, 1076, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 528, 531, 186 },
+   { 544, 545, 188 },
+   { 558, 561, 190 },
+   { 574, 575, 192 },
+   { 615, 618, 196 },
+   { 631, 632, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1100, 1105, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 528, 531, 186 },
+   { 544, 545, 188 },
+   { 558, 561, 190 },
+   { 574, 575, 192 },
+   { 615, 618, 196 },
+   { 631, 632, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1117, 1120, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 528, 531, 186 },
+   { 544, 545, 188 },
+   { 558, 561, 190 },
+   { 574, 575, 192 },
+   { 615, 618, 196 },
+   { 631, 632, 198 },
+   { 1008, 1015, 207 },
+   { ~0, ~0, ~0 }, /* Sentinel */
+
+   { 528, 531, 186 },
+   { 544, 545, 188 },
+   { 558, 561, 190 },
+   { 574, 575, 192 },
+   { 615, 618, 196 },
+   { 631, 632, 198 },
+   { 1057, 1061, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 561, 562, 193 },
-   { 574, 575, 191 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1022, 1028, 207 },
+   { 587, 588, 194 },
+   { 600, 601, 192 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1047, 1053, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 561, 562, 193 },
-   { 574, 575, 191 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1048, 1051, 207 },
+   { 587, 588, 194 },
+   { 600, 601, 192 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1073, 1076, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 561, 562, 193 },
-   { 574, 575, 191 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1075, 1080, 207 },
+   { 587, 588, 194 },
+   { 600, 601, 192 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1100, 1105, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 561, 562, 193 },
-   { 574, 575, 191 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1092, 1095, 207 },
+   { 587, 588, 194 },
+   { 600, 601, 192 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1117, 1120, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 561, 562, 193 },
-   { 574, 575, 191 },
-   { 983, 990, 207 },
+   { 587, 588, 194 },
+   { 600, 601, 192 },
+   { 1008, 1015, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 561, 562, 193 },
-   { 574, 575, 191 },
-   { 1032, 1036, 207 },
+   { 587, 588, 194 },
+   { 600, 601, 192 },
+   { 1057, 1061, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1022, 1028, 207 },
-   { 1071, 1073, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1047, 1053, 207 },
+   { 1096, 1098, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1048, 1051, 207 },
-   { 1071, 1073, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1073, 1076, 207 },
+   { 1096, 1098, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1071, 1073, 207 },
-   { 1075, 1080, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1096, 1098, 207 },
+   { 1100, 1105, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1071, 1073, 207 },
-   { 1092, 1095, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1096, 1098, 207 },
+   { 1117, 1120, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 983, 990, 207 },
-   { 1071, 1073, 207 },
+   { 1008, 1015, 207 },
+   { 1096, 1098, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1032, 1036, 207 },
-   { 1071, 1073, 207 },
+   { 1057, 1061, 207 },
+   { 1096, 1098, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1022, 1028, 207 },
-   { 1088, 1090, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1047, 1053, 207 },
+   { 1113, 1115, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1048, 1051, 207 },
-   { 1088, 1090, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1073, 1076, 207 },
+   { 1113, 1115, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1075, 1080, 207 },
-   { 1088, 1090, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1100, 1105, 207 },
+   { 1113, 1115, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1088, 1090, 207 },
-   { 1092, 1095, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1113, 1115, 207 },
+   { 1117, 1120, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 983, 990, 207 },
-   { 1088, 1090, 207 },
+   { 1008, 1015, 207 },
+   { 1113, 1115, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1032, 1036, 207 },
-   { 1088, 1090, 207 },
+   { 1057, 1061, 207 },
+   { 1113, 1115, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1001, 1007, 207 },
-   { 1022, 1028, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1026, 1032, 207 },
+   { 1047, 1053, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1001, 1007, 207 },
-   { 1048, 1051, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1026, 1032, 207 },
+   { 1073, 1076, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1001, 1007, 207 },
-   { 1075, 1080, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1026, 1032, 207 },
+   { 1100, 1105, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1001, 1007, 207 },
-   { 1092, 1095, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1026, 1032, 207 },
+   { 1117, 1120, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 983, 990, 207 },
-   { 1001, 1007, 207 },
+   { 1008, 1015, 207 },
+   { 1026, 1032, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1001, 1007, 207 },
-   { 1032, 1036, 207 },
+   { 1026, 1032, 207 },
+   { 1057, 1061, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1022, 1028, 207 },
-   { 1039, 1042, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1047, 1053, 207 },
+   { 1064, 1067, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1039, 1042, 207 },
-   { 1048, 1051, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1064, 1067, 207 },
+   { 1073, 1076, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1039, 1042, 207 },
-   { 1075, 1080, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1064, 1067, 207 },
+   { 1100, 1105, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1039, 1042, 207 },
-   { 1092, 1095, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1064, 1067, 207 },
+   { 1117, 1120, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 983, 990, 207 },
-   { 1039, 1042, 207 },
+   { 1008, 1015, 207 },
+   { 1064, 1067, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1032, 1036, 207 },
-   { 1039, 1042, 207 },
+   { 1057, 1061, 207 },
+   { 1064, 1067, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 508, 510, 185 },
-   { 522, 523, 187 },
-   { 538, 540, 189 },
-   { 552, 553, 191 },
-   { 595, 597, 195 },
-   { 609, 610, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1022, 1028, 207 },
+   { 534, 536, 186 },
+   { 548, 549, 188 },
+   { 564, 566, 190 },
+   { 578, 579, 192 },
+   { 621, 623, 196 },
+   { 635, 636, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1047, 1053, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 508, 510, 185 },
-   { 522, 523, 187 },
-   { 538, 540, 189 },
-   { 552, 553, 191 },
-   { 595, 597, 195 },
-   { 609, 610, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1048, 1051, 207 },
+   { 534, 536, 186 },
+   { 548, 549, 188 },
+   { 564, 566, 190 },
+   { 578, 579, 192 },
+   { 621, 623, 196 },
+   { 635, 636, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1073, 1076, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 508, 510, 185 },
-   { 522, 523, 187 },
-   { 538, 540, 189 },
-   { 552, 553, 191 },
-   { 595, 597, 195 },
-   { 609, 610, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1075, 1080, 207 },
+   { 534, 536, 186 },
+   { 548, 549, 188 },
+   { 564, 566, 190 },
+   { 578, 579, 192 },
+   { 621, 623, 196 },
+   { 635, 636, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1100, 1105, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 508, 510, 185 },
-   { 522, 523, 187 },
-   { 538, 540, 189 },
-   { 552, 553, 191 },
-   { 595, 597, 195 },
-   { 609, 610, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1092, 1095, 207 },
+   { 534, 536, 186 },
+   { 548, 549, 188 },
+   { 564, 566, 190 },
+   { 578, 579, 192 },
+   { 621, 623, 196 },
+   { 635, 636, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1117, 1120, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 508, 510, 185 },
-   { 522, 523, 187 },
-   { 538, 540, 189 },
-   { 552, 553, 191 },
-   { 595, 597, 195 },
-   { 609, 610, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 983, 990, 207 },
+   { 534, 536, 186 },
+   { 548, 549, 188 },
+   { 564, 566, 190 },
+   { 578, 579, 192 },
+   { 621, 623, 196 },
+   { 635, 636, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1008, 1015, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 508, 510, 185 },
-   { 522, 523, 187 },
-   { 538, 540, 189 },
-   { 552, 553, 191 },
-   { 595, 597, 195 },
-   { 609, 610, 197 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1032, 1036, 207 },
+   { 534, 536, 186 },
+   { 548, 549, 188 },
+   { 564, 566, 190 },
+   { 578, 579, 192 },
+   { 621, 623, 196 },
+   { 635, 636, 198 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1057, 1061, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 565, 566, 193 },
-   { 578, 579, 191 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1022, 1028, 207 },
+   { 591, 592, 194 },
+   { 604, 605, 192 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1047, 1053, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 565, 566, 193 },
-   { 578, 579, 191 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1048, 1051, 207 },
+   { 591, 592, 194 },
+   { 604, 605, 192 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1073, 1076, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 565, 566, 193 },
-   { 578, 579, 191 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1075, 1080, 207 },
+   { 591, 592, 194 },
+   { 604, 605, 192 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1100, 1105, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 565, 566, 193 },
-   { 578, 579, 191 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1092, 1095, 207 },
+   { 591, 592, 194 },
+   { 604, 605, 192 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1117, 1120, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 565, 566, 193 },
-   { 578, 579, 191 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 983, 990, 207 },
+   { 591, 592, 194 },
+   { 604, 605, 192 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1008, 1015, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 565, 566, 193 },
-   { 578, 579, 191 },
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1032, 1036, 207 },
+   { 591, 592, 194 },
+   { 604, 605, 192 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1057, 1061, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1022, 1028, 207 },
-   { 1059, 1065, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1047, 1053, 207 },
+   { 1084, 1090, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1048, 1051, 207 },
-   { 1059, 1065, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1073, 1076, 207 },
+   { 1084, 1090, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1059, 1065, 207 },
-   { 1075, 1080, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1084, 1090, 207 },
+   { 1100, 1105, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1059, 1065, 207 },
-   { 1092, 1095, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1084, 1090, 207 },
+   { 1117, 1120, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 983, 990, 207 },
-   { 1059, 1065, 207 },
+   { 1008, 1015, 207 },
+   { 1084, 1090, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1032, 1036, 207 },
-   { 1059, 1065, 207 },
+   { 1057, 1061, 207 },
+   { 1084, 1090, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1022, 1028, 207 },
-   { 1083, 1086, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1047, 1053, 207 },
+   { 1108, 1111, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1048, 1051, 207 },
-   { 1083, 1086, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1073, 1076, 207 },
+   { 1108, 1111, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1075, 1080, 207 },
-   { 1083, 1086, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1100, 1105, 207 },
+   { 1108, 1111, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1083, 1086, 207 },
-   { 1092, 1095, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1108, 1111, 207 },
+   { 1117, 1120, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 983, 990, 207 },
-   { 1083, 1086, 207 },
+   { 1008, 1015, 207 },
+   { 1108, 1111, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 1032, 1036, 207 },
-   { 1083, 1086, 207 },
+   { 1057, 1061, 207 },
+   { 1108, 1111, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1022, 1028, 207 },
-   { 1048, 1051, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1047, 1053, 207 },
+   { 1073, 1076, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1022, 1028, 207 },
-   { 1075, 1080, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1047, 1053, 207 },
+   { 1100, 1105, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1022, 1028, 207 },
-   { 1092, 1095, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1047, 1053, 207 },
+   { 1117, 1120, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 983, 990, 207 },
-   { 1022, 1028, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1008, 1015, 207 },
+   { 1047, 1053, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1022, 1028, 207 },
-   { 1032, 1036, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1047, 1053, 207 },
+   { 1057, 1061, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1048, 1051, 207 },
-   { 1075, 1080, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1073, 1076, 207 },
+   { 1100, 1105, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1048, 1051, 207 },
-   { 1092, 1095, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1073, 1076, 207 },
+   { 1117, 1120, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 983, 990, 207 },
-   { 1048, 1051, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1008, 1015, 207 },
+   { 1073, 1076, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1032, 1036, 207 },
-   { 1048, 1051, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1057, 1061, 207 },
+   { 1073, 1076, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1075, 1080, 207 },
-   { 1092, 1095, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1100, 1105, 207 },
+   { 1117, 1120, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 983, 990, 207 },
-   { 1075, 1080, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1008, 1015, 207 },
+   { 1100, 1105, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1032, 1036, 207 },
-   { 1075, 1080, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1057, 1061, 207 },
+   { 1100, 1105, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 983, 990, 207 },
-   { 1092, 1095, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1008, 1015, 207 },
+   { 1117, 1120, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 612, 613, 198 },
-   { 615, 616, 198 },
-   { 618, 619, 199 },
-   { 1032, 1036, 207 },
-   { 1092, 1095, 207 },
+   { 638, 639, 199 },
+   { 641, 642, 199 },
+   { 644, 645, 200 },
+   { 1057, 1061, 207 },
+   { 1117, 1120, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
-   { 983, 990, 207 },
-   { 1032, 1036, 207 },
+   { 1008, 1015, 207 },
+   { 1057, 1061, 207 },
    { ~0, ~0, ~0 }, /* Sentinel */
 
 };
@@ -3744872,316 +3745186,309 @@ static const uint16_t nir_opt_algebraic_late_transform_offsets[] = {
    0,
    1899,
    1901,
-   1903,
-   1909,
-   1919,
-   1925,
+   1905,
+   1911,
+   1921,
    1927,
-   1937,
-   1951,
-   1961,
-   1967,
-   1977,
-   1991,
-   2001,
-   2011,
-   2025,
-   2043,
-   2057,
-   2060,
-   2067,
-   2078,
-   2085,
+   1931,
+   1941,
+   1955,
+   1965,
+   1973,
+   1983,
+   1997,
+   2007,
+   2019,
+   2033,
+   2051,
+   2065,
+   2070,
+   2077,
    2088,
-   2094,
-   2104,
+   2095,
+   2100,
+   2108,
    2118,
-   2128,
-   2135,
-   2146,
-   2153,
-   2163,
-   2177,
-   2179,
-   2181,
-   2190,
-   2192,
-   2194,
-   2196,
-   2198,
-   2200,
-   2202,
-   2204,
-   2206,
+   2132,
+   2142,
+   2151,
+   2164,
+   2173,
+   2183,
+   2197,
+   2199,
+   2201,
+   2210,
    2212,
-   2219,
+   2214,
+   2216,
+   2218,
+   2220,
+   2222,
+   2224,
    2226,
    2232,
    2239,
    2246,
-   2254,
-   2260,
-   2267,
+   2252,
+   2259,
+   2266,
    2274,
    2280,
    2287,
    2294,
-   2302,
+   2300,
    2307,
-   2313,
-   2319,
-   2324,
-   2332,
-   2340,
-   2345,
-   2353,
-   2361,
-   2372,
-   2377,
-   2385,
-   2393,
-   2398,
-   2406,
-   2414,
-   2425,
-   2430,
-   2437,
+   2314,
+   2322,
+   2327,
+   2333,
+   2339,
+   2344,
+   2352,
+   2360,
+   2365,
+   2373,
+   2381,
+   2392,
+   2397,
+   2405,
+   2413,
+   2418,
+   2426,
+   2434,
    2445,
-   2453,
-   2455,
+   2450,
    2457,
-   2467,
+   2465,
    2473,
    2475,
    2477,
-   2479,
-   2481,
-   2491,
+   2487,
+   2493,
+   2495,
    2497,
    2499,
    2501,
-   2506,
    2511,
-   2516,
+   2517,
+   2519,
    2521,
-   2529,
-   2537,
-   2553,
-   2565,
+   2526,
+   2531,
+   2536,
+   2541,
+   2549,
+   2557,
    2573,
-   2581,
    2585,
-   2589,
+   2593,
    2601,
+   2605,
    2609,
-   2613,
-   2617,
-   2628,
-   2639,
-   2655,
-   2667,
-   2678,
-   2689,
-   2696,
-   2703,
-   2715,
+   2621,
+   2629,
+   2633,
+   2637,
+   2648,
+   2659,
+   2675,
+   2687,
+   2698,
+   2709,
+   2716,
    2723,
-   2730,
-   2737,
-   2740,
+   2735,
    2743,
-   2754,
-   2761,
-   2764,
-   2767,
-   2770,
-   2773,
+   2750,
+   2757,
+   2760,
+   2763,
+   2774,
+   2781,
    2784,
-   2791,
-   2794,
-   2797,
-   2805,
-   2813,
-   2829,
-   2841,
+   2787,
+   2790,
+   2793,
+   2804,
+   2811,
+   2814,
+   2817,
+   2825,
+   2833,
    2849,
-   2857,
    2861,
-   2865,
+   2869,
    2877,
+   2881,
    2885,
-   2889,
-   2893,
-   2896,
-   2899,
-   2910,
-   2917,
-   2920,
-   2923,
-   2926,
-   2929,
+   2897,
+   2905,
+   2909,
+   2913,
+   2916,
+   2919,
+   2930,
+   2937,
    2940,
-   2947,
-   2950,
-   2953,
-   2956,
+   2943,
+   2946,
+   2949,
+   2960,
    2967,
-   2974,
-   2977,
-   2980,
-   2991,
-   2998,
-   3001,
-   3004,
-   3016,
-   3027,
-   3038,
-   3045,
-   3052,
-   3055,
-   3057,
-   3059,
-   3061,
-   0,
-   3063,
-   0,
+   2970,
+   2973,
+   2976,
+   2987,
+   2994,
+   2997,
+   3000,
+   3011,
+   3018,
+   3021,
+   3024,
+   3036,
+   3047,
+   3058,
    3065,
-   3067,
    3072,
-   3078,
-   3084,
-   3089,
-   3096,
+   3075,
+   3077,
+   3079,
+   3081,
+   0,
+   3083,
+   0,
+   3085,
+   3087,
+   3092,
+   3098,
    3104,
-   3112,
-   3115,
-   3118,
-   3125,
-   3136,
-   3140,
-   3147,
+   3109,
+   3116,
+   3124,
+   3132,
+   3137,
+   3142,
    3151,
-   3158,
-   3169,
-   3176,
-   3178,
-   3181,
-   3186,
-   3191,
+   3164,
+   3170,
+   3179,
+   3187,
    3196,
-   3201,
-   3203,
-   3205,
-   3210,
-   3215,
+   3209,
+   3218,
    3220,
-   3225,
-   3227,
-   3229,
-   3234,
-   3239,
-   3250,
-   3261,
-   3272,
-   3283,
-   3291,
-   3299,
-   3306,
-   3313,
-   3320,
-   3327,
-   3331,
-   3335,
-   3346,
-   3357,
-   3368,
-   3379,
-   3390,
-   3401,
-   3408,
-   3415,
-   3422,
-   3429,
-   3436,
+   3223,
+   3228,
+   3233,
+   3238,
+   3243,
+   3245,
+   3247,
+   3252,
+   3257,
+   3262,
+   3267,
+   3269,
+   3271,
+   3276,
+   3281,
+   3292,
+   3303,
+   3314,
+   3325,
+   3333,
+   3341,
+   3348,
+   3355,
+   3362,
+   3369,
+   3373,
+   3377,
+   3388,
+   3399,
+   3410,
+   3421,
+   3432,
    3443,
-   3449,
-   3455,
-   3461,
-   3467,
-   3470,
-   3473,
-   3479,
+   3450,
+   3457,
+   3464,
+   3471,
+   3478,
    3485,
    3491,
    3497,
-   3500,
    3503,
-   3514,
-   3525,
-   3536,
-   3547,
-   3555,
-   3563,
-   3570,
-   3577,
-   3584,
-   3591,
-   3595,
-   3599,
+   3509,
+   3512,
+   3515,
+   3521,
+   3527,
+   3533,
+   3539,
+   3542,
+   3545,
+   3556,
+   3567,
+   3578,
+   3589,
+   3597,
    3605,
-   3611,
-   3617,
-   3623,
+   3612,
+   3619,
    3626,
-   3629,
-   3635,
+   3633,
+   3637,
    3641,
    3647,
    3653,
-   3656,
    3659,
    3665,
+   3668,
    3671,
    3677,
    3683,
-   3686,
    3689,
    3695,
+   3698,
    3701,
    3707,
    3713,
-   3716,
    3719,
-   3730,
-   3741,
-   3752,
-   3763,
-   3774,
-   3785,
-   3792,
-   3799,
-   3806,
-   3813,
-   3820,
+   3725,
+   3728,
+   3731,
+   3737,
+   3743,
+   3749,
+   3755,
+   3758,
+   3761,
+   3772,
+   3783,
+   3794,
+   3805,
+   3816,
    3827,
-   3833,
-   3839,
-   3845,
-   3851,
-   3854,
-   3857,
-   3863,
+   3834,
+   3841,
+   3848,
+   3855,
+   3862,
    3869,
    3875,
    3881,
-   3884,
    3887,
    3893,
+   3896,
    3899,
    3905,
    3911,
    3917,
    3923,
+   3926,
    3929,
    3935,
    3941,
@@ -3745190,6 +3745497,13 @@ static const uint16_t nir_opt_algebraic_late_transform_offsets[] = {
    3959,
    3965,
    3971,
+   3977,
+   3983,
+   3989,
+   3995,
+   4001,
+   4007,
+   4013,
 };
 
 static const nir_algebraic_table nir_opt_algebraic_late_table = {
@@ -3745212,7 +3745526,7 @@ nir_opt_algebraic_late(
    (void) options;
    (void) info;
 
-   STATIC_ASSERT(1462 == ARRAY_SIZE(nir_opt_algebraic_late_values));
+   STATIC_ASSERT(1486 == ARRAY_SIZE(nir_opt_algebraic_late_values));
    condition_flags[0] = true;
    condition_flags[1] = !options->lower_bitops;
    condition_flags[2] = options->lower_bitops;
@@ -3745395,29 +3745709,29 @@ nir_opt_algebraic_late(
    condition_flags[179] = options->has_ford_funord;
    condition_flags[180] = options->has_imad32;
    condition_flags[181] = options->has_iadd3;
-   condition_flags[182] = options->has_f2i_sat;
-   condition_flags[183] = options->has_f2u_sat;
-   condition_flags[184] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma);
-   condition_flags[185] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
-   condition_flags[186] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad);
-   condition_flags[187] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
-   condition_flags[188] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma);
-   condition_flags[189] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
-   condition_flags[190] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad);
-   condition_flags[191] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
-   condition_flags[192] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32));
-   condition_flags[193] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32)) && !options->avoid_ternary_with_fabs;
-   condition_flags[194] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma);
-   condition_flags[195] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
-   condition_flags[196] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad);
-   condition_flags[197] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
-   condition_flags[198] = options->has_fsub;
-   condition_flags[199] = options->has_fsub && !(options->lower_doubles_options & nir_lower_dsub);
-   condition_flags[200] = options->lower_fneg;
-   condition_flags[201] = options->has_isub || options->lower_ineg;
-   condition_flags[202] = options->lower_ineg;
-   condition_flags[203] = options->lower_iabs;
-   condition_flags[204] = options->has_iadd3 && !(options->lower_int64_options & nir_lower_iadd3_64);
+   condition_flags[182] = options->has_iadd3 && !(options->lower_int64_options & nir_lower_iadd3_64);
+   condition_flags[183] = options->has_f2i_sat;
+   condition_flags[184] = options->has_f2u_sat;
+   condition_flags[185] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma);
+   condition_flags[186] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
+   condition_flags[187] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad);
+   condition_flags[188] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
+   condition_flags[189] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma);
+   condition_flags[190] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
+   condition_flags[191] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad);
+   condition_flags[192] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
+   condition_flags[193] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32));
+   condition_flags[194] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32)) && !options->avoid_ternary_with_fabs;
+   condition_flags[195] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma);
+   condition_flags[196] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
+   condition_flags[197] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad);
+   condition_flags[198] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
+   condition_flags[199] = options->has_fsub;
+   condition_flags[200] = options->has_fsub && !(options->lower_doubles_options & nir_lower_dsub);
+   condition_flags[201] = options->lower_fneg;
+   condition_flags[202] = options->has_isub || options->lower_ineg;
+   condition_flags[203] = options->lower_ineg;
+   condition_flags[204] = options->lower_iabs;
    condition_flags[205] = options->fdot_replicates;
    condition_flags[206] = options->lower_fround_even;
    condition_flags[207] = (info->stage != MESA_SHADER_VERTEX && info->stage != MESA_SHADER_GEOMETRY) && !options->intel_vec4;
@@ -3745523,8 +3745837,8 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
       -1,
    } },
 
-   /* replace3447_0 -> 0 in the cache */
-   /* replace3447_1 -> 2 in the cache */
+   /* replace3451_0 -> 0 in the cache */
+   /* replace3451_1 -> 2 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3745593,9 +3745907,9 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
       -1,
    } },
 
-   /* replace3448_0 -> 6 in the cache */
-   /* replace3448_1 -> 8 in the cache */
-   /* replace3448_2 -> 10 in the cache */
+   /* replace3452_0 -> 6 in the cache */
+   /* replace3452_1 -> 8 in the cache */
+   /* replace3452_2 -> 10 in the cache */
    { .expression = {
       { nir_search_value_expression, -3 },
       nir_fp_fast_math,
@@ -3745609,10 +3745923,10 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
    } },
 
    /* ('fdot2_replicated', ('fneg', 'a'), ('fneg', 'b')) => ('fdot2_replicated', 'a', 'b') */
-   /* search3449_0_0 -> 0 in the cache */
-   /* search3449_0 -> 1 in the cache */
-   /* search3449_1_0 -> 2 in the cache */
-   /* search3449_1 -> 3 in the cache */
+   /* search3453_0_0 -> 0 in the cache */
+   /* search3453_0 -> 1 in the cache */
+   /* search3453_1_0 -> 2 in the cache */
+   /* search3453_1 -> 3 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3745625,8 +3745939,8 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
       -1,
    } },
 
-   /* replace3449_0 -> 0 in the cache */
-   /* replace3449_1 -> 2 in the cache */
+   /* replace3453_0 -> 0 in the cache */
+   /* replace3453_1 -> 2 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3745640,10 +3745954,10 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
    } },
 
    /* ('fdot3_replicated', ('fneg', 'a'), ('fneg', 'b')) => ('fdot3_replicated', 'a', 'b') */
-   /* search3450_0_0 -> 0 in the cache */
-   /* search3450_0 -> 1 in the cache */
-   /* search3450_1_0 -> 2 in the cache */
-   /* search3450_1 -> 3 in the cache */
+   /* search3454_0_0 -> 0 in the cache */
+   /* search3454_0 -> 1 in the cache */
+   /* search3454_1_0 -> 2 in the cache */
+   /* search3454_1 -> 3 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3745656,8 +3745970,8 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
       -1,
    } },
 
-   /* replace3450_0 -> 0 in the cache */
-   /* replace3450_1 -> 2 in the cache */
+   /* replace3454_0 -> 0 in the cache */
+   /* replace3454_1 -> 2 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3745671,10 +3745985,10 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
    } },
 
    /* ('fdot4_replicated', ('fneg', 'a'), ('fneg', 'b')) => ('fdot4_replicated', 'a', 'b') */
-   /* search3451_0_0 -> 0 in the cache */
-   /* search3451_0 -> 1 in the cache */
-   /* search3451_1_0 -> 2 in the cache */
-   /* search3451_1 -> 3 in the cache */
+   /* search3455_0_0 -> 0 in the cache */
+   /* search3455_0 -> 1 in the cache */
+   /* search3455_1_0 -> 2 in the cache */
+   /* search3455_1 -> 3 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3745687,8 +3746001,8 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
       -1,
    } },
 
-   /* replace3451_0 -> 0 in the cache */
-   /* replace3451_1 -> 2 in the cache */
+   /* replace3455_0 -> 0 in the cache */
+   /* replace3455_1 -> 2 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3745732,11 +3746046,11 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
       0,
    } },
 
-   /* replace3452 -> 19 in the cache */
+   /* replace3456 -> 19 in the cache */
 
    /* ('fneg', ('fmul(is_used_once)', 'a', 'b')) => ('fmul', ('fneg', 'a'), 'b') */
-   /* search3453_0_0 -> 0 in the cache */
-   /* search3453_0_1 -> 2 in the cache */
+   /* search3457_0_0 -> 0 in the cache */
+   /* search3457_0_1 -> 2 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3745760,9 +3746074,9 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
       -1,
    } },
 
-   /* replace3453_0_0 -> 0 in the cache */
-   /* replace3453_0 -> 1 in the cache */
-   /* replace3453_1 -> 2 in the cache */
+   /* replace3457_0_0 -> 0 in the cache */
+   /* replace3457_0 -> 1 in the cache */
+   /* replace3457_1 -> 2 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3745813,7 +3746127,7 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
       -1,
    } },
 
-   /* replace3454_0_0 -> 25 in the cache */
+   /* replace3458_0_0 -> 25 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3745825,7 +3746139,7 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
       { 25 },
       -1,
    } },
-   /* replace3454_1 -> 26 in the cache */
+   /* replace3458_1 -> 26 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3745839,9 +3746153,9 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
    } },
 
    /* ('fabs', ('fmul(is_used_once)', 'a', 'b')) => ('fmul', ('fabs', 'a'), ('fabs', 'b')) */
-   /* search3455_0_0 -> 0 in the cache */
-   /* search3455_0_1 -> 2 in the cache */
-   /* search3455_0 -> 22 in the cache */
+   /* search3459_0_0 -> 0 in the cache */
+   /* search3459_0_1 -> 2 in the cache */
+   /* search3459_0 -> 22 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3745854,7 +3746168,7 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
       -1,
    } },
 
-   /* replace3455_0_0 -> 0 in the cache */
+   /* replace3459_0_0 -> 0 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3745866,7 +3746180,7 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
       { 0 },
       -1,
    } },
-   /* replace3455_1_0 -> 2 in the cache */
+   /* replace3459_1_0 -> 2 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3745891,9 +3746205,9 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
    } },
 
    /* ('fabs', ('fmul_rtz(is_used_once)', 'a', 'b')) => ('fmul_rtz', ('fabs', 'a'), ('fabs', 'b')) */
-   /* search3456_0_0 -> 25 in the cache */
-   /* search3456_0_1 -> 26 in the cache */
-   /* search3456_0 -> 27 in the cache */
+   /* search3460_0_0 -> 25 in the cache */
+   /* search3460_0_1 -> 26 in the cache */
+   /* search3460_0 -> 27 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3745906,7 +3746220,7 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
       -1,
    } },
 
-   /* replace3456_0_0 -> 25 in the cache */
+   /* replace3460_0_0 -> 25 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3745918,7 +3746232,7 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
       { 25 },
       -1,
    } },
-   /* replace3456_1_0 -> 26 in the cache */
+   /* replace3460_1_0 -> 26 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3745943,9 +3746257,9 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
    } },
 
    /* ('fneg', ('ffma(is_used_once,nsz)', 'a', 'b', 'c')) => ('ffma', ('fneg', 'a'), 'b', ('fneg', 'c')) */
-   /* search3457_0_0 -> 6 in the cache */
-   /* search3457_0_1 -> 8 in the cache */
-   /* search3457_0_2 -> 10 in the cache */
+   /* search3461_0_0 -> 6 in the cache */
+   /* search3461_0_1 -> 8 in the cache */
+   /* search3461_0_2 -> 10 in the cache */
    { .expression = {
       { nir_search_value_expression, -3 },
       nir_fp_preserve_signed_zero,
@@ -3745969,10 +3746283,10 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
       -1,
    } },
 
-   /* replace3457_0_0 -> 6 in the cache */
-   /* replace3457_0 -> 7 in the cache */
-   /* replace3457_1 -> 8 in the cache */
-   /* replace3457_2_0 -> 10 in the cache */
+   /* replace3461_0_0 -> 6 in the cache */
+   /* replace3461_0 -> 7 in the cache */
+   /* replace3461_1 -> 8 in the cache */
+   /* replace3461_2_0 -> 10 in the cache */
    { .expression = {
       { nir_search_value_expression, -3 },
       nir_fp_fast_math,
@@ -3745997,9 +3746311,9 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
    } },
 
    /* ('fneg', ('flrp(is_used_once)', 'a', 'b', 'c')) => ('flrp', ('fneg', 'a'), ('fneg', 'b'), 'c') */
-   /* search3458_0_0 -> 6 in the cache */
-   /* search3458_0_1 -> 8 in the cache */
-   /* search3458_0_2 -> 10 in the cache */
+   /* search3462_0_0 -> 6 in the cache */
+   /* search3462_0_1 -> 8 in the cache */
+   /* search3462_0_2 -> 10 in the cache */
    { .expression = {
       { nir_search_value_expression, -3 },
       nir_fp_fast_math,
@@ -3746023,11 +3746337,11 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
       -1,
    } },
 
-   /* replace3458_0_0 -> 6 in the cache */
-   /* replace3458_0 -> 7 in the cache */
-   /* replace3458_1_0 -> 8 in the cache */
-   /* replace3458_1 -> 9 in the cache */
-   /* replace3458_2 -> 10 in the cache */
+   /* replace3462_0_0 -> 6 in the cache */
+   /* replace3462_0 -> 7 in the cache */
+   /* replace3462_1_0 -> 8 in the cache */
+   /* replace3462_1 -> 9 in the cache */
+   /* replace3462_2 -> 10 in the cache */
    { .expression = {
       { nir_search_value_expression, -3 },
       nir_fp_fast_math,
@@ -3746041,8 +3746355,8 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
    } },
 
    /* ('fneg', ('fadd(is_used_once,nsz)', 'a', 'b')) => ('fadd', ('fneg', 'a'), ('fneg', 'b')) */
-   /* search3459_0_0 -> 0 in the cache */
-   /* search3459_0_1 -> 2 in the cache */
+   /* search3463_0_0 -> 0 in the cache */
+   /* search3463_0_1 -> 2 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_preserve_signed_zero,
@@ -3746066,10 +3746380,10 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
       -1,
    } },
 
-   /* replace3459_0_0 -> 0 in the cache */
-   /* replace3459_0 -> 1 in the cache */
-   /* replace3459_1_0 -> 2 in the cache */
-   /* replace3459_1 -> 3 in the cache */
+   /* replace3463_0_0 -> 0 in the cache */
+   /* replace3463_0 -> 1 in the cache */
+   /* replace3463_1_0 -> 2 in the cache */
+   /* replace3463_1 -> 3 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3746083,8 +3746397,8 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
    } },
 
    /* ('fneg', ('fmin(is_used_once)', 'a', 'b')) => ('fmax', ('fneg', 'a'), ('fneg', 'b')) */
-   /* search3460_0_0 -> 0 in the cache */
-   /* search3460_0_1 -> 2 in the cache */
+   /* search3464_0_0 -> 0 in the cache */
+   /* search3464_0_1 -> 2 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3746108,10 +3746422,10 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
       -1,
    } },
 
-   /* replace3460_0_0 -> 0 in the cache */
-   /* replace3460_0 -> 1 in the cache */
-   /* replace3460_1_0 -> 2 in the cache */
-   /* replace3460_1 -> 3 in the cache */
+   /* replace3464_0_0 -> 0 in the cache */
+   /* replace3464_0 -> 1 in the cache */
+   /* replace3464_1_0 -> 2 in the cache */
+   /* replace3464_1 -> 3 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3746125,8 +3746439,8 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
    } },
 
    /* ('fneg', ('fmax(is_used_once)', 'a', 'b')) => ('fmin', ('fneg', 'a'), ('fneg', 'b')) */
-   /* search3461_0_0 -> 0 in the cache */
-   /* search3461_0_1 -> 2 in the cache */
+   /* search3465_0_0 -> 0 in the cache */
+   /* search3465_0_1 -> 2 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3746150,10 +3746464,10 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
       -1,
    } },
 
-   /* replace3461_0_0 -> 0 in the cache */
-   /* replace3461_0 -> 1 in the cache */
-   /* replace3461_1_0 -> 2 in the cache */
-   /* replace3461_1 -> 3 in the cache */
+   /* replace3465_0_0 -> 0 in the cache */
+   /* replace3465_0 -> 1 in the cache */
+   /* replace3465_1_0 -> 2 in the cache */
+   /* replace3465_1 -> 3 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3746167,8 +3746481,8 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
    } },
 
    /* ('fneg', ('fdot2_replicated(is_used_once)', 'a', 'b')) => ('fdot2_replicated', ('fneg', 'a'), 'b') */
-   /* search3462_0_0 -> 0 in the cache */
-   /* search3462_0_1 -> 2 in the cache */
+   /* search3466_0_0 -> 0 in the cache */
+   /* search3466_0_1 -> 2 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3746192,9 +3746506,9 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
       -1,
    } },
 
-   /* replace3462_0_0 -> 0 in the cache */
-   /* replace3462_0 -> 1 in the cache */
-   /* replace3462_1 -> 2 in the cache */
+   /* replace3466_0_0 -> 0 in the cache */
+   /* replace3466_0 -> 1 in the cache */
+   /* replace3466_1 -> 2 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3746208,8 +3746522,8 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
    } },
 
    /* ('fneg', ('fdot3_replicated(is_used_once)', 'a', 'b')) => ('fdot3_replicated', ('fneg', 'a'), 'b') */
-   /* search3463_0_0 -> 0 in the cache */
-   /* search3463_0_1 -> 2 in the cache */
+   /* search3467_0_0 -> 0 in the cache */
+   /* search3467_0_1 -> 2 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3746233,9 +3746547,9 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
       -1,
    } },
 
-   /* replace3463_0_0 -> 0 in the cache */
-   /* replace3463_0 -> 1 in the cache */
-   /* replace3463_1 -> 2 in the cache */
+   /* replace3467_0_0 -> 0 in the cache */
+   /* replace3467_0 -> 1 in the cache */
+   /* replace3467_1 -> 2 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3746249,8 +3746563,8 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
    } },
 
    /* ('fneg', ('fdot4_replicated(is_used_once)', 'a', 'b')) => ('fdot4_replicated', ('fneg', 'a'), 'b') */
-   /* search3464_0_0 -> 0 in the cache */
-   /* search3464_0_1 -> 2 in the cache */
+   /* search3468_0_0 -> 0 in the cache */
+   /* search3468_0_1 -> 2 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3746274,9 +3746588,9 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
       -1,
    } },
 
-   /* replace3464_0_0 -> 0 in the cache */
-   /* replace3464_0 -> 1 in the cache */
-   /* replace3464_1 -> 2 in the cache */
+   /* replace3468_0_0 -> 0 in the cache */
+   /* replace3468_0 -> 1 in the cache */
+   /* replace3468_1 -> 2 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3746290,8 +3746604,8 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
    } },
 
    /* ('fneg', ('fdph_replicated(is_used_once)', 'a', 'b')) => ('fdph_replicated', 'a', ('fneg', 'b')) */
-   /* search3465_0_0 -> 0 in the cache */
-   /* search3465_0_1 -> 2 in the cache */
+   /* search3469_0_0 -> 0 in the cache */
+   /* search3469_0_1 -> 2 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3746315,9 +3746629,9 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
       -1,
    } },
 
-   /* replace3465_0 -> 0 in the cache */
-   /* replace3465_1_0 -> 2 in the cache */
-   /* replace3465_1 -> 3 in the cache */
+   /* replace3469_0 -> 0 in the cache */
+   /* replace3469_1_0 -> 2 in the cache */
+   /* replace3469_1 -> 3 in the cache */
    { .expression = {
       { nir_search_value_expression, -2 },
       nir_fp_fast_math,
@@ -3746331,7 +3746645,7 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
    } },
 
    /* ('fneg', ('fsign(is_used_once)', 'a')) => ('fsign', ('fneg', 'a')) */
-   /* search3466_0_0 -> 19 in the cache */
+   /* search3470_0_0 -> 19 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3746355,8 +3746669,8 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
       -1,
    } },
 
-   /* replace3466_0_0 -> 19 in the cache */
-   /* replace3466_0 -> 20 in the cache */
+   /* replace3470_0_0 -> 19 in the cache */
+   /* replace3470_0 -> 20 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3746370,8 +3746684,8 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
    } },
 
    /* ('fabs', ('fsign(is_used_once)', 'a')) => ('fsign', ('fabs', 'a')) */
-   /* search3467_0_0 -> 19 in the cache */
-   /* search3467_0 -> 67 in the cache */
+   /* search3471_0_0 -> 19 in the cache */
+   /* search3471_0 -> 67 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3746384,7 +3746698,7 @@ static const nir_search_value_union nir_opt_algebraic_distribute_src_mods_values
       -1,
    } },
 
-   /* replace3467_0_0 -> 19 in the cache */
+   /* replace3471_0_0 -> 19 in the cache */
    { .expression = {
       { nir_search_value_expression, -1 },
       nir_fp_fast_math,
@@ -3747150,29 +3747464,29 @@ nir_opt_algebraic_distribute_src_mods(
    condition_flags[179] = options->has_ford_funord;
    condition_flags[180] = options->has_imad32;
    condition_flags[181] = options->has_iadd3;
-   condition_flags[182] = options->has_f2i_sat;
-   condition_flags[183] = options->has_f2u_sat;
-   condition_flags[184] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma);
-   condition_flags[185] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
-   condition_flags[186] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad);
-   condition_flags[187] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
-   condition_flags[188] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma);
-   condition_flags[189] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
-   condition_flags[190] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad);
-   condition_flags[191] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
-   condition_flags[192] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32));
-   condition_flags[193] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32)) && !options->avoid_ternary_with_fabs;
-   condition_flags[194] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma);
-   condition_flags[195] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
-   condition_flags[196] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad);
-   condition_flags[197] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
-   condition_flags[198] = options->has_fsub;
-   condition_flags[199] = options->has_fsub && !(options->lower_doubles_options & nir_lower_dsub);
-   condition_flags[200] = options->lower_fneg;
-   condition_flags[201] = options->has_isub || options->lower_ineg;
-   condition_flags[202] = options->lower_ineg;
-   condition_flags[203] = options->lower_iabs;
-   condition_flags[204] = options->has_iadd3 && !(options->lower_int64_options & nir_lower_iadd3_64);
+   condition_flags[182] = options->has_iadd3 && !(options->lower_int64_options & nir_lower_iadd3_64);
+   condition_flags[183] = options->has_f2i_sat;
+   condition_flags[184] = options->has_f2u_sat;
+   condition_flags[185] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma);
+   condition_flags[186] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
+   condition_flags[187] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad);
+   condition_flags[188] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
+   condition_flags[189] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma);
+   condition_flags[190] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
+   condition_flags[191] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad);
+   condition_flags[192] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
+   condition_flags[193] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32));
+   condition_flags[194] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32)) && !options->avoid_ternary_with_fabs;
+   condition_flags[195] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma);
+   condition_flags[196] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
+   condition_flags[197] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad);
+   condition_flags[198] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
+   condition_flags[199] = options->has_fsub;
+   condition_flags[200] = options->has_fsub && !(options->lower_doubles_options & nir_lower_dsub);
+   condition_flags[201] = options->lower_fneg;
+   condition_flags[202] = options->has_isub || options->lower_ineg;
+   condition_flags[203] = options->lower_ineg;
+   condition_flags[204] = options->lower_iabs;
    condition_flags[205] = options->fdot_replicates;
    condition_flags[206] = options->lower_fround_even;
    condition_flags[207] = (info->stage != MESA_SHADER_VERTEX && info->stage != MESA_SHADER_GEOMETRY) && !options->intel_vec4;
@@ -3747257,7 +3747571,7 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
       -1,
    } },
 
-   /* replace3468_0_0 -> 0 in the cache */
+   /* replace3472_0_0 -> 0 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3747282,7 +3747596,7 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
    } },
 
    /* ('u2u8', ('inot', 'a@32')) => ('inot', ('u2u8', 'a')) */
-   /* search3469_0_0 -> 0 in the cache */
+   /* search3473_0_0 -> 0 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3747306,8 +3747620,8 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
       -1,
    } },
 
-   /* replace3469_0_0 -> 0 in the cache */
-   /* replace3469_0 -> 3 in the cache */
+   /* replace3473_0_0 -> 0 in the cache */
+   /* replace3473_0 -> 3 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3747321,7 +3747635,7 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
    } },
 
    /* ('u2u8', ('iadd', 'a@32', 'b@32')) => ('iadd', ('u2u8', 'a'), ('u2u8', 'b')) */
-   /* search3470_0_0 -> 0 in the cache */
+   /* search3474_0_0 -> 0 in the cache */
    { .variable = {
       { nir_search_value_variable, 32 },
       1, /* b */
@@ -3747352,9 +3747666,9 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
       -1,
    } },
 
-   /* replace3470_0_0 -> 0 in the cache */
-   /* replace3470_0 -> 3 in the cache */
-   /* replace3470_1_0 -> 8 in the cache */
+   /* replace3474_0_0 -> 0 in the cache */
+   /* replace3474_0 -> 3 in the cache */
+   /* replace3474_1_0 -> 8 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3747379,8 +3747693,8 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
    } },
 
    /* ('u2u8', ('imul', 'a@32', 'b@32')) => ('imul', ('u2u8', 'a'), ('u2u8', 'b')) */
-   /* search3471_0_0 -> 0 in the cache */
-   /* search3471_0_1 -> 8 in the cache */
+   /* search3475_0_0 -> 0 in the cache */
+   /* search3475_0_1 -> 8 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3747404,10 +3747718,10 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
       -1,
    } },
 
-   /* replace3471_0_0 -> 0 in the cache */
-   /* replace3471_0 -> 3 in the cache */
-   /* replace3471_1_0 -> 8 in the cache */
-   /* replace3471_1 -> 11 in the cache */
+   /* replace3475_0_0 -> 0 in the cache */
+   /* replace3475_0 -> 3 in the cache */
+   /* replace3475_1_0 -> 8 in the cache */
+   /* replace3475_1 -> 11 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3747421,8 +3747735,8 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
    } },
 
    /* ('u2u8', ('iand', 'a@32', 'b@32')) => ('iand', ('u2u8', 'a'), ('u2u8', 'b')) */
-   /* search3472_0_0 -> 0 in the cache */
-   /* search3472_0_1 -> 8 in the cache */
+   /* search3476_0_0 -> 0 in the cache */
+   /* search3476_0_1 -> 8 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3747446,10 +3747760,10 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
       -1,
    } },
 
-   /* replace3472_0_0 -> 0 in the cache */
-   /* replace3472_0 -> 3 in the cache */
-   /* replace3472_1_0 -> 8 in the cache */
-   /* replace3472_1 -> 11 in the cache */
+   /* replace3476_0_0 -> 0 in the cache */
+   /* replace3476_0 -> 3 in the cache */
+   /* replace3476_1_0 -> 8 in the cache */
+   /* replace3476_1 -> 11 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3747463,8 +3747777,8 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
    } },
 
    /* ('u2u8', ('ior', 'a@32', 'b@32')) => ('ior', ('u2u8', 'a'), ('u2u8', 'b')) */
-   /* search3473_0_0 -> 0 in the cache */
-   /* search3473_0_1 -> 8 in the cache */
+   /* search3477_0_0 -> 0 in the cache */
+   /* search3477_0_1 -> 8 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3747488,10 +3747802,10 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
       -1,
    } },
 
-   /* replace3473_0_0 -> 0 in the cache */
-   /* replace3473_0 -> 3 in the cache */
-   /* replace3473_1_0 -> 8 in the cache */
-   /* replace3473_1 -> 11 in the cache */
+   /* replace3477_0_0 -> 0 in the cache */
+   /* replace3477_0 -> 3 in the cache */
+   /* replace3477_1_0 -> 8 in the cache */
+   /* replace3477_1 -> 11 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3747505,8 +3747819,8 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
    } },
 
    /* ('u2u8', ('ixor', 'a@32', 'b@32')) => ('ixor', ('u2u8', 'a'), ('u2u8', 'b')) */
-   /* search3474_0_0 -> 0 in the cache */
-   /* search3474_0_1 -> 8 in the cache */
+   /* search3478_0_0 -> 0 in the cache */
+   /* search3478_0_1 -> 8 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3747530,10 +3747844,10 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
       -1,
    } },
 
-   /* replace3474_0_0 -> 0 in the cache */
-   /* replace3474_0 -> 3 in the cache */
-   /* replace3474_1_0 -> 8 in the cache */
-   /* replace3474_1 -> 11 in the cache */
+   /* replace3478_0_0 -> 0 in the cache */
+   /* replace3478_0 -> 3 in the cache */
+   /* replace3478_1_0 -> 8 in the cache */
+   /* replace3478_1 -> 11 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3747606,8 +3747920,8 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
       -1,
    } },
 
-   /* replace3475_0 -> 25 in the cache */
-   /* replace3475_1 -> 27 in the cache */
+   /* replace3479_0 -> 25 in the cache */
+   /* replace3479_1 -> 27 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3747621,10 +3747935,10 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
    } },
 
    /* ('u2u8', ('irem', ('i2i32', 'a@8'), ('i2i32', 'b@8'))) => ('irem', 'a', 'b') */
-   /* search3476_0_0_0 -> 25 in the cache */
-   /* search3476_0_0 -> 26 in the cache */
-   /* search3476_0_1_0 -> 27 in the cache */
-   /* search3476_0_1 -> 28 in the cache */
+   /* search3480_0_0_0 -> 25 in the cache */
+   /* search3480_0_0 -> 26 in the cache */
+   /* search3480_0_1_0 -> 27 in the cache */
+   /* search3480_0_1 -> 28 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3747648,8 +3747962,8 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
       -1,
    } },
 
-   /* replace3476_0 -> 25 in the cache */
-   /* replace3476_1 -> 27 in the cache */
+   /* replace3480_0 -> 25 in the cache */
+   /* replace3480_1 -> 27 in the cache */
    { .expression = {
       { nir_search_value_expression, 8 },
       nir_fp_fast_math,
@@ -3747663,8 +3747977,8 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
    } },
 
    /* ('u2u16', ('ineg', 'a@32')) => ('ineg', ('u2u16', 'a')) */
-   /* search3477_0_0 -> 0 in the cache */
-   /* search3477_0 -> 1 in the cache */
+   /* search3481_0_0 -> 0 in the cache */
+   /* search3481_0 -> 1 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3747677,7 +3747991,7 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
       -1,
    } },
 
-   /* replace3477_0_0 -> 0 in the cache */
+   /* replace3481_0_0 -> 0 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3747702,8 +3748016,8 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
    } },
 
    /* ('u2u16', ('inot', 'a@32')) => ('inot', ('u2u16', 'a')) */
-   /* search3478_0_0 -> 0 in the cache */
-   /* search3478_0 -> 5 in the cache */
+   /* search3482_0_0 -> 0 in the cache */
+   /* search3482_0 -> 5 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3747716,8 +3748030,8 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
       -1,
    } },
 
-   /* replace3478_0_0 -> 0 in the cache */
-   /* replace3478_0 -> 36 in the cache */
+   /* replace3482_0_0 -> 0 in the cache */
+   /* replace3482_0 -> 36 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3747731,9 +3748045,9 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
    } },
 
    /* ('u2u16', ('iadd', 'a@32', 'b@32')) => ('iadd', ('u2u16', 'a'), ('u2u16', 'b')) */
-   /* search3479_0_0 -> 0 in the cache */
-   /* search3479_0_1 -> 8 in the cache */
-   /* search3479_0 -> 9 in the cache */
+   /* search3483_0_0 -> 0 in the cache */
+   /* search3483_0_1 -> 8 in the cache */
+   /* search3483_0 -> 9 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3747746,9 +3748060,9 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
       -1,
    } },
 
-   /* replace3479_0_0 -> 0 in the cache */
-   /* replace3479_0 -> 36 in the cache */
-   /* replace3479_1_0 -> 8 in the cache */
+   /* replace3483_0_0 -> 0 in the cache */
+   /* replace3483_0 -> 36 in the cache */
+   /* replace3483_1_0 -> 8 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3747773,9 +3748087,9 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
    } },
 
    /* ('u2u16', ('imul', 'a@32', 'b@32')) => ('imul', ('u2u16', 'a'), ('u2u16', 'b')) */
-   /* search3480_0_0 -> 0 in the cache */
-   /* search3480_0_1 -> 8 in the cache */
-   /* search3480_0 -> 13 in the cache */
+   /* search3484_0_0 -> 0 in the cache */
+   /* search3484_0_1 -> 8 in the cache */
+   /* search3484_0 -> 13 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3747788,10 +3748102,10 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
       -1,
    } },
 
-   /* replace3480_0_0 -> 0 in the cache */
-   /* replace3480_0 -> 36 in the cache */
-   /* replace3480_1_0 -> 8 in the cache */
-   /* replace3480_1 -> 41 in the cache */
+   /* replace3484_0_0 -> 0 in the cache */
+   /* replace3484_0 -> 36 in the cache */
+   /* replace3484_1_0 -> 8 in the cache */
+   /* replace3484_1 -> 41 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3747805,9 +3748119,9 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
    } },
 
    /* ('u2u16', ('iand', 'a@32', 'b@32')) => ('iand', ('u2u16', 'a'), ('u2u16', 'b')) */
-   /* search3481_0_0 -> 0 in the cache */
-   /* search3481_0_1 -> 8 in the cache */
-   /* search3481_0 -> 16 in the cache */
+   /* search3485_0_0 -> 0 in the cache */
+   /* search3485_0_1 -> 8 in the cache */
+   /* search3485_0 -> 16 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3747820,10 +3748134,10 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
       -1,
    } },
 
-   /* replace3481_0_0 -> 0 in the cache */
-   /* replace3481_0 -> 36 in the cache */
-   /* replace3481_1_0 -> 8 in the cache */
-   /* replace3481_1 -> 41 in the cache */
+   /* replace3485_0_0 -> 0 in the cache */
+   /* replace3485_0 -> 36 in the cache */
+   /* replace3485_1_0 -> 8 in the cache */
+   /* replace3485_1 -> 41 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3747837,9 +3748151,9 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
    } },
 
    /* ('u2u16', ('ior', 'a@32', 'b@32')) => ('ior', ('u2u16', 'a'), ('u2u16', 'b')) */
-   /* search3482_0_0 -> 0 in the cache */
-   /* search3482_0_1 -> 8 in the cache */
-   /* search3482_0 -> 19 in the cache */
+   /* search3486_0_0 -> 0 in the cache */
+   /* search3486_0_1 -> 8 in the cache */
+   /* search3486_0 -> 19 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3747852,10 +3748166,10 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
       -1,
    } },
 
-   /* replace3482_0_0 -> 0 in the cache */
-   /* replace3482_0 -> 36 in the cache */
-   /* replace3482_1_0 -> 8 in the cache */
-   /* replace3482_1 -> 41 in the cache */
+   /* replace3486_0_0 -> 0 in the cache */
+   /* replace3486_0 -> 36 in the cache */
+   /* replace3486_1_0 -> 8 in the cache */
+   /* replace3486_1 -> 41 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3747869,9 +3748183,9 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
    } },
 
    /* ('u2u16', ('ixor', 'a@32', 'b@32')) => ('ixor', ('u2u16', 'a'), ('u2u16', 'b')) */
-   /* search3483_0_0 -> 0 in the cache */
-   /* search3483_0_1 -> 8 in the cache */
-   /* search3483_0 -> 22 in the cache */
+   /* search3487_0_0 -> 0 in the cache */
+   /* search3487_0_1 -> 8 in the cache */
+   /* search3487_0 -> 22 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3747884,10 +3748198,10 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
       -1,
    } },
 
-   /* replace3483_0_0 -> 0 in the cache */
-   /* replace3483_0 -> 36 in the cache */
-   /* replace3483_1_0 -> 8 in the cache */
-   /* replace3483_1 -> 41 in the cache */
+   /* replace3487_0_0 -> 0 in the cache */
+   /* replace3487_0 -> 36 in the cache */
+   /* replace3487_1_0 -> 8 in the cache */
+   /* replace3487_1 -> 41 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3747960,8 +3748274,8 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
       -1,
    } },
 
-   /* replace3484_0 -> 51 in the cache */
-   /* replace3484_1 -> 53 in the cache */
+   /* replace3488_0 -> 51 in the cache */
+   /* replace3488_1 -> 53 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3747975,10 +3748289,10 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
    } },
 
    /* ('u2u16', ('irem', ('i2i32', 'a@16'), ('i2i32', 'b@16'))) => ('irem', 'a', 'b') */
-   /* search3485_0_0_0 -> 51 in the cache */
-   /* search3485_0_0 -> 52 in the cache */
-   /* search3485_0_1_0 -> 53 in the cache */
-   /* search3485_0_1 -> 54 in the cache */
+   /* search3489_0_0_0 -> 51 in the cache */
+   /* search3489_0_0 -> 52 in the cache */
+   /* search3489_0_1_0 -> 53 in the cache */
+   /* search3489_0_1 -> 54 in the cache */
    { .expression = {
       { nir_search_value_expression, 32 },
       nir_fp_fast_math,
@@ -3748002,8 +3748316,8 @@ static const nir_search_value_union nir_opt_algebraic_integer_promotion_values[]
       -1,
    } },
 
-   /* replace3485_0 -> 51 in the cache */
-   /* replace3485_1 -> 53 in the cache */
+   /* replace3489_0 -> 51 in the cache */
+   /* replace3489_1 -> 53 in the cache */
    { .expression = {
       { nir_search_value_expression, 16 },
       nir_fp_fast_math,
@@ -3748472,29 +3748786,29 @@ nir_opt_algebraic_integer_promotion(
    condition_flags[179] = options->has_ford_funord;
    condition_flags[180] = options->has_imad32;
    condition_flags[181] = options->has_iadd3;
-   condition_flags[182] = options->has_f2i_sat;
-   condition_flags[183] = options->has_f2u_sat;
-   condition_flags[184] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma);
-   condition_flags[185] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
-   condition_flags[186] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad);
-   condition_flags[187] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
-   condition_flags[188] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma);
-   condition_flags[189] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
-   condition_flags[190] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad);
-   condition_flags[191] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
-   condition_flags[192] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32));
-   condition_flags[193] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32)) && !options->avoid_ternary_with_fabs;
-   condition_flags[194] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma);
-   condition_flags[195] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
-   condition_flags[196] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad);
-   condition_flags[197] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
-   condition_flags[198] = options->has_fsub;
-   condition_flags[199] = options->has_fsub && !(options->lower_doubles_options & nir_lower_dsub);
-   condition_flags[200] = options->lower_fneg;
-   condition_flags[201] = options->has_isub || options->lower_ineg;
-   condition_flags[202] = options->lower_ineg;
-   condition_flags[203] = options->lower_iabs;
-   condition_flags[204] = options->has_iadd3 && !(options->lower_int64_options & nir_lower_iadd3_64);
+   condition_flags[182] = options->has_iadd3 && !(options->lower_int64_options & nir_lower_iadd3_64);
+   condition_flags[183] = options->has_f2i_sat;
+   condition_flags[184] = options->has_f2u_sat;
+   condition_flags[185] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma);
+   condition_flags[186] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
+   condition_flags[187] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad);
+   condition_flags[188] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
+   condition_flags[189] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma);
+   condition_flags[190] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
+   condition_flags[191] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad);
+   condition_flags[192] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
+   condition_flags[193] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32));
+   condition_flags[194] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32)) && !options->avoid_ternary_with_fabs;
+   condition_flags[195] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma);
+   condition_flags[196] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
+   condition_flags[197] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad);
+   condition_flags[198] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
+   condition_flags[199] = options->has_fsub;
+   condition_flags[200] = options->has_fsub && !(options->lower_doubles_options & nir_lower_dsub);
+   condition_flags[201] = options->lower_fneg;
+   condition_flags[202] = options->has_isub || options->lower_ineg;
+   condition_flags[203] = options->lower_ineg;
+   condition_flags[204] = options->lower_iabs;
    condition_flags[205] = options->fdot_replicates;
    condition_flags[206] = options->lower_fround_even;
    condition_flags[207] = (info->stage != MESA_SHADER_VERTEX && info->stage != MESA_SHADER_GEOMETRY) && !options->intel_vec4;
@@ -3748690,7 +3749004,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 14, 15 },
       -1,
    } },
-   /* search3486_0_0_1_0_0_0_0_0 -> 0 in the cache */
+   /* search3490_0_0_1_0_0_0_0_0 -> 0 in the cache */
    { .variable = {
       { nir_search_value_variable, -24 },
       9, /* r */
@@ -3748709,7 +3749023,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 0, 17 },
       -1,
    } },
-   /* search3486_0_0_1_0_0_0_1_0 -> 3 in the cache */
+   /* search3490_0_0_1_0_0_0_1_0 -> 3 in the cache */
    { .variable = {
       { nir_search_value_variable, -24 },
       10, /* v */
@@ -3748739,7 +3749053,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 18, 20 },
       -1,
    } },
-   /* search3486_0_0_1_0_0_1_0 -> 7 in the cache */
+   /* search3490_0_0_1_0_0_1_0 -> 7 in the cache */
    { .variable = {
       { nir_search_value_variable, -24 },
       11, /* z */
@@ -3748769,7 +3749083,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 21, 23 },
       -1,
    } },
-   /* search3486_0_0_1_0_1_0 -> 11 in the cache */
+   /* search3490_0_0_1_0_1_0 -> 11 in the cache */
    { .variable = {
       { nir_search_value_variable, -24 },
       12, /* dd */
@@ -3748828,7 +3749142,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 16, 29 },
       -1,
    } },
-   /* search3486_0_1_0_0_0_0_0 -> 0 in the cache */
+   /* search3490_0_1_0_0_0_0_0 -> 0 in the cache */
    { .variable = {
       { nir_search_value_variable, -24 },
       14, /* s */
@@ -3748847,7 +3749161,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 0, 31 },
       -1,
    } },
-   /* search3486_0_1_0_0_0_1_0 -> 3 in the cache */
+   /* search3490_0_1_0_0_0_1_0 -> 3 in the cache */
    { .variable = {
       { nir_search_value_variable, -24 },
       15, /* w */
@@ -3748877,7 +3749191,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 32, 34 },
       -1,
    } },
-   /* search3486_0_1_0_0_1_0 -> 7 in the cache */
+   /* search3490_0_1_0_0_1_0 -> 7 in the cache */
    { .variable = {
       { nir_search_value_variable, -24 },
       16, /* aa */
@@ -3748907,7 +3749221,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 35, 37 },
       -1,
    } },
-   /* search3486_0_1_0_1_0 -> 11 in the cache */
+   /* search3490_0_1_0_1_0 -> 11 in the cache */
    { .variable = {
       { nir_search_value_variable, -24 },
       17, /* ee */
@@ -3748966,7 +3749280,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 30, 43 },
       -1,
    } },
-   /* search3486_1_0_0_0_0_0 -> 0 in the cache */
+   /* search3490_1_0_0_0_0_0 -> 0 in the cache */
    { .variable = {
       { nir_search_value_variable, -24 },
       19, /* t */
@@ -3748985,7 +3749299,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 0, 45 },
       -1,
    } },
-   /* search3486_1_0_0_0_1_0 -> 3 in the cache */
+   /* search3490_1_0_0_0_1_0 -> 3 in the cache */
    { .variable = {
       { nir_search_value_variable, -24 },
       20, /* x */
@@ -3749015,7 +3749329,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 46, 48 },
       -1,
    } },
-   /* search3486_1_0_0_1_0 -> 7 in the cache */
+   /* search3490_1_0_0_1_0 -> 7 in the cache */
    { .variable = {
       { nir_search_value_variable, -24 },
       21, /* bb */
@@ -3749045,7 +3749359,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 49, 51 },
       -1,
    } },
-   /* search3486_1_0_1_0 -> 11 in the cache */
+   /* search3490_1_0_1_0 -> 11 in the cache */
    { .variable = {
       { nir_search_value_variable, -24 },
       22, /* ff */
@@ -3749105,8 +3749419,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       -1,
    } },
 
-   /* replace3486_0_0_0_0_0_0_0_0 -> 1 in the cache */
-   /* replace3486_0_0_0_0_0_0_0_1 -> 15 in the cache */
+   /* replace3490_0_0_0_0_0_0_0_0 -> 1 in the cache */
+   /* replace3490_0_0_0_0_0_0_0_1 -> 15 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3749118,8 +3749432,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 1, 15 },
       -1,
    } },
-   /* replace3486_0_0_0_0_0_0_1_0 -> 17 in the cache */
-   /* replace3486_0_0_0_0_0_0_1_1 -> 28 in the cache */
+   /* replace3490_0_0_0_0_0_0_1_0 -> 17 in the cache */
+   /* replace3490_0_0_0_0_0_0_1_1 -> 28 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3749142,8 +3749456,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 59, 60 },
       -1,
    } },
-   /* replace3486_0_0_0_0_0_1_0 -> 31 in the cache */
-   /* replace3486_0_0_0_0_0_1_1 -> 42 in the cache */
+   /* replace3490_0_0_0_0_0_1_0 -> 31 in the cache */
+   /* replace3490_0_0_0_0_0_1_1 -> 42 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3749166,8 +3749480,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 61, 62 },
       -1,
    } },
-   /* replace3486_0_0_0_0_1_0 -> 45 in the cache */
-   /* replace3486_0_0_0_0_1_1 -> 56 in the cache */
+   /* replace3490_0_0_0_0_1_0 -> 45 in the cache */
+   /* replace3490_0_0_0_0_1_1 -> 56 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3749190,7 +3749504,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 63, 64 },
       -1,
    } },
-   /* replace3486_0_0_0_1 -> 0 in the cache */
+   /* replace3490_0_0_0_1 -> 0 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3749202,8 +3749516,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 65, 0 },
       -1,
    } },
-   /* replace3486_0_0_1_0_0_0_0_0 -> 4 in the cache */
-   /* replace3486_0_0_1_0_0_0_0_1 -> 15 in the cache */
+   /* replace3490_0_0_1_0_0_0_0_0 -> 4 in the cache */
+   /* replace3490_0_0_1_0_0_0_0_1 -> 15 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3749215,8 +3749529,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 4, 15 },
       -1,
    } },
-   /* replace3486_0_0_1_0_0_0_1_0 -> 19 in the cache */
-   /* replace3486_0_0_1_0_0_0_1_1 -> 28 in the cache */
+   /* replace3490_0_0_1_0_0_0_1_0 -> 19 in the cache */
+   /* replace3490_0_0_1_0_0_0_1_1 -> 28 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3749239,8 +3749553,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 67, 68 },
       -1,
    } },
-   /* replace3486_0_0_1_0_0_1_0 -> 33 in the cache */
-   /* replace3486_0_0_1_0_0_1_1 -> 42 in the cache */
+   /* replace3490_0_0_1_0_0_1_0 -> 33 in the cache */
+   /* replace3490_0_0_1_0_0_1_1 -> 42 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3749263,8 +3749577,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 69, 70 },
       -1,
    } },
-   /* replace3486_0_0_1_0_1_0 -> 47 in the cache */
-   /* replace3486_0_0_1_0_1_1 -> 56 in the cache */
+   /* replace3490_0_0_1_0_1_0 -> 47 in the cache */
+   /* replace3490_0_0_1_0_1_1 -> 56 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3749287,7 +3749601,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 71, 72 },
       -1,
    } },
-   /* replace3486_0_0_1_1 -> 3 in the cache */
+   /* replace3490_0_0_1_1 -> 3 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3749310,8 +3749624,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 66, 74 },
       -1,
    } },
-   /* replace3486_0_1_0_0_0_0_0 -> 8 in the cache */
-   /* replace3486_0_1_0_0_0_0_1 -> 15 in the cache */
+   /* replace3490_0_1_0_0_0_0_0 -> 8 in the cache */
+   /* replace3490_0_1_0_0_0_0_1 -> 15 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3749323,8 +3749637,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 8, 15 },
       -1,
    } },
-   /* replace3486_0_1_0_0_0_1_0 -> 22 in the cache */
-   /* replace3486_0_1_0_0_0_1_1 -> 28 in the cache */
+   /* replace3490_0_1_0_0_0_1_0 -> 22 in the cache */
+   /* replace3490_0_1_0_0_0_1_1 -> 28 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3749347,8 +3749661,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 76, 77 },
       -1,
    } },
-   /* replace3486_0_1_0_0_1_0 -> 36 in the cache */
-   /* replace3486_0_1_0_0_1_1 -> 42 in the cache */
+   /* replace3490_0_1_0_0_1_0 -> 36 in the cache */
+   /* replace3490_0_1_0_0_1_1 -> 42 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3749371,8 +3749685,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 78, 79 },
       -1,
    } },
-   /* replace3486_0_1_0_1_0 -> 50 in the cache */
-   /* replace3486_0_1_0_1_1 -> 56 in the cache */
+   /* replace3490_0_1_0_1_0 -> 50 in the cache */
+   /* replace3490_0_1_0_1_1 -> 56 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3749395,7 +3749709,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 80, 81 },
       -1,
    } },
-   /* replace3486_0_1_1 -> 7 in the cache */
+   /* replace3490_0_1_1 -> 7 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3749418,8 +3749732,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 75, 83 },
       -1,
    } },
-   /* replace3486_1_0_0_0_0_0 -> 12 in the cache */
-   /* replace3486_1_0_0_0_0_1 -> 15 in the cache */
+   /* replace3490_1_0_0_0_0_0 -> 12 in the cache */
+   /* replace3490_1_0_0_0_0_1 -> 15 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3749431,8 +3749745,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 12, 15 },
       -1,
    } },
-   /* replace3486_1_0_0_0_1_0 -> 25 in the cache */
-   /* replace3486_1_0_0_0_1_1 -> 28 in the cache */
+   /* replace3490_1_0_0_0_1_0 -> 25 in the cache */
+   /* replace3490_1_0_0_0_1_1 -> 28 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3749455,8 +3749769,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 85, 86 },
       -1,
    } },
-   /* replace3486_1_0_0_1_0 -> 39 in the cache */
-   /* replace3486_1_0_0_1_1 -> 42 in the cache */
+   /* replace3490_1_0_0_1_0 -> 39 in the cache */
+   /* replace3490_1_0_0_1_1 -> 42 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3749479,8 +3749793,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 87, 88 },
       -1,
    } },
-   /* replace3486_1_0_1_0 -> 53 in the cache */
-   /* replace3486_1_0_1_1 -> 56 in the cache */
+   /* replace3490_1_0_1_0 -> 53 in the cache */
+   /* replace3490_1_0_1_1 -> 56 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3749503,7 +3749817,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 89, 90 },
       -1,
    } },
-   /* replace3486_1_1 -> 11 in the cache */
+   /* replace3490_1_1 -> 11 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3749686,7 +3750000,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       -1,
       {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
    } },
-   /* search3487_0_0_1_1_0_0_0_0 -> 95 in the cache */
+   /* search3491_0_0_1_1_0_0_0_0 -> 95 in the cache */
    { .variable = {
       { nir_search_value_variable, -24 },
       10, /* r */
@@ -3749705,7 +3750019,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 95, 112 },
       -1,
    } },
-   /* search3487_0_0_1_1_0_0_1_0 -> 98 in the cache */
+   /* search3491_0_0_1_1_0_0_1_0 -> 98 in the cache */
    { .variable = {
       { nir_search_value_variable, -24 },
       11, /* v */
@@ -3749735,7 +3750049,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 113, 115 },
       -1,
    } },
-   /* search3487_0_0_1_1_0_1_0 -> 102 in the cache */
+   /* search3491_0_0_1_1_0_1_0 -> 102 in the cache */
    { .variable = {
       { nir_search_value_variable, -24 },
       12, /* z */
@@ -3749765,7 +3750079,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 116, 118 },
       -1,
    } },
-   /* search3487_0_0_1_1_1_0 -> 106 in the cache */
+   /* search3491_0_0_1_1_1_0 -> 106 in the cache */
    { .variable = {
       { nir_search_value_variable, -24 },
       13, /* dd */
@@ -3749824,7 +3750138,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       -1,
       {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
    } },
-   /* search3487_0_1_1_0_0_0_0 -> 95 in the cache */
+   /* search3491_0_1_1_0_0_0_0 -> 95 in the cache */
    { .variable = {
       { nir_search_value_variable, -24 },
       15, /* s */
@@ -3749843,7 +3750157,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 95, 126 },
       -1,
    } },
-   /* search3487_0_1_1_0_0_1_0 -> 98 in the cache */
+   /* search3491_0_1_1_0_0_1_0 -> 98 in the cache */
    { .variable = {
       { nir_search_value_variable, -24 },
       16, /* w */
@@ -3749873,7 +3750187,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 127, 129 },
       -1,
    } },
-   /* search3487_0_1_1_0_1_0 -> 102 in the cache */
+   /* search3491_0_1_1_0_1_0 -> 102 in the cache */
    { .variable = {
       { nir_search_value_variable, -24 },
       17, /* aa */
@@ -3749903,7 +3750217,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 130, 132 },
       -1,
    } },
-   /* search3487_0_1_1_1_0 -> 106 in the cache */
+   /* search3491_0_1_1_1_0 -> 106 in the cache */
    { .variable = {
       { nir_search_value_variable, -24 },
       18, /* ee */
@@ -3749962,7 +3750276,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       -1,
       {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
    } },
-   /* search3487_1_1_0_0_0_0 -> 95 in the cache */
+   /* search3491_1_1_0_0_0_0 -> 95 in the cache */
    { .variable = {
       { nir_search_value_variable, -24 },
       20, /* t */
@@ -3749981,7 +3750295,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 95, 140 },
       -1,
    } },
-   /* search3487_1_1_0_0_1_0 -> 98 in the cache */
+   /* search3491_1_1_0_0_1_0 -> 98 in the cache */
    { .variable = {
       { nir_search_value_variable, -24 },
       21, /* x */
@@ -3750011,7 +3750325,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 141, 143 },
       -1,
    } },
-   /* search3487_1_1_0_1_0 -> 102 in the cache */
+   /* search3491_1_1_0_1_0 -> 102 in the cache */
    { .variable = {
       { nir_search_value_variable, -24 },
       22, /* bb */
@@ -3750041,7 +3750355,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 144, 146 },
       -1,
    } },
-   /* search3487_1_1_1_0 -> 106 in the cache */
+   /* search3491_1_1_1_0 -> 106 in the cache */
    { .variable = {
       { nir_search_value_variable, -24 },
       23, /* ff */
@@ -3750094,8 +3750408,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       -1,
    } },
 
-   /* replace3487_0_0_0_0_0_0_0_0 -> 96 in the cache */
-   /* replace3487_0_0_0_0_0_0_0_1 -> 94 in the cache */
+   /* replace3491_0_0_0_0_0_0_0_0 -> 96 in the cache */
+   /* replace3491_0_0_0_0_0_0_0_1 -> 94 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3750107,8 +3750421,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 96, 94 },
       -1,
    } },
-   /* replace3487_0_0_0_0_0_0_1_0 -> 112 in the cache */
-   /* replace3487_0_0_0_0_0_0_1_1 -> 111 in the cache */
+   /* replace3491_0_0_0_0_0_0_1_0 -> 112 in the cache */
+   /* replace3491_0_0_0_0_0_0_1_1 -> 111 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3750131,8 +3750445,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 153, 154 },
       -1,
    } },
-   /* replace3487_0_0_0_0_0_1_0 -> 126 in the cache */
-   /* replace3487_0_0_0_0_0_1_1 -> 125 in the cache */
+   /* replace3491_0_0_0_0_0_1_0 -> 126 in the cache */
+   /* replace3491_0_0_0_0_0_1_1 -> 125 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3750155,8 +3750469,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 155, 156 },
       -1,
    } },
-   /* replace3487_0_0_0_0_1_0 -> 140 in the cache */
-   /* replace3487_0_0_0_0_1_1 -> 139 in the cache */
+   /* replace3491_0_0_0_0_1_0 -> 140 in the cache */
+   /* replace3491_0_0_0_0_1_1 -> 139 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3750179,7 +3750493,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 157, 158 },
       -1,
    } },
-   /* replace3487_0_0_0_1 -> 95 in the cache */
+   /* replace3491_0_0_0_1 -> 95 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3750191,8 +3750505,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 159, 95 },
       -1,
    } },
-   /* replace3487_0_0_1_0_0_0_0_0 -> 99 in the cache */
-   /* replace3487_0_0_1_0_0_0_0_1 -> 94 in the cache */
+   /* replace3491_0_0_1_0_0_0_0_0 -> 99 in the cache */
+   /* replace3491_0_0_1_0_0_0_0_1 -> 94 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3750204,8 +3750518,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 99, 94 },
       -1,
    } },
-   /* replace3487_0_0_1_0_0_0_1_0 -> 114 in the cache */
-   /* replace3487_0_0_1_0_0_0_1_1 -> 111 in the cache */
+   /* replace3491_0_0_1_0_0_0_1_0 -> 114 in the cache */
+   /* replace3491_0_0_1_0_0_0_1_1 -> 111 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3750228,8 +3750542,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 161, 162 },
       -1,
    } },
-   /* replace3487_0_0_1_0_0_1_0 -> 128 in the cache */
-   /* replace3487_0_0_1_0_0_1_1 -> 125 in the cache */
+   /* replace3491_0_0_1_0_0_1_0 -> 128 in the cache */
+   /* replace3491_0_0_1_0_0_1_1 -> 125 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3750252,8 +3750566,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 163, 164 },
       -1,
    } },
-   /* replace3487_0_0_1_0_1_0 -> 142 in the cache */
-   /* replace3487_0_0_1_0_1_1 -> 139 in the cache */
+   /* replace3491_0_0_1_0_1_0 -> 142 in the cache */
+   /* replace3491_0_0_1_0_1_1 -> 139 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3750276,7 +3750590,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 165, 166 },
       -1,
    } },
-   /* replace3487_0_0_1_1 -> 98 in the cache */
+   /* replace3491_0_0_1_1 -> 98 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3750299,8 +3750613,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 160, 168 },
       -1,
    } },
-   /* replace3487_0_1_0_0_0_0_0 -> 103 in the cache */
-   /* replace3487_0_1_0_0_0_0_1 -> 94 in the cache */
+   /* replace3491_0_1_0_0_0_0_0 -> 103 in the cache */
+   /* replace3491_0_1_0_0_0_0_1 -> 94 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3750312,8 +3750626,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 103, 94 },
       -1,
    } },
-   /* replace3487_0_1_0_0_0_1_0 -> 117 in the cache */
-   /* replace3487_0_1_0_0_0_1_1 -> 111 in the cache */
+   /* replace3491_0_1_0_0_0_1_0 -> 117 in the cache */
+   /* replace3491_0_1_0_0_0_1_1 -> 111 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3750336,8 +3750650,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 170, 171 },
       -1,
    } },
-   /* replace3487_0_1_0_0_1_0 -> 131 in the cache */
-   /* replace3487_0_1_0_0_1_1 -> 125 in the cache */
+   /* replace3491_0_1_0_0_1_0 -> 131 in the cache */
+   /* replace3491_0_1_0_0_1_1 -> 125 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3750360,8 +3750674,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 172, 173 },
       -1,
    } },
-   /* replace3487_0_1_0_1_0 -> 145 in the cache */
-   /* replace3487_0_1_0_1_1 -> 139 in the cache */
+   /* replace3491_0_1_0_1_0 -> 145 in the cache */
+   /* replace3491_0_1_0_1_1 -> 139 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3750384,7 +3750698,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 174, 175 },
       -1,
    } },
-   /* replace3487_0_1_1 -> 102 in the cache */
+   /* replace3491_0_1_1 -> 102 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3750407,8 +3750721,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 169, 177 },
       -1,
    } },
-   /* replace3487_1_0_0_0_0_0 -> 107 in the cache */
-   /* replace3487_1_0_0_0_0_1 -> 94 in the cache */
+   /* replace3491_1_0_0_0_0_0 -> 107 in the cache */
+   /* replace3491_1_0_0_0_0_1 -> 94 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3750420,8 +3750734,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 107, 94 },
       -1,
    } },
-   /* replace3487_1_0_0_0_1_0 -> 120 in the cache */
-   /* replace3487_1_0_0_0_1_1 -> 111 in the cache */
+   /* replace3491_1_0_0_0_1_0 -> 120 in the cache */
+   /* replace3491_1_0_0_0_1_1 -> 111 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3750444,8 +3750758,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 179, 180 },
       -1,
    } },
-   /* replace3487_1_0_0_1_0 -> 134 in the cache */
-   /* replace3487_1_0_0_1_1 -> 125 in the cache */
+   /* replace3491_1_0_0_1_0 -> 134 in the cache */
+   /* replace3491_1_0_0_1_1 -> 125 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3750468,8 +3750782,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 181, 182 },
       -1,
    } },
-   /* replace3487_1_0_1_0 -> 148 in the cache */
-   /* replace3487_1_0_1_1 -> 139 in the cache */
+   /* replace3491_1_0_1_0 -> 148 in the cache */
+   /* replace3491_1_0_1_1 -> 139 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3750492,7 +3750806,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 183, 184 },
       -1,
    } },
-   /* replace3487_1_1 -> 106 in the cache */
+   /* replace3491_1_1 -> 106 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3750668,7 +3750982,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 202, 203 },
       -1,
    } },
-   /* search3488_0_0_1_0_0_0_0_0 -> 188 in the cache */
+   /* search3492_0_0_1_0_0_0_0_0 -> 188 in the cache */
    { .variable = {
       { nir_search_value_variable, -23 },
       9, /* r */
@@ -3750687,7 +3751001,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 188, 205 },
       -1,
    } },
-   /* search3488_0_0_1_0_0_0_1_0 -> 191 in the cache */
+   /* search3492_0_0_1_0_0_0_1_0 -> 191 in the cache */
    { .variable = {
       { nir_search_value_variable, -23 },
       10, /* v */
@@ -3750717,7 +3751031,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 206, 208 },
       -1,
    } },
-   /* search3488_0_0_1_0_0_1_0 -> 195 in the cache */
+   /* search3492_0_0_1_0_0_1_0 -> 195 in the cache */
    { .variable = {
       { nir_search_value_variable, -23 },
       11, /* z */
@@ -3750747,7 +3751061,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 209, 211 },
       -1,
    } },
-   /* search3488_0_0_1_0_1_0 -> 199 in the cache */
+   /* search3492_0_0_1_0_1_0 -> 199 in the cache */
    { .variable = {
       { nir_search_value_variable, -23 },
       12, /* dd */
@@ -3750806,7 +3751120,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 204, 217 },
       -1,
    } },
-   /* search3488_0_1_0_0_0_0_0 -> 188 in the cache */
+   /* search3492_0_1_0_0_0_0_0 -> 188 in the cache */
    { .variable = {
       { nir_search_value_variable, -23 },
       14, /* s */
@@ -3750825,7 +3751139,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 188, 219 },
       -1,
    } },
-   /* search3488_0_1_0_0_0_1_0 -> 191 in the cache */
+   /* search3492_0_1_0_0_0_1_0 -> 191 in the cache */
    { .variable = {
       { nir_search_value_variable, -23 },
       15, /* w */
@@ -3750855,7 +3751169,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 220, 222 },
       -1,
    } },
-   /* search3488_0_1_0_0_1_0 -> 195 in the cache */
+   /* search3492_0_1_0_0_1_0 -> 195 in the cache */
    { .variable = {
       { nir_search_value_variable, -23 },
       16, /* aa */
@@ -3750885,7 +3751199,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 223, 225 },
       -1,
    } },
-   /* search3488_0_1_0_1_0 -> 199 in the cache */
+   /* search3492_0_1_0_1_0 -> 199 in the cache */
    { .variable = {
       { nir_search_value_variable, -23 },
       17, /* ee */
@@ -3750944,7 +3751258,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 218, 231 },
       -1,
    } },
-   /* search3488_1_0_0_0_0 -> 188 in the cache */
+   /* search3492_1_0_0_0_0 -> 188 in the cache */
    { .variable = {
       { nir_search_value_variable, -23 },
       19, /* t */
@@ -3750963,7 +3751277,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 188, 233 },
       -1,
    } },
-   /* search3488_1_0_0_1_0 -> 191 in the cache */
+   /* search3492_1_0_0_1_0 -> 191 in the cache */
    { .variable = {
       { nir_search_value_variable, -23 },
       20, /* x */
@@ -3750993,7 +3751307,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 234, 236 },
       -1,
    } },
-   /* search3488_1_0_1_0 -> 195 in the cache */
+   /* search3492_1_0_1_0 -> 195 in the cache */
    { .variable = {
       { nir_search_value_variable, -23 },
       21, /* bb */
@@ -3751023,7 +3751337,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 237, 239 },
       -1,
    } },
-   /* search3488_1_1_0 -> 199 in the cache */
+   /* search3492_1_1_0 -> 199 in the cache */
    { .variable = {
       { nir_search_value_variable, -23 },
       22, /* ff */
@@ -3751065,8 +3751379,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       -1,
    } },
 
-   /* replace3488_0_0_0_0_0_0_0_0 -> 189 in the cache */
-   /* replace3488_0_0_0_0_0_0_0_1 -> 203 in the cache */
+   /* replace3492_0_0_0_0_0_0_0_0 -> 189 in the cache */
+   /* replace3492_0_0_0_0_0_0_0_1 -> 203 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3751078,8 +3751392,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 189, 203 },
       -1,
    } },
-   /* replace3488_0_0_0_0_0_0_1_0 -> 205 in the cache */
-   /* replace3488_0_0_0_0_0_0_1_1 -> 216 in the cache */
+   /* replace3492_0_0_0_0_0_0_1_0 -> 205 in the cache */
+   /* replace3492_0_0_0_0_0_0_1_1 -> 216 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3751102,8 +3751416,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 245, 246 },
       -1,
    } },
-   /* replace3488_0_0_0_0_0_1_0 -> 219 in the cache */
-   /* replace3488_0_0_0_0_0_1_1 -> 230 in the cache */
+   /* replace3492_0_0_0_0_0_1_0 -> 219 in the cache */
+   /* replace3492_0_0_0_0_0_1_1 -> 230 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3751126,7 +3751440,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 247, 248 },
       -1,
    } },
-   /* replace3488_0_0_0_0_1 -> 233 in the cache */
+   /* replace3492_0_0_0_0_1 -> 233 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3751138,7 +3751452,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 249, 233 },
       -1,
    } },
-   /* replace3488_0_0_0_1 -> 188 in the cache */
+   /* replace3492_0_0_0_1 -> 188 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3751150,8 +3751464,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 250, 188 },
       -1,
    } },
-   /* replace3488_0_0_1_0_0_0_0_0 -> 192 in the cache */
-   /* replace3488_0_0_1_0_0_0_0_1 -> 203 in the cache */
+   /* replace3492_0_0_1_0_0_0_0_0 -> 192 in the cache */
+   /* replace3492_0_0_1_0_0_0_0_1 -> 203 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3751163,8 +3751477,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 192, 203 },
       -1,
    } },
-   /* replace3488_0_0_1_0_0_0_1_0 -> 207 in the cache */
-   /* replace3488_0_0_1_0_0_0_1_1 -> 216 in the cache */
+   /* replace3492_0_0_1_0_0_0_1_0 -> 207 in the cache */
+   /* replace3492_0_0_1_0_0_0_1_1 -> 216 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3751187,8 +3751501,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 252, 253 },
       -1,
    } },
-   /* replace3488_0_0_1_0_0_1_0 -> 221 in the cache */
-   /* replace3488_0_0_1_0_0_1_1 -> 230 in the cache */
+   /* replace3492_0_0_1_0_0_1_0 -> 221 in the cache */
+   /* replace3492_0_0_1_0_0_1_1 -> 230 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3751211,7 +3751525,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 254, 255 },
       -1,
    } },
-   /* replace3488_0_0_1_0_1 -> 235 in the cache */
+   /* replace3492_0_0_1_0_1 -> 235 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3751223,7 +3751537,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 256, 235 },
       -1,
    } },
-   /* replace3488_0_0_1_1 -> 191 in the cache */
+   /* replace3492_0_0_1_1 -> 191 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3751246,8 +3751560,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 251, 258 },
       -1,
    } },
-   /* replace3488_0_1_0_0_0_0_0 -> 196 in the cache */
-   /* replace3488_0_1_0_0_0_0_1 -> 203 in the cache */
+   /* replace3492_0_1_0_0_0_0_0 -> 196 in the cache */
+   /* replace3492_0_1_0_0_0_0_1 -> 203 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3751259,8 +3751573,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 196, 203 },
       -1,
    } },
-   /* replace3488_0_1_0_0_0_1_0 -> 210 in the cache */
-   /* replace3488_0_1_0_0_0_1_1 -> 216 in the cache */
+   /* replace3492_0_1_0_0_0_1_0 -> 210 in the cache */
+   /* replace3492_0_1_0_0_0_1_1 -> 216 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3751283,8 +3751597,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 260, 261 },
       -1,
    } },
-   /* replace3488_0_1_0_0_1_0 -> 224 in the cache */
-   /* replace3488_0_1_0_0_1_1 -> 230 in the cache */
+   /* replace3492_0_1_0_0_1_0 -> 224 in the cache */
+   /* replace3492_0_1_0_0_1_1 -> 230 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3751307,7 +3751621,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 262, 263 },
       -1,
    } },
-   /* replace3488_0_1_0_1 -> 238 in the cache */
+   /* replace3492_0_1_0_1 -> 238 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3751319,7 +3751633,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 264, 238 },
       -1,
    } },
-   /* replace3488_0_1_1 -> 195 in the cache */
+   /* replace3492_0_1_1 -> 195 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3751342,8 +3751656,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 259, 266 },
       -1,
    } },
-   /* replace3488_1_0_0_0_0_0 -> 200 in the cache */
-   /* replace3488_1_0_0_0_0_1 -> 203 in the cache */
+   /* replace3492_1_0_0_0_0_0 -> 200 in the cache */
+   /* replace3492_1_0_0_0_0_1 -> 203 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3751355,8 +3751669,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 200, 203 },
       -1,
    } },
-   /* replace3488_1_0_0_0_1_0 -> 213 in the cache */
-   /* replace3488_1_0_0_0_1_1 -> 216 in the cache */
+   /* replace3492_1_0_0_0_1_0 -> 213 in the cache */
+   /* replace3492_1_0_0_0_1_1 -> 216 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3751379,8 +3751693,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 268, 269 },
       -1,
    } },
-   /* replace3488_1_0_0_1_0 -> 227 in the cache */
-   /* replace3488_1_0_0_1_1 -> 230 in the cache */
+   /* replace3492_1_0_0_1_0 -> 227 in the cache */
+   /* replace3492_1_0_0_1_1 -> 230 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3751403,7 +3751717,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 270, 271 },
       -1,
    } },
-   /* replace3488_1_0_1 -> 241 in the cache */
+   /* replace3492_1_0_1 -> 241 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3751415,7 +3751729,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 272, 241 },
       -1,
    } },
-   /* replace3488_1_1 -> 199 in the cache */
+   /* replace3492_1_1 -> 199 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3751591,7 +3751905,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 290, 291 },
       -1,
    } },
-   /* search3489_0_1_0_0_0_0 -> 276 in the cache */
+   /* search3493_0_1_0_0_0_0 -> 276 in the cache */
    { .variable = {
       { nir_search_value_variable, -18 },
       9, /* t */
@@ -3751610,7 +3751924,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 276, 293 },
       -1,
    } },
-   /* search3489_0_1_0_0_1_0 -> 279 in the cache */
+   /* search3493_0_1_0_0_1_0 -> 279 in the cache */
    { .variable = {
       { nir_search_value_variable, -18 },
       10, /* x */
@@ -3751640,7 +3751954,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 294, 296 },
       -1,
    } },
-   /* search3489_0_1_0_1_0 -> 283 in the cache */
+   /* search3493_0_1_0_1_0 -> 283 in the cache */
    { .variable = {
       { nir_search_value_variable, -18 },
       11, /* bb */
@@ -3751670,7 +3751984,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 297, 299 },
       -1,
    } },
-   /* search3489_0_1_1_0 -> 287 in the cache */
+   /* search3493_0_1_1_0 -> 287 in the cache */
    { .variable = {
       { nir_search_value_variable, -18 },
       12, /* ff */
@@ -3751711,7 +3752025,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 292, 303 },
       -1,
    } },
-   /* search3489_1_0_0_0_0_0 -> 276 in the cache */
+   /* search3493_1_0_0_0_0_0 -> 276 in the cache */
    { .variable = {
       { nir_search_value_variable, -18 },
       13, /* r */
@@ -3751730,7 +3752044,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 276, 305 },
       -1,
    } },
-   /* search3489_1_0_0_0_1_0 -> 279 in the cache */
+   /* search3493_1_0_0_0_1_0 -> 279 in the cache */
    { .variable = {
       { nir_search_value_variable, -18 },
       14, /* v */
@@ -3751760,7 +3752074,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 306, 308 },
       -1,
    } },
-   /* search3489_1_0_0_1_0 -> 283 in the cache */
+   /* search3493_1_0_0_1_0 -> 283 in the cache */
    { .variable = {
       { nir_search_value_variable, -18 },
       15, /* z */
@@ -3751790,7 +3752104,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 309, 311 },
       -1,
    } },
-   /* search3489_1_0_1_0 -> 287 in the cache */
+   /* search3493_1_0_1_0 -> 287 in the cache */
    { .variable = {
       { nir_search_value_variable, -18 },
       16, /* dd */
@@ -3751850,8 +3752164,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       -1,
    } },
 
-   /* replace3489_0_0_0_0_0_0_0 -> 277 in the cache */
-   /* replace3489_0_0_0_0_0_0_1 -> 291 in the cache */
+   /* replace3493_0_0_0_0_0_0_0 -> 277 in the cache */
+   /* replace3493_0_0_0_0_0_0_1 -> 291 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3751863,8 +3752177,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 277, 291 },
       -1,
    } },
-   /* replace3489_0_0_0_0_0_1_0 -> 305 in the cache */
-   /* replace3489_0_0_0_0_0_1_1 -> 316 in the cache */
+   /* replace3493_0_0_0_0_0_1_0 -> 305 in the cache */
+   /* replace3493_0_0_0_0_0_1_1 -> 316 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3751887,7 +3752201,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 319, 320 },
       -1,
    } },
-   /* replace3489_0_0_0_0_1 -> 293 in the cache */
+   /* replace3493_0_0_0_0_1 -> 293 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3751899,7 +3752213,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 321, 293 },
       -1,
    } },
-   /* replace3489_0_0_0_1 -> 276 in the cache */
+   /* replace3493_0_0_0_1 -> 276 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3751911,8 +3752225,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 322, 276 },
       -1,
    } },
-   /* replace3489_0_0_1_0_0_0_0 -> 280 in the cache */
-   /* replace3489_0_0_1_0_0_0_1 -> 291 in the cache */
+   /* replace3493_0_0_1_0_0_0_0 -> 280 in the cache */
+   /* replace3493_0_0_1_0_0_0_1 -> 291 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3751924,8 +3752238,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 280, 291 },
       -1,
    } },
-   /* replace3489_0_0_1_0_0_1_0 -> 307 in the cache */
-   /* replace3489_0_0_1_0_0_1_1 -> 316 in the cache */
+   /* replace3493_0_0_1_0_0_1_0 -> 307 in the cache */
+   /* replace3493_0_0_1_0_0_1_1 -> 316 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3751948,7 +3752262,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 324, 325 },
       -1,
    } },
-   /* replace3489_0_0_1_0_1 -> 295 in the cache */
+   /* replace3493_0_0_1_0_1 -> 295 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3751960,7 +3752274,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 326, 295 },
       -1,
    } },
-   /* replace3489_0_0_1_1 -> 279 in the cache */
+   /* replace3493_0_0_1_1 -> 279 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3751983,8 +3752297,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 323, 328 },
       -1,
    } },
-   /* replace3489_0_1_0_0_0_0 -> 284 in the cache */
-   /* replace3489_0_1_0_0_0_1 -> 291 in the cache */
+   /* replace3493_0_1_0_0_0_0 -> 284 in the cache */
+   /* replace3493_0_1_0_0_0_1 -> 291 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3751996,8 +3752310,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 284, 291 },
       -1,
    } },
-   /* replace3489_0_1_0_0_1_0 -> 310 in the cache */
-   /* replace3489_0_1_0_0_1_1 -> 316 in the cache */
+   /* replace3493_0_1_0_0_1_0 -> 310 in the cache */
+   /* replace3493_0_1_0_0_1_1 -> 316 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3752020,7 +3752334,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 330, 331 },
       -1,
    } },
-   /* replace3489_0_1_0_1 -> 298 in the cache */
+   /* replace3493_0_1_0_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3752032,7 +3752346,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 332, 298 },
       -1,
    } },
-   /* replace3489_0_1_1 -> 283 in the cache */
+   /* replace3493_0_1_1 -> 283 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3752055,8 +3752369,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 329, 334 },
       -1,
    } },
-   /* replace3489_1_0_0_0_0 -> 288 in the cache */
-   /* replace3489_1_0_0_0_1 -> 291 in the cache */
+   /* replace3493_1_0_0_0_0 -> 288 in the cache */
+   /* replace3493_1_0_0_0_1 -> 291 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3752068,8 +3752382,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 288, 291 },
       -1,
    } },
-   /* replace3489_1_0_0_1_0 -> 313 in the cache */
-   /* replace3489_1_0_0_1_1 -> 316 in the cache */
+   /* replace3493_1_0_0_1_0 -> 313 in the cache */
+   /* replace3493_1_0_0_1_1 -> 316 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3752092,7 +3752406,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 336, 337 },
       -1,
    } },
-   /* replace3489_1_0_1 -> 301 in the cache */
+   /* replace3493_1_0_1 -> 301 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3752104,7 +3752418,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 338, 301 },
       -1,
    } },
-   /* replace3489_1_1 -> 287 in the cache */
+   /* replace3493_1_1 -> 287 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3752129,8 +3752443,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
    } },
 
    /* ('~iadd(many-comm-expr)', ('~iadd', ('~iadd', ('~imul', ('~iadd(is_used_once)', ('~iadd', ('~iadd', ('~imul', 'a', 'q'), ('~imul', 'b', 'u')), ('~imul', 'c', 'y')), ('~imul', 'd', 'cc')), 'gg'), ('~imul', ('~iadd(is_used_once)', ('~iadd', ('~iadd', ('~imul', 'a', 'r'), ('~imul', 'b', 'v')), ('~imul', 'c', 'z')), ('~imul', 'd', 'dd')), 'hh')), ('~imul', ('~iadd(is_used_once)', ('~iadd', ('~iadd', ('~imul', 'a', 's'), ('~imul', 'b', 'w')), ('~imul', 'c', 'aa')), ('~imul', 'd', 'ee')), 'ii')), ('~imul', ('~iadd(is_used_once)', ('~iadd', ('~iadd', ('~imul', 'a', 't'), ('~imul', 'b', 'x')), ('~imul', 'c', 'bb')), ('~imul', 'd', 'ff')), 'jj')) => ('~iadd', ('~iadd', ('~iadd', ('~imul', ('~iadd', ('~iadd', ('~iadd', ('~imul', 'q', 'gg'), ('~imul', 'r', 'hh')), ('~imul', 's', 'ii')), ('~imul', 't', 'jj')), 'a'), ('~imul', ('~iadd', ('~iadd', ('~iadd', ('~imul', 'u', 'gg'), ('~imul', 'v', 'hh')), ('~imul', 'w', 'ii')), ('~imul', 'x', 'jj')), 'b')), ('~imul', ('~iadd', ('~iadd', ('~iadd', ('~imul', 'y', 'gg'), ('~imul', 'z', 'hh')), ('~imul', 'aa', 'ii')), ('~imul', 'bb', 'jj')), 'c')), ('~imul', ('~iadd', ('~iadd', ('~iadd', ('~imul', 'cc', 'gg'), ('~imul', 'dd', 'hh')), ('~imul', 'ee', 'ii')), ('~imul', 'ff', 'jj')), 'd')) */
-   /* search3490_0_0_0_0_0_0_0_0 -> 0 in the cache */
-   /* search3490_0_0_0_0_0_0_0_1 -> 1 in the cache */
+   /* search3494_0_0_0_0_0_0_0_0 -> 0 in the cache */
+   /* search3494_0_0_0_0_0_0_0_1 -> 1 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752142,8 +3752456,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 0, 1 },
       -1,
    } },
-   /* search3490_0_0_0_0_0_0_1_0 -> 3 in the cache */
-   /* search3490_0_0_0_0_0_0_1_1 -> 4 in the cache */
+   /* search3494_0_0_0_0_0_0_1_0 -> 3 in the cache */
+   /* search3494_0_0_0_0_0_0_1_1 -> 4 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752166,8 +3752480,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 342, 343 },
       -1,
    } },
-   /* search3490_0_0_0_0_0_1_0 -> 7 in the cache */
-   /* search3490_0_0_0_0_0_1_1 -> 8 in the cache */
+   /* search3494_0_0_0_0_0_1_0 -> 7 in the cache */
+   /* search3494_0_0_0_0_0_1_1 -> 8 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752190,8 +3752504,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 344, 345 },
       -1,
    } },
-   /* search3490_0_0_0_0_1_0 -> 11 in the cache */
-   /* search3490_0_0_0_0_1_1 -> 12 in the cache */
+   /* search3494_0_0_0_0_1_0 -> 11 in the cache */
+   /* search3494_0_0_0_0_1_1 -> 12 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752214,7 +3752528,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 346, 347 },
       0,
    } },
-   /* search3490_0_0_0_1 -> 15 in the cache */
+   /* search3494_0_0_0_1 -> 15 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752226,8 +3752540,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 348, 15 },
       -1,
    } },
-   /* search3490_0_0_1_0_0_0_0_0 -> 0 in the cache */
-   /* search3490_0_0_1_0_0_0_0_1 -> 17 in the cache */
+   /* search3494_0_0_1_0_0_0_0_0 -> 0 in the cache */
+   /* search3494_0_0_1_0_0_0_0_1 -> 17 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752239,8 +3752553,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 0, 17 },
       -1,
    } },
-   /* search3490_0_0_1_0_0_0_1_0 -> 3 in the cache */
-   /* search3490_0_0_1_0_0_0_1_1 -> 19 in the cache */
+   /* search3494_0_0_1_0_0_0_1_0 -> 3 in the cache */
+   /* search3494_0_0_1_0_0_0_1_1 -> 19 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752263,8 +3752577,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 350, 351 },
       -1,
    } },
-   /* search3490_0_0_1_0_0_1_0 -> 7 in the cache */
-   /* search3490_0_0_1_0_0_1_1 -> 22 in the cache */
+   /* search3494_0_0_1_0_0_1_0 -> 7 in the cache */
+   /* search3494_0_0_1_0_0_1_1 -> 22 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752287,8 +3752601,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 352, 353 },
       -1,
    } },
-   /* search3490_0_0_1_0_1_0 -> 11 in the cache */
-   /* search3490_0_0_1_0_1_1 -> 25 in the cache */
+   /* search3494_0_0_1_0_1_0 -> 11 in the cache */
+   /* search3494_0_0_1_0_1_1 -> 25 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752311,7 +3752625,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 354, 355 },
       0,
    } },
-   /* search3490_0_0_1_1 -> 28 in the cache */
+   /* search3494_0_0_1_1 -> 28 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752334,8 +3752648,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 349, 357 },
       -1,
    } },
-   /* search3490_0_1_0_0_0_0_0 -> 0 in the cache */
-   /* search3490_0_1_0_0_0_0_1 -> 31 in the cache */
+   /* search3494_0_1_0_0_0_0_0 -> 0 in the cache */
+   /* search3494_0_1_0_0_0_0_1 -> 31 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752347,8 +3752661,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 0, 31 },
       -1,
    } },
-   /* search3490_0_1_0_0_0_1_0 -> 3 in the cache */
-   /* search3490_0_1_0_0_0_1_1 -> 33 in the cache */
+   /* search3494_0_1_0_0_0_1_0 -> 3 in the cache */
+   /* search3494_0_1_0_0_0_1_1 -> 33 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752371,8 +3752685,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 359, 360 },
       -1,
    } },
-   /* search3490_0_1_0_0_1_0 -> 7 in the cache */
-   /* search3490_0_1_0_0_1_1 -> 36 in the cache */
+   /* search3494_0_1_0_0_1_0 -> 7 in the cache */
+   /* search3494_0_1_0_0_1_1 -> 36 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752395,8 +3752709,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 361, 362 },
       -1,
    } },
-   /* search3490_0_1_0_1_0 -> 11 in the cache */
-   /* search3490_0_1_0_1_1 -> 39 in the cache */
+   /* search3494_0_1_0_1_0 -> 11 in the cache */
+   /* search3494_0_1_0_1_1 -> 39 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752419,7 +3752733,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 363, 364 },
       0,
    } },
-   /* search3490_0_1_1 -> 42 in the cache */
+   /* search3494_0_1_1 -> 42 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752442,8 +3752756,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 358, 366 },
       -1,
    } },
-   /* search3490_1_0_0_0_0_0 -> 0 in the cache */
-   /* search3490_1_0_0_0_0_1 -> 45 in the cache */
+   /* search3494_1_0_0_0_0_0 -> 0 in the cache */
+   /* search3494_1_0_0_0_0_1 -> 45 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752455,8 +3752769,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 0, 45 },
       -1,
    } },
-   /* search3490_1_0_0_0_1_0 -> 3 in the cache */
-   /* search3490_1_0_0_0_1_1 -> 47 in the cache */
+   /* search3494_1_0_0_0_1_0 -> 3 in the cache */
+   /* search3494_1_0_0_0_1_1 -> 47 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752479,8 +3752793,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 368, 369 },
       -1,
    } },
-   /* search3490_1_0_0_1_0 -> 7 in the cache */
-   /* search3490_1_0_0_1_1 -> 50 in the cache */
+   /* search3494_1_0_0_1_0 -> 7 in the cache */
+   /* search3494_1_0_0_1_1 -> 50 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752503,8 +3752817,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 370, 371 },
       -1,
    } },
-   /* search3490_1_0_1_0 -> 11 in the cache */
-   /* search3490_1_0_1_1 -> 53 in the cache */
+   /* search3494_1_0_1_0 -> 11 in the cache */
+   /* search3494_1_0_1_1 -> 53 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752527,7 +3752841,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 372, 373 },
       0,
    } },
-   /* search3490_1_1 -> 56 in the cache */
+   /* search3494_1_1 -> 56 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752551,8 +3752865,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       -1,
    } },
 
-   /* replace3490_0_0_0_0_0_0_0_0 -> 1 in the cache */
-   /* replace3490_0_0_0_0_0_0_0_1 -> 15 in the cache */
+   /* replace3494_0_0_0_0_0_0_0_0 -> 1 in the cache */
+   /* replace3494_0_0_0_0_0_0_0_1 -> 15 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752564,8 +3752878,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 1, 15 },
       -1,
    } },
-   /* replace3490_0_0_0_0_0_0_1_0 -> 17 in the cache */
-   /* replace3490_0_0_0_0_0_0_1_1 -> 28 in the cache */
+   /* replace3494_0_0_0_0_0_0_1_0 -> 17 in the cache */
+   /* replace3494_0_0_0_0_0_0_1_1 -> 28 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752588,8 +3752902,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 377, 378 },
       -1,
    } },
-   /* replace3490_0_0_0_0_0_1_0 -> 31 in the cache */
-   /* replace3490_0_0_0_0_0_1_1 -> 42 in the cache */
+   /* replace3494_0_0_0_0_0_1_0 -> 31 in the cache */
+   /* replace3494_0_0_0_0_0_1_1 -> 42 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752612,8 +3752926,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 379, 380 },
       -1,
    } },
-   /* replace3490_0_0_0_0_1_0 -> 45 in the cache */
-   /* replace3490_0_0_0_0_1_1 -> 56 in the cache */
+   /* replace3494_0_0_0_0_1_0 -> 45 in the cache */
+   /* replace3494_0_0_0_0_1_1 -> 56 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752636,7 +3752950,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 381, 382 },
       -1,
    } },
-   /* replace3490_0_0_0_1 -> 0 in the cache */
+   /* replace3494_0_0_0_1 -> 0 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752648,8 +3752962,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 383, 0 },
       -1,
    } },
-   /* replace3490_0_0_1_0_0_0_0_0 -> 4 in the cache */
-   /* replace3490_0_0_1_0_0_0_0_1 -> 15 in the cache */
+   /* replace3494_0_0_1_0_0_0_0_0 -> 4 in the cache */
+   /* replace3494_0_0_1_0_0_0_0_1 -> 15 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752661,8 +3752975,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 4, 15 },
       -1,
    } },
-   /* replace3490_0_0_1_0_0_0_1_0 -> 19 in the cache */
-   /* replace3490_0_0_1_0_0_0_1_1 -> 28 in the cache */
+   /* replace3494_0_0_1_0_0_0_1_0 -> 19 in the cache */
+   /* replace3494_0_0_1_0_0_0_1_1 -> 28 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752685,8 +3752999,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 385, 386 },
       -1,
    } },
-   /* replace3490_0_0_1_0_0_1_0 -> 33 in the cache */
-   /* replace3490_0_0_1_0_0_1_1 -> 42 in the cache */
+   /* replace3494_0_0_1_0_0_1_0 -> 33 in the cache */
+   /* replace3494_0_0_1_0_0_1_1 -> 42 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752709,8 +3753023,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 387, 388 },
       -1,
    } },
-   /* replace3490_0_0_1_0_1_0 -> 47 in the cache */
-   /* replace3490_0_0_1_0_1_1 -> 56 in the cache */
+   /* replace3494_0_0_1_0_1_0 -> 47 in the cache */
+   /* replace3494_0_0_1_0_1_1 -> 56 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752733,7 +3753047,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 389, 390 },
       -1,
    } },
-   /* replace3490_0_0_1_1 -> 3 in the cache */
+   /* replace3494_0_0_1_1 -> 3 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752756,8 +3753070,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 384, 392 },
       -1,
    } },
-   /* replace3490_0_1_0_0_0_0_0 -> 8 in the cache */
-   /* replace3490_0_1_0_0_0_0_1 -> 15 in the cache */
+   /* replace3494_0_1_0_0_0_0_0 -> 8 in the cache */
+   /* replace3494_0_1_0_0_0_0_1 -> 15 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752769,8 +3753083,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 8, 15 },
       -1,
    } },
-   /* replace3490_0_1_0_0_0_1_0 -> 22 in the cache */
-   /* replace3490_0_1_0_0_0_1_1 -> 28 in the cache */
+   /* replace3494_0_1_0_0_0_1_0 -> 22 in the cache */
+   /* replace3494_0_1_0_0_0_1_1 -> 28 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752793,8 +3753107,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 394, 395 },
       -1,
    } },
-   /* replace3490_0_1_0_0_1_0 -> 36 in the cache */
-   /* replace3490_0_1_0_0_1_1 -> 42 in the cache */
+   /* replace3494_0_1_0_0_1_0 -> 36 in the cache */
+   /* replace3494_0_1_0_0_1_1 -> 42 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752817,8 +3753131,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 396, 397 },
       -1,
    } },
-   /* replace3490_0_1_0_1_0 -> 50 in the cache */
-   /* replace3490_0_1_0_1_1 -> 56 in the cache */
+   /* replace3494_0_1_0_1_0 -> 50 in the cache */
+   /* replace3494_0_1_0_1_1 -> 56 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752841,7 +3753155,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 398, 399 },
       -1,
    } },
-   /* replace3490_0_1_1 -> 7 in the cache */
+   /* replace3494_0_1_1 -> 7 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752864,8 +3753178,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 393, 401 },
       -1,
    } },
-   /* replace3490_1_0_0_0_0_0 -> 12 in the cache */
-   /* replace3490_1_0_0_0_0_1 -> 15 in the cache */
+   /* replace3494_1_0_0_0_0_0 -> 12 in the cache */
+   /* replace3494_1_0_0_0_0_1 -> 15 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752877,8 +3753191,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 12, 15 },
       -1,
    } },
-   /* replace3490_1_0_0_0_1_0 -> 25 in the cache */
-   /* replace3490_1_0_0_0_1_1 -> 28 in the cache */
+   /* replace3494_1_0_0_0_1_0 -> 25 in the cache */
+   /* replace3494_1_0_0_0_1_1 -> 28 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752901,8 +3753215,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 403, 404 },
       -1,
    } },
-   /* replace3490_1_0_0_1_0 -> 39 in the cache */
-   /* replace3490_1_0_0_1_1 -> 42 in the cache */
+   /* replace3494_1_0_0_1_0 -> 39 in the cache */
+   /* replace3494_1_0_0_1_1 -> 42 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752925,8 +3753239,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 405, 406 },
       -1,
    } },
-   /* replace3490_1_0_1_0 -> 53 in the cache */
-   /* replace3490_1_0_1_1 -> 56 in the cache */
+   /* replace3494_1_0_1_0 -> 53 in the cache */
+   /* replace3494_1_0_1_1 -> 56 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752949,7 +3753263,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 407, 408 },
       -1,
    } },
-   /* replace3490_1_1 -> 11 in the cache */
+   /* replace3494_1_1 -> 11 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752974,9 +3753288,9 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
    } },
 
    /* ('~iadd(many-comm-expr)', ('~iadd', ('~iadd', ('~imul', 'gg', ('~iadd(is_used_once)', ('~iadd', ('~iadd', ('~imul', 'a', 'q'), ('~imul', 'b', 'u')), ('~imul', 'c', 'y')), ('~imul', 'd', 'cc'))), ('~imul', 'hh', ('~iadd(is_used_once)', ('~iadd', ('~iadd', ('~imul', 'a', 'r'), ('~imul', 'b', 'v')), ('~imul', 'c', 'z')), ('~imul', 'd', 'dd')))), ('~imul', 'ii', ('~iadd(is_used_once)', ('~iadd', ('~iadd', ('~imul', 'a', 's'), ('~imul', 'b', 'w')), ('~imul', 'c', 'aa')), ('~imul', 'd', 'ee')))), ('~imul', 'jj', ('~iadd(is_used_once)', ('~iadd', ('~iadd', ('~imul', 'a', 't'), ('~imul', 'b', 'x')), ('~imul', 'c', 'bb')), ('~imul', 'd', 'ff')))) => ('~iadd', ('~iadd', ('~iadd', ('~imul', ('~iadd', ('~iadd', ('~iadd', ('~imul', 'q', 'gg'), ('~imul', 'r', 'hh')), ('~imul', 's', 'ii')), ('~imul', 't', 'jj')), 'a'), ('~imul', ('~iadd', ('~iadd', ('~iadd', ('~imul', 'u', 'gg'), ('~imul', 'v', 'hh')), ('~imul', 'w', 'ii')), ('~imul', 'x', 'jj')), 'b')), ('~imul', ('~iadd', ('~iadd', ('~iadd', ('~imul', 'y', 'gg'), ('~imul', 'z', 'hh')), ('~imul', 'aa', 'ii')), ('~imul', 'bb', 'jj')), 'c')), ('~imul', ('~iadd', ('~iadd', ('~iadd', ('~imul', 'cc', 'gg'), ('~imul', 'dd', 'hh')), ('~imul', 'ee', 'ii')), ('~imul', 'ff', 'jj')), 'd')) */
-   /* search3491_0_0_0_0 -> 94 in the cache */
-   /* search3491_0_0_0_1_0_0_0_0 -> 95 in the cache */
-   /* search3491_0_0_0_1_0_0_0_1 -> 96 in the cache */
+   /* search3495_0_0_0_0 -> 94 in the cache */
+   /* search3495_0_0_0_1_0_0_0_0 -> 95 in the cache */
+   /* search3495_0_0_0_1_0_0_0_1 -> 96 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3752988,8 +3753302,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 95, 96 },
       -1,
    } },
-   /* search3491_0_0_0_1_0_0_1_0 -> 98 in the cache */
-   /* search3491_0_0_0_1_0_0_1_1 -> 99 in the cache */
+   /* search3495_0_0_0_1_0_0_1_0 -> 98 in the cache */
+   /* search3495_0_0_0_1_0_0_1_1 -> 99 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753012,8 +3753326,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 412, 413 },
       -1,
    } },
-   /* search3491_0_0_0_1_0_1_0 -> 102 in the cache */
-   /* search3491_0_0_0_1_0_1_1 -> 103 in the cache */
+   /* search3495_0_0_0_1_0_1_0 -> 102 in the cache */
+   /* search3495_0_0_0_1_0_1_1 -> 103 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753036,8 +3753350,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 414, 415 },
       -1,
    } },
-   /* search3491_0_0_0_1_1_0 -> 106 in the cache */
-   /* search3491_0_0_0_1_1_1 -> 107 in the cache */
+   /* search3495_0_0_0_1_1_0 -> 106 in the cache */
+   /* search3495_0_0_0_1_1_1 -> 107 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753071,9 +3753385,9 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 94, 418 },
       -1,
    } },
-   /* search3491_0_0_1_0 -> 111 in the cache */
-   /* search3491_0_0_1_1_0_0_0_0 -> 95 in the cache */
-   /* search3491_0_0_1_1_0_0_0_1 -> 112 in the cache */
+   /* search3495_0_0_1_0 -> 111 in the cache */
+   /* search3495_0_0_1_1_0_0_0_0 -> 95 in the cache */
+   /* search3495_0_0_1_1_0_0_0_1 -> 112 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753085,8 +3753399,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 95, 112 },
       -1,
    } },
-   /* search3491_0_0_1_1_0_0_1_0 -> 98 in the cache */
-   /* search3491_0_0_1_1_0_0_1_1 -> 114 in the cache */
+   /* search3495_0_0_1_1_0_0_1_0 -> 98 in the cache */
+   /* search3495_0_0_1_1_0_0_1_1 -> 114 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753109,8 +3753423,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 420, 421 },
       -1,
    } },
-   /* search3491_0_0_1_1_0_1_0 -> 102 in the cache */
-   /* search3491_0_0_1_1_0_1_1 -> 117 in the cache */
+   /* search3495_0_0_1_1_0_1_0 -> 102 in the cache */
+   /* search3495_0_0_1_1_0_1_1 -> 117 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753133,8 +3753447,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 422, 423 },
       -1,
    } },
-   /* search3491_0_0_1_1_1_0 -> 106 in the cache */
-   /* search3491_0_0_1_1_1_1 -> 120 in the cache */
+   /* search3495_0_0_1_1_1_0 -> 106 in the cache */
+   /* search3495_0_0_1_1_1_1 -> 120 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753179,9 +3753493,9 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 419, 427 },
       -1,
    } },
-   /* search3491_0_1_0 -> 125 in the cache */
-   /* search3491_0_1_1_0_0_0_0 -> 95 in the cache */
-   /* search3491_0_1_1_0_0_0_1 -> 126 in the cache */
+   /* search3495_0_1_0 -> 125 in the cache */
+   /* search3495_0_1_1_0_0_0_0 -> 95 in the cache */
+   /* search3495_0_1_1_0_0_0_1 -> 126 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753193,8 +3753507,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 95, 126 },
       -1,
    } },
-   /* search3491_0_1_1_0_0_1_0 -> 98 in the cache */
-   /* search3491_0_1_1_0_0_1_1 -> 128 in the cache */
+   /* search3495_0_1_1_0_0_1_0 -> 98 in the cache */
+   /* search3495_0_1_1_0_0_1_1 -> 128 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753217,8 +3753531,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 429, 430 },
       -1,
    } },
-   /* search3491_0_1_1_0_1_0 -> 102 in the cache */
-   /* search3491_0_1_1_0_1_1 -> 131 in the cache */
+   /* search3495_0_1_1_0_1_0 -> 102 in the cache */
+   /* search3495_0_1_1_0_1_1 -> 131 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753241,8 +3753555,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 431, 432 },
       -1,
    } },
-   /* search3491_0_1_1_1_0 -> 106 in the cache */
-   /* search3491_0_1_1_1_1 -> 134 in the cache */
+   /* search3495_0_1_1_1_0 -> 106 in the cache */
+   /* search3495_0_1_1_1_1 -> 134 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753287,9 +3753601,9 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 428, 436 },
       -1,
    } },
-   /* search3491_1_0 -> 139 in the cache */
-   /* search3491_1_1_0_0_0_0 -> 95 in the cache */
-   /* search3491_1_1_0_0_0_1 -> 140 in the cache */
+   /* search3495_1_0 -> 139 in the cache */
+   /* search3495_1_1_0_0_0_0 -> 95 in the cache */
+   /* search3495_1_1_0_0_0_1 -> 140 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753301,8 +3753615,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 95, 140 },
       -1,
    } },
-   /* search3491_1_1_0_0_1_0 -> 98 in the cache */
-   /* search3491_1_1_0_0_1_1 -> 142 in the cache */
+   /* search3495_1_1_0_0_1_0 -> 98 in the cache */
+   /* search3495_1_1_0_0_1_1 -> 142 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753325,8 +3753639,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 438, 439 },
       -1,
    } },
-   /* search3491_1_1_0_1_0 -> 102 in the cache */
-   /* search3491_1_1_0_1_1 -> 145 in the cache */
+   /* search3495_1_1_0_1_0 -> 102 in the cache */
+   /* search3495_1_1_0_1_1 -> 145 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753349,8 +3753663,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 440, 441 },
       -1,
    } },
-   /* search3491_1_1_1_0 -> 106 in the cache */
-   /* search3491_1_1_1_1 -> 148 in the cache */
+   /* search3495_1_1_1_0 -> 106 in the cache */
+   /* search3495_1_1_1_1 -> 148 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753396,8 +3753710,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       -1,
    } },
 
-   /* replace3491_0_0_0_0_0_0_0_0 -> 96 in the cache */
-   /* replace3491_0_0_0_0_0_0_0_1 -> 94 in the cache */
+   /* replace3495_0_0_0_0_0_0_0_0 -> 96 in the cache */
+   /* replace3495_0_0_0_0_0_0_0_1 -> 94 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753409,8 +3753723,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 96, 94 },
       -1,
    } },
-   /* replace3491_0_0_0_0_0_0_1_0 -> 112 in the cache */
-   /* replace3491_0_0_0_0_0_0_1_1 -> 111 in the cache */
+   /* replace3495_0_0_0_0_0_0_1_0 -> 112 in the cache */
+   /* replace3495_0_0_0_0_0_0_1_1 -> 111 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753433,8 +3753747,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 447, 448 },
       -1,
    } },
-   /* replace3491_0_0_0_0_0_1_0 -> 126 in the cache */
-   /* replace3491_0_0_0_0_0_1_1 -> 125 in the cache */
+   /* replace3495_0_0_0_0_0_1_0 -> 126 in the cache */
+   /* replace3495_0_0_0_0_0_1_1 -> 125 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753457,8 +3753771,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 449, 450 },
       -1,
    } },
-   /* replace3491_0_0_0_0_1_0 -> 140 in the cache */
-   /* replace3491_0_0_0_0_1_1 -> 139 in the cache */
+   /* replace3495_0_0_0_0_1_0 -> 140 in the cache */
+   /* replace3495_0_0_0_0_1_1 -> 139 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753481,7 +3753795,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 451, 452 },
       -1,
    } },
-   /* replace3491_0_0_0_1 -> 95 in the cache */
+   /* replace3495_0_0_0_1 -> 95 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753493,8 +3753807,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 453, 95 },
       -1,
    } },
-   /* replace3491_0_0_1_0_0_0_0_0 -> 99 in the cache */
-   /* replace3491_0_0_1_0_0_0_0_1 -> 94 in the cache */
+   /* replace3495_0_0_1_0_0_0_0_0 -> 99 in the cache */
+   /* replace3495_0_0_1_0_0_0_0_1 -> 94 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753506,8 +3753820,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 99, 94 },
       -1,
    } },
-   /* replace3491_0_0_1_0_0_0_1_0 -> 114 in the cache */
-   /* replace3491_0_0_1_0_0_0_1_1 -> 111 in the cache */
+   /* replace3495_0_0_1_0_0_0_1_0 -> 114 in the cache */
+   /* replace3495_0_0_1_0_0_0_1_1 -> 111 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753530,8 +3753844,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 455, 456 },
       -1,
    } },
-   /* replace3491_0_0_1_0_0_1_0 -> 128 in the cache */
-   /* replace3491_0_0_1_0_0_1_1 -> 125 in the cache */
+   /* replace3495_0_0_1_0_0_1_0 -> 128 in the cache */
+   /* replace3495_0_0_1_0_0_1_1 -> 125 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753554,8 +3753868,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 457, 458 },
       -1,
    } },
-   /* replace3491_0_0_1_0_1_0 -> 142 in the cache */
-   /* replace3491_0_0_1_0_1_1 -> 139 in the cache */
+   /* replace3495_0_0_1_0_1_0 -> 142 in the cache */
+   /* replace3495_0_0_1_0_1_1 -> 139 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753578,7 +3753892,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 459, 460 },
       -1,
    } },
-   /* replace3491_0_0_1_1 -> 98 in the cache */
+   /* replace3495_0_0_1_1 -> 98 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753601,8 +3753915,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 454, 462 },
       -1,
    } },
-   /* replace3491_0_1_0_0_0_0_0 -> 103 in the cache */
-   /* replace3491_0_1_0_0_0_0_1 -> 94 in the cache */
+   /* replace3495_0_1_0_0_0_0_0 -> 103 in the cache */
+   /* replace3495_0_1_0_0_0_0_1 -> 94 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753614,8 +3753928,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 103, 94 },
       -1,
    } },
-   /* replace3491_0_1_0_0_0_1_0 -> 117 in the cache */
-   /* replace3491_0_1_0_0_0_1_1 -> 111 in the cache */
+   /* replace3495_0_1_0_0_0_1_0 -> 117 in the cache */
+   /* replace3495_0_1_0_0_0_1_1 -> 111 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753638,8 +3753952,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 464, 465 },
       -1,
    } },
-   /* replace3491_0_1_0_0_1_0 -> 131 in the cache */
-   /* replace3491_0_1_0_0_1_1 -> 125 in the cache */
+   /* replace3495_0_1_0_0_1_0 -> 131 in the cache */
+   /* replace3495_0_1_0_0_1_1 -> 125 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753662,8 +3753976,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 466, 467 },
       -1,
    } },
-   /* replace3491_0_1_0_1_0 -> 145 in the cache */
-   /* replace3491_0_1_0_1_1 -> 139 in the cache */
+   /* replace3495_0_1_0_1_0 -> 145 in the cache */
+   /* replace3495_0_1_0_1_1 -> 139 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753686,7 +3754000,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 468, 469 },
       -1,
    } },
-   /* replace3491_0_1_1 -> 102 in the cache */
+   /* replace3495_0_1_1 -> 102 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753709,8 +3754023,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 463, 471 },
       -1,
    } },
-   /* replace3491_1_0_0_0_0_0 -> 107 in the cache */
-   /* replace3491_1_0_0_0_0_1 -> 94 in the cache */
+   /* replace3495_1_0_0_0_0_0 -> 107 in the cache */
+   /* replace3495_1_0_0_0_0_1 -> 94 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753722,8 +3754036,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 107, 94 },
       -1,
    } },
-   /* replace3491_1_0_0_0_1_0 -> 120 in the cache */
-   /* replace3491_1_0_0_0_1_1 -> 111 in the cache */
+   /* replace3495_1_0_0_0_1_0 -> 120 in the cache */
+   /* replace3495_1_0_0_0_1_1 -> 111 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753746,8 +3754060,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 473, 474 },
       -1,
    } },
-   /* replace3491_1_0_0_1_0 -> 134 in the cache */
-   /* replace3491_1_0_0_1_1 -> 125 in the cache */
+   /* replace3495_1_0_0_1_0 -> 134 in the cache */
+   /* replace3495_1_0_0_1_1 -> 125 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753770,8 +3754084,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 475, 476 },
       -1,
    } },
-   /* replace3491_1_0_1_0 -> 148 in the cache */
-   /* replace3491_1_0_1_1 -> 139 in the cache */
+   /* replace3495_1_0_1_0 -> 148 in the cache */
+   /* replace3495_1_0_1_1 -> 139 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753794,7 +3754108,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 477, 478 },
       -1,
    } },
-   /* replace3491_1_1 -> 106 in the cache */
+   /* replace3495_1_1 -> 106 in the cache */
    { .expression = {
       { nir_search_value_expression, -24 },
       nir_fp_exact,
@@ -3753819,8 +3754133,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
    } },
 
    /* ('~iadd(many-comm-expr)', ('~iadd', ('~iadd', ('~imul', ('~iadd(is_used_once)', ('~iadd', ('~iadd', ('~imul', 'a', 'q'), ('~imul', 'b', 'u')), ('~imul', 'c', 'y')), ('~imul', 'd', 'cc')), 'gg'), ('~imul', ('~iadd(is_used_once)', ('~iadd', ('~iadd', ('~imul', 'a', 'r'), ('~imul', 'b', 'v')), ('~imul', 'c', 'z')), ('~imul', 'd', 'dd')), 'hh')), ('~imul', ('~iadd(is_used_once)', ('~iadd', ('~iadd', ('~imul', 'a', 's'), ('~imul', 'b', 'w')), ('~imul', 'c', 'aa')), ('~imul', 'd', 'ee')), 'ii')), ('~iadd(is_used_once)', ('~iadd', ('~iadd', ('~imul', 'a', 't'), ('~imul', 'b', 'x')), ('~imul', 'c', 'bb')), ('~imul', 'd', 'ff'))) => ('~iadd', ('~iadd', ('~iadd', ('~imul', ('~iadd', ('~iadd', ('~iadd', ('~imul', 'q', 'gg'), ('~imul', 'r', 'hh')), ('~imul', 's', 'ii')), 't'), 'a'), ('~imul', ('~iadd', ('~iadd', ('~iadd', ('~imul', 'u', 'gg'), ('~imul', 'v', 'hh')), ('~imul', 'w', 'ii')), 'x'), 'b')), ('~imul', ('~iadd', ('~iadd', ('~iadd', ('~imul', 'y', 'gg'), ('~imul', 'z', 'hh')), ('~imul', 'aa', 'ii')), 'bb'), 'c')), ('~imul', ('~iadd', ('~iadd', ('~iadd', ('~imul', 'cc', 'gg'), ('~imul', 'dd', 'hh')), ('~imul', 'ee', 'ii')), 'ff'), 'd')) */
-   /* search3492_0_0_0_0_0_0_0_0 -> 188 in the cache */
-   /* search3492_0_0_0_0_0_0_0_1 -> 189 in the cache */
+   /* search3496_0_0_0_0_0_0_0_0 -> 188 in the cache */
+   /* search3496_0_0_0_0_0_0_0_1 -> 189 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3753832,8 +3754146,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 188, 189 },
       -1,
    } },
-   /* search3492_0_0_0_0_0_0_1_0 -> 191 in the cache */
-   /* search3492_0_0_0_0_0_0_1_1 -> 192 in the cache */
+   /* search3496_0_0_0_0_0_0_1_0 -> 191 in the cache */
+   /* search3496_0_0_0_0_0_0_1_1 -> 192 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3753856,8 +3754170,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 482, 483 },
       -1,
    } },
-   /* search3492_0_0_0_0_0_1_0 -> 195 in the cache */
-   /* search3492_0_0_0_0_0_1_1 -> 196 in the cache */
+   /* search3496_0_0_0_0_0_1_0 -> 195 in the cache */
+   /* search3496_0_0_0_0_0_1_1 -> 196 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3753880,8 +3754194,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 484, 485 },
       -1,
    } },
-   /* search3492_0_0_0_0_1_0 -> 199 in the cache */
-   /* search3492_0_0_0_0_1_1 -> 200 in the cache */
+   /* search3496_0_0_0_0_1_0 -> 199 in the cache */
+   /* search3496_0_0_0_0_1_1 -> 200 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3753904,7 +3754218,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 486, 487 },
       0,
    } },
-   /* search3492_0_0_0_1 -> 203 in the cache */
+   /* search3496_0_0_0_1 -> 203 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3753916,8 +3754230,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 488, 203 },
       -1,
    } },
-   /* search3492_0_0_1_0_0_0_0_0 -> 188 in the cache */
-   /* search3492_0_0_1_0_0_0_0_1 -> 205 in the cache */
+   /* search3496_0_0_1_0_0_0_0_0 -> 188 in the cache */
+   /* search3496_0_0_1_0_0_0_0_1 -> 205 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3753929,8 +3754243,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 188, 205 },
       -1,
    } },
-   /* search3492_0_0_1_0_0_0_1_0 -> 191 in the cache */
-   /* search3492_0_0_1_0_0_0_1_1 -> 207 in the cache */
+   /* search3496_0_0_1_0_0_0_1_0 -> 191 in the cache */
+   /* search3496_0_0_1_0_0_0_1_1 -> 207 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3753953,8 +3754267,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 490, 491 },
       -1,
    } },
-   /* search3492_0_0_1_0_0_1_0 -> 195 in the cache */
-   /* search3492_0_0_1_0_0_1_1 -> 210 in the cache */
+   /* search3496_0_0_1_0_0_1_0 -> 195 in the cache */
+   /* search3496_0_0_1_0_0_1_1 -> 210 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3753977,8 +3754291,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 492, 493 },
       -1,
    } },
-   /* search3492_0_0_1_0_1_0 -> 199 in the cache */
-   /* search3492_0_0_1_0_1_1 -> 213 in the cache */
+   /* search3496_0_0_1_0_1_0 -> 199 in the cache */
+   /* search3496_0_0_1_0_1_1 -> 213 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754001,7 +3754315,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 494, 495 },
       0,
    } },
-   /* search3492_0_0_1_1 -> 216 in the cache */
+   /* search3496_0_0_1_1 -> 216 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754024,8 +3754338,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 489, 497 },
       -1,
    } },
-   /* search3492_0_1_0_0_0_0_0 -> 188 in the cache */
-   /* search3492_0_1_0_0_0_0_1 -> 219 in the cache */
+   /* search3496_0_1_0_0_0_0_0 -> 188 in the cache */
+   /* search3496_0_1_0_0_0_0_1 -> 219 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754037,8 +3754351,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 188, 219 },
       -1,
    } },
-   /* search3492_0_1_0_0_0_1_0 -> 191 in the cache */
-   /* search3492_0_1_0_0_0_1_1 -> 221 in the cache */
+   /* search3496_0_1_0_0_0_1_0 -> 191 in the cache */
+   /* search3496_0_1_0_0_0_1_1 -> 221 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754061,8 +3754375,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 499, 500 },
       -1,
    } },
-   /* search3492_0_1_0_0_1_0 -> 195 in the cache */
-   /* search3492_0_1_0_0_1_1 -> 224 in the cache */
+   /* search3496_0_1_0_0_1_0 -> 195 in the cache */
+   /* search3496_0_1_0_0_1_1 -> 224 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754085,8 +3754399,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 501, 502 },
       -1,
    } },
-   /* search3492_0_1_0_1_0 -> 199 in the cache */
-   /* search3492_0_1_0_1_1 -> 227 in the cache */
+   /* search3496_0_1_0_1_0 -> 199 in the cache */
+   /* search3496_0_1_0_1_1 -> 227 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754109,7 +3754423,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 503, 504 },
       0,
    } },
-   /* search3492_0_1_1 -> 230 in the cache */
+   /* search3496_0_1_1 -> 230 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754132,8 +3754446,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 498, 506 },
       -1,
    } },
-   /* search3492_1_0_0_0_0 -> 188 in the cache */
-   /* search3492_1_0_0_0_1 -> 233 in the cache */
+   /* search3496_1_0_0_0_0 -> 188 in the cache */
+   /* search3496_1_0_0_0_1 -> 233 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754145,8 +3754459,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 188, 233 },
       -1,
    } },
-   /* search3492_1_0_0_1_0 -> 191 in the cache */
-   /* search3492_1_0_0_1_1 -> 235 in the cache */
+   /* search3496_1_0_0_1_0 -> 191 in the cache */
+   /* search3496_1_0_0_1_1 -> 235 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754169,8 +3754483,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 508, 509 },
       -1,
    } },
-   /* search3492_1_0_1_0 -> 195 in the cache */
-   /* search3492_1_0_1_1 -> 238 in the cache */
+   /* search3496_1_0_1_0 -> 195 in the cache */
+   /* search3496_1_0_1_1 -> 238 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754193,8 +3754507,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 510, 511 },
       -1,
    } },
-   /* search3492_1_1_0 -> 199 in the cache */
-   /* search3492_1_1_1 -> 241 in the cache */
+   /* search3496_1_1_0 -> 199 in the cache */
+   /* search3496_1_1_1 -> 241 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754229,8 +3754543,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       -1,
    } },
 
-   /* replace3492_0_0_0_0_0_0_0_0 -> 189 in the cache */
-   /* replace3492_0_0_0_0_0_0_0_1 -> 203 in the cache */
+   /* replace3496_0_0_0_0_0_0_0_0 -> 189 in the cache */
+   /* replace3496_0_0_0_0_0_0_0_1 -> 203 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754242,8 +3754556,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 189, 203 },
       -1,
    } },
-   /* replace3492_0_0_0_0_0_0_1_0 -> 205 in the cache */
-   /* replace3492_0_0_0_0_0_0_1_1 -> 216 in the cache */
+   /* replace3496_0_0_0_0_0_0_1_0 -> 205 in the cache */
+   /* replace3496_0_0_0_0_0_0_1_1 -> 216 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754266,8 +3754580,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 516, 517 },
       -1,
    } },
-   /* replace3492_0_0_0_0_0_1_0 -> 219 in the cache */
-   /* replace3492_0_0_0_0_0_1_1 -> 230 in the cache */
+   /* replace3496_0_0_0_0_0_1_0 -> 219 in the cache */
+   /* replace3496_0_0_0_0_0_1_1 -> 230 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754290,7 +3754604,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 518, 519 },
       -1,
    } },
-   /* replace3492_0_0_0_0_1 -> 233 in the cache */
+   /* replace3496_0_0_0_0_1 -> 233 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754302,7 +3754616,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 520, 233 },
       -1,
    } },
-   /* replace3492_0_0_0_1 -> 188 in the cache */
+   /* replace3496_0_0_0_1 -> 188 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754314,8 +3754628,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 521, 188 },
       -1,
    } },
-   /* replace3492_0_0_1_0_0_0_0_0 -> 192 in the cache */
-   /* replace3492_0_0_1_0_0_0_0_1 -> 203 in the cache */
+   /* replace3496_0_0_1_0_0_0_0_0 -> 192 in the cache */
+   /* replace3496_0_0_1_0_0_0_0_1 -> 203 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754327,8 +3754641,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 192, 203 },
       -1,
    } },
-   /* replace3492_0_0_1_0_0_0_1_0 -> 207 in the cache */
-   /* replace3492_0_0_1_0_0_0_1_1 -> 216 in the cache */
+   /* replace3496_0_0_1_0_0_0_1_0 -> 207 in the cache */
+   /* replace3496_0_0_1_0_0_0_1_1 -> 216 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754351,8 +3754665,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 523, 524 },
       -1,
    } },
-   /* replace3492_0_0_1_0_0_1_0 -> 221 in the cache */
-   /* replace3492_0_0_1_0_0_1_1 -> 230 in the cache */
+   /* replace3496_0_0_1_0_0_1_0 -> 221 in the cache */
+   /* replace3496_0_0_1_0_0_1_1 -> 230 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754375,7 +3754689,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 525, 526 },
       -1,
    } },
-   /* replace3492_0_0_1_0_1 -> 235 in the cache */
+   /* replace3496_0_0_1_0_1 -> 235 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754387,7 +3754701,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 527, 235 },
       -1,
    } },
-   /* replace3492_0_0_1_1 -> 191 in the cache */
+   /* replace3496_0_0_1_1 -> 191 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754410,8 +3754724,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 522, 529 },
       -1,
    } },
-   /* replace3492_0_1_0_0_0_0_0 -> 196 in the cache */
-   /* replace3492_0_1_0_0_0_0_1 -> 203 in the cache */
+   /* replace3496_0_1_0_0_0_0_0 -> 196 in the cache */
+   /* replace3496_0_1_0_0_0_0_1 -> 203 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754423,8 +3754737,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 196, 203 },
       -1,
    } },
-   /* replace3492_0_1_0_0_0_1_0 -> 210 in the cache */
-   /* replace3492_0_1_0_0_0_1_1 -> 216 in the cache */
+   /* replace3496_0_1_0_0_0_1_0 -> 210 in the cache */
+   /* replace3496_0_1_0_0_0_1_1 -> 216 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754447,8 +3754761,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 531, 532 },
       -1,
    } },
-   /* replace3492_0_1_0_0_1_0 -> 224 in the cache */
-   /* replace3492_0_1_0_0_1_1 -> 230 in the cache */
+   /* replace3496_0_1_0_0_1_0 -> 224 in the cache */
+   /* replace3496_0_1_0_0_1_1 -> 230 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754471,7 +3754785,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 533, 534 },
       -1,
    } },
-   /* replace3492_0_1_0_1 -> 238 in the cache */
+   /* replace3496_0_1_0_1 -> 238 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754483,7 +3754797,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 535, 238 },
       -1,
    } },
-   /* replace3492_0_1_1 -> 195 in the cache */
+   /* replace3496_0_1_1 -> 195 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754506,8 +3754820,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 530, 537 },
       -1,
    } },
-   /* replace3492_1_0_0_0_0_0 -> 200 in the cache */
-   /* replace3492_1_0_0_0_0_1 -> 203 in the cache */
+   /* replace3496_1_0_0_0_0_0 -> 200 in the cache */
+   /* replace3496_1_0_0_0_0_1 -> 203 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754519,8 +3754833,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 200, 203 },
       -1,
    } },
-   /* replace3492_1_0_0_0_1_0 -> 213 in the cache */
-   /* replace3492_1_0_0_0_1_1 -> 216 in the cache */
+   /* replace3496_1_0_0_0_1_0 -> 213 in the cache */
+   /* replace3496_1_0_0_0_1_1 -> 216 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754543,8 +3754857,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 539, 540 },
       -1,
    } },
-   /* replace3492_1_0_0_1_0 -> 227 in the cache */
-   /* replace3492_1_0_0_1_1 -> 230 in the cache */
+   /* replace3496_1_0_0_1_0 -> 227 in the cache */
+   /* replace3496_1_0_0_1_1 -> 230 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754567,7 +3754881,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 541, 542 },
       -1,
    } },
-   /* replace3492_1_0_1 -> 241 in the cache */
+   /* replace3496_1_0_1 -> 241 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754579,7 +3754893,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 543, 241 },
       -1,
    } },
-   /* replace3492_1_1 -> 199 in the cache */
+   /* replace3496_1_1 -> 199 in the cache */
    { .expression = {
       { nir_search_value_expression, -23 },
       nir_fp_exact,
@@ -3754604,8 +3754918,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
    } },
 
    /* ('~iadd(many-comm-expr)', ('~iadd', ('~imul', ('~iadd(is_used_once)', ('~iadd', ('~iadd', ('~imul', 'a', 'q'), ('~imul', 'b', 'u')), ('~imul', 'c', 'y')), ('~imul', 'd', 'cc')), 'gg'), ('~iadd(is_used_once)', ('~iadd', ('~iadd', ('~imul', 'a', 't'), ('~imul', 'b', 'x')), ('~imul', 'c', 'bb')), ('~imul', 'd', 'ff'))), ('~imul', ('~iadd(is_used_once)', ('~iadd', ('~iadd', ('~imul', 'a', 'r'), ('~imul', 'b', 'v')), ('~imul', 'c', 'z')), ('~imul', 'd', 'dd')), 'hh')) => ('~iadd', ('~iadd', ('~iadd', ('~imul', ('~iadd', ('~iadd', ('~imul', 'q', 'gg'), ('~imul', 'r', 'hh')), 't'), 'a'), ('~imul', ('~iadd', ('~iadd', ('~imul', 'u', 'gg'), ('~imul', 'v', 'hh')), 'x'), 'b')), ('~imul', ('~iadd', ('~iadd', ('~imul', 'y', 'gg'), ('~imul', 'z', 'hh')), 'bb'), 'c')), ('~imul', ('~iadd', ('~iadd', ('~imul', 'cc', 'gg'), ('~imul', 'dd', 'hh')), 'ff'), 'd')) */
-   /* search3493_0_0_0_0_0_0_0 -> 276 in the cache */
-   /* search3493_0_0_0_0_0_0_1 -> 277 in the cache */
+   /* search3497_0_0_0_0_0_0_0 -> 276 in the cache */
+   /* search3497_0_0_0_0_0_0_1 -> 277 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3754617,8 +3754931,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 276, 277 },
       -1,
    } },
-   /* search3493_0_0_0_0_0_1_0 -> 279 in the cache */
-   /* search3493_0_0_0_0_0_1_1 -> 280 in the cache */
+   /* search3497_0_0_0_0_0_1_0 -> 279 in the cache */
+   /* search3497_0_0_0_0_0_1_1 -> 280 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3754641,8 +3754955,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 547, 548 },
       -1,
    } },
-   /* search3493_0_0_0_0_1_0 -> 283 in the cache */
-   /* search3493_0_0_0_0_1_1 -> 284 in the cache */
+   /* search3497_0_0_0_0_1_0 -> 283 in the cache */
+   /* search3497_0_0_0_0_1_1 -> 284 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3754665,8 +3754979,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 549, 550 },
       -1,
    } },
-   /* search3493_0_0_0_1_0 -> 287 in the cache */
-   /* search3493_0_0_0_1_1 -> 288 in the cache */
+   /* search3497_0_0_0_1_0 -> 287 in the cache */
+   /* search3497_0_0_0_1_1 -> 288 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3754689,7 +3755003,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 551, 552 },
       0,
    } },
-   /* search3493_0_0_1 -> 291 in the cache */
+   /* search3497_0_0_1 -> 291 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3754701,8 +3755015,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 553, 291 },
       -1,
    } },
-   /* search3493_0_1_0_0_0_0 -> 276 in the cache */
-   /* search3493_0_1_0_0_0_1 -> 293 in the cache */
+   /* search3497_0_1_0_0_0_0 -> 276 in the cache */
+   /* search3497_0_1_0_0_0_1 -> 293 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3754714,8 +3755028,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 276, 293 },
       -1,
    } },
-   /* search3493_0_1_0_0_1_0 -> 279 in the cache */
-   /* search3493_0_1_0_0_1_1 -> 295 in the cache */
+   /* search3497_0_1_0_0_1_0 -> 279 in the cache */
+   /* search3497_0_1_0_0_1_1 -> 295 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3754738,8 +3755052,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 555, 556 },
       -1,
    } },
-   /* search3493_0_1_0_1_0 -> 283 in the cache */
-   /* search3493_0_1_0_1_1 -> 298 in the cache */
+   /* search3497_0_1_0_1_0 -> 283 in the cache */
+   /* search3497_0_1_0_1_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3754762,8 +3755076,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 557, 558 },
       -1,
    } },
-   /* search3493_0_1_1_0 -> 287 in the cache */
-   /* search3493_0_1_1_1 -> 301 in the cache */
+   /* search3497_0_1_1_0 -> 287 in the cache */
+   /* search3497_0_1_1_1 -> 301 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3754797,8 +3755111,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 554, 561 },
       -1,
    } },
-   /* search3493_1_0_0_0_0_0 -> 276 in the cache */
-   /* search3493_1_0_0_0_0_1 -> 305 in the cache */
+   /* search3497_1_0_0_0_0_0 -> 276 in the cache */
+   /* search3497_1_0_0_0_0_1 -> 305 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3754810,8 +3755124,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 276, 305 },
       -1,
    } },
-   /* search3493_1_0_0_0_1_0 -> 279 in the cache */
-   /* search3493_1_0_0_0_1_1 -> 307 in the cache */
+   /* search3497_1_0_0_0_1_0 -> 279 in the cache */
+   /* search3497_1_0_0_0_1_1 -> 307 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3754834,8 +3755148,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 563, 564 },
       -1,
    } },
-   /* search3493_1_0_0_1_0 -> 283 in the cache */
-   /* search3493_1_0_0_1_1 -> 310 in the cache */
+   /* search3497_1_0_0_1_0 -> 283 in the cache */
+   /* search3497_1_0_0_1_1 -> 310 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3754858,8 +3755172,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 565, 566 },
       -1,
    } },
-   /* search3493_1_0_1_0 -> 287 in the cache */
-   /* search3493_1_0_1_1 -> 313 in the cache */
+   /* search3497_1_0_1_0 -> 287 in the cache */
+   /* search3497_1_0_1_1 -> 313 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3754882,7 +3755196,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 567, 568 },
       0,
    } },
-   /* search3493_1_1 -> 316 in the cache */
+   /* search3497_1_1 -> 316 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3754906,8 +3755220,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       -1,
    } },
 
-   /* replace3493_0_0_0_0_0_0_0 -> 277 in the cache */
-   /* replace3493_0_0_0_0_0_0_1 -> 291 in the cache */
+   /* replace3497_0_0_0_0_0_0_0 -> 277 in the cache */
+   /* replace3497_0_0_0_0_0_0_1 -> 291 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3754919,8 +3755233,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 277, 291 },
       -1,
    } },
-   /* replace3493_0_0_0_0_0_1_0 -> 305 in the cache */
-   /* replace3493_0_0_0_0_0_1_1 -> 316 in the cache */
+   /* replace3497_0_0_0_0_0_1_0 -> 305 in the cache */
+   /* replace3497_0_0_0_0_0_1_1 -> 316 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3754943,7 +3755257,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 572, 573 },
       -1,
    } },
-   /* replace3493_0_0_0_0_1 -> 293 in the cache */
+   /* replace3497_0_0_0_0_1 -> 293 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3754955,7 +3755269,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 574, 293 },
       -1,
    } },
-   /* replace3493_0_0_0_1 -> 276 in the cache */
+   /* replace3497_0_0_0_1 -> 276 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3754967,8 +3755281,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 575, 276 },
       -1,
    } },
-   /* replace3493_0_0_1_0_0_0_0 -> 280 in the cache */
-   /* replace3493_0_0_1_0_0_0_1 -> 291 in the cache */
+   /* replace3497_0_0_1_0_0_0_0 -> 280 in the cache */
+   /* replace3497_0_0_1_0_0_0_1 -> 291 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3754980,8 +3755294,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 280, 291 },
       -1,
    } },
-   /* replace3493_0_0_1_0_0_1_0 -> 307 in the cache */
-   /* replace3493_0_0_1_0_0_1_1 -> 316 in the cache */
+   /* replace3497_0_0_1_0_0_1_0 -> 307 in the cache */
+   /* replace3497_0_0_1_0_0_1_1 -> 316 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3755004,7 +3755318,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 577, 578 },
       -1,
    } },
-   /* replace3493_0_0_1_0_1 -> 295 in the cache */
+   /* replace3497_0_0_1_0_1 -> 295 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3755016,7 +3755330,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 579, 295 },
       -1,
    } },
-   /* replace3493_0_0_1_1 -> 279 in the cache */
+   /* replace3497_0_0_1_1 -> 279 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3755039,8 +3755353,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 576, 581 },
       -1,
    } },
-   /* replace3493_0_1_0_0_0_0 -> 284 in the cache */
-   /* replace3493_0_1_0_0_0_1 -> 291 in the cache */
+   /* replace3497_0_1_0_0_0_0 -> 284 in the cache */
+   /* replace3497_0_1_0_0_0_1 -> 291 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3755052,8 +3755366,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 284, 291 },
       -1,
    } },
-   /* replace3493_0_1_0_0_1_0 -> 310 in the cache */
-   /* replace3493_0_1_0_0_1_1 -> 316 in the cache */
+   /* replace3497_0_1_0_0_1_0 -> 310 in the cache */
+   /* replace3497_0_1_0_0_1_1 -> 316 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3755076,7 +3755390,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 583, 584 },
       -1,
    } },
-   /* replace3493_0_1_0_1 -> 298 in the cache */
+   /* replace3497_0_1_0_1 -> 298 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3755088,7 +3755402,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 585, 298 },
       -1,
    } },
-   /* replace3493_0_1_1 -> 283 in the cache */
+   /* replace3497_0_1_1 -> 283 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3755111,8 +3755425,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 582, 587 },
       -1,
    } },
-   /* replace3493_1_0_0_0_0 -> 288 in the cache */
-   /* replace3493_1_0_0_0_1 -> 291 in the cache */
+   /* replace3497_1_0_0_0_0 -> 288 in the cache */
+   /* replace3497_1_0_0_0_1 -> 291 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3755124,8 +3755438,8 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 288, 291 },
       -1,
    } },
-   /* replace3493_1_0_0_1_0 -> 313 in the cache */
-   /* replace3493_1_0_0_1_1 -> 316 in the cache */
+   /* replace3497_1_0_0_1_0 -> 313 in the cache */
+   /* replace3497_1_0_0_1_1 -> 316 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3755148,7 +3755462,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 589, 590 },
       -1,
    } },
-   /* replace3493_1_0_1 -> 301 in the cache */
+   /* replace3497_1_0_1 -> 301 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3755160,7 +3755474,7 @@ static const nir_search_value_union nir_opt_reassociate_matrix_mul_values[] = {
       { 591, 301 },
       -1,
    } },
-   /* replace3493_1_1 -> 287 in the cache */
+   /* replace3497_1_1 -> 287 in the cache */
    { .expression = {
       { nir_search_value_expression, -18 },
       nir_fp_exact,
@@ -3755752,29 +3756066,29 @@ nir_opt_reassociate_matrix_mul(
    condition_flags[179] = options->has_ford_funord;
    condition_flags[180] = options->has_imad32;
    condition_flags[181] = options->has_iadd3;
-   condition_flags[182] = options->has_f2i_sat;
-   condition_flags[183] = options->has_f2u_sat;
-   condition_flags[184] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma);
-   condition_flags[185] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
-   condition_flags[186] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad);
-   condition_flags[187] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
-   condition_flags[188] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma);
-   condition_flags[189] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
-   condition_flags[190] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad);
-   condition_flags[191] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
-   condition_flags[192] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32));
-   condition_flags[193] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32)) && !options->avoid_ternary_with_fabs;
-   condition_flags[194] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma);
-   condition_flags[195] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
-   condition_flags[196] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad);
-   condition_flags[197] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
-   condition_flags[198] = options->has_fsub;
-   condition_flags[199] = options->has_fsub && !(options->lower_doubles_options & nir_lower_dsub);
-   condition_flags[200] = options->lower_fneg;
-   condition_flags[201] = options->has_isub || options->lower_ineg;
-   condition_flags[202] = options->lower_ineg;
-   condition_flags[203] = options->lower_iabs;
-   condition_flags[204] = options->has_iadd3 && !(options->lower_int64_options & nir_lower_iadd3_64);
+   condition_flags[182] = options->has_iadd3 && !(options->lower_int64_options & nir_lower_iadd3_64);
+   condition_flags[183] = options->has_f2i_sat;
+   condition_flags[184] = options->has_f2u_sat;
+   condition_flags[185] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma);
+   condition_flags[186] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
+   condition_flags[187] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad);
+   condition_flags[188] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
+   condition_flags[189] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma);
+   condition_flags[190] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
+   condition_flags[191] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad);
+   condition_flags[192] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
+   condition_flags[193] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32));
+   condition_flags[194] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32)) && !options->avoid_ternary_with_fabs;
+   condition_flags[195] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma);
+   condition_flags[196] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
+   condition_flags[197] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad);
+   condition_flags[198] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
+   condition_flags[199] = options->has_fsub;
+   condition_flags[200] = options->has_fsub && !(options->lower_doubles_options & nir_lower_dsub);
+   condition_flags[201] = options->lower_fneg;
+   condition_flags[202] = options->has_isub || options->lower_ineg;
+   condition_flags[203] = options->lower_ineg;
+   condition_flags[204] = options->lower_iabs;
    condition_flags[205] = options->fdot_replicates;
    condition_flags[206] = options->lower_fround_even;
    condition_flags[207] = (info->stage != MESA_SHADER_VERTEX && info->stage != MESA_SHADER_GEOMETRY) && !options->intel_vec4;
@@ -3756192,13 +3756506,13 @@ static const nir_search_value_union nir_opt_reassociate_for_fma_values[] = {
    } },
 
    /* ('~fadd', ('fneg(is_used_once)', ('fadd(is_used_once)', 'a(is_fmul)', ('fadd(is_used_once)', 'b(is_fmul)', ('fadd(is_used_once)', 'c(is_fmul)', 'd(is_fmul)')))), 'e(is_not_fmul)') => ('fadd', ('fneg', 'a'), ('fneg', ('fadd', 'b', ('fadd', 'c', ('fadd', 'd', ('fneg', 'e')))))) */
-   /* search3497_0_0_0 -> 0 in the cache */
-   /* search3497_0_0_1_0 -> 1 in the cache */
-   /* search3497_0_0_1_1_0 -> 2 in the cache */
-   /* search3497_0_0_1_1_1 -> 3 in the cache */
-   /* search3497_0_0_1_1 -> 4 in the cache */
-   /* search3497_0_0_1 -> 5 in the cache */
-   /* search3497_0_0 -> 6 in the cache */
+   /* search3501_0_0_0 -> 0 in the cache */
+   /* search3501_0_0_1_0 -> 1 in the cache */
+   /* search3501_0_0_1_1_0 -> 2 in the cache */
+   /* search3501_0_0_1_1_1 -> 3 in the cache */
+   /* search3501_0_0_1_1 -> 4 in the cache */
+   /* search3501_0_0_1 -> 5 in the cache */
+   /* search3501_0_0 -> 6 in the cache */
    { .expression = {
       { nir_search_value_expression, -5 },
       nir_fp_exact,
@@ -3756210,7 +3756524,7 @@ static const nir_search_value_union nir_opt_reassociate_for_fma_values[] = {
       { 6 },
       0,
    } },
-   /* search3497_1 -> 7 in the cache */
+   /* search3501_1 -> 7 in the cache */
    { .expression = {
       { nir_search_value_expression, -5 },
       nir_fp_exact,
@@ -3756223,7 +3756537,7 @@ static const nir_search_value_union nir_opt_reassociate_for_fma_values[] = {
       -1,
    } },
 
-   /* replace3497_0_0 -> 9 in the cache */
+   /* replace3501_0_0 -> 9 in the cache */
    { .expression = {
       { nir_search_value_expression, -5 },
       nir_fp_fast_math,
@@ -3756235,10 +3756549,10 @@ static const nir_search_value_union nir_opt_reassociate_for_fma_values[] = {
       { 9 },
       -1,
    } },
-   /* replace3497_1_0_0 -> 10 in the cache */
-   /* replace3497_1_0_1_0 -> 11 in the cache */
-   /* replace3497_1_0_1_1_0 -> 12 in the cache */
-   /* replace3497_1_0_1_1_1_0 -> 13 in the cache */
+   /* replace3501_1_0_0 -> 10 in the cache */
+   /* replace3501_1_0_1_0 -> 11 in the cache */
+   /* replace3501_1_0_1_1_0 -> 12 in the cache */
+   /* replace3501_1_0_1_1_1_0 -> 13 in the cache */
    { .expression = {
       { nir_search_value_expression, -5 },
       nir_fp_fast_math,
@@ -3756307,11 +3756621,11 @@ static const nir_search_value_union nir_opt_reassociate_for_fma_values[] = {
    } },
 
    /* ('~fadd', ('fneg(is_used_once)', ('fadd(is_used_once)', 'a(is_fmul)', ('fadd(is_used_once)', 'b(is_fmul)', 'c(is_fmul)'))), 'd(is_not_fmul)') => ('fadd', ('fneg', 'a'), ('fneg', ('fadd', 'b', ('fadd', 'c', ('fneg', 'd'))))) */
-   /* search3498_0_0_0 -> 18 in the cache */
-   /* search3498_0_0_1_0 -> 19 in the cache */
-   /* search3498_0_0_1_1 -> 20 in the cache */
-   /* search3498_0_0_1 -> 21 in the cache */
-   /* search3498_0_0 -> 22 in the cache */
+   /* search3502_0_0_0 -> 18 in the cache */
+   /* search3502_0_0_1_0 -> 19 in the cache */
+   /* search3502_0_0_1_1 -> 20 in the cache */
+   /* search3502_0_0_1 -> 21 in the cache */
+   /* search3502_0_0 -> 22 in the cache */
    { .expression = {
       { nir_search_value_expression, -4 },
       nir_fp_exact,
@@ -3756323,7 +3756637,7 @@ static const nir_search_value_union nir_opt_reassociate_for_fma_values[] = {
       { 22 },
       0,
    } },
-   /* search3498_1 -> 23 in the cache */
+   /* search3502_1 -> 23 in the cache */
    { .expression = {
       { nir_search_value_expression, -4 },
       nir_fp_exact,
@@ -3756336,7 +3756650,7 @@ static const nir_search_value_union nir_opt_reassociate_for_fma_values[] = {
       -1,
    } },
 
-   /* replace3498_0_0 -> 25 in the cache */
+   /* replace3502_0_0 -> 25 in the cache */
    { .expression = {
       { nir_search_value_expression, -4 },
       nir_fp_fast_math,
@@ -3756348,9 +3756662,9 @@ static const nir_search_value_union nir_opt_reassociate_for_fma_values[] = {
       { 25 },
       -1,
    } },
-   /* replace3498_1_0_0 -> 26 in the cache */
-   /* replace3498_1_0_1_0 -> 27 in the cache */
-   /* replace3498_1_0_1_1_0 -> 28 in the cache */
+   /* replace3502_1_0_0 -> 26 in the cache */
+   /* replace3502_1_0_1_0 -> 27 in the cache */
+   /* replace3502_1_0_1_1_0 -> 28 in the cache */
    { .expression = {
       { nir_search_value_expression, -4 },
       nir_fp_fast_math,
@@ -3756408,9 +3756722,9 @@ static const nir_search_value_union nir_opt_reassociate_for_fma_values[] = {
    } },
 
    /* ('~fadd', ('fneg(is_used_once)', ('fadd(is_used_once)', 'a(is_fmul)', 'b(is_fmul)')), 'c(is_not_fmul)') => ('fadd', ('fneg', 'a'), ('fadd', ('fneg', 'b'), 'c')) */
-   /* search3499_0_0_0 -> 32 in the cache */
-   /* search3499_0_0_1 -> 33 in the cache */
-   /* search3499_0_0 -> 34 in the cache */
+   /* search3503_0_0_0 -> 32 in the cache */
+   /* search3503_0_0_1 -> 33 in the cache */
+   /* search3503_0_0 -> 34 in the cache */
    { .expression = {
       { nir_search_value_expression, -3 },
       nir_fp_exact,
@@ -3756422,7 +3756736,7 @@ static const nir_search_value_union nir_opt_reassociate_for_fma_values[] = {
       { 34 },
       0,
    } },
-   /* search3499_1 -> 35 in the cache */
+   /* search3503_1 -> 35 in the cache */
    { .expression = {
       { nir_search_value_expression, -3 },
       nir_fp_exact,
@@ -3756435,7 +3756749,7 @@ static const nir_search_value_union nir_opt_reassociate_for_fma_values[] = {
       -1,
    } },
 
-   /* replace3499_0_0 -> 37 in the cache */
+   /* replace3503_0_0 -> 37 in the cache */
    { .expression = {
       { nir_search_value_expression, -3 },
       nir_fp_fast_math,
@@ -3756447,7 +3756761,7 @@ static const nir_search_value_union nir_opt_reassociate_for_fma_values[] = {
       { 37 },
       -1,
    } },
-   /* replace3499_1_0_0 -> 38 in the cache */
+   /* replace3503_1_0_0 -> 38 in the cache */
    { .expression = {
       { nir_search_value_expression, -3 },
       nir_fp_fast_math,
@@ -3756459,7 +3756773,7 @@ static const nir_search_value_union nir_opt_reassociate_for_fma_values[] = {
       { 38 },
       -1,
    } },
-   /* replace3499_1_1 -> 39 in the cache */
+   /* replace3503_1_1 -> 39 in the cache */
    { .expression = {
       { nir_search_value_expression, -3 },
       nir_fp_fast_math,
@@ -3756921,29 +3757235,29 @@ nir_opt_reassociate_for_fma(
    condition_flags[179] = options->has_ford_funord;
    condition_flags[180] = options->has_imad32;
    condition_flags[181] = options->has_iadd3;
-   condition_flags[182] = options->has_f2i_sat;
-   condition_flags[183] = options->has_f2u_sat;
-   condition_flags[184] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma);
-   condition_flags[185] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
-   condition_flags[186] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad);
-   condition_flags[187] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
-   condition_flags[188] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma);
-   condition_flags[189] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
-   condition_flags[190] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad);
-   condition_flags[191] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
-   condition_flags[192] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32));
-   condition_flags[193] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32)) && !options->avoid_ternary_with_fabs;
-   condition_flags[194] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma);
-   condition_flags[195] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
-   condition_flags[196] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad);
-   condition_flags[197] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
-   condition_flags[198] = options->has_fsub;
-   condition_flags[199] = options->has_fsub && !(options->lower_doubles_options & nir_lower_dsub);
-   condition_flags[200] = options->lower_fneg;
-   condition_flags[201] = options->has_isub || options->lower_ineg;
-   condition_flags[202] = options->lower_ineg;
-   condition_flags[203] = options->lower_iabs;
-   condition_flags[204] = options->has_iadd3 && !(options->lower_int64_options & nir_lower_iadd3_64);
+   condition_flags[182] = options->has_iadd3 && !(options->lower_int64_options & nir_lower_iadd3_64);
+   condition_flags[183] = options->has_f2i_sat;
+   condition_flags[184] = options->has_f2u_sat;
+   condition_flags[185] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma);
+   condition_flags[186] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
+   condition_flags[187] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad);
+   condition_flags[188] = (options->float_mul_add16 & nir_float_muladd_support_fuse) && (!(options->float_mul_add16 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add16 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add16 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
+   condition_flags[189] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma);
+   condition_flags[190] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
+   condition_flags[191] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad);
+   condition_flags[192] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
+   condition_flags[193] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32));
+   condition_flags[194] = (options->float_mul_add32 & nir_float_muladd_support_fuse) && (!(options->float_mul_add32 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add32 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add32 & nir_float_muladd_support_has_ffma) && (options->has_ffmaz_no_denorms &&               !nir_is_denorm_preserve(info->float_controls_execution_mode, 32)) && !options->avoid_ternary_with_fabs;
+   condition_flags[195] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma);
+   condition_flags[196] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_fmad) || !(options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_ffma) && !options->avoid_ternary_with_fabs;
+   condition_flags[197] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad);
+   condition_flags[198] = (options->float_mul_add64 & nir_float_muladd_support_fuse) && (!(options->float_mul_add64 & nir_float_muladd_support_has_ffma) ||  (options->float_mul_add64 & nir_float_muladd_support_prefers_split)) && (options->float_mul_add64 & nir_float_muladd_support_has_fmad) && !options->avoid_ternary_with_fabs;
+   condition_flags[199] = options->has_fsub;
+   condition_flags[200] = options->has_fsub && !(options->lower_doubles_options & nir_lower_dsub);
+   condition_flags[201] = options->lower_fneg;
+   condition_flags[202] = options->has_isub || options->lower_ineg;
+   condition_flags[203] = options->lower_ineg;
+   condition_flags[204] = options->lower_iabs;
    condition_flags[205] = options->fdot_replicates;
    condition_flags[206] = options->lower_fround_even;
    condition_flags[207] = (info->stage != MESA_SHADER_VERTEX && info->stage != MESA_SHADER_GEOMETRY) && !options->intel_vec4;
