@@ -41,6 +41,31 @@ UNUSED static inline int safe_mul(int a, int b)
     return a * b;
 }
 
+/* VertexAttribI4uivEXT: marshalled asynchronously */
+struct marshal_cmd_VertexAttribI4uivEXT
+{
+   struct marshal_cmd_base cmd_base;
+   GLuint index;
+   GLuint v[4];
+};
+uint32_t _mesa_unmarshal_VertexAttribI4uivEXT(struct gl_context *ctx, const struct marshal_cmd_VertexAttribI4uivEXT *restrict cmd)
+{
+   GLuint index = cmd->index;
+   const GLuint *v = cmd->v;
+   CALL_VertexAttribI4uivEXT(ctx->Dispatch.Current, (index, v));
+   return align(sizeof(struct marshal_cmd_VertexAttribI4uivEXT), 8) / 8;
+}
+void GLAPIENTRY
+_mesa_marshal_VertexAttribI4uivEXT(GLuint index, const GLuint *v)
+{
+   GET_CURRENT_CONTEXT(ctx);
+   int cmd_size = sizeof(struct marshal_cmd_VertexAttribI4uivEXT);
+   struct marshal_cmd_VertexAttribI4uivEXT *cmd = _mesa_glthread_allocate_command(ctx, DISPATCH_CMD_VertexAttribI4uivEXT, cmd_size);
+   cmd->index = index;
+   memcpy(cmd->v, v, 4 * sizeof(GLuint));
+}
+
+
 /* VertexAttribI4bv: marshalled asynchronously */
 struct marshal_cmd_VertexAttribI4bv
 {
@@ -5137,6 +5162,7 @@ _mesa_glthread_init_dispatch7(struct gl_context *ctx, struct _glapi_table *table
       SET_Uniform3uiv(table, _mesa_marshal_Uniform3uiv);
       SET_Uniform4ui(table, _mesa_marshal_Uniform4ui);
       SET_Uniform4uiv(table, _mesa_marshal_Uniform4uiv);
+      SET_VertexAttribI4uivEXT(table, _mesa_marshal_VertexAttribI4uivEXT);
       SET_VertexAttribIPointer(table, _mesa_marshal_VertexAttribIPointer);
    }
    if (_mesa_is_desktop_gl(ctx) || (_mesa_is_gles2(ctx) && ctx->Version >= 31)) {

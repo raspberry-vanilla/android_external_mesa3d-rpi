@@ -41,6 +41,16 @@ UNUSED static inline int safe_mul(int a, int b)
     return a * b;
 }
 
+/* GetTextureParameterfvEXT: marshalled synchronously */
+static void GLAPIENTRY
+_mesa_marshal_GetTextureParameterfvEXT(GLuint texture, GLenum target, GLenum pname, float *params)
+{
+   GET_CURRENT_CONTEXT(ctx);
+   _mesa_glthread_finish_before(ctx, "GetTextureParameterfvEXT");
+   CALL_GetTextureParameterfvEXT(ctx->Dispatch.Current, (texture, target, pname, params));
+}
+
+
 /* GetTextureLevelParameterivEXT: marshalled synchronously */
 static void GLAPIENTRY
 _mesa_marshal_GetTextureLevelParameterivEXT(GLuint texture, GLenum target, GLint level, GLenum pname, GLint *params)
@@ -6211,31 +6221,6 @@ _mesa_marshal_VertexAttribI3uivEXT(GLuint index, const GLuint *v)
 }
 
 
-/* VertexAttribI4uivEXT: marshalled asynchronously */
-struct marshal_cmd_VertexAttribI4uivEXT
-{
-   struct marshal_cmd_base cmd_base;
-   GLuint index;
-   GLuint v[4];
-};
-uint32_t _mesa_unmarshal_VertexAttribI4uivEXT(struct gl_context *ctx, const struct marshal_cmd_VertexAttribI4uivEXT *restrict cmd)
-{
-   GLuint index = cmd->index;
-   const GLuint *v = cmd->v;
-   CALL_VertexAttribI4uivEXT(ctx->Dispatch.Current, (index, v));
-   return align(sizeof(struct marshal_cmd_VertexAttribI4uivEXT), 8) / 8;
-}
-void GLAPIENTRY
-_mesa_marshal_VertexAttribI4uivEXT(GLuint index, const GLuint *v)
-{
-   GET_CURRENT_CONTEXT(ctx);
-   int cmd_size = sizeof(struct marshal_cmd_VertexAttribI4uivEXT);
-   struct marshal_cmd_VertexAttribI4uivEXT *cmd = _mesa_glthread_allocate_command(ctx, DISPATCH_CMD_VertexAttribI4uivEXT, cmd_size);
-   cmd->index = index;
-   memcpy(cmd->v, v, 4 * sizeof(GLuint));
-}
-
-
 void
 _mesa_glthread_init_dispatch6(struct gl_context *ctx, struct _glapi_table *table)
 {
@@ -6277,7 +6262,6 @@ _mesa_glthread_init_dispatch6(struct gl_context *ctx, struct _glapi_table *table
       SET_VertexAttribI4iEXT(table, _mesa_marshal_VertexAttribI4iEXT);
       SET_VertexAttribI4ivEXT(table, _mesa_marshal_VertexAttribI4ivEXT);
       SET_VertexAttribI4uiEXT(table, _mesa_marshal_VertexAttribI4uiEXT);
-      SET_VertexAttribI4uivEXT(table, _mesa_marshal_VertexAttribI4uivEXT);
       SET_WindowRectanglesEXT(table, _mesa_marshal_WindowRectanglesEXT);
    }
    if (_mesa_is_desktop_gl(ctx) || _mesa_is_gles1(ctx) || _mesa_is_gles2(ctx)) {
@@ -6370,6 +6354,7 @@ _mesa_glthread_init_dispatch6(struct gl_context *ctx, struct _glapi_table *table
       SET_GetTextureLevelParameterivEXT(table, _mesa_marshal_GetTextureLevelParameterivEXT);
       SET_GetTextureParameterIivEXT(table, _mesa_marshal_GetTextureParameterIivEXT);
       SET_GetTextureParameterIuivEXT(table, _mesa_marshal_GetTextureParameterIuivEXT);
+      SET_GetTextureParameterfvEXT(table, _mesa_marshal_GetTextureParameterfvEXT);
       SET_GetVertexArrayIntegeri_vEXT(table, _mesa_marshal_GetVertexArrayIntegeri_vEXT);
       SET_GetVertexArrayIntegervEXT(table, _mesa_marshal_GetVertexArrayIntegervEXT);
       SET_GetVertexArrayPointeri_vEXT(table, _mesa_marshal_GetVertexArrayPointeri_vEXT);

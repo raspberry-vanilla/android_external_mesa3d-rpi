@@ -741,6 +741,7 @@ _mesa_init_dispatch(struct gl_context *ctx)
       SET_QueryCounter(table, _mesa_QueryCounter);
       SET_ReleaseShaderCompiler(table, _mesa_ReleaseShaderCompiler);
       SET_RenderbufferStorageMultisample(table, _mesa_RenderbufferStorageMultisample);
+      SET_RenderbufferStorageMultisampleEXT(table, _mesa_RenderbufferStorageMultisampleEXT);
       SET_SamplerParameterf(table, _mesa_SamplerParameterf);
       SET_SamplerParameterfv(table, _mesa_SamplerParameterfv);
       SET_SamplerParameteri(table, _mesa_SamplerParameteri);

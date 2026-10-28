@@ -3,7 +3,7 @@
 #include "util/glheader.h"
 
 
-#define _gloffset_COUNT 1639
+#define _gloffset_COUNT 1640
 
 #ifdef MAPI_TMP_DEFINES
 
@@ -1613,6 +1613,7 @@ void GLAPIENTRY _dispatch_stub_DrawMeshTasksEXT(GLuint num_groups_x, GLuint num_
 void GLAPIENTRY _dispatch_stub_DrawMeshTasksIndirectEXT(GLintptr indirect);
 void GLAPIENTRY _dispatch_stub_MultiDrawMeshTasksIndirectEXT(GLintptr indirect, GLsizei drawcount, GLsizei stride);
 void GLAPIENTRY _dispatch_stub_MultiDrawMeshTasksIndirectCountEXT(GLintptr indirect, GLintptr drawcount, GLsizei maxdrawcount, GLsizei stride);
+void GLAPIENTRY _dispatch_stub_RenderbufferStorageMultisampleEXT(GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height);
 void GLAPIENTRY _dispatch_stub_ColorTable(GLenum target, GLenum internalformat, GLsizei width, GLenum format, GLenum type, const GLvoid *table);
 void GLAPIENTRY _dispatch_stub_ColorTableParameterfv(GLenum target, GLenum pname, const GLfloat *params);
 void GLAPIENTRY _dispatch_stub_ColorTableParameteriv(GLenum target, GLenum pname, const GLint *params);
@@ -11297,6 +11298,12 @@ static void GLAPIENTRY noopMultiDrawMeshTasksIndirectCountEXT(GLintptr indirect,
    _mesa_noop_entrypoint("glMultiDrawMeshTasksIndirectCountEXT");
 }
 
+static void GLAPIENTRY noopRenderbufferStorageMultisampleEXT(GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height)
+{
+   (void) target; (void) samples; (void) internalformat; (void) width; (void) height;
+   _mesa_noop_entrypoint("glRenderbufferStorageMultisampleEXT");
+}
+
 static void GLAPIENTRY noopColorTable(GLenum target, GLenum internalformat, GLsizei width, GLenum format, GLenum type, const GLvoid *table)
 {
    (void) target; (void) internalformat; (void) width; (void) format; (void) type; (void) table;
@@ -13122,6 +13129,7 @@ const _glapi_proc table_noop_array[] = {
    (_glapi_proc) noopDrawMeshTasksIndirectEXT,
    (_glapi_proc) noopMultiDrawMeshTasksIndirectEXT,
    (_glapi_proc) noopMultiDrawMeshTasksIndirectCountEXT,
+   (_glapi_proc) noopRenderbufferStorageMultisampleEXT,
    (_glapi_proc) noopColorTable,
    (_glapi_proc) noopColorTableParameterfv,
    (_glapi_proc) noopColorTableParameteriv,
@@ -15706,11 +15714,11 @@ static const struct mapi_stub public_stubs[] = {
    { 3607, 705 },
    { 3618, 308 },
    { 3631, 1052 },
-   { 3647, 1609 },
-   { 3661, 1609 },
-   { 3678, 1602 },
-   { 3689, 1603 },
-   { 3711, 1604 },
+   { 3647, 1610 },
+   { 3661, 1610 },
+   { 3678, 1603 },
+   { 3689, 1604 },
+   { 3711, 1605 },
    { 3733, 450 },
    { 3747, 450 },
    { 3764, 1517 },
@@ -15745,18 +15753,18 @@ static const struct mapi_stub public_stubs[] = {
    { 4540, 1439 },
    { 4571, 1252 },
    { 4602, 1253 },
-   { 4633, 1611 },
-   { 4653, 1612 },
-   { 4673, 1613 },
-   { 4695, 1614 },
-   { 4718, 1615 },
-   { 4740, 1616 },
+   { 4633, 1612 },
+   { 4653, 1613 },
+   { 4673, 1614 },
+   { 4695, 1615 },
+   { 4718, 1616 },
+   { 4740, 1617 },
    { 4763, 662 },
-   { 4781, 1610 },
-   { 4799, 1610 },
-   { 4820, 1605 },
-   { 4835, 1617 },
-   { 4859, 1618 },
+   { 4781, 1611 },
+   { 4799, 1611 },
+   { 4820, 1606 },
+   { 4835, 1618 },
+   { 4859, 1619 },
    { 4883, 843 },
    { 4900, 843 },
    { 4920, 1523 },
@@ -16106,18 +16114,18 @@ static const struct mapi_stub public_stubs[] = {
    { 11557, 1324 },
    { 11574, 1325 },
    { 11588, 1325 },
-   { 11605, 1606 },
-   { 11619, 1607 },
-   { 11644, 1608 },
+   { 11605, 1607 },
+   { 11619, 1608 },
+   { 11644, 1609 },
    { 11669, 1447 },
    { 11699, 382 },
    { 11721, 382 },
    { 11746, 924 },
    { 11772, 1440 },
    { 11801, 992 },
-   { 11830, 1619 },
-   { 11851, 1620 },
-   { 11877, 1621 },
+   { 11830, 1620 },
+   { 11851, 1621 },
+   { 11877, 1622 },
    { 11903, 1125 },
    { 11922, 1125 },
    { 11944, 1125 },
@@ -16149,9 +16157,9 @@ static const struct mapi_stub public_stubs[] = {
    { 12484, 809 },
    { 12510, 809 },
    { 12536, 623 },
-   { 12549, 1624 },
-   { 12562, 1625 },
-   { 12586, 1626 },
+   { 12549, 1625 },
+   { 12562, 1626 },
+   { 12586, 1627 },
    { 12610, 875 },
    { 12628, 624 },
    { 12642, 586 },
@@ -16175,9 +16183,9 @@ static const struct mapi_stub public_stubs[] = {
    { 12900, 1328 },
    { 12914, 1328 },
    { 12931, 1260 },
-   { 12961, 1627 },
-   { 12971, 1628 },
-   { 12992, 1629 },
+   { 12961, 1628 },
+   { 12971, 1629 },
+   { 12992, 1630 },
    { 13013, 1404 },
    { 13033, 1403 },
    { 13053, 1429 },
@@ -16290,7 +16298,7 @@ static const struct mapi_stub public_stubs[] = {
    { 15576, 691 },
    { 15598, 1596 },
    { 15624, 1261 },
-   { 15654, 1622 },
+   { 15654, 1623 },
    { 15673, 465 },
    { 15690, 783 },
    { 15715, 466 },
@@ -16388,19 +16396,19 @@ static const struct mapi_stub public_stubs[] = {
    { 17570, 473 },
    { 17591, 474 },
    { 17609, 474 },
-   { 17630, 1634 },
+   { 17630, 1635 },
    { 17648, 810 },
-   { 17674, 1635 },
-   { 17699, 1636 },
+   { 17674, 1636 },
+   { 17699, 1637 },
    { 17716, 811 },
    { 17729, 812 },
    { 17742, 813 },
-   { 17755, 1637 },
+   { 17755, 1638 },
    { 17769, 814 },
    { 17787, 815 },
    { 17806, 816 },
    { 17825, 817 },
-   { 17847, 1638 },
+   { 17847, 1639 },
    { 17870, 818 },
    { 17886, 819 },
    { 17903, 820 },
@@ -16417,7 +16425,7 @@ static const struct mapi_stub public_stubs[] = {
    { 18087, 822 },
    { 18105, 822 },
    { 18123, 158 },
-   { 18128, 1630 },
+   { 18128, 1631 },
    { 18138, 1281 },
    { 18156, 1574 },
    { 18183, 1576 },
@@ -16585,7 +16593,7 @@ static const struct mapi_stub public_stubs[] = {
    { 20785, 588 },
    { 20802, 588 },
    { 20822, 588 },
-   { 20842, 1631 },
+   { 20842, 1632 },
    { 20849, 295 },
    { 20861, 294 },
    { 20873, 1308 },
@@ -17054,10 +17062,10 @@ static const struct mapi_stub public_stubs[] = {
    { 29936, 647 },
    { 29959, 648 },
    { 29990, 1285 },
-   { 30032, 648 },
+   { 30032, 1602 },
    { 30066, 647 },
-   { 30089, 1632 },
-   { 30104, 1633 },
+   { 30089, 1633 },
+   { 30104, 1634 },
    { 30116, 1032 },
    { 30137, 776 },
    { 30161, 299 },
@@ -17133,7 +17141,7 @@ static const struct mapi_stub public_stubs[] = {
    { 31394, 1238 },
    { 31423, 1597 },
    { 31446, 1268 },
-   { 31473, 1623 },
+   { 31473, 1624 },
    { 31491, 1199 },
    { 31520, 177 },
    { 31531, 785 },
@@ -29011,262 +29019,269 @@ void GLAPIENTRY _dispatch_stub_MultiDrawMeshTasksIndirectCountEXT(GLintptr indir
    ((void (GLAPIENTRY *)(GLintptr indirect, GLintptr drawcount, GLsizei maxdrawcount, GLsizei stride)) _func)(indirect, drawcount, maxdrawcount, stride);
 }
 
-void GLAPIENTRY _dispatch_stub_ColorTable(GLenum target, GLenum internalformat, GLsizei width, GLenum format, GLenum type, const GLvoid *table)
+void GLAPIENTRY _dispatch_stub_RenderbufferStorageMultisampleEXT(GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
    _glapi_proc _func = ((const _glapi_proc *) _tbl)[1602];
+   ((void (GLAPIENTRY *)(GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height)) _func)(target, samples, internalformat, width, height);
+}
+
+void GLAPIENTRY _dispatch_stub_ColorTable(GLenum target, GLenum internalformat, GLsizei width, GLenum format, GLenum type, const GLvoid *table)
+{
+   const struct _glapi_table *_tbl = GET_DISPATCH();
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1603];
    ((void (GLAPIENTRY *)(GLenum target, GLenum internalformat, GLsizei width, GLenum format, GLenum type, const GLvoid *table)) _func)(target, internalformat, width, format, type, table);
 }
 
 void GLAPIENTRY _dispatch_stub_ColorTableParameterfv(GLenum target, GLenum pname, const GLfloat *params)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1603];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1604];
    ((void (GLAPIENTRY *)(GLenum target, GLenum pname, const GLfloat *params)) _func)(target, pname, params);
 }
 
 void GLAPIENTRY _dispatch_stub_ColorTableParameteriv(GLenum target, GLenum pname, const GLint *params)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1604];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1605];
    ((void (GLAPIENTRY *)(GLenum target, GLenum pname, const GLint *params)) _func)(target, pname, params);
 }
 
 void GLAPIENTRY _dispatch_stub_CopyColorTable(GLenum target, GLenum internalformat, GLint x, GLint y, GLsizei width)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1605];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1606];
    ((void (GLAPIENTRY *)(GLenum target, GLenum internalformat, GLint x, GLint y, GLsizei width)) _func)(target, internalformat, x, y, width);
 }
 
 void GLAPIENTRY _dispatch_stub_GetColorTable(GLenum target, GLenum format, GLenum type, GLvoid *table)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1606];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1607];
    ((void (GLAPIENTRY *)(GLenum target, GLenum format, GLenum type, GLvoid *table)) _func)(target, format, type, table);
 }
 
 void GLAPIENTRY _dispatch_stub_GetColorTableParameterfv(GLenum target, GLenum pname, GLfloat *params)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1607];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1608];
    ((void (GLAPIENTRY *)(GLenum target, GLenum pname, GLfloat *params)) _func)(target, pname, params);
 }
 
 void GLAPIENTRY _dispatch_stub_GetColorTableParameteriv(GLenum target, GLenum pname, GLint *params)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1608];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1609];
    ((void (GLAPIENTRY *)(GLenum target, GLenum pname, GLint *params)) _func)(target, pname, params);
 }
 
 void GLAPIENTRY _dispatch_stub_ColorSubTable(GLenum target, GLsizei start, GLsizei count, GLenum format, GLenum type, const GLvoid *data)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1609];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1610];
    ((void (GLAPIENTRY *)(GLenum target, GLsizei start, GLsizei count, GLenum format, GLenum type, const GLvoid *data)) _func)(target, start, count, format, type, data);
 }
 
 void GLAPIENTRY _dispatch_stub_CopyColorSubTable(GLenum target, GLsizei start, GLint x, GLint y, GLsizei width)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1610];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1611];
    ((void (GLAPIENTRY *)(GLenum target, GLsizei start, GLint x, GLint y, GLsizei width)) _func)(target, start, x, y, width);
 }
 
 void GLAPIENTRY _dispatch_stub_ConvolutionFilter1D(GLenum target, GLenum internalformat, GLsizei width, GLenum format, GLenum type, const GLvoid *image)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1611];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1612];
    ((void (GLAPIENTRY *)(GLenum target, GLenum internalformat, GLsizei width, GLenum format, GLenum type, const GLvoid *image)) _func)(target, internalformat, width, format, type, image);
 }
 
 void GLAPIENTRY _dispatch_stub_ConvolutionFilter2D(GLenum target, GLenum internalformat, GLsizei width, GLsizei height, GLenum format, GLenum type, const GLvoid *image)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1612];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1613];
    ((void (GLAPIENTRY *)(GLenum target, GLenum internalformat, GLsizei width, GLsizei height, GLenum format, GLenum type, const GLvoid *image)) _func)(target, internalformat, width, height, format, type, image);
 }
 
 void GLAPIENTRY _dispatch_stub_ConvolutionParameterf(GLenum target, GLenum pname, GLfloat params)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1613];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1614];
    ((void (GLAPIENTRY *)(GLenum target, GLenum pname, GLfloat params)) _func)(target, pname, params);
 }
 
 void GLAPIENTRY _dispatch_stub_ConvolutionParameterfv(GLenum target, GLenum pname, const GLfloat *params)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1614];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1615];
    ((void (GLAPIENTRY *)(GLenum target, GLenum pname, const GLfloat *params)) _func)(target, pname, params);
 }
 
 void GLAPIENTRY _dispatch_stub_ConvolutionParameteri(GLenum target, GLenum pname, GLint params)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1615];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1616];
    ((void (GLAPIENTRY *)(GLenum target, GLenum pname, GLint params)) _func)(target, pname, params);
 }
 
 void GLAPIENTRY _dispatch_stub_ConvolutionParameteriv(GLenum target, GLenum pname, const GLint *params)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1616];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1617];
    ((void (GLAPIENTRY *)(GLenum target, GLenum pname, const GLint *params)) _func)(target, pname, params);
 }
 
 void GLAPIENTRY _dispatch_stub_CopyConvolutionFilter1D(GLenum target, GLenum internalformat, GLint x, GLint y, GLsizei width)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1617];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1618];
    ((void (GLAPIENTRY *)(GLenum target, GLenum internalformat, GLint x, GLint y, GLsizei width)) _func)(target, internalformat, x, y, width);
 }
 
 void GLAPIENTRY _dispatch_stub_CopyConvolutionFilter2D(GLenum target, GLenum internalformat, GLint x, GLint y, GLsizei width, GLsizei height)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1618];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1619];
    ((void (GLAPIENTRY *)(GLenum target, GLenum internalformat, GLint x, GLint y, GLsizei width, GLsizei height)) _func)(target, internalformat, x, y, width, height);
 }
 
 void GLAPIENTRY _dispatch_stub_GetConvolutionFilter(GLenum target, GLenum format, GLenum type, GLvoid *image)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1619];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1620];
    ((void (GLAPIENTRY *)(GLenum target, GLenum format, GLenum type, GLvoid *image)) _func)(target, format, type, image);
 }
 
 void GLAPIENTRY _dispatch_stub_GetConvolutionParameterfv(GLenum target, GLenum pname, GLfloat *params)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1620];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1621];
    ((void (GLAPIENTRY *)(GLenum target, GLenum pname, GLfloat *params)) _func)(target, pname, params);
 }
 
 void GLAPIENTRY _dispatch_stub_GetConvolutionParameteriv(GLenum target, GLenum pname, GLint *params)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1621];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1622];
    ((void (GLAPIENTRY *)(GLenum target, GLenum pname, GLint *params)) _func)(target, pname, params);
 }
 
 void GLAPIENTRY _dispatch_stub_GetSeparableFilter(GLenum target, GLenum format, GLenum type, GLvoid *row, GLvoid *column, GLvoid *span)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1622];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1623];
    ((void (GLAPIENTRY *)(GLenum target, GLenum format, GLenum type, GLvoid *row, GLvoid *column, GLvoid *span)) _func)(target, format, type, row, column, span);
 }
 
 void GLAPIENTRY _dispatch_stub_SeparableFilter2D(GLenum target, GLenum internalformat, GLsizei width, GLsizei height, GLenum format, GLenum type, const GLvoid *row, const GLvoid *column)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1623];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1624];
    ((void (GLAPIENTRY *)(GLenum target, GLenum internalformat, GLsizei width, GLsizei height, GLenum format, GLenum type, const GLvoid *row, const GLvoid *column)) _func)(target, internalformat, width, height, format, type, row, column);
 }
 
 void GLAPIENTRY _dispatch_stub_GetHistogram(GLenum target, GLboolean reset, GLenum format, GLenum type, GLvoid *values)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1624];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1625];
    ((void (GLAPIENTRY *)(GLenum target, GLboolean reset, GLenum format, GLenum type, GLvoid *values)) _func)(target, reset, format, type, values);
 }
 
 void GLAPIENTRY _dispatch_stub_GetHistogramParameterfv(GLenum target, GLenum pname, GLfloat *params)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1625];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1626];
    ((void (GLAPIENTRY *)(GLenum target, GLenum pname, GLfloat *params)) _func)(target, pname, params);
 }
 
 void GLAPIENTRY _dispatch_stub_GetHistogramParameteriv(GLenum target, GLenum pname, GLint *params)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1626];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1627];
    ((void (GLAPIENTRY *)(GLenum target, GLenum pname, GLint *params)) _func)(target, pname, params);
 }
 
 void GLAPIENTRY _dispatch_stub_GetMinmax(GLenum target, GLboolean reset, GLenum format, GLenum type, GLvoid *values)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1627];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1628];
    ((void (GLAPIENTRY *)(GLenum target, GLboolean reset, GLenum format, GLenum type, GLvoid *values)) _func)(target, reset, format, type, values);
 }
 
 void GLAPIENTRY _dispatch_stub_GetMinmaxParameterfv(GLenum target, GLenum pname, GLfloat *params)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1628];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1629];
    ((void (GLAPIENTRY *)(GLenum target, GLenum pname, GLfloat *params)) _func)(target, pname, params);
 }
 
 void GLAPIENTRY _dispatch_stub_GetMinmaxParameteriv(GLenum target, GLenum pname, GLint *params)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1629];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1630];
    ((void (GLAPIENTRY *)(GLenum target, GLenum pname, GLint *params)) _func)(target, pname, params);
 }
 
 void GLAPIENTRY _dispatch_stub_Histogram(GLenum target, GLsizei width, GLenum internalformat, GLboolean sink)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1630];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1631];
    ((void (GLAPIENTRY *)(GLenum target, GLsizei width, GLenum internalformat, GLboolean sink)) _func)(target, width, internalformat, sink);
 }
 
 void GLAPIENTRY _dispatch_stub_Minmax(GLenum target, GLenum internalformat, GLboolean sink)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1631];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1632];
    ((void (GLAPIENTRY *)(GLenum target, GLenum internalformat, GLboolean sink)) _func)(target, internalformat, sink);
 }
 
 void GLAPIENTRY _dispatch_stub_ResetHistogram(GLenum target)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1632];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1633];
    ((void (GLAPIENTRY *)(GLenum target)) _func)(target);
 }
 
 void GLAPIENTRY _dispatch_stub_ResetMinmax(GLenum target)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1633];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1634];
    ((void (GLAPIENTRY *)(GLenum target)) _func)(target);
 }
 
 void GLAPIENTRY _dispatch_stub_GetnColorTableARB(GLenum target, GLenum format, GLenum type, GLsizei bufSize, GLvoid *table)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1634];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1635];
    ((void (GLAPIENTRY *)(GLenum target, GLenum format, GLenum type, GLsizei bufSize, GLvoid *table)) _func)(target, format, type, bufSize, table);
 }
 
 void GLAPIENTRY _dispatch_stub_GetnConvolutionFilterARB(GLenum target, GLenum format, GLenum type, GLsizei bufSize, GLvoid *image)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1635];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1636];
    ((void (GLAPIENTRY *)(GLenum target, GLenum format, GLenum type, GLsizei bufSize, GLvoid *image)) _func)(target, format, type, bufSize, image);
 }
 
 void GLAPIENTRY _dispatch_stub_GetnHistogramARB(GLenum target, GLboolean reset, GLenum format, GLenum type, GLsizei bufSize, GLvoid *values)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1636];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1637];
    ((void (GLAPIENTRY *)(GLenum target, GLboolean reset, GLenum format, GLenum type, GLsizei bufSize, GLvoid *values)) _func)(target, reset, format, type, bufSize, values);
 }
 
 void GLAPIENTRY _dispatch_stub_GetnMinmaxARB(GLenum target, GLboolean reset, GLenum format, GLenum type, GLsizei bufSize, GLvoid *values)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1637];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1638];
    ((void (GLAPIENTRY *)(GLenum target, GLboolean reset, GLenum format, GLenum type, GLsizei bufSize, GLvoid *values)) _func)(target, reset, format, type, bufSize, values);
 }
 
 void GLAPIENTRY _dispatch_stub_GetnSeparableFilterARB(GLenum target, GLenum format, GLenum type, GLsizei rowBufSize, GLvoid *row, GLsizei columnBufSize, GLvoid *column, GLvoid *span)
 {
    const struct _glapi_table *_tbl = GET_DISPATCH();
-   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1638];
+   _glapi_proc _func = ((const _glapi_proc *) _tbl)[1639];
    ((void (GLAPIENTRY *)(GLenum target, GLenum format, GLenum type, GLsizei rowBufSize, GLvoid *row, GLsizei columnBufSize, GLvoid *column, GLvoid *span)) _func)(target, format, type, rowBufSize, row, columnBufSize, column, span);
 }
 
@@ -30874,6 +30889,7 @@ static const _glapi_proc public_entries[] = {
    (_glapi_proc) _dispatch_stub_DrawMeshTasksIndirectEXT,
    (_glapi_proc) _dispatch_stub_MultiDrawMeshTasksIndirectEXT,
    (_glapi_proc) _dispatch_stub_MultiDrawMeshTasksIndirectCountEXT,
+   (_glapi_proc) _dispatch_stub_RenderbufferStorageMultisampleEXT,
    (_glapi_proc) _dispatch_stub_ColorTable,
    (_glapi_proc) _dispatch_stub_ColorTableParameterfv,
    (_glapi_proc) _dispatch_stub_ColorTableParameteriv,
@@ -37325,153 +37341,157 @@ STUB_ASM_ENTRY("_dispatch_stub_MultiDrawMeshTasksIndirectEXT")"\n"
 STUB_ASM_ENTRY("_dispatch_stub_MultiDrawMeshTasksIndirectCountEXT")"\n"
 "\t"STUB_ASM_CODE("1601")"\n"
 
+".hidden ""_dispatch_stub_RenderbufferStorageMultisampleEXT""\n"
+STUB_ASM_ENTRY("_dispatch_stub_RenderbufferStorageMultisampleEXT")"\n"
+"\t"STUB_ASM_CODE("1602")"\n"
+
 ".hidden ""_dispatch_stub_ColorTable""\n"
 STUB_ASM_ENTRY("_dispatch_stub_ColorTable")"\n"
-"\t"STUB_ASM_CODE("1602")"\n"
+"\t"STUB_ASM_CODE("1603")"\n"
 
 ".hidden ""_dispatch_stub_ColorTableParameterfv""\n"
 STUB_ASM_ENTRY("_dispatch_stub_ColorTableParameterfv")"\n"
-"\t"STUB_ASM_CODE("1603")"\n"
+"\t"STUB_ASM_CODE("1604")"\n"
 
 ".hidden ""_dispatch_stub_ColorTableParameteriv""\n"
 STUB_ASM_ENTRY("_dispatch_stub_ColorTableParameteriv")"\n"
-"\t"STUB_ASM_CODE("1604")"\n"
+"\t"STUB_ASM_CODE("1605")"\n"
 
 ".hidden ""_dispatch_stub_CopyColorTable""\n"
 STUB_ASM_ENTRY("_dispatch_stub_CopyColorTable")"\n"
-"\t"STUB_ASM_CODE("1605")"\n"
+"\t"STUB_ASM_CODE("1606")"\n"
 
 ".hidden ""_dispatch_stub_GetColorTable""\n"
 STUB_ASM_ENTRY("_dispatch_stub_GetColorTable")"\n"
-"\t"STUB_ASM_CODE("1606")"\n"
+"\t"STUB_ASM_CODE("1607")"\n"
 
 ".hidden ""_dispatch_stub_GetColorTableParameterfv""\n"
 STUB_ASM_ENTRY("_dispatch_stub_GetColorTableParameterfv")"\n"
-"\t"STUB_ASM_CODE("1607")"\n"
+"\t"STUB_ASM_CODE("1608")"\n"
 
 ".hidden ""_dispatch_stub_GetColorTableParameteriv""\n"
 STUB_ASM_ENTRY("_dispatch_stub_GetColorTableParameteriv")"\n"
-"\t"STUB_ASM_CODE("1608")"\n"
+"\t"STUB_ASM_CODE("1609")"\n"
 
 ".hidden ""_dispatch_stub_ColorSubTable""\n"
 STUB_ASM_ENTRY("_dispatch_stub_ColorSubTable")"\n"
-"\t"STUB_ASM_CODE("1609")"\n"
+"\t"STUB_ASM_CODE("1610")"\n"
 
 ".hidden ""_dispatch_stub_CopyColorSubTable""\n"
 STUB_ASM_ENTRY("_dispatch_stub_CopyColorSubTable")"\n"
-"\t"STUB_ASM_CODE("1610")"\n"
+"\t"STUB_ASM_CODE("1611")"\n"
 
 ".hidden ""_dispatch_stub_ConvolutionFilter1D""\n"
 STUB_ASM_ENTRY("_dispatch_stub_ConvolutionFilter1D")"\n"
-"\t"STUB_ASM_CODE("1611")"\n"
+"\t"STUB_ASM_CODE("1612")"\n"
 
 ".hidden ""_dispatch_stub_ConvolutionFilter2D""\n"
 STUB_ASM_ENTRY("_dispatch_stub_ConvolutionFilter2D")"\n"
-"\t"STUB_ASM_CODE("1612")"\n"
+"\t"STUB_ASM_CODE("1613")"\n"
 
 ".hidden ""_dispatch_stub_ConvolutionParameterf""\n"
 STUB_ASM_ENTRY("_dispatch_stub_ConvolutionParameterf")"\n"
-"\t"STUB_ASM_CODE("1613")"\n"
+"\t"STUB_ASM_CODE("1614")"\n"
 
 ".hidden ""_dispatch_stub_ConvolutionParameterfv""\n"
 STUB_ASM_ENTRY("_dispatch_stub_ConvolutionParameterfv")"\n"
-"\t"STUB_ASM_CODE("1614")"\n"
+"\t"STUB_ASM_CODE("1615")"\n"
 
 ".hidden ""_dispatch_stub_ConvolutionParameteri""\n"
 STUB_ASM_ENTRY("_dispatch_stub_ConvolutionParameteri")"\n"
-"\t"STUB_ASM_CODE("1615")"\n"
+"\t"STUB_ASM_CODE("1616")"\n"
 
 ".hidden ""_dispatch_stub_ConvolutionParameteriv""\n"
 STUB_ASM_ENTRY("_dispatch_stub_ConvolutionParameteriv")"\n"
-"\t"STUB_ASM_CODE("1616")"\n"
+"\t"STUB_ASM_CODE("1617")"\n"
 
 ".hidden ""_dispatch_stub_CopyConvolutionFilter1D""\n"
 STUB_ASM_ENTRY("_dispatch_stub_CopyConvolutionFilter1D")"\n"
-"\t"STUB_ASM_CODE("1617")"\n"
+"\t"STUB_ASM_CODE("1618")"\n"
 
 ".hidden ""_dispatch_stub_CopyConvolutionFilter2D""\n"
 STUB_ASM_ENTRY("_dispatch_stub_CopyConvolutionFilter2D")"\n"
-"\t"STUB_ASM_CODE("1618")"\n"
+"\t"STUB_ASM_CODE("1619")"\n"
 
 ".hidden ""_dispatch_stub_GetConvolutionFilter""\n"
 STUB_ASM_ENTRY("_dispatch_stub_GetConvolutionFilter")"\n"
-"\t"STUB_ASM_CODE("1619")"\n"
+"\t"STUB_ASM_CODE("1620")"\n"
 
 ".hidden ""_dispatch_stub_GetConvolutionParameterfv""\n"
 STUB_ASM_ENTRY("_dispatch_stub_GetConvolutionParameterfv")"\n"
-"\t"STUB_ASM_CODE("1620")"\n"
+"\t"STUB_ASM_CODE("1621")"\n"
 
 ".hidden ""_dispatch_stub_GetConvolutionParameteriv""\n"
 STUB_ASM_ENTRY("_dispatch_stub_GetConvolutionParameteriv")"\n"
-"\t"STUB_ASM_CODE("1621")"\n"
+"\t"STUB_ASM_CODE("1622")"\n"
 
 ".hidden ""_dispatch_stub_GetSeparableFilter""\n"
 STUB_ASM_ENTRY("_dispatch_stub_GetSeparableFilter")"\n"
-"\t"STUB_ASM_CODE("1622")"\n"
+"\t"STUB_ASM_CODE("1623")"\n"
 
 ".hidden ""_dispatch_stub_SeparableFilter2D""\n"
 STUB_ASM_ENTRY("_dispatch_stub_SeparableFilter2D")"\n"
-"\t"STUB_ASM_CODE("1623")"\n"
+"\t"STUB_ASM_CODE("1624")"\n"
 
 ".hidden ""_dispatch_stub_GetHistogram""\n"
 STUB_ASM_ENTRY("_dispatch_stub_GetHistogram")"\n"
-"\t"STUB_ASM_CODE("1624")"\n"
+"\t"STUB_ASM_CODE("1625")"\n"
 
 ".hidden ""_dispatch_stub_GetHistogramParameterfv""\n"
 STUB_ASM_ENTRY("_dispatch_stub_GetHistogramParameterfv")"\n"
-"\t"STUB_ASM_CODE("1625")"\n"
+"\t"STUB_ASM_CODE("1626")"\n"
 
 ".hidden ""_dispatch_stub_GetHistogramParameteriv""\n"
 STUB_ASM_ENTRY("_dispatch_stub_GetHistogramParameteriv")"\n"
-"\t"STUB_ASM_CODE("1626")"\n"
+"\t"STUB_ASM_CODE("1627")"\n"
 
 ".hidden ""_dispatch_stub_GetMinmax""\n"
 STUB_ASM_ENTRY("_dispatch_stub_GetMinmax")"\n"
-"\t"STUB_ASM_CODE("1627")"\n"
+"\t"STUB_ASM_CODE("1628")"\n"
 
 ".hidden ""_dispatch_stub_GetMinmaxParameterfv""\n"
 STUB_ASM_ENTRY("_dispatch_stub_GetMinmaxParameterfv")"\n"
-"\t"STUB_ASM_CODE("1628")"\n"
+"\t"STUB_ASM_CODE("1629")"\n"
 
 ".hidden ""_dispatch_stub_GetMinmaxParameteriv""\n"
 STUB_ASM_ENTRY("_dispatch_stub_GetMinmaxParameteriv")"\n"
-"\t"STUB_ASM_CODE("1629")"\n"
+"\t"STUB_ASM_CODE("1630")"\n"
 
 ".hidden ""_dispatch_stub_Histogram""\n"
 STUB_ASM_ENTRY("_dispatch_stub_Histogram")"\n"
-"\t"STUB_ASM_CODE("1630")"\n"
+"\t"STUB_ASM_CODE("1631")"\n"
 
 ".hidden ""_dispatch_stub_Minmax""\n"
 STUB_ASM_ENTRY("_dispatch_stub_Minmax")"\n"
-"\t"STUB_ASM_CODE("1631")"\n"
+"\t"STUB_ASM_CODE("1632")"\n"
 
 ".hidden ""_dispatch_stub_ResetHistogram""\n"
 STUB_ASM_ENTRY("_dispatch_stub_ResetHistogram")"\n"
-"\t"STUB_ASM_CODE("1632")"\n"
+"\t"STUB_ASM_CODE("1633")"\n"
 
 ".hidden ""_dispatch_stub_ResetMinmax""\n"
 STUB_ASM_ENTRY("_dispatch_stub_ResetMinmax")"\n"
-"\t"STUB_ASM_CODE("1633")"\n"
+"\t"STUB_ASM_CODE("1634")"\n"
 
 ".hidden ""_dispatch_stub_GetnColorTableARB""\n"
 STUB_ASM_ENTRY("_dispatch_stub_GetnColorTableARB")"\n"
-"\t"STUB_ASM_CODE("1634")"\n"
+"\t"STUB_ASM_CODE("1635")"\n"
 
 ".hidden ""_dispatch_stub_GetnConvolutionFilterARB""\n"
 STUB_ASM_ENTRY("_dispatch_stub_GetnConvolutionFilterARB")"\n"
-"\t"STUB_ASM_CODE("1635")"\n"
+"\t"STUB_ASM_CODE("1636")"\n"
 
 ".hidden ""_dispatch_stub_GetnHistogramARB""\n"
 STUB_ASM_ENTRY("_dispatch_stub_GetnHistogramARB")"\n"
-"\t"STUB_ASM_CODE("1636")"\n"
+"\t"STUB_ASM_CODE("1637")"\n"
 
 ".hidden ""_dispatch_stub_GetnMinmaxARB""\n"
 STUB_ASM_ENTRY("_dispatch_stub_GetnMinmaxARB")"\n"
-"\t"STUB_ASM_CODE("1637")"\n"
+"\t"STUB_ASM_CODE("1638")"\n"
 
 ".hidden ""_dispatch_stub_GetnSeparableFilterARB""\n"
 STUB_ASM_ENTRY("_dispatch_stub_GetnSeparableFilterARB")"\n"
-"\t"STUB_ASM_CODE("1638")"\n"
+"\t"STUB_ASM_CODE("1639")"\n"
 
 );
 #undef MAPI_TMP_STUB_ASM_GCC

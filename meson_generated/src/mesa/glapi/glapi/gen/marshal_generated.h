@@ -1002,6 +1002,7 @@ enum marshal_dispatch_cmd_id
    DISPATCH_CMD_DepthBoundsEXT,
    DISPATCH_CMD_BindRenderbufferEXT,
    DISPATCH_CMD_BindFramebufferEXT,
+   DISPATCH_CMD_RenderbufferStorageMultisampleEXT,
    DISPATCH_CMD_ProvokingVertex,
    DISPATCH_CMD_ColorMaski,
    DISPATCH_CMD_Enablei,
@@ -3721,6 +3722,8 @@ struct marshal_cmd_BindRenderbufferEXT;
 uint32_t _mesa_unmarshal_BindRenderbufferEXT(struct gl_context *ctx, const struct marshal_cmd_BindRenderbufferEXT *restrict cmd);
 struct marshal_cmd_BindFramebufferEXT;
 uint32_t _mesa_unmarshal_BindFramebufferEXT(struct gl_context *ctx, const struct marshal_cmd_BindFramebufferEXT *restrict cmd);
+struct marshal_cmd_RenderbufferStorageMultisampleEXT;
+uint32_t _mesa_unmarshal_RenderbufferStorageMultisampleEXT(struct gl_context *ctx, const struct marshal_cmd_RenderbufferStorageMultisampleEXT *restrict cmd);
 struct marshal_cmd_ProvokingVertex;
 uint32_t _mesa_unmarshal_ProvokingVertex(struct gl_context *ctx, const struct marshal_cmd_ProvokingVertex *restrict cmd);
 struct marshal_cmd_ColorMaski;

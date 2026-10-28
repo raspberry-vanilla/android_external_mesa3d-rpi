@@ -1406,6 +1406,7 @@ void GLAPIENTRY _mesa_ActiveStencilFaceEXT(GLenum face);
 void GLAPIENTRY _mesa_DepthBoundsEXT(GLclampd zmin, GLclampd zmax);
 void GLAPIENTRY _mesa_BindRenderbufferEXT(GLenum target, GLuint renderbuffer);
 void GLAPIENTRY _mesa_BindFramebufferEXT(GLenum target, GLuint framebuffer);
+void GLAPIENTRY _mesa_RenderbufferStorageMultisampleEXT(GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height);
 void GLAPIENTRY _mesa_StringMarkerGREMEDY(GLsizei len, const GLvoid *string);
 void GLAPIENTRY _mesa_ProvokingVertex(GLenum mode);
 void GLAPIENTRY _mesa_ColorMaski(GLuint buf, GLboolean r, GLboolean g, GLboolean b, GLboolean a);

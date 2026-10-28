@@ -4955,6 +4955,40 @@ _mesa_marshal_BindFramebufferEXT(GLenum target, GLuint framebuffer)
 }
 
 
+/* RenderbufferStorageMultisampleEXT: marshalled asynchronously */
+struct marshal_cmd_RenderbufferStorageMultisampleEXT
+{
+   struct marshal_cmd_base cmd_base;
+   GLenum16 target;
+   GLenum16 internalformat;
+   GLsizei samples;
+   GLsizei width;
+   GLsizei height;
+};
+uint32_t _mesa_unmarshal_RenderbufferStorageMultisampleEXT(struct gl_context *ctx, const struct marshal_cmd_RenderbufferStorageMultisampleEXT *restrict cmd)
+{
+   GLenum16 target = cmd->target;
+   GLenum16 internalformat = cmd->internalformat;
+   GLsizei samples = cmd->samples;
+   GLsizei width = cmd->width;
+   GLsizei height = cmd->height;
+   CALL_RenderbufferStorageMultisampleEXT(ctx->Dispatch.Current, (target, samples, internalformat, width, height));
+   return align(sizeof(struct marshal_cmd_RenderbufferStorageMultisampleEXT), 8) / 8;
+}
+static void GLAPIENTRY
+_mesa_marshal_RenderbufferStorageMultisampleEXT(GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height)
+{
+   GET_CURRENT_CONTEXT(ctx);
+   int cmd_size = sizeof(struct marshal_cmd_RenderbufferStorageMultisampleEXT);
+   struct marshal_cmd_RenderbufferStorageMultisampleEXT *cmd = _mesa_glthread_allocate_command(ctx, DISPATCH_CMD_RenderbufferStorageMultisampleEXT, cmd_size);
+   cmd->target = MIN2(target, 0xffff); /* clamped to 0xffff (invalid enum) */
+   cmd->internalformat = MIN2(internalformat, 0xffff); /* clamped to 0xffff (invalid enum) */
+   cmd->samples = samples;
+   cmd->width = width;
+   cmd->height = height;
+}
+
+
 /* StringMarkerGREMEDY: marshalled synchronously */
 static void GLAPIENTRY
 _mesa_marshal_StringMarkerGREMEDY(GLsizei len, const GLvoid *string)
@@ -5857,16 +5891,6 @@ _mesa_marshal_GetTextureParameterivEXT(GLuint texture, GLenum target, GLenum pna
 }
 
 
-/* GetTextureParameterfvEXT: marshalled synchronously */
-static void GLAPIENTRY
-_mesa_marshal_GetTextureParameterfvEXT(GLuint texture, GLenum target, GLenum pname, float *params)
-{
-   GET_CURRENT_CONTEXT(ctx);
-   _mesa_glthread_finish_before(ctx, "GetTextureParameterfvEXT");
-   CALL_GetTextureParameterfvEXT(ctx->Dispatch.Current, (texture, target, pname, params));
-}
-
-
 void
 _mesa_glthread_init_dispatch5(struct gl_context *ctx, struct _glapi_table *table)
 {
@@ -5913,6 +5937,7 @@ _mesa_glthread_init_dispatch5(struct gl_context *ctx, struct _glapi_table *table
       SET_GetPerfMonitorGroupStringAMD(table, _mesa_marshal_GetPerfMonitorGroupStringAMD);
       SET_GetPerfMonitorGroupsAMD(table, _mesa_marshal_GetPerfMonitorGroupsAMD);
       SET_MaxShaderCompilerThreadsKHR(table, _mesa_marshal_MaxShaderCompilerThreadsKHR);
+      SET_RenderbufferStorageMultisampleEXT(table, _mesa_marshal_RenderbufferStorageMultisampleEXT);
       SET_SelectPerfMonitorCountersAMD(table, _mesa_marshal_SelectPerfMonitorCountersAMD);
       SET_TextureBarrierNV(table, _mesa_marshal_TextureBarrierNV);
    }
@@ -5932,7 +5957,6 @@ _mesa_glthread_init_dispatch5(struct gl_context *ctx, struct _glapi_table *table
       SET_EdgeFlagPointerEXT(table, _mesa_marshal_EdgeFlagPointerEXT);
       SET_EndFragmentShaderATI(table, _mesa_marshal_EndFragmentShaderATI);
       SET_GenFragmentShadersATI(table, _mesa_marshal_GenFragmentShadersATI);
-      SET_GetTextureParameterfvEXT(table, _mesa_marshal_GetTextureParameterfvEXT);
       SET_GetTextureParameterivEXT(table, _mesa_marshal_GetTextureParameterivEXT);
       SET_IndexPointerEXT(table, _mesa_marshal_IndexPointerEXT);
       SET_LockArraysEXT(table, _mesa_marshal_LockArraysEXT);

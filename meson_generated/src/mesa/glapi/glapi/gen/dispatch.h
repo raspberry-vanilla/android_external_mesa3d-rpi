@@ -53,7 +53,7 @@
     } while(0)
 
 /* total number of offsets below */
-#define _gloffset_COUNT 1639
+#define _gloffset_COUNT 1640
 
 #define _gloffset_NewList 0
 #define _gloffset_EndList 1
@@ -1657,43 +1657,44 @@
 #define _gloffset_DrawMeshTasksIndirectEXT 1599
 #define _gloffset_MultiDrawMeshTasksIndirectEXT 1600
 #define _gloffset_MultiDrawMeshTasksIndirectCountEXT 1601
-#define _gloffset_ColorTable 1602
-#define _gloffset_ColorTableParameterfv 1603
-#define _gloffset_ColorTableParameteriv 1604
-#define _gloffset_CopyColorTable 1605
-#define _gloffset_GetColorTable 1606
-#define _gloffset_GetColorTableParameterfv 1607
-#define _gloffset_GetColorTableParameteriv 1608
-#define _gloffset_ColorSubTable 1609
-#define _gloffset_CopyColorSubTable 1610
-#define _gloffset_ConvolutionFilter1D 1611
-#define _gloffset_ConvolutionFilter2D 1612
-#define _gloffset_ConvolutionParameterf 1613
-#define _gloffset_ConvolutionParameterfv 1614
-#define _gloffset_ConvolutionParameteri 1615
-#define _gloffset_ConvolutionParameteriv 1616
-#define _gloffset_CopyConvolutionFilter1D 1617
-#define _gloffset_CopyConvolutionFilter2D 1618
-#define _gloffset_GetConvolutionFilter 1619
-#define _gloffset_GetConvolutionParameterfv 1620
-#define _gloffset_GetConvolutionParameteriv 1621
-#define _gloffset_GetSeparableFilter 1622
-#define _gloffset_SeparableFilter2D 1623
-#define _gloffset_GetHistogram 1624
-#define _gloffset_GetHistogramParameterfv 1625
-#define _gloffset_GetHistogramParameteriv 1626
-#define _gloffset_GetMinmax 1627
-#define _gloffset_GetMinmaxParameterfv 1628
-#define _gloffset_GetMinmaxParameteriv 1629
-#define _gloffset_Histogram 1630
-#define _gloffset_Minmax 1631
-#define _gloffset_ResetHistogram 1632
-#define _gloffset_ResetMinmax 1633
-#define _gloffset_GetnColorTableARB 1634
-#define _gloffset_GetnConvolutionFilterARB 1635
-#define _gloffset_GetnHistogramARB 1636
-#define _gloffset_GetnMinmaxARB 1637
-#define _gloffset_GetnSeparableFilterARB 1638
+#define _gloffset_RenderbufferStorageMultisampleEXT 1602
+#define _gloffset_ColorTable 1603
+#define _gloffset_ColorTableParameterfv 1604
+#define _gloffset_ColorTableParameteriv 1605
+#define _gloffset_CopyColorTable 1606
+#define _gloffset_GetColorTable 1607
+#define _gloffset_GetColorTableParameterfv 1608
+#define _gloffset_GetColorTableParameteriv 1609
+#define _gloffset_ColorSubTable 1610
+#define _gloffset_CopyColorSubTable 1611
+#define _gloffset_ConvolutionFilter1D 1612
+#define _gloffset_ConvolutionFilter2D 1613
+#define _gloffset_ConvolutionParameterf 1614
+#define _gloffset_ConvolutionParameterfv 1615
+#define _gloffset_ConvolutionParameteri 1616
+#define _gloffset_ConvolutionParameteriv 1617
+#define _gloffset_CopyConvolutionFilter1D 1618
+#define _gloffset_CopyConvolutionFilter2D 1619
+#define _gloffset_GetConvolutionFilter 1620
+#define _gloffset_GetConvolutionParameterfv 1621
+#define _gloffset_GetConvolutionParameteriv 1622
+#define _gloffset_GetSeparableFilter 1623
+#define _gloffset_SeparableFilter2D 1624
+#define _gloffset_GetHistogram 1625
+#define _gloffset_GetHistogramParameterfv 1626
+#define _gloffset_GetHistogramParameteriv 1627
+#define _gloffset_GetMinmax 1628
+#define _gloffset_GetMinmaxParameterfv 1629
+#define _gloffset_GetMinmaxParameteriv 1630
+#define _gloffset_Histogram 1631
+#define _gloffset_Minmax 1632
+#define _gloffset_ResetHistogram 1633
+#define _gloffset_ResetMinmax 1634
+#define _gloffset_GetnColorTableARB 1635
+#define _gloffset_GetnConvolutionFilterARB 1636
+#define _gloffset_GetnHistogramARB 1637
+#define _gloffset_GetnMinmaxARB 1638
+#define _gloffset_GetnSeparableFilterARB 1639
 
 typedef void (GLAPIENTRYP _glptr_NewList)(GLuint, GLenum);
 #define CALL_NewList(disp, parameters) (* GET_NewList(disp)) parameters
@@ -14509,6 +14510,14 @@ typedef void (GLAPIENTRYP _glptr_MultiDrawMeshTasksIndirectCountEXT)(GLintptr, G
 #define SET_MultiDrawMeshTasksIndirectCountEXT(disp, func) do { \
    void (GLAPIENTRYP fn)(GLintptr, GLintptr, GLsizei, GLsizei) = func; \
    SET_by_offset(disp, _gloffset_MultiDrawMeshTasksIndirectCountEXT, fn); \
+} while (0)
+
+typedef void (GLAPIENTRYP _glptr_RenderbufferStorageMultisampleEXT)(GLenum, GLsizei, GLenum, GLsizei, GLsizei);
+#define CALL_RenderbufferStorageMultisampleEXT(disp, parameters) (* GET_RenderbufferStorageMultisampleEXT(disp)) parameters
+#define GET_RenderbufferStorageMultisampleEXT(disp) ((_glptr_RenderbufferStorageMultisampleEXT)(GET_by_offset((disp), _gloffset_RenderbufferStorageMultisampleEXT)))
+#define SET_RenderbufferStorageMultisampleEXT(disp, func) do { \
+   void (GLAPIENTRYP fn)(GLenum, GLsizei, GLenum, GLsizei, GLsizei) = func; \
+   SET_by_offset(disp, _gloffset_RenderbufferStorageMultisampleEXT, fn); \
 } while (0)
 
 typedef void (GLAPIENTRYP _glptr_ColorTable)(GLenum, GLenum, GLsizei, GLenum, GLenum, const GLvoid *);

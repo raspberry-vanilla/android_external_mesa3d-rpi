@@ -13571,6 +13571,14 @@ _mesa_trace_MultiDrawMeshTasksIndirectCountEXT(GLintptr indirect, GLintptr drawc
 }
 
 static void GLAPIENTRY
+_mesa_trace_RenderbufferStorageMultisampleEXT(GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height)
+{
+   GET_CURRENT_CONTEXT(ctx);
+   _mesa_debug(ctx, "glRenderbufferStorageMultisampleEXT(%s, %d, %s, %d, %d)\n", _mesa_enum_to_string(target), samples, _mesa_enum_to_string(internalformat), width, height);
+   CALL_RenderbufferStorageMultisampleEXT(ctx->Dispatch.RealPublished, (target, samples, internalformat, width, height));
+}
+
+static void GLAPIENTRY
 _mesa_trace_ColorTable(GLenum target, GLenum internalformat, GLsizei width, GLenum format, GLenum type, const GLvoid *table)
 {
    GET_CURRENT_CONTEXT(ctx);
@@ -15475,6 +15483,7 @@ _mesa_init_dispatch_trace(struct gl_context *ctx)
    SET_DrawMeshTasksIndirectEXT(table, _mesa_trace_DrawMeshTasksIndirectEXT);
    SET_MultiDrawMeshTasksIndirectEXT(table, _mesa_trace_MultiDrawMeshTasksIndirectEXT);
    SET_MultiDrawMeshTasksIndirectCountEXT(table, _mesa_trace_MultiDrawMeshTasksIndirectCountEXT);
+   SET_RenderbufferStorageMultisampleEXT(table, _mesa_trace_RenderbufferStorageMultisampleEXT);
    SET_ColorTable(table, _mesa_trace_ColorTable);
    SET_ColorTableParameterfv(table, _mesa_trace_ColorTableParameterfv);
    SET_ColorTableParameteriv(table, _mesa_trace_ColorTableParameteriv);
