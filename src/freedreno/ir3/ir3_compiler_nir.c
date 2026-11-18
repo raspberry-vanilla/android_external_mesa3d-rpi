@@ -1276,7 +1276,8 @@ emit_intrinsic_load_ubo(struct ir3_context *ctx, nir_intrinsic_instr *intr,
 
    /* First src is ubo index, which could either be an immed or not: */
    src0 = ir3_get_src(ctx, &intr->src[0])[0];
-   if (is_same_type_mov(src0) && (src0->srcs[0]->flags & IR3_REG_IMMED)) {
+   if (is_same_type_mov(src0, false) &&
+       (src0->srcs[0]->flags & IR3_REG_IMMED)) {
       base_lo = create_uniform(b, ubo + (src0->srcs[0]->iim_val * ptrsz));
       base_hi = create_uniform(b, ubo + (src0->srcs[0]->iim_val * ptrsz) + 1);
    } else {
@@ -1341,7 +1342,7 @@ emit_intrinsic_ssbo_size(struct ir3_context *ctx, nir_intrinsic_instr *intr,
    struct ir3_instruction *ibo = ir3_ssbo_to_ibo(ctx, intr->src[0]);
    struct ir3_instruction *resinfo = ir3_RESINFO(b, ibo, 0);
    resinfo->cat6.iim_val = 1;
-   resinfo->cat6.d = ctx->compiler->gen >= 6 ? 1 : 2;
+   resinfo->cat6.d = ctx->compiler->gen >= 6 ? 1 : 4;
    resinfo->cat6.type = TYPE_U32;
    resinfo->cat6.typed = false;
    /* resinfo has no writemask and always writes out 3 components */
@@ -1349,14 +1350,7 @@ emit_intrinsic_ssbo_size(struct ir3_context *ctx, nir_intrinsic_instr *intr,
    ir3_handle_bindless_cat6(resinfo, intr->src[0]);
    ir3_handle_nonuniform(resinfo, intr);
 
-   if (ctx->compiler->gen >= 6) {
-      ir3_split_dest(b, dst, resinfo, 0, 1);
-   } else {
-      /* On a5xx, resinfo returns the low 16 bits of ssbo size in .x and the high 16 bits in .y */
-      struct ir3_instruction *resinfo_dst[2];
-      ir3_split_dest(b, resinfo_dst, resinfo, 0, 2);
-      *dst = ir3_ADD_U(b, ir3_SHL_B(b, resinfo_dst[1], 0, create_immed(b, 16), 0), 0, resinfo_dst[0], 0);
-   }
+   ir3_split_dest(b, dst, resinfo, 0, 1);
 }
 
 /* src[] = { offset }. const_index[] = { base } */
@@ -3957,11 +3951,11 @@ emit_tex(struct ir3_context *ctx, nir_tex_instr *tex)
          src0[nsrc0++] = create_immed_typed(b, fui(0.0), coord_pad_type);
    }
 
-   /* NOTE a3xx (and possibly a4xx?) might be different, using isaml
+   /* NOTE a3xx (and possibly a4xx?) might be different, using isam
     * with scaled x coord according to requested sample:
     */
    if (opc == OPC_ISAMM) {
-      if (ctx->compiler->txf_ms_with_isaml) {
+      if (ctx->compiler->txf_ms_with_isam) {
          /* the samples are laid out in x dimension as
           *     0 1 2 3
           * x_ms = (x << ms) + sample_index;
@@ -3972,7 +3966,10 @@ emit_tex(struct ir3_context *ctx, nir_tex_instr *tex)
          src0[0] = ir3_SHL_B(b, src0[0], 0, ms, 0);
          src0[0] = ir3_ADD_U(b, src0[0], 0, sample_index, 0);
 
-         opc = OPC_ISAML;
+         /* Multisample textures have no mipmaps, so use implicit LOD 0
+          * instead of ISAML, which requires a second source for the LOD.
+          */
+         opc = OPC_ISAM;
       } else {
          src0[nsrc0++] = sample_index;
       }

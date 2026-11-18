@@ -1512,7 +1512,10 @@ xsi:schemaLocation="https://gitlab.freedesktop.org/freedreno/ rules-fd.xsd">
 
 	<reg32 offset="0x0e00" name="HLSQ_TIMEOUT_THRESHOLD_0"/>
 	<reg32 offset="0x0e01" name="HLSQ_TIMEOUT_THRESHOLD_1"/>
-	<reg32 offset="0x0e04" name="HLSQ_DBG_ECO_CNTL"/>
+	<reg32 offset="0x0e04" name="HLSQ_DBG_ECO_CNTL">
+		<!-- named in msm-4.4/kgsl -->
+		<bitfield name="LMLOADKILLDIS" pos="18" type="boolean"/>
+	</reg32>
 	<reg32 offset="0x0e05" name="HLSQ_ADDR_MODE_CNTL" type="a5xx_address_mode"/>
 	<reg32 offset="0x0e06" name="HLSQ_MODE_CNTL"/> <!-- always 00000001? -->
 	<reg32 offset="0x0e10" name="HLSQ_PERFCTR_HLSQ_SEL_0" type="a5xx_hlsq_perfcounter_select"/>
@@ -2075,6 +2078,7 @@ bit 7 for RECTLIST (clear) when z32s8 (used for clear of depth32?  not set
 		<bitfield name="INDEPENDENT_BLEND" pos="8" type="boolean"/>
 		<bitfield name="DUAL_COLOR_IN_ENABLE" pos="9" type="boolean"/>
 		<bitfield name="ALPHA_TO_COVERAGE" pos="10" type="boolean"/>
+		<bitfield name="ALPHA_TO_ONE" pos="11" type="boolean"/>
 		<!-- a guess? -->
 		<bitfield name="SAMPLE_MASK" low="16" high="31"/>
 	</reg32>
@@ -2359,7 +2363,7 @@ bit 7 for RECTLIST (clear) when z32s8 (used for clear of depth32?  not set
 	<array offset="0xe2a7" name="VPC_SO" stride="7" length="4">
 		<reg64 offset="0" name="BUFFER_BASE" type="waddress"/>
 		<reg32 offset="2" name="BUFFER_SIZE"/>
-		<reg32 offset="3" name="NCOMP"/>  <!-- component count -->
+		<reg32 offset="3" name="BUFFER_STRIDE"/>
 		<reg32 offset="4" name="BUFFER_OFFSET"/>
 		<reg64 offset="5" name="FLUSH_BASE" type="waddress"/>
 	</array>
@@ -2729,7 +2733,12 @@ bit 7 for RECTLIST (clear) when z32s8 (used for clear of depth32?  not set
 		<bitfield name="UNK1" low="16" high="23" type="a3xx_regid"/>
 		<bitfield name="LOCALIDREGID" low="24" high="31" type="a3xx_regid"/>
 	</reg32>
-	<reg32 offset="0xe7b8" name="HLSQ_CS_CNTL_1"/>
+	<enum name="a5xx_workitem_rast_order">
+		<value value="0x0" name="WORKITEMRASTORDER_LINEAR"/>
+	</enum>
+	<reg32 offset="0xe7b8" name="HLSQ_CS_CNTL_1">
+		<bitfield name="WORKITEMRASTORDER" pos="0" type="a5xx_workitem_rast_order"/>
+	</reg32>
 	<reg32 offset="0xe7c0" name="UNKNOWN_E7C0"/>
 	<reg32 offset="0xe7c3" name="HLSQ_VS_CONSTLEN" type="uint"/>
 	<reg32 offset="0xe7c4" name="HLSQ_VS_INSTRLEN" type="uint"/>

@@ -1539,8 +1539,8 @@ system_value("provoking_last", 1)
 #
 # Length takes a type not a value, that's encoded as a MATRIX_DESC.
 intrinsic("cmat_construct", src_comp=[-1, 1])
-intrinsic("cmat_load", src_comp=[-1, -1, 1], indices=[MATRIX_LAYOUT])
-intrinsic("cmat_store", src_comp=[-1, -1, 1], indices=[MATRIX_LAYOUT])
+intrinsic("cmat_load", src_comp=[-1, -1, 1], indices=[MATRIX_LAYOUT, ACCESS])
+intrinsic("cmat_store", src_comp=[-1, -1, 1], indices=[MATRIX_LAYOUT, ACCESS])
 intrinsic("cmat_length", src_comp=[], dest_comp=1, indices=[CMAT_DESC], bit_sizes=[32])
 intrinsic("cmat_muladd", src_comp=[-1, -1, -1, -1], indices=[SATURATE, CMAT_SIGNED_MASK])
 intrinsic("cmat_convert", src_comp=[-1, -1], indices=[SATURATE, CMAT_SIGNED_MASK, FP_MATH_CTRL])
@@ -2958,11 +2958,7 @@ load("inline_data_intel", [1], [BASE, RANGE], [CAN_ELIMINATE, CAN_REORDER])
 
 # Load push data on Intel VS,TCS,TES,GS,FS stages
 # src[] = { offset }
-#
-# We use the ACCESS index mostly for ACCESS_NON_UNIFORM, this allows us to
-# preserve the semantic of load_push_constant which is always uniform
-# regardless of the offset source.
-load("push_data_intel", [1], [BASE, RANGE, ACCESS], [CAN_ELIMINATE, CAN_REORDER])
+load("push_data_intel", [1], [BASE, RANGE], [CAN_ELIMINATE, CAN_REORDER])
 
 # Dynamic tesselation parameters (see intel_tess_config).
 system_value("tess_config_intel", 1)

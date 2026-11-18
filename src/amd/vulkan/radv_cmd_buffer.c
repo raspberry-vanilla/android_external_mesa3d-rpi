@@ -11242,6 +11242,7 @@ radv_cmd_buffer_begin_rendering(struct radv_cmd_buffer *cmd_buffer, const VkRend
             struct radv_image_view *ds_iview = ds_att.iview;
             struct radv_image *ds_image = ds_iview->image;
             uint32_t level = ds_iview->vk.base_mip_level;
+            const uint32_t base_array_layer = ds_iview->vk.base_array_layer;
 
             /* HTILE buffer */
             uint64_t htile_offset =
@@ -11252,8 +11253,22 @@ radv_cmd_buffer_begin_rendering(struct radv_cmd_buffer *cmd_buffer, const VkRend
                    render_area.offset.x + render_area.extent.height <= ds_image->vk.extent.height);
 
             /* Copy the VRS rates to the HTILE buffer. */
-            radv_copy_vrs_htile(cmd_buffer, vrs_att.iview, &render_area, ds_image, ds_iview->vk.base_array_layer,
-                                htile_va, true);
+            if (pRenderingInfo->viewMask) {
+               /* The view mask can have holes, copy the rates for each range of consecutive views. */
+               uint32_t mask = pRenderingInfo->viewMask;
+
+               while (mask) {
+                  int start, count;
+
+                  u_bit_scan_consecutive_range(&mask, &start, &count);
+
+                  radv_copy_vrs_htile(cmd_buffer, vrs_att.iview, &render_area, ds_image, base_array_layer + start,
+                                      count, htile_va, true);
+               }
+            } else {
+               radv_copy_vrs_htile(cmd_buffer, vrs_att.iview, &render_area, ds_image, base_array_layer,
+                                   pRenderingInfo->layerCount, htile_va, true);
+            }
          } else {
             /* When a subpass uses a VRS attachment without binding a depth/stencil attachment, or when
              * HTILE isn't enabled, we use a fallback that copies the VRS rates to our internal HTILE buffer.
@@ -11272,7 +11287,7 @@ radv_cmd_buffer_begin_rendering(struct radv_cmd_buffer *cmd_buffer, const VkRend
                   MIN2(render_area.extent.height, ds_image->vk.extent.height - render_area.offset.y);
 
                /* Copy the VRS rates to the HTILE buffer. */
-               radv_copy_vrs_htile(cmd_buffer, vrs_att.iview, &render_area, ds_image, 0, htile_va, false);
+               radv_copy_vrs_htile(cmd_buffer, vrs_att.iview, &render_area, ds_image, 0, 1, htile_va, false);
             }
          }
       }
@@ -14332,6 +14347,7 @@ radv_bind_graphics_shaders(struct radv_cmd_buffer *cmd_buffer)
    bool need_dynamic_descriptors_offset_addr = false;
    bool need_indirect_descriptors = false;
    bool need_push_constants_upload = false;
+   VkShaderStageFlags active_stages = 0;
 
    for (unsigned s = 0; s <= MESA_SHADER_MESH; s++) {
       const struct radv_shader_object *shader_obj = cmd_buffer->state.shader_objs[s];
@@ -14369,6 +14385,7 @@ radv_bind_graphics_shaders(struct radv_cmd_buffer *cmd_buffer)
       need_push_constants_upload |= radv_shader_need_push_constants_upload(shader);
       push_constant_size = MAX2(push_constant_size, shader->info.push_constant_size);
       dynamic_offset_count += shader_obj->dynamic_offset_count;
+      active_stages |= mesa_to_vk_shader_stage(s);
    }
 
    struct radv_shader *gs_copy_shader = cmd_buffer->state.shader_objs[MESA_SHADER_GEOMETRY]
@@ -14415,6 +14432,7 @@ radv_bind_graphics_shaders(struct radv_cmd_buffer *cmd_buffer)
    descriptors_state->dynamic_offset_count = dynamic_offset_count;
    pc_state->need_upload = need_push_constants_upload;
    pc_state->size = align(push_constant_size, 4);
+   cmd_buffer->push_constant_stages |= active_stages;
 
    if (pdev->info.gfx_level <= GFX9) {
       cmd_buffer->state.ia_multi_vgt_param = radv_compute_ia_multi_vgt_param(device, cmd_buffer->state.shaders);
@@ -16116,7 +16134,7 @@ radv_handle_depth_image_transition(struct radv_cmd_buffer *cmd_buffer, struct ra
    struct radv_device *device = radv_cmd_buffer_device(cmd_buffer);
    const struct radv_physical_device *pdev = radv_device_physical(device);
 
-   if (!radv_htile_enabled(image, range->baseMipLevel) && !radv_image_has_hiz(image))
+   if (!radv_htile_enabled(image, range->baseMipLevel) && (pdev->info.gfx_level < GFX12 || !radv_image_has_hiz(image)))
       return;
 
    if (src_layout == VK_IMAGE_LAYOUT_UNDEFINED || src_layout == VK_IMAGE_LAYOUT_ZERO_INITIALIZED_EXT) {
@@ -16444,9 +16462,6 @@ radv_handle_image_transition(struct radv_cmd_buffer *cmd_buffer, struct radv_ima
 
       assert(src_qf == cmd_buffer->qf || dst_qf == cmd_buffer->qf);
 
-      if (src_qf == RADV_QUEUE_FOREIGN)
-         return;
-
       if (cmd_buffer->qf == RADV_QUEUE_TRANSFER && (src_qf == RADV_QUEUE_GENERAL || dst_qf == RADV_QUEUE_GENERAL ||
                                                     src_qf == RADV_QUEUE_COMPUTE || dst_qf == RADV_QUEUE_COMPUTE))
          return;
@@ -16575,6 +16590,7 @@ radv_barrier(struct radv_cmd_buffer *cmd_buffer, uint32_t dep_count, const VkDep
       radv_mark_noncoherent_rb(cmd_buffer);
 
    radv_describe_barrier_start(cmd_buffer, reason);
+   radv_suspend_conditional_rendering(cmd_buffer);
 
    for (uint32_t dep_idx = 0; dep_idx < dep_count; dep_idx++) {
       const VkDependencyInfo *dep_info = &dep_infos[dep_idx];
@@ -16708,6 +16724,7 @@ radv_barrier(struct radv_cmd_buffer *cmd_buffer, uint32_t dep_count, const VkDep
 
    cmd_buffer->state.flush_bits |= dst_flush_bits;
 
+   radv_resume_conditional_rendering(cmd_buffer);
    radv_describe_barrier_end(cmd_buffer);
 }
 
@@ -17683,6 +17700,7 @@ radv_bind_compute_shader(struct radv_cmd_buffer *cmd_buffer, struct radv_shader_
    descriptors_state->dynamic_offset_count = shader_obj->dynamic_offset_count;
    pc_state->need_upload = radv_shader_need_push_constants_upload(shader);
    pc_state->size = align(shader->info.push_constant_size, 4);
+   cmd_buffer->push_constant_stages |= VK_SHADER_STAGE_COMPUTE_BIT;
 
    assert(cs->b->cdw <= cdw_max);
 }

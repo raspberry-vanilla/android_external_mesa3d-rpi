@@ -3198,6 +3198,7 @@ void anv_wait_for_attach(void);
 VkResult anv_queue_init(struct anv_device *device, struct anv_queue *queue,
                         const VkDeviceQueueCreateInfo *pCreateInfo,
                         uint32_t index_in_family);
+void anv_queue_drain(struct anv_queue *queue);
 void anv_queue_finish(struct anv_queue *queue);
 
 VkResult anv_queue_submit(struct vk_queue *queue,
@@ -7023,6 +7024,8 @@ struct anv_vid_mem {
 #define ANV_AV1_ROWSTORE_DFLU_OFFSET (1344 * ANV_AV1_ROWSTORE_CACHE_LINE)
 #define ANV_AV1_ROWSTORE_DFLV_OFFSET (1536 * ANV_AV1_ROWSTORE_CACHE_LINE)
 #define ANV_AV1_ROWSTORE_CDEF_OFFSET (1728 * ANV_AV1_ROWSTORE_CACHE_LINE)
+
+#define ANV_H264_ROWSTORE_IPDL_OFFSET (512 * ANV_AV1_ROWSTORE_CACHE_LINE)
 
 enum anv_vid_mem_h264_types {
    ANV_VID_MEM_H264_INTRA_ROW_STORE,
