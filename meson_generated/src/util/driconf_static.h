@@ -1829,6 +1829,11 @@ static const struct driconf_option application_398_options[] = {
     { .name = "v3d_nonmsaa_texture_size_limit", .value = "true" },
 };
 
+    
+static const struct driconf_option application_400_options[] = {
+    { .name = "v3d_nonmsaa_texture_size_limit", .value = "true" },
+};
+
 
 static const struct driconf_application device_393_applications[] = {
     { .name = "gnome-shell",
@@ -1841,17 +1846,22 @@ static const struct driconf_application device_393_applications[] = {
       .num_options = 1,
       .options = application_396_options,
     },
+    { .name = "labwc",
+      .executable = "labwc",
+      .num_options = 1,
+      .options = application_398_options,
+    },
     { .name = "Xorg",
       .executable = "Xorg",
       .num_options = 1,
-      .options = application_398_options,
+      .options = application_400_options,
     },
 };
 
 static const struct driconf_device device_393 = {
     .driver = "v3d",
     .num_engines = 0,
-    .num_applications = 3,
+    .num_applications = 4,
     .applications = device_393_applications,
 };
 

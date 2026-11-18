@@ -2617,6 +2617,7 @@ struct _nir_cmat_length_indices {
 struct _nir_cmat_load_indices {
    int _; /* exists to avoid empty initializers */
    enum glsl_matrix_layout matrix_layout;
+   enum gl_access_qualifier access;
 };
 struct _nir_cmat_load_shared_nv_indices {
    int _; /* exists to avoid empty initializers */
@@ -2653,6 +2654,7 @@ struct _nir_cmat_scalar_op_indices {
 struct _nir_cmat_store_indices {
    int _; /* exists to avoid empty initializers */
    enum glsl_matrix_layout matrix_layout;
+   enum gl_access_qualifier access;
 };
 struct _nir_cmat_transpose_indices {
    int _; /* exists to avoid empty initializers */
@@ -3951,7 +3953,6 @@ struct _nir_load_push_data_intel_indices {
    int _; /* exists to avoid empty initializers */
    int base;
    unsigned range;
-   enum gl_access_qualifier access;
 };
 struct _nir_load_r600_per_vertex_input_indices {
    int _; /* exists to avoid empty initializers */
@@ -6462,6 +6463,7 @@ _nir_build_cmat_load(nir_builder *build, nir_def *src0, nir_def *src1, nir_def *
    intrin->src[1] = nir_src_for_ssa(src1);
    intrin->src[2] = nir_src_for_ssa(src2);
    nir_intrinsic_set_matrix_layout(intrin, indices.matrix_layout);
+   nir_intrinsic_set_access(intrin, indices.access);
 
    nir_builder_instr_insert(build, &intrin->instr);
    return intrin;
@@ -6587,6 +6589,7 @@ _nir_build_cmat_store(nir_builder *build, nir_def *src0, nir_def *src1, nir_def 
    intrin->src[1] = nir_src_for_ssa(src1);
    intrin->src[2] = nir_src_for_ssa(src2);
    nir_intrinsic_set_matrix_layout(intrin, indices.matrix_layout);
+   nir_intrinsic_set_access(intrin, indices.access);
 
    nir_builder_instr_insert(build, &intrin->instr);
    return intrin;
@@ -12642,7 +12645,6 @@ _nir_build_load_push_data_intel(nir_builder *build, unsigned num_components, uns
    intrin->src[0] = nir_src_for_ssa(src0);
    nir_intrinsic_set_base(intrin, indices.base);
    nir_intrinsic_set_range(intrin, indices.range);
-   nir_intrinsic_set_access(intrin, indices.access);
 
    nir_builder_instr_insert(build, &intrin->instr);
    return &intrin->def;
